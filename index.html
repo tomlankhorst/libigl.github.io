@@ -16,11 +16,11 @@ structures, mesh-viewing utilities for OpenGL and GLSL, and many core
 functions for matrix manipulation which make
 <a href="http://eigen.tuxfamily.org">Eigen</a> feel a lot more like MATLAB.</p>
 <p>It is <strong>a header-only library</strong>. You do not need to compile anything to use,
-just include igl headers (e.g. <code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">cotmatrix</span>.<span class="nv">h</span><span class="o">&gt;</span></code>) and run.  Each
-header file contains a single function (e.g. <code class="codehilite"><span class="n">igl</span><span class="o">/</span><span class="n">cotmatrix</span><span class="p">.</span><span class="n">h</span></code> contains
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotmatrix</span><span class="p">()</span></code>). Most are tailored to operate on a generic triangle mesh
-stored in an n-by-3 matrix of vertex positions <code class="codehilite"><span class="n">V</span></code> and an m-by-3 matrix of
-triangle indices <code class="codehilite"><span class="n">F</span></code>.</p>
+just include igl headers (e.g. <code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/cotmatrix.h&gt;</span><span class="cp"></span></code>) and run.  Each
+header file contains a single function (e.g. <code class="codehilite">igl/cotmatrix.h</code> contains
+<code class="codehilite">igl::cotmatrix()</code>). Most are tailored to operate on a generic triangle mesh
+stored in an n-by-3 matrix of vertex positions <code class="codehilite">V</code> and an m-by-3 matrix of
+triangle indices <code class="codehilite">F</code>.</p>
 <p><em>Optionally</em> the library may also be
 <a href="https://libigl.github.io/static-library/">pre-compiled</a> into a
 statically linked library, for faster compile times with your projects. This
@@ -49,7 +49,7 @@ tips</a> on how to code a
 geometry processing research project.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
 <p>Libigl is a <strong>header-only</strong> library. You do <strong>not</strong> need to build anything to
-install. Simply add <code class="codehilite"><span class="nv">libigl</span><span class="o">/</span><span class="k">include</span></code> to your include path and include
+install. Simply add <code class="codehilite">libigl/include</code> to your include path and include
 relevant headers. Here is a small &ldquo;Hello, World&rdquo; program:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl/cotmatrix.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;Eigen/Dense&gt;</span><span class="cp"></span>
@@ -72,17 +72,17 @@ relevant headers. Here is a small &ldquo;Hello, World&rdquo; program:</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>If you save this in <code class="codehilite"><span class="n">hello</span><span class="p">.</span><span class="n">cpp</span></code>, then you could compile this with (assuming
-Eigen is installed in <code class="codehilite"><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="k">include</span><span class="o">/</span><span class="nv">eigen3</span></code>):</p>
+<p>If you save this in <code class="codehilite">hello.cpp</code>, then you could compile this with (assuming
+Eigen is installed in <code class="codehilite">/usr/local/include/eigen3</code>):</p>
 <div class="codehilite"><pre><span></span>g++ -std<span class="o">=</span>c++11 -I/usr/local/include/eigen3 -I./libigl/include/ hello.cpp -o hello
 </pre></div>
 
-<p>Running <code class="codehilite"><span class="p">.</span><span class="o">/</span><span class="n">hello</span></code> would then produce</p>
-<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">mesh</span><span class="p">:</span>
- <span class="mi">0</span><span class="p">.</span><span class="mi">5</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">5</span>
-<span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">5</span>
-<span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span>
- <span class="mi">0</span><span class="p">.</span><span class="mi">5</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span>
+<p>Running <code class="codehilite">./hello</code> would then produce</p>
+<div class="codehilite"><pre><span></span>Hello, mesh:
+ 0.5  0.5
+-0.5  0.5
+-0.5 -0.5
+ 0.5 -0.5
 </pre></div>
 
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
@@ -91,16 +91,16 @@ libigl depends only on the <a href="http://eigen.tuxfamily.org">Eigen</a> librar
 <p>For more information see our <a href="https://libigl.github.io/tutorial">tutorial</a>.</p>
 <h3 id="optional-dependencies">Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="Permanent link">&para;</a></h3>
 <p>Libigl compartmentalizes its <strong>optional</strong> dependences via its directory
-organization in the <code class="codehilite"><span class="k">include</span><span class="o">/</span></code> folder. All header files located <em>directly</em> in
-the <code class="codehilite"><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span></code> folder have only stl and Eigen as dependencies. For example,
-all of the headers that depend on CGAL are located in <code class="codehilite"><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">copyleft</span><span class="o">/</span><span class="nv">cgal</span></code>.
-For a full list of <em>optional</em> dependencies check <code class="codehilite"><span class="n">cmake</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">cmake</span></code>.</p>
+organization in the <code class="codehilite">include/</code> folder. All header files located <em>directly</em> in
+the <code class="codehilite">include/igl/</code> folder have only stl and Eigen as dependencies. For example,
+all of the headers that depend on CGAL are located in <code class="codehilite">include/igl/copyleft/cgal</code>.
+For a full list of <em>optional</em> dependencies check <code class="codehilite">cmake/libigl.cmake</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">CGAL and Boost</p>
 <p>By default, the CMake script for libigl will not build the CGAL dependency,
 since Boost is required to compile CGAL. If you enable the CMake option
-<code class="codehilite"><span class="n">LIBIGL_WITH_CGAL</span></code>, you will need to have Boost installed on your machine.
-On <strong>Windows</strong>, it is advised to install Boost using <code class="codehilite"><span class="n">conda</span></code>. On <strong>Linux</strong>
+<code class="codehilite">LIBIGL_WITH_CGAL</code>, you will need to have Boost installed on your machine.
+On <strong>Windows</strong>, it is advised to install Boost using <code class="codehilite">conda</code>. On <strong>Linux</strong>
 and <strong>macOS</strong>, you will need to install Boost, GMP and MPFR using your
 favorite package manager (CGAL itself will be downloaded by libigl).</p>
 </div>
@@ -109,18 +109,18 @@ favorite package manager (CGAL itself will be downloaded by libigl).</p>
 <a href="https://cmake.org/cmake/help/latest/module/ExternalProject.html">ExternalProject_Add</a>
 to manage external dependencies. External libraries are build statically with
 libigl using CMake. In order to be included in the CMake script via
-<code class="codehilite"><span class="n">add_subdirectory</span></code>, the third-party content is fetched at CMake time using the
+<code class="codehilite">add_subdirectory</code>, the third-party content is fetched at CMake time using the
 <a href="https://github.com/Crascit/DownloadProject">DownloadProject.cmake</a> script
 (which has been introduced in CMake itself with the command
 <a href="https://cmake.org/cmake/help/v3.11/module/FetchContent.html">FetchContent</a> in
 CMake 3.11).</p>
 <p>There is not much to know about this, other than the content will be fetched
-the first time you run CMake, and placed into the <code class="codehilite"><span class="k">external</span><span class="o">/</span></code> folder. If
-something goes wrong with your dependencies, simply erase your <code class="codehilite"><span class="k">external</span><span class="o">/</span></code>
+the first time you run CMake, and placed into the <code class="codehilite">external/</code> folder. If
+something goes wrong with your dependencies, simply erase your <code class="codehilite">external/</code>
 folder and run CMake again. The exact version of each external dependencies
-used by libigl are recorded in the file <code class="codehilite"><span class="n">cmake</span><span class="o">/</span><span class="n">LibiglDownloadExternal</span><span class="p">.</span><span class="n">cmake</span></code>.</p>
+used by libigl are recorded in the file <code class="codehilite">cmake/LibiglDownloadExternal.cmake</code>.</p>
 <h3 id="gcc-and-the-optional-cgal-dependency">GCC and the Optional CGAL Dependency<a class="headerlink" href="#gcc-and-the-optional-cgal-dependency" title="Permanent link">&para;</a></h3>
-<p>The <code class="codehilite"><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">copyleft</span><span class="o">/</span><span class="nv">cgal</span><span class="cm">/*.h</span></code> headers depend on CGAL. It has come to our
+<p>The <code class="codehilite">include/igl/copyleft/cgal/*.h</code> headers depend on CGAL. It has come to our
 attention that CGAL does not work properly with GCC 4.8. To the best of our
 knowledge, GCC 4.7 and clang will work correctly. Please the <a href="faq">FAQ</a> for
 more details.</p>
@@ -136,7 +136,7 @@ avoiding OpenMP on Windows or proceeding with caution.</p>
 <p>We rely heavily on Eigen. Nearly all inputs and outputs are Eigen matrices of
 some kind. However, we currently <em>only</em> officially support Eigen&rsquo;s default
 column-major ordering. That means, we <strong>do not</strong> expect our code to work for
-matrices using the <code class="codehilite"><span class="n">Eigen</span><span class="p">::</span><span class="n">RowMajor</span></code> flag. If you can, change definitions like:</p>
+matrices using the <code class="codehilite">Eigen::RowMajor</code> flag. If you can, change definitions like:</p>
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">RowMajor</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
 </pre></div>
 
@@ -151,8 +151,8 @@ them probably work just fine). This requires setting up unit testing, which is
 a major <em>todo</em> for our development.</p>
 <h2 id="unit-testing">Unit Testing<a class="headerlink" href="#unit-testing" title="Permanent link">&para;</a></h2>
 <p>As of v2.0.0, unit tests have been moved into the main libigl repository,
-under the <code class="codehilite"><span class="n">tests</span><span class="o">/</span></code> folder. Unit test data is downloaded at CMake time if the
-option <code class="codehilite"><span class="n">LIBIGL_BUILD_TESTS</span><span class="o">=</span><span class="k">ON</span></code> is given. Please read <a href="unit-tests">this page</a>
+under the <code class="codehilite">tests/</code> folder. Unit test data is downloaded at CMake time if the
+option <code class="codehilite">LIBIGL_BUILD_TESTS=ON</code> is given. Please read <a href="unit-tests">this page</a>
 for more information about unit testing in libigl.</p>
 <h2 id="how-to-contribute">How to Contribute<a class="headerlink" href="#how-to-contribute" title="Permanent link">&para;</a></h2>
 <p>If you are interested in joining development, please fork the repository and

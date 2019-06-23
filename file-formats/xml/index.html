@@ -2,14 +2,14 @@
 <hr />
 <p>A .xml file contains the serialization of an object data structure generated with the XMLSerializer:</p>
 <p>The top level elements represent the groups in which the object are organised. The object names are unique within these groups.</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;group1&gt;</span>
-  <span class="nt">&lt;object1</span> <span class="na">val=</span><span class="s">&quot;value of object 1&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;object2</span> <span class="na">val=</span><span class="s">&quot;value of object 2&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/group1&gt;</span>
+<div class="codehilite"><pre><span></span>&amp;lt;group1&amp;gt;
+  &amp;lt;object1 val=&quot;value of object 1&quot;/&amp;gt;
+  &amp;lt;object2 val=&quot;value of object 2&quot;/&amp;gt;
+&amp;lt;/group1&amp;gt;
 
-<span class="nt">&lt;group2&gt;</span>
-  <span class="nt">&lt;object1</span> <span class="na">val=</span><span class="s">&quot;value of object 1&quot;</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/group2&gt;</span>
+&amp;lt;group2&amp;gt;
+  &amp;lt;object1 val=&quot;value of object 1&quot;/&amp;gt;
+&amp;lt;/group2&amp;gt;
 </pre></div>
 
 
@@ -20,55 +20,55 @@
 <li>Eigen types: <strong>Eigen::Matrix, Eigen::SparseMatrix</strong></li>
 <li>User defined types: <strong>XMLSerializable*.</strong></li>
 </ul>
-<p>There can also be a hierarchical structure like <code class="codehilite"><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span></code>, this will result in the following serialization:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
-  <span class="nt">&lt;vector</span> <span class="na">size=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;value0</span> <span class="na">val=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;value1</span> <span class="na">val=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;value2</span> <span class="na">val=</span><span class="s">&quot;3&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/vector&gt;</span>
-<span class="nt">&lt;/group&gt;</span>
+<p>There can also be a hierarchical structure like <code class="codehilite">vector&lt;int&gt;</code>, this will result in the following serialization:</p>
+<div class="codehilite"><pre><span></span>&amp;lt;group&amp;gt;
+  &amp;lt;vector size=&quot;3&quot;&amp;gt;
+    &amp;lt;value0 val=&quot;1&quot;/&amp;gt;
+    &amp;lt;value1 val=&quot;2&quot;/&amp;gt;
+    &amp;lt;value2 val=&quot;3&quot;/&amp;gt;
+  &amp;lt;/vector&amp;gt;
+&amp;lt;/group&amp;gt;
 </pre></div>
 
 
 <p>An example of a serialization of an instance of the class Test</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">Test</span>{
-  <span class="nb">int</span> <span class="n">var1</span>;
-  <span class="n">vector</span><span class="nv">&amp;ltfloat</span>&gt; <span class="n">vec1</span>;  
-};
+<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">Test</span><span class="p">{</span>
+  <span class="kr">int</span> <span class="nx">var1</span><span class="p">;</span>
+  <span class="nx">vector</span><span class="o">&amp;</span><span class="nx">amp</span><span class="p">;</span><span class="nx">ltfloat</span><span class="o">&amp;</span><span class="nx">gt</span><span class="p">;</span> <span class="nx">vec1</span><span class="p">;</span>  
+<span class="p">};</span>
 </pre></div>
 
 
 <p>is shown here:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
-  <span class="nt">&lt;Test&gt;</span>
-    <span class="nt">&lt;var1</span> <span class="na">val=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;vec1</span> <span class="na">size=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;value0</span> <span class="na">val=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;value1</span> <span class="na">val=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
-    <span class="nt">&lt;/vector&gt;</span>
-  <span class="nt">&lt;/Test&gt;</span>
-<span class="nt">&lt;/group&gt;</span>
+<div class="codehilite"><pre><span></span>&amp;lt;group&amp;gt;
+  &amp;lt;Test&amp;gt;
+    &amp;lt;var1 val=&quot;0&quot;&amp;gt;
+    &amp;lt;vec1 size=&quot;2&quot;&amp;gt;
+      &amp;lt;value0 val=&quot;1&quot;/&amp;gt;
+      &amp;lt;value1 val=&quot;2&quot;/&amp;gt;
+    &amp;lt;/vector&amp;gt;
+  &amp;lt;/Test&amp;gt;
+&amp;lt;/group&amp;gt;
 </pre></div>
 
 
 <p>In the following we show the serialization of Eigen matrices.</p>
-<p><code class="codehilite"><span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
-  <span class="nt">&lt;matrix</span> <span class="na">row=</span><span class="s">&quot;4&quot;</span> <span class="na">col=</span><span class="s">&quot;3&quot;</span> <span class="na">matrix=</span><span class="s">&quot;</span>
-<span class="err">1,2,3,</span>
-<span class="err">4,5,6,</span>
-<span class="err">7,8,9,</span>
-<span class="err">10,11,12</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/group&gt;</span>
+<p><code class="codehilite">Eigen::Matrix&lt;int,4,3&gt;</code>:</p>
+<div class="codehilite"><pre><span></span>&amp;lt;group&amp;gt;
+  &amp;lt;matrix row=&quot;4&quot; col=&quot;3&quot; matrix=&quot;
+1,2,3,
+4,5,6,
+7,8,9,
+10,11,12/&amp;gt;
+&amp;lt;/group&amp;gt;
 </pre></div>
 
 
-<p><code class="codehilite"><span class="n">Eigen</span><span class="p">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span></code> (3x3 identity saved as triplets of the non-zero entries):</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
-  <span class="nt">&lt;matrix</span> <span class="na">row=</span><span class="s">&quot;3&quot;</span> <span class="na">col=</span><span class="s">&quot;3&quot;</span> <span class="na">matrix=</span><span class="s">&quot;</span>
-<span class="err">0,0,1,</span>
-<span class="err">1,1,1,</span>
-<span class="err">2,2,1</span><span class="nt">/&gt;</span>
-<span class="nt">&lt;/group&gt;</span>
+<p><code class="codehilite">Eigen::SparseMatrix&lt;int&gt;</code> (3x3 identity saved as triplets of the non-zero entries):</p>
+<div class="codehilite"><pre><span></span>&amp;lt;group&amp;gt;
+  &amp;lt;matrix row=&quot;3&quot; col=&quot;3&quot; matrix=&quot;
+0,0,1,
+1,1,1,
+2,2,1/&amp;gt;
+&amp;lt;/group&amp;gt;
 </pre></div></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../tgf/" title="tgf" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>tgf</span></div></a><a href="../../website/" title="Building the Website" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Building the Website</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

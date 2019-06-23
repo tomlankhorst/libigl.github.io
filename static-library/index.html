@@ -14,8 +14,8 @@ improve your compilation times.</p>
 <p>Libigl may also be compiled to a static library. This is advantageous when
 building a project with libigl, since when used as an header-only library can
 slow down compile times.</p>
-<p>To build the entire libigl library producing at least <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">a</span></code> and
-possible other (automatically detected) extras, e.g. <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">libiglcgal</span><span class="p">.</span><span class="n">a</span></code>
+<p>To build the entire libigl library producing at least <code class="codehilite">libigl/lib/libigl.a</code> and
+possible other (automatically detected) extras, e.g. <code class="codehilite">libigl/lib/libiglcgal.a</code>
 from <em>this current directory</em>: issue:</p>
 <div class="codehilite"><pre><span></span>    mkdir -p ../lib
     <span class="nb">cd</span> ../lib
@@ -25,7 +25,7 @@ from <em>this current directory</em>: issue:</p>
 
 <h4 id="warnings">Warnings<a class="headerlink" href="#warnings" title="Permanent link">&para;</a></h4>
 <p>You should expect to see a few linker warnings of the form:</p>
-<div class="codehilite"><pre><span></span><span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">ranlib</span><span class="p">:</span> <span class="n">file</span><span class="p">:</span> <span class="n">libigl</span><span class="p">.</span><span class="n">a</span><span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">cpp</span><span class="p">.</span><span class="n">o</span><span class="p">)</span> <span class="n">has</span> <span class="k">no</span> <span class="n">symbols</span>
+<div class="codehilite"><pre><span></span>/opt/local/bin/ranlib: file: libigl.a(*.cpp.o) has no symbols
 </pre></div>
 
 
@@ -33,7 +33,7 @@ from <em>this current directory</em>: issue:</p>
 statically so we haven&rsquo;t explicit instantiations (yet).</p>
 <h4 id="external">External<a class="headerlink" href="#external" title="Permanent link">&para;</a></h4>
 <p>Finally there are a number of external libraries that we include in
-<code class="codehilite"><span class="p">.</span><span class="o">/</span><span class="k">external</span><span class="o">/</span></code> because they are either difficult to obtain or they have been
+<code class="codehilite">./external/</code> because they are either difficult to obtain or they have been
 patched for easier use with libigl. Please see the respective readmes in those
 directories or build the tutorial using cmake, which will recursively build all
 dependencies.</p>
@@ -52,7 +52,7 @@ make
 
 <h2 id="extras">Extras<a class="headerlink" href="#extras" title="Permanent link">&para;</a></h2>
 <h3 id="bbw">bbw<a class="headerlink" href="#bbw" title="Permanent link">&para;</a></h3>
-<p>This library extra contains functions for computing Bounded Biharmonic Weights, can be used with and without the <a href="#mosek">mosek</a> extra via the <code class="codehilite"><span class="n">IGL_NO_MOSEK</span></code> macro.</p>
+<p>This library extra contains functions for computing Bounded Biharmonic Weights, can be used with and without the <a href="#mosek">mosek</a> extra via the <code class="codehilite">IGL_NO_MOSEK</code> macro.</p>
 <h3 id="boolean">boolean<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h3>
 <p>This library extra contains functions for computing mesh-mesh booleans,
 depending on CGAL and optionally Cork.</p>
@@ -68,7 +68,7 @@ files, interfacing with Matlab at run time and compiling mex functions.</p>
 <p>This library extra utilizes mosek&rsquo;s efficient interior-point solver for
 quadratic programs.</p>
 <h3 id="png">png<a class="headerlink" href="#png" title="Permanent link">&para;</a></h3>
-<p>This library extra uses <code class="codehilite"><span class="n">libpng</span></code> and <code class="codehilite"><span class="n">YImage</span></code> to read and write <code class="codehilite"><span class="na">.png</span></code> files.</p>
+<p>This library extra uses <code class="codehilite">libpng</code> and <code class="codehilite">YImage</code> to read and write <code class="codehilite"><span class="na">.png</span></code> files.</p>
 <h3 id="tetgen">tetgen<a class="headerlink" href="#tetgen" title="Permanent link">&para;</a></h3>
 <p>This library extra provides a simplified wrapper to the tetgen 3d tetrahedral
 meshing library.</p>
@@ -85,10 +85,10 @@ containing Eigen matrices and other standard simple data-structures.</p>
 <p>Further documentation for developers is listed in 
 <a href="../style-guidelines/">style_guidelines.html</a>.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>See <code class="codehilite"><span class="n">LICENSE</span><span class="p">.</span><span class="n">txt</span></code></p>
+<p>See <code class="codehilite">LICENSE.txt</code></p>
 <h2 id="zipping">Zipping<a class="headerlink" href="#zipping" title="Permanent link">&para;</a></h2>
 <p>Zip this directory without .git litter and binaries using:</p>
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">archive</span> <span class="o">-</span><span class="k">prefix</span><span class="o">=</span><span class="n">libigl</span><span class="o">/</span> <span class="o">-</span><span class="n">o</span> <span class="n">libigl</span><span class="p">.</span><span class="n">zip</span> <span class="n">master</span>
+<div class="codehilite"><pre><span></span>git archive -prefix=libigl/ -o libigl.zip master
 </pre></div>
 
 
@@ -112,44 +112,44 @@ each template.</p>
 output.</p>
 <p>Supposed for example we have compiled the igl static lib, including the
 cat.h and cat.cpp functions, without any explicit instantiation. Say
-using the makefile in the <code class="codehilite"><span class="n">libigl</span></code> directory:</p>
-<div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="err">$</span><span class="n">LIBIGL</span>
-<span class="n">make</span>
+using the makefile in the <code class="codehilite">libigl</code> directory:</p>
+<div class="codehilite"><pre><span></span>cd $LIBIGL
+make
 </pre></div>
 
 
 <p>Now if we try to compile a project and link against it we may get
 an error like:</p>
-<div class="codehilite"><pre><span></span><span class="nv">Undefined</span> <span class="nv">symbols</span> <span class="k">for</span> <span class="nv">architecture</span> <span class="nv">x86_64</span>:
-<span class="s2">&quot;</span><span class="s">Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; igl::cat&lt;Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; &gt;(int, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;)</span><span class="s2">&quot;</span>, <span class="nv">referenced</span> <span class="nv">from</span>:
-<span class="nv">uniform_sample</span><span class="ss">(</span><span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">int</span>, <span class="nv">double</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;&amp;</span><span class="ss">)</span><span class="nv">in</span> <span class="nv">Skinning</span>.<span class="nv">o</span>
-<span class="s2">&quot;</span><span class="s">Eigen::SparseMatrix&lt;double, 0, int&gt; igl::cat&lt;Eigen::SparseMatrix&lt;double, 0, int&gt; &gt;(int, Eigen::SparseMatrix&lt;double, 0, int&gt; const&amp;, Eigen::SparseMatrix&lt;double, 0, int&gt; const&amp;)</span><span class="s2">&quot;</span>, <span class="nv">referenced</span> <span class="nv">from</span>:
-<span class="nv">covariance_scatter_matrix</span><span class="ss">(</span><span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">ArapEnergy</span>, <span class="nv">Eigen</span>::<span class="nv">SparseMatrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="mi">0</span>, <span class="nv">int</span><span class="o">&gt;&amp;</span><span class="ss">)</span><span class="nv">in</span> <span class="nv">arap_dof</span>.<span class="nv">o</span>
-<span class="nv">arap_rhs</span><span class="ss">(</span><span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">ArapEnergy</span>, <span class="nv">Eigen</span>::<span class="nv">SparseMatrix</span><span class="o">&lt;</span><span class="nv">double</span>, <span class="mi">0</span>, <span class="nv">int</span><span class="o">&gt;&amp;</span><span class="ss">)</span><span class="nv">in</span> <span class="nv">arap_dof</span>.<span class="nv">o</span>
+<div class="codehilite"><pre><span></span><span class="nt">Undefined</span> <span class="nt">symbols</span> <span class="nt">for</span> <span class="nt">architecture</span> <span class="nt">x86_64</span><span class="o">:</span>
+<span class="s2">&quot;Eigen::Matrix&amp;lt;int, -1, -1, 0, -1, -1&amp;gt; igl::cat&amp;lt;Eigen::Matrix&amp;lt;int, -1, -1, 0, -1, -1&amp;gt; &amp;gt;(int, Eigen::Matrix&amp;lt;int, -1, -1, 0, -1, -1&amp;gt; const&amp;amp;, Eigen::Matrix&amp;lt;int, -1, -1, 0, -1, -1&amp;gt; const&amp;amp;)&quot;</span><span class="o">,</span> <span class="nt">referenced</span> <span class="nt">from</span><span class="o">:</span>
+<span class="nt">uniform_sample</span><span class="o">(</span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">int</span><span class="o">,</span> <span class="nt">double</span><span class="o">,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;&amp;</span><span class="nt">amp</span><span class="o">;)</span><span class="nt">in</span> <span class="nt">Skinning</span><span class="p">.</span><span class="nc">o</span>
+<span class="s2">&quot;Eigen::SparseMatrix&amp;lt;double, 0, int&amp;gt; igl::cat&amp;lt;Eigen::SparseMatrix&amp;lt;double, 0, int&amp;gt; &amp;gt;(int, Eigen::SparseMatrix&amp;lt;double, 0, int&amp;gt; const&amp;amp;, Eigen::SparseMatrix&amp;lt;double, 0, int&amp;gt; const&amp;amp;)&quot;</span><span class="o">,</span> <span class="nt">referenced</span> <span class="nt">from</span><span class="o">:</span>
+<span class="nt">covariance_scatter_matrix</span><span class="o">(</span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">ArapEnergy</span><span class="o">,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">SparseMatrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">int</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;&amp;</span><span class="nt">amp</span><span class="o">;)</span><span class="nt">in</span> <span class="nt">arap_dof</span><span class="p">.</span><span class="nc">o</span>
+<span class="nt">arap_rhs</span><span class="o">(</span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">ArapEnergy</span><span class="o">,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">SparseMatrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">double</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">int</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;&amp;</span><span class="nt">amp</span><span class="o">;)</span><span class="nt">in</span> <span class="nt">arap_dof</span><span class="p">.</span><span class="nc">o</span>
 </pre></div>
 
 
 <p>This looks like a mess, but luckily we don&rsquo;t really need to read it
 all. Just copy the first part in quotes</p>
-<div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">igl</span><span class="p">::</span><span class="n">cat</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="n">const</span><span class="o">&amp;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">igl</span><span class="p">::</span><span class="nd">cat</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="o">&amp;</span><span class="nt">gt</span><span class="o">;(</span><span class="nt">int</span><span class="o">,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;,</span> <span class="nt">Eigen</span><span class="p">::</span><span class="nd">Matrix</span><span class="o">&amp;</span><span class="nt">lt</span><span class="o">;</span><span class="nt">int</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">-1</span><span class="o">,</span> <span class="nt">-1</span><span class="o">&amp;</span><span class="nt">gt</span><span class="o">;</span> <span class="nt">const</span><span class="o">&amp;</span><span class="nt">amp</span><span class="o">;)</span>
 </pre></div>
 
 
 <p>, then append it
 to the list of explicit template instantiations at the end of
-<code class="codehilite"><span class="n">cat</span><span class="p">.</span><span class="n">cpp</span></code> after the word
+<code class="codehilite">cat.cpp</code> after the word
 <strong>template</strong> and followed by a semi-colon.
 Like this:</p>
-<div class="codehilite"><pre><span></span>#<span class="nv">ifdef</span> <span class="nv">IGL_STATIC_LIBRARY</span>
-<span class="o">//</span> <span class="nv">Explicit</span> <span class="nv">template</span> <span class="nv">instantiation</span>
-<span class="nv">template</span> <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">igl</span>::<span class="nv">cat</span><span class="o">&lt;</span><span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="ss">(</span><span class="nv">int</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span>, <span class="nv">Eigen</span>::<span class="nv">Matrix</span><span class="o">&lt;</span><span class="nv">int</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span>, <span class="mi">0</span>, <span class="o">-</span><span class="mi">1</span>, <span class="o">-</span><span class="mi">1</span><span class="o">&gt;</span> <span class="nv">const</span><span class="o">&amp;</span><span class="ss">)</span><span class="c1">;</span>
-#<span class="k">endif</span>
+<div class="codehilite"><pre><span></span><span class="cp">#ifdef IGL_STATIC_LIBRARY</span>
+<span class="c1">// Explicit template instantiation</span>
+<span class="n">template</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">igl</span><span class="o">::</span><span class="n">cat</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span><span class="kt">int</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">const</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="kt">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">const</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;);</span>
+<span class="cp">#endif</span>
 </pre></div>
 
 
 <p>Then you must recompile the IGL static library.</p>
-<div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="err">$</span><span class="n">LIBIGL</span>
-<span class="n">make</span>
+<div class="codehilite"><pre><span></span>cd $LIBIGL
+make
 </pre></div>
 
 
@@ -163,20 +163,20 @@ instantiations.</p>
 </div>
 <p>If you&rsquo;re using make then the following command will
 reveal each missing symbol on its own line:</p>
-<div class="codehilite"><pre><span></span><span class="n">make</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span> <span class="o">|</span> <span class="n">grep</span> <span class="ss">&quot;referenced from&quot;</span> <span class="o">|</span> <span class="n">sed</span> <span class="o">-</span><span class="n">e</span> <span class="ss">&quot;s/, referenced from.*//&quot;</span>
+<div class="codehilite"><pre><span></span>make 2&amp;gt;&amp;amp;1 | grep &quot;referenced from&quot; | sed -e &quot;s/, referenced from.*//&quot;
 </pre></div>
 
 
-<p>Alternatively you can use the <code class="codehilite"><span class="n">autoexplicit</span><span class="p">.</span><span class="n">sh</span></code> function
+<p>Alternatively you can use the <code class="codehilite">autoexplicit.sh</code> function
 which (for well organized .h/.cpp pairs in libigl) automatically
 create explicit instantiations from your compiler&rsquo;s error messages.
 Repeat this process until convergence:</p>
-<div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">your</span><span class="o">/</span><span class="n">project</span>
-<span class="n">make</span> <span class="mi">2</span><span class="o">&gt;</span><span class="err">$</span><span class="n">LIBIGL</span><span class="o">/</span><span class="n">make</span><span class="p">.</span><span class="n">err</span>
-<span class="n">cd</span> <span class="err">$</span><span class="n">LIBIGL</span>
-<span class="n">cat</span> <span class="n">make</span><span class="p">.</span><span class="n">err</span> <span class="o">|</span> <span class="p">.</span><span class="o">/</span><span class="n">autoexplicit</span><span class="p">.</span><span class="n">sh</span>
-<span class="n">make</span> <span class="n">clean</span>
-<span class="n">make</span>
+<div class="codehilite"><pre><span></span>cd /to/your/project
+make 2&amp;gt;$LIBIGL/make.err
+cd $LIBIGL
+cat make.err | ./autoexplicit.sh
+make clean
+make
 </pre></div>
 
 
@@ -201,13 +201,13 @@ Repeat this process until convergence:</p>
 </ul>
 <h2 id="compressed-hcpp-pair">Compressed .h/.cpp pair<a class="headerlink" href="#compressed-hcpp-pair" title="Permanent link">&para;</a></h2>
 <p>Calling the script:</p>
-<div class="codehilite"><pre><span></span><span class="n">scripts</span><span class="o">/</span><span class="n">compress</span><span class="p">.</span><span class="n">sh</span> <span class="n">igl</span><span class="p">.</span><span class="n">h</span> <span class="n">igl</span><span class="p">.</span><span class="n">cpp</span>
+<div class="codehilite"><pre><span></span>scripts/compress.sh igl.h igl.cpp
 </pre></div>
 
 
-<p>will create a single header <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">h</span></code> and a single cpp file <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">cpp</span></code>.</p>
+<p>will create a single header <code class="codehilite">igl.h</code> and a single cpp file <code class="codehilite">igl.cpp</code>.</p>
 <p>Alternatively, you can also compress everything into a single header file:</p>
-<div class="codehilite"><pre><span></span><span class="n">scripts</span><span class="o">/</span><span class="n">compress</span><span class="p">.</span><span class="n">sh</span> <span class="n">igl</span><span class="p">.</span><span class="n">h</span>
+<div class="codehilite"><pre><span></span>scripts/compress.sh igl.h
 </pre></div>
 
 
@@ -227,20 +227,20 @@ Repeat this process until convergence:</p>
 <p><strong>Compounded dependencies</strong>:
   An immediate disadvantage of this
   seems to be that even to use a single function (e.g.
-  <code class="codehilite"><span class="n">cotmatrix</span></code>), compiling and linking against
-  <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">cpp</span></code> will require linking to all of <code class="codehilite"><span class="n">libigl</span></code>&lsquo;s
-  dependencies (<code class="codehilite"><span class="n">OpenGL</span></code>, <code class="codehilite"><span class="n">GLUT</span></code>,
-  <code class="codehilite"><span class="n">AntTweakBar</span></code>, <code class="codehilite"><span class="n">BLAS</span></code>). However, because all
+  <code class="codehilite">cotmatrix</code>), compiling and linking against
+  <code class="codehilite">igl.cpp</code> will require linking to all of <code class="codehilite">libigl</code>&lsquo;s
+  dependencies (<code class="codehilite">OpenGL</code>, <code class="codehilite">GLUT</code>,
+  <code class="codehilite">AntTweakBar</code>, <code class="codehilite">BLAS</code>). However, because all
   dependencies other than Eigen should be encapsulated between
-  <code class="codehilite"><span class="o">#</span><span class="n">ifndef</span></code> guards (e.g. <code class="codehilite"><span class="cp">#ifndef IGL_NO_OPENGL</span></code>, it
+  <code class="codehilite">#ifndef</code> guards (e.g. <code class="codehilite"><span class="cp">#ifndef IGL_NO_OPENGL</span></code>, it
   is possible to ignore certain functions that have such dependencies.</p>
 </li>
 <li>
 <p><strong>Long compile</strong>: 
-  Compiling <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">cpp</span></code> takes a long time and isn&rsquo;t easily parallelized (no <code class="codehilite"><span class="n">make</span><span class="o">-</span><span class="n">j12</span></code> equivalent).</p>
+  Compiling <code class="codehilite">igl.cpp</code> takes a long time and isn&rsquo;t easily parallelized (no <code class="codehilite">make-j12</code> equivalent).</p>
 </li>
 </ul>
-<p>Here&rsquo;s a tiny test example using <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">h</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">cpp</span></code>. Save the following in <code class="codehilite"><span class="n">test</span><span class="p">.</span><span class="n">cpp</span></code>:</p>
+<p>Here&rsquo;s a tiny test example using <code class="codehilite">igl.h</code> and <code class="codehilite">igl.cpp</code>. Save the following in <code class="codehilite">test.cpp</code>:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl.h&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;Eigen/Core&gt;</span><span class="cp"></span>
 
@@ -252,35 +252,35 @@ Repeat this process until convergence:</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>Then compile <code class="codehilite"><span class="n">igl</span><span class="p">.</span><span class="n">cpp</span></code> with:</p>
-<div class="codehilite"><pre><span></span><span class="nv">g</span><span class="o">++</span> <span class="o">-</span><span class="nv">o</span> <span class="nv">igl</span>.<span class="nv">o</span> <span class="o">-</span><span class="nv">c</span> <span class="nv">igl</span>.<span class="nv">cpp</span> <span class="o">-</span><span class="nv">I</span><span class="o">/</span><span class="nv">opt</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="k">include</span><span class="o">/</span><span class="nv">eigen3</span> <span class="o">-</span><span class="nv">DIGL_NO_OPENGL</span> <span class="o">-</span><span class="nv">DIGL_NO_ANTTWEAKBAR</span>
+<p>Then compile <code class="codehilite">igl.cpp</code> with:</p>
+<div class="codehilite"><pre><span></span>g++ -o igl.o -c igl.cpp -I/opt/local/include/eigen3 -DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR
 </pre></div>
 
 
-<p>Notice that we&rsquo;re using <code class="codehilite"><span class="o">-</span><span class="n">DIGL_NO_OPENGL</span> <span class="o">-</span><span class="n">DIGL_NO_ANTTWEAKBAR</span></code> to disable any libigl dependencies on OpenGL and AntTweakBar.</p>
-<p>Now compile <code class="codehilite"><span class="n">test</span><span class="p">.</span><span class="n">cpp</span></code> with:</p>
-<div class="codehilite"><pre><span></span><span class="nv">g</span><span class="o">++</span> <span class="o">-</span><span class="nv">g</span> <span class="o">-</span><span class="nv">I</span><span class="o">/</span><span class="nv">opt</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="k">include</span><span class="o">/</span><span class="nv">eigen3</span><span class="o">/</span> <span class="o">-</span><span class="nv">I</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">libigl</span><span class="o">/</span> <span class="o">-</span><span class="nv">L</span><span class="o">/</span><span class="nv">usr</span><span class="o">/</span><span class="nv">local</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">libigl</span><span class="o">/</span> <span class="o">-</span><span class="nv">ligl</span> <span class="o">-</span><span class="nv">DIGL_NO_OPENGL</span> <span class="o">-</span><span class="nv">DIGL_NO_ANTTWEAKBAR</span> <span class="o">-</span><span class="nv">o</span> <span class="nv">test</span>
+<p>Notice that we&rsquo;re using <code class="codehilite">-DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR</code> to disable any libigl dependencies on OpenGL and AntTweakBar.</p>
+<p>Now compile <code class="codehilite">test.cpp</code> with:</p>
+<div class="codehilite"><pre><span></span>g++ -g -I/opt/local/include/eigen3/ -I/usr/local/igl/libigl/ -L/usr/local/igl/libigl/ -ligl -DIGL_NO_OPENGL -DIGL_NO_ANTTWEAKBAR -o test
 </pre></div>
 
 
 <p>Try running it with:</p>
-<div class="codehilite"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">test</span> <span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">mesh</span><span class="p">.</span><span class="n">obj</span>
+<div class="codehilite"><pre><span></span>./test path/to/mesh.obj
 </pre></div>
 
 
-<p>The following bash one-liner will find all source files that contain the string <code class="codehilite"><span class="n">OpenGL</span></code> but don&rsquo;t contain and <code class="codehilite"><span class="n">IGL_NO_OPENGL</span></code> guard:</p>
-<div class="codehilite"><pre><span></span><span class="nv">grep</span> <span class="nv">OpenGL</span> `<span class="nv">grep</span> <span class="o">-</span><span class="nv">L</span> <span class="nv">IGL_NO_OPENGL</span> <span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="cm">/*`</span>
+<p>The following bash one-liner will find all source files that contain the string <code class="codehilite">OpenGL</code> but don&rsquo;t contain and <code class="codehilite">IGL_NO_OPENGL</code> guard:</p>
+<div class="codehilite"><pre><span></span>grep OpenGL `grep -L IGL_NO_OPENGL include/igl/*`
 </pre></div>
 
 
 <h2 id="optional">Optional<a class="headerlink" href="#optional" title="Permanent link">&para;</a></h2>
 <ul>
-<li>OpenGL (disable with <code class="codehilite"><span class="n">IGL_NO_OPENGL</span></code>)<ul>
-<li>OpenGL &gt;= 4 (enable with <code class="codehilite"><span class="n">IGL_OPENGL_4</span></code>)</li>
+<li>OpenGL (disable with <code class="codehilite">IGL_NO_OPENGL</code>)<ul>
+<li>OpenGL &gt;= 4 (enable with <code class="codehilite">IGL_OPENGL_4</code>)</li>
 </ul>
 </li>
-<li>AntTweakBar  (disable with <code class="codehilite"><span class="n">IGL_NO_ANTTWEAKBAR</span></code>) Last tested 1.16 (see
-  <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="k">external</span><span class="o">/</span><span class="n">AntTweakBar</span></code>)</li>
+<li>AntTweakBar  (disable with <code class="codehilite">IGL_NO_ANTTWEAKBAR</code>) Last tested 1.16 (see
+  <code class="codehilite">libigl/external/AntTweakBar</code>)</li>
 <li>GLEW  Windows and Linux</li>
 <li>OpenMP</li>
 <li>libpng  libiglpng extra only</li>
