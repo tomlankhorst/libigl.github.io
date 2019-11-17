@@ -7,32 +7,32 @@ project using libigl.</p>
 <p>Then build, run and understand the <a href="../tutorial/">libigl tutorial</a>.</p>
 <h2 id="compile">Compile<a class="headerlink" href="#compile" title="Permanent link">&para;</a></h2>
 <p>Compile this project using the standard cmake routine:</p>
-<div class="codehilite"><pre><span></span>mkdir build
-cd build
-cmake ..
-make
+<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span>
+<span class="n">cd</span> <span class="n">build</span>
+<span class="n">cmake</span> <span class="p">..</span>
+<span class="n">make</span>
 </pre></div>
 
 
-<p>This should find and build the dependencies and create a <code class="codehilite">example_bin</code> binary.</p>
+<p>This should find and build the dependencies and create a <code class="codehilite"><span class="n">example_bin</span></code> binary.</p>
 <h2 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
-<p>From within the <code class="codehilite">build</code> directory just issue:</p>
-<div class="codehilite"><pre><span></span>./example_bin
+<p>From within the <code class="codehilite"><span class="n">build</span></code> directory just issue:</p>
+<div class="codehilite"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">example_bin</span>
 </pre></div>
 
 
 <p>A glfw app should launch displaying a 3D cube.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>The only dependencies are stl, eigen, <a href="https://libigl.github.io/">libigl</a> and
-the dependencies of the <code class="codehilite">igl::opengl::glfw::Viewer</code>.</p>
+the dependencies of the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code>.</p>
 <p>We recommend to install libigl using git via:</p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/libigl/libigl.git
-cd libigl/
-git checkout 6ebc585611d27d8e2038bbbf9cb4910c51713848
-git submodule update --init --recursive
-cd ..
+<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">git</span>
+<span class="n">cd</span> <span class="n">libigl</span><span class="o">/</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="mi">6</span><span class="n">ebc585611d27d8e2038bbbf9cb4910c51713848</span>
+<span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init --recursive</span>
+<span class="n">cd</span> <span class="p">..</span>
 </pre></div>
 
 
-<p>If you have installed libigl at <code class="codehilite">/path/to/libigl/</code> then a good place to clone
-this library is <code class="codehilite">/path/to/libigl-example-project/</code>.</p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../tutorial/" title="Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Tutorial</span></div></a><a href="../static-library/" title="Static Library" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Static Library</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
+<p>If you have installed libigl at <code class="codehilite"><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span></code> then a good place to clone
+this library is <code class="codehilite"><span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="k">to</span><span class="o">/</span><span class="n">libigl</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="n">project</span><span class="o">/</span></code>.</p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../tutorial/" title="Tutorial" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Tutorial</span></div></a><a href="../static-library/" title="Static Library" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Static Library</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
