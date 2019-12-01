@@ -49,14 +49,14 @@
 </li>
 <li>
 <p>If you have an issue with downloading an <strong>external dependency</strong> using the
-  CMake build, nuke the <code class="codehilite"><span class="k">external</span><span class="o">/</span></code> folder and try again.</p>
+  CMake build, nuke the <code class="codehilite"><span class="err">external/</span></code> folder and try again.</p>
 </li>
 <li>
 <p>If you have an issue with a missing <strong>template</strong>, check that your code
-  compiles with the <em>header-only</em> option of libigl activated. Turn <strong><code class="codehilite"><span class="k">OFF</span></code></strong>
-  the CMake option <code class="codehilite"><span class="n">LIBIGL_USE_STATIC_LIBRARY</span></code>: either modify your
-  <code class="codehilite"><span class="n">CMakeCache</span><span class="p">.</span><span class="n">txt</span></code> via CMake GUI or ccmake, or delete your <code class="codehilite"><span class="n">CMakeCache</span><span class="p">.</span><span class="n">txt</span></code>
-  and re-run <code class="codehilite"><span class="n">cmake</span> <span class="o">-</span><span class="n">DLIBIGL_USE_STATIC_LIBRARY</span><span class="o">=</span><span class="k">OFF</span> <span class="p">..</span></code> in your build folder.</p>
+  compiles with the <em>header-only</em> option of libigl activated. Turn <strong><code class="codehilite"><span class="err">OFF</span></code></strong>
+  the CMake option <code class="codehilite"><span class="err">LIBIGL_USE_STATIC_LIBRARY</span></code>: either modify your
+  <code class="codehilite"><span class="err">CMakeCache.txt</span></code> via CMake GUI or ccmake, or delete your <code class="codehilite"><span class="err">CMakeCache.txt</span></code>
+  and re-run <code class="codehilite"><span class="err">cmake -DLIBIGL_USE_STATIC_LIBRARY=OFF ..</span></code> in your build folder.</p>
 </li>
 <li>
 <p>If none of these solve your problem, then please report your issue in the

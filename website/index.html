@@ -13,7 +13,7 @@ github.</p>
 bash Miniconda3-latest-Linux-x86_64.sh
 </pre></div></li>
 <li>Install the conda environment for the website:
-   <div class="codehilite"><pre><span></span><span class="n">conda</span> <span class="n">env</span> <span class="k">create</span> <span class="o">-</span><span class="n">f</span> <span class="n">libigl</span><span class="o">-</span><span class="n">website</span><span class="p">.</span><span class="n">yml</span>
+   <div class="codehilite"><pre><span></span><span class="err">conda env create -f libigl-website.yml</span>
 </pre></div></li>
 </ol>
 <h3 id="using-mkdocs">Using mkdocs<a class="headerlink" href="#using-mkdocs" title="Permanent link">&para;</a></h3>
@@ -35,15 +35,15 @@ bash Miniconda3-latest-Linux-x86_64.sh
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The <code class="codehilite"><span class="n">gh</span><span class="o">-</span><span class="n">deploy</span></code> script will overwrite the content of the <code class="codehilite"><span class="n">gh</span><span class="o">-</span><span class="n">pages</span></code> in the
+<p>The <code class="codehilite"><span class="err">gh-deploy</span></code> script will overwrite the content of the <code class="codehilite"><span class="err">gh-pages</span></code> in the
 remote repository. Be sure of what you are doing before pushing new
 content with this command.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <ul>
-<li>Be careful to not have any <code class="codehilite"><span class="o">&lt;&gt;</span></code> characters in your email in your
-  <code class="codehilite"><span class="na">.gitconfig</span></code>, otherwise the <code class="codehilite"><span class="n">gh</span><span class="o">-</span><span class="n">deploy</span></code> script will fail.</li>
+<li>Be careful to not have any <code class="codehilite"><span class="err">&lt;&gt;</span></code> characters in your email in your
+  <code class="codehilite"><span class="na">.gitconfig</span></code>, otherwise the <code class="codehilite"><span class="err">gh-deploy</span></code> script will fail.</li>
 <li>Dead links can be checked using the
   <a href="https://linkchecker.github.io/linkchecker/">LinkChecker</a> tool. Run the
   website locally, then run LinkChecker on it:

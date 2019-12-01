@@ -171,29 +171,29 @@
 </tbody>
 </table>
 </details>
-<h2 id="upcoming-version-dev-branch">Upcoming version (<code class="codehilite"><span class="n">dev</span></code> branch)<a class="headerlink" href="#upcoming-version-dev-branch" title="Permanent link">&para;</a></h2>
+<h2 id="upcoming-version-dev-branch">Upcoming version (<code class="codehilite"><span class="err">dev</span></code> branch)<a class="headerlink" href="#upcoming-version-dev-branch" title="Permanent link">&para;</a></h2>
 <h4 id="build-system">Build system<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Overhauled function signatures in preparation of new python bindings (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1162" title="GitHub Issue: libigl/libigl#1162">#1162</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1228" title="GitHub Issue: libigl/libigl#1228">#1228</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1271" title="GitHub Issue: libigl/libigl#1271">#1271</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1274" title="GitHub Issue: libigl/libigl#1274">#1274</a>)</li>
-<li>Added a conda environment <code class="codehilite"><span class="n">cmake</span><span class="o">/</span><span class="n">libigl</span><span class="o">-</span><span class="n">cgal</span><span class="p">.</span><span class="n">yml</span></code> to provide boost for Windows users (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1239" title="GitHub Issue: libigl/libigl#1239">#1239</a>)</li>
+<li>Added a conda environment <code class="codehilite"><span class="err">cmake/libigl-cgal.yml</span></code> to provide boost for Windows users (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1239" title="GitHub Issue: libigl/libigl#1239">#1239</a>)</li>
 <li>Added experimental support for Hunter (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1242" title="GitHub Issue: libigl/libigl#1242">#1242</a>)</li>
-<li>Now <code class="codehilite"><span class="n">libigl</span><span class="p">.</span><span class="n">cmake</span></code> will define a CMake target <code class="codehilite"><span class="n">Eigen3</span><span class="p">::</span><span class="n">Eigen</span></code> if not provided by the user (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1299" title="GitHub Issue: libigl/libigl#1299">#1299</a>)</li>
+<li>Now <code class="codehilite"><span class="err">libigl.cmake</span></code> will define a CMake target <code class="codehilite"><span class="c">Eigen3::Eigen</span></code> if not provided by the user (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1299" title="GitHub Issue: libigl/libigl#1299">#1299</a>)</li>
 </ul>
 <h4 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Fast winding number for triangle soups (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1218" title="GitHub Issue: libigl/libigl#1218">#1218</a>)</li>
 <li>Iterative closest point algorithm + tutorial (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1347" title="GitHub Issue: libigl/libigl#1347">#1347</a>)</li>
 <li>Ear clipping triangulation (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1169" title="GitHub Issue: libigl/libigl#1169">#1169</a>)</li>
-<li>Added <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">path_to_edges</span></code> function (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1259" title="GitHub Issue: libigl/libigl#1259">#1259</a>)</li>
-<li><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">dijkstra</span></code> can now use mesh edge length (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1170" title="GitHub Issue: libigl/libigl#1170">#1170</a>)</li>
+<li>Added <code class="codehilite"><span class="c">igl::path_to_edges</span></code> function (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1259" title="GitHub Issue: libigl/libigl#1259">#1259</a>)</li>
+<li><code class="codehilite"><span class="c">igl::dijkstra</span></code> can now use mesh edge length (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1170" title="GitHub Issue: libigl/libigl#1170">#1170</a>)</li>
 <li>Keep reference to multiple material when reading obj (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1280" title="GitHub Issue: libigl/libigl#1280">#1280</a>)</li>
 </ul>
 <h4 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Fix underflow issue when computing normalization in <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">heat_geodesics</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1344" title="GitHub Issue: libigl/libigl#1344">#1344</a>) </li>
+<li>Fix underflow issue when computing normalization in <code class="codehilite"><span class="c">igl::heat_geodesics</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1344" title="GitHub Issue: libigl/libigl#1344">#1344</a>) </li>
 <li>Update nrosy to match the MIQ paper (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1303" title="GitHub Issue: libigl/libigl#1303">#1303</a>)</li>
-<li>Delete <code class="codehilite"><span class="n">Embree_convenience</span><span class="p">.</span><span class="n">h</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1314" title="GitHub Issue: libigl/libigl#1314">#1314</a>)</li>
-<li>Refactored <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cut_mesh</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1332" title="GitHub Issue: libigl/libigl#1332">#1332</a>)</li>
+<li>Delete <code class="codehilite"><span class="err">Embree_convenience.h</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1314" title="GitHub Issue: libigl/libigl#1314">#1314</a>)</li>
+<li>Refactored <code class="codehilite"><span class="c">igl::cut_mesh</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1332" title="GitHub Issue: libigl/libigl#1332">#1332</a>)</li>
 <li>Various improvements to the viewer (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1196" title="GitHub Issue: libigl/libigl#1196">#1196</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1251" title="GitHub Issue: libigl/libigl#1251">#1251</a>)</li>
 <li>Various bugfixes (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1197" title="GitHub Issue: libigl/libigl#1197">#1197</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1210" title="GitHub Issue: libigl/libigl#1210">#1210</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1216" title="GitHub Issue: libigl/libigl#1216">#1216</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1231" title="GitHub Issue: libigl/libigl#1231">#1231</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1247" title="GitHub Issue: libigl/libigl#1247">#1247</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1258" title="GitHub Issue: libigl/libigl#1258">#1258</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1288" title="GitHub Issue: libigl/libigl#1288">#1288</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1309" title="GitHub Issue: libigl/libigl#1309">#1309</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1320" title="GitHub Issue: libigl/libigl#1320">#1320</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1337" title="GitHub Issue: libigl/libigl#1337">#1337</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1345" title="GitHub Issue: libigl/libigl#1345">#1345</a>)</li>
 </ul>
@@ -202,9 +202,9 @@
 <li>Various code cleanup, compilation fixes, and explicit template instantiations</li>
 <li>Added wrapper around Shewchuk&rsquo;s predicates (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1163" title="GitHub Issue: libigl/libigl#1163">#1163</a>)</li>
 <li>libigl now also compiles with Eigen 3.3 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1110" title="GitHub Issue: libigl/libigl#1110">#1110</a>).</li>
-<li>Extended <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cat</span></code> functionalities (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1108" title="GitHub Issue: libigl/libigl#1108">#1108</a>)</li>
-<li>Extended <code class="codehilite"><span class="n">boundary_facets</span></code> with outputs revealing which element facet comes from (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1067" title="GitHub Issue: libigl/libigl#1067">#1067</a>)</li>
-<li>Use <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">shuffle</span></code> instead of <code class="codehilite"><span class="n">std</span><span class="p">::</span><span class="n">random_shuffle</span></code> in <code class="codehilite"><span class="n">igl</span><span class="o">/</span><span class="n">randperm</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1062" title="GitHub Issue: libigl/libigl#1062">#1062</a>)</li>
+<li>Extended <code class="codehilite"><span class="c">igl::cat</span></code> functionalities (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1108" title="GitHub Issue: libigl/libigl#1108">#1108</a>)</li>
+<li>Extended <code class="codehilite"><span class="err">boundary_facets</span></code> with outputs revealing which element facet comes from (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1067" title="GitHub Issue: libigl/libigl#1067">#1067</a>)</li>
+<li>Use <code class="codehilite"><span class="c">std::shuffle</span></code> instead of <code class="codehilite"><span class="c">std::random_shuffle</span></code> in <code class="codehilite"><span class="err">igl/randperm</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1062" title="GitHub Issue: libigl/libigl#1062">#1062</a>)</li>
 <li>Fixed an Eigen alignment issue in the viewer (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1029" title="GitHub Issue: libigl/libigl#1029">#1029</a>)</li>
 <li>Removed LIM tutorial (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1012" title="GitHub Issue: libigl/libigl#1012">#1012</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1014" title="GitHub Issue: libigl/libigl#1014">#1014</a>)</li>
 <li>Fixed current python bindings (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1008" title="GitHub Issue: libigl/libigl#1008">#1008</a>)</li>
@@ -220,19 +220,19 @@
 <p>This release is a result of the 2018 libigl hackathon at NYU. The major changes are:</p>
 <ul>
 <li>a simplified cmake set up that can build a static library, tutorials, tests, and python bindings;</li>
-<li>cmake now uses <code class="codehilite"><span class="n">ExternalProject_Add</span></code> to download necessary/requested dependency source code and tutorial/test data</li>
-<li>as a result, <code class="codehilite"><span class="n">git</span> <span class="n">clone</span> <span class="c1">--recursive ...</span></code> is no longer required </li>
+<li>cmake now uses <code class="codehilite"><span class="err">ExternalProject_Add</span></code> to download necessary/requested dependency source code and tutorial/test data</li>
+<li>as a result, <code class="codehilite"><span class="err">git clone --recursive ...</span></code> is no longer required </li>
 <li>unit tests are now part of main repo and included in continuous integration (<a href="https://github.com/libigl/libigl-unit-tests">https://github.com/libigl/libigl-unit-tests</a> is obsolete);</li>
 <li>tutorial data has been moved to <a href="https://github.com/libigl/libigl-tutorial-data">https://github.com/libigl/libigl-tutorial-data</a>;</li>
 <li>unit test data has been moved to <a href="https://github.com/libigl/libigl-tests-data">https://github.com/libigl/libigl-tests-data</a>;</li>
-<li>all dependencies previously in <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="k">external</span></code> have been removed or moved to repos (and added via <code class="codehilite"><span class="n">ExternalProject_Add</span></code>);</li>
+<li>all dependencies previously in <code class="codehilite"><span class="err">libigl/external</span></code> have been removed or moved to repos (and added via <code class="codehilite"><span class="err">ExternalProject_Add</span></code>);</li>
 <li>documentation and the tutorial webpage has been moved to <a href="https://github.com/libigl/libigl.github.io">https://github.com/libigl/libigl.github.io</a>;</li>
 <li>.git history of these files has been <em><strong>purged</strong></em> using <a href="https://rtyley.github.io/bfg-repo-cleaner/">bfg</a></li>
 <li>unfortunately this means that SHA hashes have changed and any external projects using libigl as a <em>submodule</em> will need to be refreshed to the new hashes.</li>
 <li>More information and instructions for troubleshooting at <a href="https://libigl.github.io/rewritten-history/">https://libigl.github.io/rewritten-history/</a>.</li>
 <li>A legacy version with SHA hashes matching old repo is hosted at <a href="https://github.com/libigl/libigl-legacy">https://github.com/libigl/libigl-legacy</a>.</li>
 </ul>
-<p>The <strong>major upshot</strong> is that the old <code class="codehilite"><span class="n">git</span> <span class="n">clone</span> <span class="c1">--recursive</span></code> that resulted in a 1.8GB <code class="codehilite"><span class="n">libigl</span><span class="o">/</span></code> directory is now a <code class="codehilite"><span class="n">git</span> <span class="n">clone</span></code> that results in 16.5MB, more than a <strong>100x</strong> reduction in size. </p>
+<p>The <strong>major upshot</strong> is that the old <code class="codehilite"><span class="err">git clone --recursive</span></code> that resulted in a 1.8GB <code class="codehilite"><span class="err">libigl/</span></code> directory is now a <code class="codehilite"><span class="err">git clone</span></code> that results in 16.5MB, more than a <strong>100x</strong> reduction in size. </p>
 <p>Name changes:</p>
 <table>
 <thead>
@@ -243,12 +243,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">components</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vertex_components</span></code></td>
+<td><code class="codehilite"><span class="c">igl::components</span></code></td>
+<td><code class="codehilite"><span class="c">igl::vertex_components</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice_tets</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">marching_tets</span></code></td>
+<td><code class="codehilite"><span class="c">igl::slice_tets</span></code></td>
+<td><code class="codehilite"><span class="c">igl::marching_tets</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -260,31 +260,31 @@ and before switching from submodules to CMake external projects.</li>
 <h2 id="version-131-changes">Version 1.3.1 Changes<a class="headerlink" href="#version-131-changes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Last version before pull requests were merged during the libigl hackaton.</li>
-<li><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">components</span></code> has been renamed to <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vertex_components</span></code>.</li>
-<li><code class="codehilite"><span class="n">viewer</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">model</span></code> matrix is gone (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/700" title="GitHub Issue: libigl/libigl#700">#700</a>).</li>
+<li><code class="codehilite"><span class="c">igl::components</span></code> has been renamed to <code class="codehilite"><span class="c">igl::vertex_components</span></code>.</li>
+<li><code class="codehilite"><span class="err">viewer.core.model</span></code> matrix is gone (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/700" title="GitHub Issue: libigl/libigl#700">#700</a>).</li>
 </ul>
 <h2 id="version-130-changes">Version 1.3.0 Changes<a class="headerlink" href="#version-130-changes" title="Permanent link">&para;</a></h2>
 <p>List of changes related to this version:</p>
 <ul>
 <li>
 <p>The CMake build system has been rewritten to be more modular and modern.
-  libigl modules are now available as CMake target, e.g. <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">triangle</span></code> or
-  <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span></code>. See the libigl-example-project for an example of typical
+  libigl modules are now available as CMake target, e.g. <code class="codehilite"><span class="c">igl::triangle</span></code> or
+  <code class="codehilite"><span class="c">igl::opengl</span></code>. See the libigl-example-project for an example of typical
   usage.</p>
 </li>
 <li>
-<p><code class="codehilite"><span class="n">igl</span><span class="o">/</span><span class="n">antweakbar</span></code> and <code class="codehilite"><span class="n">igl</span><span class="o">/</span><span class="n">opengl2</span></code> support has been removed from the CMake.
+<p><code class="codehilite"><span class="err">igl/antweakbar</span></code> and <code class="codehilite"><span class="err">igl/opengl2</span></code> support has been removed from the CMake.
   The files are still available, but their use is discouraged.</p>
 </li>
 <li>
 <p>The viewer has been refactored and now supports multiple meshes. See related
   tutorial entry for more information. The viewer files are now split
-  according to their dependencies. E.g. <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">viewer</span><span class="p">::</span><span class="n">Viewer</span></code> has been renamed
-  <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code>.</p>
+  according to their dependencies. E.g. <code class="codehilite"><span class="c">igl::viewer::Viewer</span></code> has been renamed
+  <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code>.</p>
 </li>
 <li>
 <p>NanoGui has been replaced by ImGui, and is now available as a viewer plugin
-  instead of <code class="codehilite"><span class="o">#</span><span class="n">define</span></code></p>
+  instead of <code class="codehilite"><span class="err">#define</span></code></p>
 </li>
 <li>
 <p>Polyvector code has been moved to
@@ -300,12 +300,12 @@ dependency extra was absorbed.</p>
 <p>The core functionality of libigl (still) just depends on stl, c++11 and Eigen.
 There are additional <em>optional</em> dependencies (e.g. CGAL, embree, glfw, tetgen,
 triangle). Libigl functions using these are located (still) in sub-folders of
-the include directory (e.g.  <code class="codehilite"><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">cgal</span><span class="o">/</span></code>, <code class="codehilite"><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span><span class="nv">embree</span><span class="o">/</span></code>). Prior
+the include directory (e.g.  <code class="codehilite"><span class="err">include/igl/cgal/</span></code>, <code class="codehilite"><span class="err">include/igl/embree/</span></code>). Prior
 to version 1.2 we included copies of the code for some of these dependencies in the
-<code class="codehilite"><span class="k">external</span><span class="o">/</span></code> directory. As of
+<code class="codehilite"><span class="err">external/</span></code> directory. As of
 version 1.2, these have been replaced with git sub-repos. If you have cloned
 libigl <em>before version 1.2</em> then you should issue </p>
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init --recursive</span>
+<div class="codehilite"><pre><span></span><span class="err">git submodule update --init --recursive</span>
 </pre></div>
 
 
@@ -319,56 +319,56 @@ libigl <em>before version 1.2</em> then you should issue </p>
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">angles</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">internal_angles</span></code></td>
+<td><code class="codehilite"><span class="c">igl::angles</span></code></td>
+<td><code class="codehilite"><span class="c">igl::internal_angles</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">get_modifiers</span></code></td>
+<td><code class="codehilite"><span class="c">igl::get_modifiers</span></code></td>
 <td>[deleted]</td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nchoosek</span><span class="p">(</span><span class="k">offset</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="p">)</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nchoosek</span><span class="p">(</span><span class="n">Eigen</span><span class="p">,</span><span class="n">K</span><span class="p">,</span><span class="n">Eigen</span><span class="p">)</span></code></td>
+<td><code class="codehilite"><span class="c">igl::nchoosek(offset,K,N,std::vector)</span></code></td>
+<td><code class="codehilite"><span class="c">igl::nchoosek(Eigen,K,Eigen)</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">boost</span><span class="o">/</span><span class="nv">components</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">components</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/components.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/components.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">boost</span><span class="o">/</span><span class="nv">bfs_orient</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">bfs_orient</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/bfs_orient.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/bfs_orient.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">boost</span><span class="o">/</span><span class="nv">orientable_patches</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">orientable_patches</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/orientable_patches.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/orientable_patches.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">arap</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">arap</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/arap.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/arap.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">arap_dof</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">arap_dof</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/arap_dof.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/arap_dof.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">fit_rotations</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">fit_rotations</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/fit_rotations.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/fit_rotations.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">polar_svd3x3</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">polar_svd3x3</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/polar_svd3x3.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/polar_svd3x3.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">svd3x3</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">svd3x3_avx</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3_avx</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3_avx.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3_avx.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3</span><span class="o">/</span><span class="nv">svd3x3_sse</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
-<td><code class="codehilite">#<span class="k">include</span> <span class="o">&lt;</span><span class="nv">igl</span><span class="o">/</span><span class="nv">svd3x3_sse</span>.<span class="nv">h</span><span class="o">&gt;</span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3_sse.h&gt;</span><span class="cp"></span></code></td>
+<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3_sse.h&gt;</span><span class="cp"></span></code></td>
 </tr>
 </tbody>
 </table>
@@ -388,146 +388,146 @@ current users should read and adapt their code accordingly.</p>
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">add_barycenter</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">false_barycentric_subdivision</span></code></td>
+<td><code class="codehilite"><span class="c">igl::add_barycenter</span></code></td>
+<td><code class="codehilite"><span class="c">igl::false_barycentric_subdivision</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">areamatrix</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vector_area_matrix</span></code></td>
+<td><code class="codehilite"><span class="c">igl::areamatrix</span></code></td>
+<td><code class="codehilite"><span class="c">igl::vector_area_matrix</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">barycentric2global</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">barycentric_to_global</span></code></td>
+<td><code class="codehilite"><span class="c">igl::barycentric2global</span></code></td>
+<td><code class="codehilite"><span class="c">igl::barycentric_to_global</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">boundary_faces</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">boundary_facets</span></code></td>
+<td><code class="codehilite"><span class="c">igl::boundary_faces</span></code></td>
+<td><code class="codehilite"><span class="c">igl::boundary_facets</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">boundary_vertices_sorted</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">boundary_loop</span></code></td>
+<td><code class="codehilite"><span class="c">igl::boundary_vertices_sorted</span></code></td>
+<td><code class="codehilite"><span class="c">igl::boundary_loop</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotangent</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotmatrix_entries</span></code></td>
+<td><code class="codehilite"><span class="c">igl::cotangent</span></code></td>
+<td><code class="codehilite"><span class="c">igl::cotmatrix_entries</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">edgetopology</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">edge_topology</span></code></td>
+<td><code class="codehilite"><span class="c">igl::edgetopology</span></code></td>
+<td><code class="codehilite"><span class="c">igl::edge_topology</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">gradMat</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">grad</span></code></td>
+<td><code class="codehilite"><span class="c">igl::gradMat</span></code></td>
+<td><code class="codehilite"><span class="c">igl::grad</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">is_manifold</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">is_edge_manifold</span></code></td>
+<td><code class="codehilite"><span class="c">igl::is_manifold</span></code></td>
+<td><code class="codehilite"><span class="c">igl::is_edge_manifold</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">mexStream</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">MexStream</span></code></td>
+<td><code class="codehilite"><span class="c">igl::mexStream</span></code></td>
+<td><code class="codehilite"><span class="c">igl::MexStream</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">moveFV</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">average_onto_vertices</span></code></td>
+<td><code class="codehilite"><span class="c">igl::moveFV</span></code></td>
+<td><code class="codehilite"><span class="c">igl::average_onto_vertices</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">moveVF</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">average_onto_faces</span></code></td>
+<td><code class="codehilite"><span class="c">igl::moveVF</span></code></td>
+<td><code class="codehilite"><span class="c">igl::average_onto_faces</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">plot_vector</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">print_vector</span></code></td>
+<td><code class="codehilite"><span class="c">igl::plot_vector</span></code></td>
+<td><code class="codehilite"><span class="c">igl::print_vector</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">pos</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">HalfEdgeIterator</span></code></td>
+<td><code class="codehilite"><span class="c">igl::pos</span></code></td>
+<td><code class="codehilite"><span class="c">igl::HalfEdgeIterator</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">plane_project</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">project_isometrically_to_plane</span></code></td>
+<td><code class="codehilite"><span class="c">igl::plane_project</span></code></td>
+<td><code class="codehilite"><span class="c">igl::project_isometrically_to_plane</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">project_points_mesh</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">line_mesh_intersection</span></code></td>
+<td><code class="codehilite"><span class="c">igl::project_points_mesh</span></code></td>
+<td><code class="codehilite"><span class="c">igl::line_mesh_intersection</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">read</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">read_triangle_mesh</span></code></td>
+<td><code class="codehilite"><span class="c">igl::read</span></code></td>
+<td><code class="codehilite"><span class="c">igl::read_triangle_mesh</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">removeDuplicates</span><span class="p">.</span><span class="n">cpp</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">remove_duplicates</span></code></td>
+<td><code class="codehilite"><span class="c">igl::removeDuplicates.cpp</span></code></td>
+<td><code class="codehilite"><span class="c">igl::remove_duplicates</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">removeUnreferenced</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">remove_unreferenced</span></code></td>
+<td><code class="codehilite"><span class="c">igl::removeUnreferenced</span></code></td>
+<td><code class="codehilite"><span class="c">igl::remove_unreferenced</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">tt</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">triangle_triangle_adjacency</span></code></td>
+<td><code class="codehilite"><span class="c">igl::tt</span></code></td>
+<td><code class="codehilite"><span class="c">igl::triangle_triangle_adjacency</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vf</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vertex_triangle_adjacency</span></code></td>
+<td><code class="codehilite"><span class="c">igl::vf</span></code></td>
+<td><code class="codehilite"><span class="c">igl::vertex_triangle_adjacency</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">write</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">write_triangle_mesh</span></code></td>
+<td><code class="codehilite"><span class="c">igl::write</span></code></td>
+<td><code class="codehilite"><span class="c">igl::write_triangle_mesh</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">manifold_patches</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">orientable_patches</span></code></td>
+<td><code class="codehilite"><span class="c">igl::manifold_patches</span></code></td>
+<td><code class="codehilite"><span class="c">igl::orientable_patches</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">selfintersect</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">remesh_self_intersections</span></code></td>
+<td><code class="codehilite"><span class="c">igl::selfintersect</span></code></td>
+<td><code class="codehilite"><span class="c">igl::remesh_self_intersections</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">project_mesh</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">line_mesh_intersection</span></code></td>
+<td><code class="codehilite"><span class="c">igl::project_mesh</span></code></td>
+<td><code class="codehilite"><span class="c">igl::line_mesh_intersection</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">triangulate</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">polygon_mesh_to_triangle_mesh</span></code></td>
+<td><code class="codehilite"><span class="c">igl::triangulate</span></code></td>
+<td><code class="codehilite"><span class="c">igl::polygon_mesh_to_triangle_mesh</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">is_manifold</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">is_edge_manifold</span></code></td>
+<td><code class="codehilite"><span class="c">igl::is_manifold</span></code></td>
+<td><code class="codehilite"><span class="c">igl::is_edge_manifold</span></code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">triangle_wrapper</span></code></td>
-<td><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">triangulate</span></code></td>
+<td><code class="codehilite"><span class="c">igl::triangle_wrapper</span></code></td>
+<td><code class="codehilite"><span class="c">igl::triangulate</span></code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
 <ul>
 <li>To match interfaces provided by (all) other quadratic optimization
-   libraries, <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">min_quad_with_fixed</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">active_set</span></code> now expect as
+   libraries, <code class="codehilite"><span class="c">igl::min_quad_with_fixed</span></code> and <code class="codehilite"><span class="c">igl::active_set</span></code> now expect as
    input twice the quadratic coefficients matrix, i.e. the Hessian. For
-   example, <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">min_quad_with_fixed</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">B</span><span class="p">,...)</span></code> minimizes <span><span class="MathJax_Preview">\frac{1}{2}x^T H
+   example, <code class="codehilite"><span class="c">igl::min_quad_with_fixed(H,B,...)</span></code> minimizes <span><span class="MathJax_Preview">\frac{1}{2}x^T H
    x+x^T B</span><script type="math/tex">\frac{1}{2}x^T H
    x+x^T B</script></span>.</li>
-<li>We have inverted the <code class="codehilite"><span class="n">IGL_HEADER_ONLY</span></code> macro to <code class="codehilite"><span class="n">IGL_STATIC_LIBRARY</span></code>. To
+<li>We have inverted the <code class="codehilite"><span class="err">IGL_HEADER_ONLY</span></code> macro to <code class="codehilite"><span class="err">IGL_STATIC_LIBRARY</span></code>. To
    compile using libigl as a header-only library, simply include headers and
    libigl in the header search path. To link to libigl, you must define the
-   <code class="codehilite"><span class="n">IGL_STATIC_LIBRARY</span></code> macro at compile time and link to the <code class="codehilite"><span class="n">libigl</span><span class="o">*</span><span class="p">.</span><span class="n">a</span></code>
+   <code class="codehilite"><span class="err">IGL_STATIC_LIBRARY</span></code> macro at compile time and link to the <code class="codehilite"><span class="err">libigl*.a</span></code>
    libraries.</li>
 <li>Building libigl as a static library is now more organized. There is a
-   <code class="codehilite"><span class="n">build</span><span class="o">/</span></code> directory with Makefiles for the main library (<code class="codehilite"><span class="n">Makefile</span></code>) and each
-   dependency (e.g. <code class="codehilite"><span class="n">Makefile_mosek</span></code> for <code class="codehilite"><span class="n">libiglmosek</span><span class="p">.</span><span class="n">a</span></code>)</li>
-<li><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">polar_svd</span></code> now always returns a rotation in <code class="codehilite"><span class="n">R</span></code>, never a reflection.
-   This mirrors the behavior of <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">polar_svd3x3</span></code>.  Consequently the <code class="codehilite"><span class="n">T</span></code>
+   <code class="codehilite"><span class="err">build/</span></code> directory with Makefiles for the main library (<code class="codehilite"><span class="err">Makefile</span></code>) and each
+   dependency (e.g. <code class="codehilite"><span class="err">Makefile_mosek</span></code> for <code class="codehilite"><span class="err">libiglmosek.a</span></code>)</li>
+<li><code class="codehilite"><span class="c">igl::polar_svd</span></code> now always returns a rotation in <code class="codehilite"><span class="err">R</span></code>, never a reflection.
+   This mirrors the behavior of <code class="codehilite"><span class="c">igl::polar_svd3x3</span></code>.  Consequently the <code class="codehilite"><span class="err">T</span></code>
    part may have negative skews.</li>
 <li>We have organized the static library build</li>
-<li>The previous <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">grad</span></code> function, which computed the per-triangle gradient
-   of a per-vertex scalar function has been replaced. Now <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">grad</span></code> computes
-   the linear operator (previous computed using <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">gradMat</span></code>). The gradient
+<li>The previous <code class="codehilite"><span class="c">igl::grad</span></code> function, which computed the per-triangle gradient
+   of a per-vertex scalar function has been replaced. Now <code class="codehilite"><span class="c">igl::grad</span></code> computes
+   the linear operator (previous computed using <code class="codehilite"><span class="c">igl::gradMat</span></code>). The gradient
    values can still be recovered by multiplying the operator against the scalar
    field as a vector and reshaping to have gradients per row.</li>
-<li><code class="codehilite"><span class="n">MASSMATRIX_</span><span class="o">*</span></code> has become <code class="codehilite"><span class="n">MASSMATRIX_TYPE_</span><span class="o">*</span></code></li>
-<li>The function <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">project_normals</span></code>, which cast a line for each vertex of
+<li><code class="codehilite"><span class="err">MASSMATRIX_*</span></code> has become <code class="codehilite"><span class="err">MASSMATRIX_TYPE_*</span></code></li>
+<li>The function <code class="codehilite"><span class="c">igl::project_normals</span></code>, which cast a line for each vertex of
    mesh <em>A</em> in the normal direction and found the closest intersection along
    these lines with mesh <em>B</em>, has been removed.</li>
 </ul></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>FAQ</span></div></a><a href="../LICENSE/" title="License" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>License</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

@@ -15,8 +15,8 @@ improve your compilation times.</p>
 <p>Libigl may also be compiled to a static library. This is advantageous when
 building a project with libigl, since when used as an header-only library can
 slow down compile times.</p>
-<p>To build the entire libigl library producing at least <code class="codehilite"><span class="n">lib</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">a</span></code> and
-possible other (automatically detected) extras, e.g. <code class="codehilite"><span class="n">lib</span><span class="o">/</span><span class="n">libiglcgal</span><span class="p">.</span><span class="n">a</span></code> issue:</p>
+<p>To build the entire libigl library producing at least <code class="codehilite"><span class="err">lib/libigl.a</span></code> and
+possible other (automatically detected) extras, e.g. <code class="codehilite"><span class="err">lib/libiglcgal.a</span></code> issue:</p>
 <p><div class="codehilite"><pre><span></span>cmake ../ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="se">\</span>
           -DLIBIGL_USE_STATIC_LIBRARY<span class="o">=</span>ON<span class="se">\</span>
           -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/path/to/custom/installation
@@ -24,8 +24,8 @@ possible other (automatically detected) extras, e.g. <code class="codehilite"><s
 <div class="codehilite"><pre><span></span>make
 make install
 </pre></div>
-This will install libigl into the directory specified by <code class="codehilite"><span class="n">CMAKE_INSTALL_PREFIX</span></code>, which is set to <code class="codehilite"><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span></code> by deafault on macOS and Linux.
-The installation process does not only create <code class="codehilite"><span class="cp">${</span><span class="n">CMAKE_INSTALL_PREFIX</span><span class="cp">}</span>/lib/libigl.a</code>, it copies the libigl headers into <code class="codehilite">${<span class="nv">CMAKE_INSTALL_PREFIX</span>}<span class="o">/</span><span class="k">include</span><span class="o">/</span><span class="nv">igl</span><span class="o">/</span></code> too.</p>
+This will install libigl into the directory specified by <code class="codehilite"><span class="err">CMAKE_INSTALL_PREFIX</span></code>, which is set to <code class="codehilite"><span class="err">/usr/local</span></code> by deafault on macOS and Linux.
+The installation process does not only create <code class="codehilite"><span class="cp">${</span><span class="n">CMAKE_INSTALL_PREFIX</span><span class="cp">}</span>/lib/libigl.a</code>, it copies the libigl headers into <code class="codehilite"><span class="cp">${</span><span class="n">CMAKE_INSTALL_PREFIX</span><span class="cp">}</span>/include/igl/</code> too.</p>
 <p>Or if you base your project on the <a href="https://github.com/libigl/libigl-example-project">libigl-example-project</a>
 you can add</p>
 <div class="codehilite"><pre><span></span><span class="nb">option</span><span class="p">(</span><span class="s">LIBIGL_USE_STATIC_LIBRARY</span>     <span class="s2">&quot;Use libIGL as static librarie&quot;</span> <span class="s">ON</span><span class="p">)</span>
@@ -35,11 +35,11 @@ you can add</p>
 <div class="codehilite"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">LIBIGL</span> <span class="s">REQUIRED</span> <span class="s">QUIET</span><span class="p">)</span>
 </pre></div>
 
-<p>in the <code class="codehilite"><span class="n">CMakeLists</span><span class="p">.</span><span class="n">txt</span></code> to always build libigl as static library for your project.
+<p>in the <code class="codehilite"><span class="err">CMakeLists.txt</span></code> to always build libigl as static library for your project.
 See <a href="../example-project/">example-project</a> aswell.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you have changed the value for <code class="codehilite"><span class="n">LIBIGL_USE_STATIC_LIBRARY</span></code> in your CMakeLists.txt make sure to remove or update the <strong>CMakeCache.txt</strong> in your build directory.</p>
+<p>If you have changed the value for <code class="codehilite"><span class="err">LIBIGL_USE_STATIC_LIBRARY</span></code> in your CMakeLists.txt make sure to remove or update the <strong>CMakeCache.txt</strong> in your build directory.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -54,7 +54,7 @@ statically so we haven&rsquo;t explicit instantiations (yet).</p>
 <p>Further documentation for developers is listed in
 <a href="../style-guidelines/">style-guidelines</a>.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>See <code class="codehilite"><span class="n">LICENSE</span><span class="p">.</span><span class="n">txt</span></code></p>
+<p>See <code class="codehilite"><span class="err">LICENSE.txt</span></code></p>
 <h2 id="zipping">Zipping<a class="headerlink" href="#zipping" title="Permanent link">&para;</a></h2>
 <p>Zip this directory without .git litter and binaries using:</p>
 <div class="codehilite"><pre><span></span>git archive -prefix<span class="o">=</span>libigl/ -o libigl.zip master
@@ -79,7 +79,7 @@ each template.</p>
 output.</p>
 <p>Supposed for example we have compiled the igl static lib, including the
 cat.h and cat.cpp functions, without any explicit instantiation. Say
-using the makefile in the <code class="codehilite"><span class="n">libigl</span></code> directory:</p>
+using the makefile in the <code class="codehilite"><span class="err">libigl</span></code> directory:</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> <span class="nv">$LIBIGL</span>
 make
 </pre></div>
@@ -101,7 +101,7 @@ all. Just copy the first part in quotes</p>
 
 <p>, then append it
 to the list of explicit template instantiations at the end of
-<code class="codehilite"><span class="n">cat</span><span class="p">.</span><span class="n">cpp</span></code> after the word
+<code class="codehilite"><span class="err">cat.cpp</span></code> after the word
 <strong>template</strong> and followed by a semi-colon.
 Like this:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#ifdef IGL_STATIC_LIBRARY</span>

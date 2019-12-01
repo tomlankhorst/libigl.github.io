@@ -20,7 +20,7 @@
 <li>Eigen types: <strong>Eigen::Matrix, Eigen::SparseMatrix</strong></li>
 <li>User defined types: <strong>XMLSerializable*.</strong></li>
 </ul>
-<p>There can also be a hierarchical structure like <code class="codehilite"><span class="n">vector</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span></code>, this will result in the following serialization:</p>
+<p>There can also be a hierarchical structure like <code class="codehilite"><span class="err">vector&lt;int&gt;</span></code>, this will result in the following serialization:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
   <span class="nt">&lt;vector</span> <span class="na">size=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;value0</span> <span class="na">val=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
@@ -32,10 +32,10 @@
 
 
 <p>An example of a serialization of an instance of the class Test</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">Test</span>{
-  <span class="nb">int</span> <span class="n">var1</span>;
-  <span class="n">vector</span><span class="nv">&amp;ltfloat</span>&gt; <span class="n">vec1</span>;  
-};
+<div class="codehilite"><pre><span></span><span class="err">class Test{</span>
+<span class="err">  int var1;</span>
+<span class="err">  vector&amp;ltfloat&gt; vec1;  </span>
+<span class="err">};</span>
 </pre></div>
 
 
@@ -53,7 +53,7 @@
 
 
 <p>In the following we show the serialization of Eigen matrices.</p>
-<p><code class="codehilite"><span class="n">Eigen</span><span class="p">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;</span></code>:</p>
+<p><code class="codehilite"><span class="c">Eigen::Matrix&lt;int,4,3&gt;</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
   <span class="nt">&lt;matrix</span> <span class="na">row=</span><span class="s">&quot;4&quot;</span> <span class="na">col=</span><span class="s">&quot;3&quot;</span> <span class="na">matrix=</span><span class="s">&quot;</span>
 <span class="err">1,2,3,</span>
@@ -64,7 +64,7 @@
 </pre></div>
 
 
-<p><code class="codehilite"><span class="n">Eigen</span><span class="p">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="nb">int</span><span class="o">&gt;</span></code> (3x3 identity saved as triplets of the non-zero entries):</p>
+<p><code class="codehilite"><span class="c">Eigen::SparseMatrix&lt;int&gt;</span></code> (3x3 identity saved as triplets of the non-zero entries):</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;group&gt;</span>
   <span class="nt">&lt;matrix</span> <span class="na">row=</span><span class="s">&quot;3&quot;</span> <span class="na">col=</span><span class="s">&quot;3&quot;</span> <span class="na">matrix=</span><span class="s">&quot;</span>
 <span class="err">0,0,1,</span>

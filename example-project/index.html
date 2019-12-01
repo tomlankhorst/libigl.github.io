@@ -7,31 +7,31 @@ project using libigl.</p>
 <p>Then build, run and understand the <a href="../tutorial/">libigl tutorial</a>.</p>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>The only dependencies are the STL, <a href="https://libigl.github.io/">libigl</a>, Eigen3 (included in libigl) and
-the dependencies of the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code>.</p>
+the dependencies of the <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code>.</p>
 <p>libigl can be installed by cloning the git repository on your computer:
 <div class="codehilite"><pre><span></span>git clone https://github.com/libigl/libigl.git
 </pre></div>
 In the <a href="./#compilation">next section</a> we discuss how to find an existing copy of libigl when compiling the example project.</p>
 <p>For ease of use, it can be a good idea to place your example project right next to the libigl folder.
-For example, if libigl is installed in <code class="codehilite"><span class="o">~/</span><span class="n">foo</span><span class="o">/</span><span class="n">libigl</span></code>, then you can create a copy of the example project right next to it:
+For example, if libigl is installed in <code class="codehilite"><span class="err">~/foo/libigl</span></code>, then you can create a copy of the example project right next to it:
 <div class="codehilite"><pre><span></span>git clone https://github.com/libigl/libigl-example-project.git ~/foo/libigl-example-project
 </pre></div></p>
 <h2 id="compilation">Compilation<a class="headerlink" href="#compilation" title="Permanent link">&para;</a></h2>
 <p>Compile this project using the standard CMake routine:</p>
-<div class="codehilite"><pre><span></span><span class="n">mkdir</span> <span class="n">build</span>
-<span class="n">cd</span> <span class="n">build</span>
-<span class="n">cmake</span> <span class="p">..</span><span class="o">/</span>
-<span class="n">make</span>
+<div class="codehilite"><pre><span></span><span class="err">mkdir build</span>
+<span class="err">cd build</span>
+<span class="err">cmake ../</span>
+<span class="err">make</span>
 </pre></div>
 
 <p>Just make sure that CMake is able to find libigl.
 To do so CMake checks a few directories and environment variables, see <a href="https://github.com/libigl/libigl-example-project/blob/master/cmake/FindLIBIGL.cmake">FindLIBIGL.cmake</a>.
-If your libigl version is located elsewhere, you can set the environment variable <code class="codehilite"><span class="n">LIBIGL_DIR</span></code> to the root directory of libigl, or pass this variable when invoking CMake from the command line:
+If your libigl version is located elsewhere, you can set the environment variable <code class="codehilite"><span class="err">LIBIGL_DIR</span></code> to the root directory of libigl, or pass this variable when invoking CMake from the command line:
 <div class="codehilite"><pre><span></span>cmake -DLIBIGL_DIR<span class="o">=</span>&lt;path-to-libigl&gt; ..
 </pre></div></p>
-<p>This should find and build the dependencies and create a <code class="codehilite"><span class="n">example_bin</span></code> binary.</p>
+<p>This should find and build the dependencies and create a <code class="codehilite"><span class="err">example_bin</span></code> binary.</p>
 <h2 id="run">Run<a class="headerlink" href="#run" title="Permanent link">&para;</a></h2>
-<p>From within the <code class="codehilite"><span class="n">build</span></code> directory just issue:</p>
+<p>From within the <code class="codehilite"><span class="err">build</span></code> directory just issue:</p>
 <div class="codehilite"><pre><span></span>./example_bin
 </pre></div>
 

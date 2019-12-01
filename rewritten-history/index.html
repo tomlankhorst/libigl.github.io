@@ -11,14 +11,14 @@ See the full list of changes in the <a href="../RELEASE_HISTORY/">changelog</a>.
 <h3 id="why-are-we-doing-this">Why Are We Doing This?<a class="headerlink" href="#why-are-we-doing-this" title="Permanent link">&para;</a></h3>
 <p>libigl was always intended as lightweight library. Over the year, the size of the git repository grew significantly for various reasons: large binary assets being committed to the main repository, optional submodules growing in size, etc. To remedy this, we have changed the way external dependencies are handled. But to truly reduce the size of the repository to something manageable, it was necessary to prune large binary files from the git history. <strong>This means introducing breaking changes and invalidating existing commit SHA1 numbers.</strong></p>
 <h3 id="how-to-upgrade">How To Upgrade?<a class="headerlink" href="#how-to-upgrade" title="Permanent link">&para;</a></h3>
-<p>If you are using libigl as a <strong>submodule</strong>, I suggest you simply remove the submodule and add it again. To remove a submodule you can write (replacing <code class="codehilite"><span class="k">external</span><span class="o">/</span><span class="n">libigl</span></code> with the relative path to libigl in your repo):
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="n">deinit</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span>
-<span class="n">git</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span>
+<p>If you are using libigl as a <strong>submodule</strong>, I suggest you simply remove the submodule and add it again. To remove a submodule you can write (replacing <code class="codehilite"><span class="err">external/libigl</span></code> with the relative path to libigl in your repo):
+<div class="codehilite"><pre><span></span><span class="err">git submodule deinit external/libigl</span>
+<span class="err">git rm -rf external/libigl</span>
 </pre></div></p>
 <p>And to add it again:
-<div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="k">add</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">git</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span>
+<div class="codehilite"><pre><span></span><span class="err">git submodule add https://github.com/libigl/libigl.git external/libigl</span>
 </pre></div></p>
-<p>Before commmit your changes, here is what the output of <code class="codehilite"><span class="n">git</span> <span class="n">status</span></code> should look like:
+<p>Before commmit your changes, here is what the output of <code class="codehilite"><span class="err">git status</span></code> should look like:
 <div class="codehilite"><pre><span></span><span class="k">On</span> <span class="n">branch</span> <span class="n">master</span>
 <span class="n">Your</span> <span class="n">branch</span> <span class="k">is</span> <span class="n">up</span> <span class="k">to</span> <span class="nb">date</span> <span class="k">with</span> <span class="s1">&#39;origin/master&#39;</span><span class="p">.</span>
 
@@ -33,7 +33,7 @@ See the full list of changes in the <a href="../RELEASE_HISTORY/">changelog</a>.
 <span class="o">*</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span> <span class="mi">7371494</span><span class="p">...</span><span class="n">ed363da</span><span class="p">:</span>
   <span class="n">Warn</span><span class="p">:</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span> <span class="n">doesn</span><span class="err">&#39;</span><span class="n">t</span> <span class="n">contain</span> <span class="k">commit</span> <span class="mi">737149498</span><span class="n">ad3d25ea1a56dc4234a66d2876764ef</span>
 </pre></div></p>
-<p>The warning is normal: this is because submodule was referencing an old commit (<code class="codehilite"><span class="mi">7371494</span></code>) that no longer exists in the new history, but the new commit (<code class="codehilite"><span class="n">ed363da</span></code>) does.</p>
+<p>The warning is normal: this is because submodule was referencing an old commit (<code class="codehilite"><span class="err">7371494</span></code>) that no longer exists in the new history, but the new commit (<code class="codehilite"><span class="err">ed363da</span></code>) does.</p>
 <p>If you have an existing <strong>fork</strong> of libigl, we strongly suggest that you delete it and fork the project anew. You will not be able to create a PR with a fork that has the old history.
 If you have existing changes (e.g. from a pending PR), then simply apply the same changes on the newly forked project, and submit your PR again.</p>
 <p>If you are <strong>new</strong> to libigl, there is nothing to do: use the new repository normally, and enjoy the new lightness!</p>
@@ -43,86 +43,86 @@ If you have an old code the depends on a specific version of libigl, simply upda
 <h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h3>
 <h4 id="problem-1">Problem 1<a class="headerlink" href="#problem-1" title="Permanent link">&para;</a></h4>
 <p>I have an old project with a submodule using libigl, but it is pointing to an invalid commit number:</p>
-<div class="codehilite"><pre><span></span><span class="nv">Submodule</span> <span class="s1">&#39;</span><span class="s">libigl</span><span class="s1">&#39;</span> <span class="ss">(</span><span class="nv">git</span>@<span class="nv">github</span>.<span class="nv">com</span>:<span class="nv">libigl</span><span class="o">/</span><span class="nv">libigl</span>.<span class="nv">git</span><span class="ss">)</span> <span class="nv">registered</span> <span class="k">for</span> <span class="nv">path</span> <span class="s1">&#39;</span><span class="s">external/libigl</span><span class="s1">&#39;</span>
-<span class="nv">Cloning</span> <span class="nv">into</span> <span class="s1">&#39;</span><span class="s">/home/user/foo/libigl-example-project/external/libigl</span><span class="s1">&#39;</span>...
-<span class="nv">error</span>: <span class="nv">Server</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">allow</span> <span class="nv">request</span> <span class="k">for</span> <span class="nv">unadvertised</span> <span class="nv">object</span> <span class="mi">03536</span><span class="nv">c4aa44a399ed7134b68f04cf3773edebc73</span>
-<span class="nv">Fetched</span> <span class="nv">in</span> <span class="nv">submodule</span> <span class="nv">path</span> <span class="s1">&#39;</span><span class="s">external/libigl</span><span class="s1">&#39;</span>, <span class="nv">but</span> <span class="nv">it</span> <span class="nv">did</span> <span class="nv">not</span> <span class="nv">contain</span> <span class="mi">03536</span><span class="nv">c4aa44a399ed7134b68f04cf3773edebc73</span>. <span class="nv">Direct</span> <span class="nv">fetching</span> <span class="nv">of</span> <span class="nv">that</span> <span class="nv">commit</span> <span class="nv">failed</span>.
+<div class="codehilite"><pre><span></span><span class="err">Submodule &#39;libigl&#39; (git@github.com:libigl/libigl.git) registered for path &#39;external/libigl&#39;</span>
+<span class="err">Cloning into &#39;/home/user/foo/libigl-example-project/external/libigl&#39;...</span>
+<span class="c">error: Server does not allow request for unadvertised object 03536c4aa44a399ed7134b68f04cf3773edebc73</span>
+<span class="err">Fetched in submodule path &#39;external/libigl&#39;, but it did not contain 03536c4aa44a399ed7134b68f04cf3773edebc73. Direct fetching of that commit failed.</span>
 </pre></div>
 
 <details class="faq"><summary>How to fix</summary><h4 id="steps-to-reproduce-the-problem">Steps to reproduce the problem:<a class="headerlink" href="#steps-to-reproduce-the-problem" title="Permanent link">&para;</a></h4>
 <ol>
-<li>Suppose we have a parent project with libigl submodule in <code class="codehilite"><span class="k">external</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span></code>.</li>
+<li>Suppose we have a parent project with libigl submodule in <code class="codehilite"><span class="err">external/libigl/</span></code>.</li>
 <li>Clone the parent repository
-    <div class="codehilite"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">clone</span><span class="w"> </span><span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">gabuzome</span><span class="o">/</span><span class="n">libigl</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="n">project</span><span class="p">.</span><span class="n">git</span><span class="w"></span>
+    <div class="codehilite"><pre><span></span><span class="err">git clone git@github.com:gabuzome/libigl-example-project.git</span>
 </pre></div></li>
 <li>Try to initialize the submodules with the command
-    <div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init --recursive</span>
+    <div class="codehilite"><pre><span></span><span class="err">git submodule update --init --recursive</span>
 </pre></div>
    this should produces the error you see above.</li>
 </ol>
 <h4 id="steps-to-fix-the-problem-execute-in-that-order">Steps to fix the problem (execute <em>in that order</em>):<a class="headerlink" href="#steps-to-fix-the-problem-execute-in-that-order" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Delete the local folder that contained the submodule
-   <div class="codehilite"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span>
+   <div class="codehilite"><pre><span></span><span class="err">rm -rf external/libigl/</span>
 </pre></div></li>
 <li>Delete the corrupted copy in the <code class="codehilite"><span class="na">.git</span><span class="err">/</span></code> folder
-   <div class="codehilite"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="p">.</span><span class="n">git</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="k">external</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span>
+   <div class="codehilite"><pre><span></span><span class="err">rm -rf .git/modules/external/libigl/</span>
 </pre></div></li>
-<li>Change the <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="n">libigl</span><span class="p">.</span><span class="n">git</span></code> to <code class="codehilite"><span class="n">libigl</span><span class="o">/</span><span class="n">libigl</span><span class="o">-</span><span class="n">legacy</span><span class="p">.</span><span class="n">git</span></code> in the <code class="codehilite"><span class="na">.gitmodules</span></code> file. <blockquote>
+<li>Change the <code class="codehilite"><span class="err">libigl/libigl.git</span></code> to <code class="codehilite"><span class="err">libigl/libigl-legacy.git</span></code> in the <code class="codehilite"><span class="na">.gitmodules</span></code> file. <blockquote>
 <p>Or issue, on Linux
-   <div class="codehilite"><pre><span></span><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;s|libigl/libigl.git|libigl/libigl-legacy.git|&#39;</span> <span class="p">.</span><span class="n">gitmodules</span>
+   <div class="codehilite"><pre><span></span><span class="err">sed -i &#39;s|libigl/libigl.git|libigl/libigl-legacy.git|&#39; .gitmodules</span>
 </pre></div>
 Or issue, on Mac OS X
-   <div class="codehilite"><pre><span></span><span class="n">sed</span> <span class="o">-</span><span class="n">i</span> <span class="s1">&#39;&#39;</span> <span class="s1">&#39;s|libigl/libigl.git|libigl/libigl-legacy.git|&#39;</span> <span class="p">.</span><span class="n">gitmodules</span>
+   <div class="codehilite"><pre><span></span><span class="err">sed -i &#39;&#39; &#39;s|libigl/libigl.git|libigl/libigl-legacy.git|&#39; .gitmodules</span>
 </pre></div>
 </p>
 </blockquote>
 </li>
 <li>Update local configuration of your submodule repos with the new URL
-    <div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="n">sync</span>
+    <div class="codehilite"><pre><span></span><span class="err">git submodule sync</span>
 </pre></div></li>
 <li>Clone the submodule with the new address
-    <div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init --recursive</span>
+    <div class="codehilite"><pre><span></span><span class="err">git submodule update --init --recursive</span>
 </pre></div></li>
 </ol>
 </details>
 <h4 id="problem-2">Problem 2<a class="headerlink" href="#problem-2" title="Permanent link">&para;</a></h4>
 <p>I have a problem with my current project that I want to update to the latest version, but I messed up my submodule and somehow get this error message:</p>
-<div class="codehilite"><pre><span></span><span class="nv">A</span> <span class="nv">git</span> <span class="nv">directory</span> <span class="k">for</span> <span class="s1">&#39;</span><span class="s">external/libigl</span><span class="s1">&#39;</span> <span class="nv">is</span> <span class="nv">found</span> <span class="nv">locally</span> <span class="nv">with</span> <span class="nv">remote</span><span class="ss">(</span><span class="nv">s</span><span class="ss">)</span>:
-  <span class="nv">origin</span>  <span class="nv">https</span>:<span class="o">//</span><span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">libigl</span><span class="o">/</span><span class="nv">libigl</span>.<span class="nv">git</span>
-<span class="k">If</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">reuse</span> <span class="nv">this</span> <span class="nv">local</span> <span class="nv">git</span> <span class="nv">directory</span> <span class="nv">instead</span> <span class="nv">of</span> <span class="nv">cloning</span> <span class="nv">again</span> <span class="nv">from</span>
-  <span class="nv">https</span>:<span class="o">//</span><span class="nv">github</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">libigl</span><span class="o">/</span><span class="nv">libigl</span>.<span class="nv">git</span>
-<span class="nv">use</span> <span class="nv">the</span> <span class="s1">&#39;</span><span class="s">--force</span><span class="s1">&#39;</span> <span class="nv">option</span>. <span class="k">If</span> <span class="nv">the</span> <span class="nv">local</span> <span class="nv">git</span> <span class="nv">directory</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">the</span> <span class="nv">correct</span> <span class="nv">repo</span>
-<span class="nv">or</span> <span class="nv">you</span> <span class="nv">are</span> <span class="nv">unsure</span> <span class="nv">what</span> <span class="nv">this</span> <span class="nv">means</span> <span class="nv">choose</span> <span class="nv">another</span> <span class="nv">name</span> <span class="nv">with</span> <span class="nv">the</span> <span class="s1">&#39;</span><span class="s">--name</span><span class="s1">&#39;</span> <span class="nv">option</span>.
+<div class="codehilite"><pre><span></span><span class="err">A git directory for &#39;external/libigl&#39; is found locally with remote(s):</span>
+<span class="err">  origin  https://github.com/libigl/libigl.git</span>
+<span class="err">If you want to reuse this local git directory instead of cloning again from</span>
+<span class="err">  https://github.com/libigl/libigl.git</span>
+<span class="err">use the &#39;--force&#39; option. If the local git directory is not the correct repo</span>
+<span class="err">or you are unsure what this means choose another name with the &#39;--name&#39; option.</span>
 </pre></div>
 
 <details class="faq"><summary>How to fix</summary><h4 id="steps-to-fix-the-problem-execute-in-that-order_1">Steps to fix the problem (execute <em>in that order</em>):<a class="headerlink" href="#steps-to-fix-the-problem-execute-in-that-order_1" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Delete the local folder that contained the submodule
-   <div class="codehilite"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="k">external</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span>
+   <div class="codehilite"><pre><span></span><span class="err">rm -rf external/libigl/</span>
 </pre></div></li>
 <li>Delete the corrupted copy in the <code class="codehilite"><span class="na">.git</span><span class="err">/</span></code> folder
-   <div class="codehilite"><pre><span></span><span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="p">.</span><span class="n">git</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span><span class="k">external</span><span class="o">/</span><span class="n">libigl</span><span class="o">/</span>
+   <div class="codehilite"><pre><span></span><span class="err">rm -rf .git/modules/external/libigl/</span>
 </pre></div></li>
 <li>Update local configuration of your submodule repos with the new URL
-    <div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="n">sync</span>
+    <div class="codehilite"><pre><span></span><span class="err">git submodule sync</span>
 </pre></div></li>
 <li>Clone the submodule to the current tip of the repository
-    <div class="codehilite"><pre><span></span><span class="n">git</span> <span class="n">submodule</span> <span class="k">update</span> <span class="c1">--init --recursive</span>
+    <div class="codehilite"><pre><span></span><span class="err">git submodule update --init --recursive</span>
 </pre></div></li>
 </ol>
 </details>
 <h4 id="problem-3">Problem 3<a class="headerlink" href="#problem-3" title="Permanent link">&para;</a></h4>
 <p>I have updated my submodule to the latest version of libigl, but the CMake script is complaining about missing targets.</p>
 <details class="faq"><summary>How to fix</summary><p>The files in the libigl repository have been restructured a little bit.
-The CMake build script are now located under <code class="codehilite"><span class="n">cmake</span><span class="o">/</span></code> instead of <code class="codehilite"><span class="n">shared</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span></code>.
-Please check out the latest version of the <a href="https://github.com/libigl/libigl-example-project/blob/master/cmake/FindLIBIGL.cmake">FindLIBIGL.cmake</a> from the <code class="codehilite"><span class="n">libigl</span><span class="o">-</span><span class="n">example</span><span class="o">-</span><span class="n">project</span></code>.</p>
+The CMake build script are now located under <code class="codehilite"><span class="err">cmake/</span></code> instead of <code class="codehilite"><span class="err">shared/cmake/</span></code>.
+Please check out the latest version of the <a href="https://github.com/libigl/libigl-example-project/blob/master/cmake/FindLIBIGL.cmake">FindLIBIGL.cmake</a> from the <code class="codehilite"><span class="err">libigl-example-project</span></code>.</p>
 </details>
 <h4 id="problem-4">Problem 4<a class="headerlink" href="#problem-4" title="Permanent link">&para;</a></h4>
 <p>I have an existing fork with some changes, how do I update it to the latest version of libigl?</p>
 <details class="faq"><summary>How to fix</summary><p>For now we advise that you keep a copy of your legacy fork (you can rename/archive your existing fork, etc.),
 and create a new fork from the current libigl repository. If you have existing changes that you would like
-to merge, you can also try to <code class="codehilite"><span class="n">cherry</span><span class="o">-</span><span class="n">pick</span></code> the individual commits, but the simplest solution might to recreate
+to merge, you can also try to <code class="codehilite"><span class="err">cherry-pick</span></code> the individual commits, but the simplest solution might to recreate
 new commits with the desired changes.</p>
 </details>
 <h4 id="other-problems">Other Problems<a class="headerlink" href="#other-problems" title="Permanent link">&para;</a></h4>

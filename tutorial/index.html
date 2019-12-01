@@ -42,7 +42,7 @@ repository</a> or cloned with git:</p>
 </pre></div>
 
 <p>The core libigl functionality only depends on the C++ Standard Library and
-Eigen. <em>Optional dependencies</em> will be downloaded upon issuing <code class="codehilite"><span class="n">cmake</span></code>, below.</p>
+Eigen. <em>Optional dependencies</em> will be downloaded upon issuing <code class="codehilite"><span class="err">cmake</span></code>, below.</p>
 <p>To build all the examples in the tutorial (and tests), you can use the CMakeLists.txt in
 the root folder:</p>
 <div class="codehilite"><pre><span></span><span class="nb">cd</span> libigl/
@@ -54,7 +54,7 @@ make
 
 <div class="admonition note">
 <p class="admonition-title">Note about CGAL</p>
-<p>The <em>optional</em> dependency <a href="https://www.cgal.org">CGAL</a> has been notoriously difficult for installation (in turn it also depends on boost). Unlike the other optional dependencies, by default CGAL is <em>not</em> downloaded upon issuing the <code class="codehilite"><span class="n">cmake</span></code> command above and the corresponding tutorial entries will be skipped. To download CGAL and include those entries, issue</p>
+<p>The <em>optional</em> dependency <a href="https://www.cgal.org">CGAL</a> has been notoriously difficult for installation (in turn it also depends on boost). Unlike the other optional dependencies, by default CGAL is <em>not</em> downloaded upon issuing the <code class="codehilite"><span class="err">cmake</span></code> command above and the corresponding tutorial entries will be skipped. To download CGAL and include those entries, issue</p>
 <div class="codehilite"><pre><span></span>cmake -DLIBIGL_WITH_CGAL<span class="o">=</span>ON ../
 </pre></div>
 
@@ -110,16 +110,16 @@ reference guides at hand while you read the examples in this tutorial.</p>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">F</span><span class="p">;</span>
 </pre></div>
 
-<p><code class="codehilite"><span class="n">V</span></code> is a #N by 3 matrix which stores the coordinates of the vertices. Each
+<p><code class="codehilite"><span class="err">V</span></code> is a #N by 3 matrix which stores the coordinates of the vertices. Each
 row stores the coordinate of a vertex, with its x,y and z coordinates in the first,
-second and third column, respectively. The matrix <code class="codehilite"><span class="n">F</span></code> stores the triangle
-connectivity: each line of <code class="codehilite"><span class="n">F</span></code> denotes a triangle whose 3 vertices are
-represented as indices pointing to rows of <code class="codehilite"><span class="n">V</span></code>.</p>
+second and third column, respectively. The matrix <code class="codehilite"><span class="err">F</span></code> stores the triangle
+connectivity: each line of <code class="codehilite"><span class="err">F</span></code> denotes a triangle whose 3 vertices are
+represented as indices pointing to rows of <code class="codehilite"><span class="err">V</span></code>.</p>
 <p>
 <figure><img src="../images/VF.png" /><figcaption>A simple mesh made of 2 triangles and 4 vertices.</figcaption>
 </figure>
 </p>
-<p>Note that the order of the vertex indices in <code class="codehilite"><span class="n">F</span></code> determines the orientation of
+<p>Note that the order of the vertex indices in <code class="codehilite"><span class="err">F</span></code> determines the orientation of
 the triangles and it should thus be consistent for the entire surface.
 This simple representation has many advantages:</p>
 <ol>
@@ -135,7 +135,7 @@ By default, the .h files include the corresponding cpp files, making the library
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">readOFF</span><span class="p">(</span><span class="n">TUTORIAL_SHARED_PATH</span> <span class="s">&quot;/cube.off&quot;</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">F</span><span class="p">);</span>
 </pre></div>
 
-<p>The function reads the mesh cube.off and it fills the provided <code class="codehilite"><span class="n">V</span></code> and <code class="codehilite"><span class="n">F</span></code> matrices.
+<p>The function reads the mesh cube.off and it fills the provided <code class="codehilite"><span class="err">V</span></code> and <code class="codehilite"><span class="err">F</span></code> matrices.
 Similarly, a mesh can be written in an OBJ file using:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">writeOBJ</span><span class="p">(</span><span class="s">&quot;cube.obj&quot;</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 </pre></div>
@@ -167,8 +167,8 @@ render it.</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>The function <code class="codehilite"><span class="n">set_mesh</span></code> copies the mesh into the viewer.
-<code class="codehilite"><span class="n">Viewer</span><span class="p">.</span><span class="n">launch</span><span class="p">()</span></code>  creates a window, an OpenGL context and it starts the draw loop.
+<p>The function <code class="codehilite"><span class="err">set_mesh</span></code> copies the mesh into the viewer.
+<code class="codehilite"><span class="err">Viewer.launch()</span></code>  creates a window, an OpenGL context and it starts the draw loop.
 Additional properties can be plotted on the mesh (as we will see later),
 and it is possible to extend the viewer with standard OpenGL code.
 Please see the documentation in
@@ -230,28 +230,28 @@ set_colors function:</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_colors</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p><code class="codehilite"><span class="k">C</span></code> is a #C by 3 matrix with one RGB color per row. <code class="codehilite"><span class="k">C</span></code> must have as many
+<p><code class="codehilite"><span class="err">C</span></code> is a #C by 3 matrix with one RGB color per row. <code class="codehilite"><span class="err">C</span></code> must have as many
 rows as the number of faces <strong>or</strong> the number of vertices of the mesh.
-Depending on the size of <code class="codehilite"><span class="k">C</span></code>, the viewer applies the color to the faces or to
+Depending on the size of <code class="codehilite"><span class="err">C</span></code>, the viewer applies the color to the faces or to
 the vertices.</p>
 <p>Colors can be used to visualize a scalar function defined on a surface.  The
 scalar function is converted to colors using a color transfer function, which
 maps a scalar value between 0 and 1 to a color. A simple example of a scalar
 field defined on a surface is the z coordinate of each point, which can be
-extract from our mesh representation by taking the last column of <code class="codehilite"><span class="n">V</span></code>
-(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>). The function <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">jet</span></code> can be used to
+extract from our mesh representation by taking the last column of <code class="codehilite"><span class="err">V</span></code>
+(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>). The function <code class="codehilite"><span class="c">igl::jet</span></code> can be used to
 convert it to colors:</p>
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">jet</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p>The first row extracts the third column from <code class="codehilite"><span class="n">V</span></code> (the z coordinate of each
+<p>The first row extracts the third column from <code class="codehilite"><span class="err">V</span></code> (the z coordinate of each
 vertex) and the second calls a libigl functions that converts a scalar field to colors. The second parameter of jet normalizes the scalar field to lie between 0 and 1 before applying the transfer function.</p>
 <p>
 <figure><img src="../images/104_Colors.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>) igl::jet converts a scalar field to a color field.</figcaption>
 </figure>
 </p>
-<p><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">jet</span></code> is an example of a standard function in libigl: it takes simple
+<p><code class="codehilite"><span class="c">igl::jet</span></code> is an example of a standard function in libigl: it takes simple
 types and can be easily reused for many different tasks.  Not committing to
 heavy data structures types favors simplicity, ease of use and reusability.</p>
 <h3 id="overlays">Overlays<a class="headerlink" href="#overlays" title="Permanent link">&para;</a></h3>
@@ -272,7 +272,7 @@ heavy data structures types favors simplicity, ease of use and reusability.</p>
 the bounding box of a mesh is plotted using lines and points.
 Using matrices to encode the mesh and its attributes allows to write short and
 efficient code for many operations, avoiding to write for loops. For example,
-the bounding box of a mesh can be found by taking the colwise maximum and minimum of <code class="codehilite"><span class="n">V</span></code>:</p>
+the bounding box of a mesh can be found by taking the colwise maximum and minimum of <code class="codehilite"><span class="err">V</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">m</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">minCoeff</span><span class="p">();</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span> <span class="n">M</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">();</span>
 </pre></div>
@@ -366,24 +366,24 @@ viewer and to expose more user defined variables you have to implement a custom 
 </figure>
 </p>
 <h3 id="multiple-meshes">Multiple Meshes<a class="headerlink" href="#multiple-meshes" title="Permanent link">&para;</a></h3>
-<p>Libigl&rsquo;s <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code> provides basic support for rendering
+<p>Libigl&rsquo;s <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code> provides basic support for rendering
 multiple meshes.</p>
-<p>Which mesh is <em>selected</em> is controlled via the <code class="codehilite"><span class="n">viewer</span><span class="p">.</span><span class="n">selected_data_index</span></code>
-field. By default the index is set to <code class="codehilite"><span class="mi">0</span></code>, so in the typical case of a single mesh
-<code class="codehilite"><span class="n">viewer</span><span class="p">.</span><span class="k">data</span><span class="p">()</span></code> returns the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">ViewerData</span></code> corresponding to the one
+<p>Which mesh is <em>selected</em> is controlled via the <code class="codehilite"><span class="err">viewer.selected_data_index</span></code>
+field. By default the index is set to <code class="codehilite"><span class="err">0</span></code>, so in the typical case of a single mesh
+<code class="codehilite"><span class="err">viewer.data()</span></code> returns the <code class="codehilite"><span class="c">igl::ViewerData</span></code> corresponding to the one
 and only mesh.</p>
 <p>
-<figure><img src="../images/multiple-meshes.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/107_MultipleMeshes/main.cpp">Example 107</a>) The <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code> can render multiple meshes, each with its own attributes like colors.</figcaption>
+<figure><img src="../images/multiple-meshes.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/107_MultipleMeshes/main.cpp">Example 107</a>) The <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code> can render multiple meshes, each with its own attributes like colors.</figcaption>
 </figure>
 </p>
 <h3 id="multiple-views">Multiple Views<a class="headerlink" href="#multiple-views" title="Permanent link">&para;</a></h3>
-<p>Libigl&rsquo;s <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code> provides basic support for rendering meshes with multiple views.</p>
-<p>A new view core can be added to the viewer using the <code class="codehilite"><span class="n">Viewer</span><span class="p">::</span><span class="n">append_core</span><span class="p">()</span></code> method.
+<p>Libigl&rsquo;s <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code> provides basic support for rendering meshes with multiple views.</p>
+<p>A new view core can be added to the viewer using the <code class="codehilite"><span class="c">Viewer::append_core()</span></code> method.
 There can be a maximum of 31 cores created through the life of any viewer.
-Each core is assigned an <code class="codehilite"><span class="n">unsigned</span> <span class="nb">int</span></code> <strong>id</strong> that is guaranteed to be unique.
-A core can be accessed by its id calling the <code class="codehilite"><span class="n">Viewer</span><span class="p">::</span><span class="n">core</span><span class="p">(</span><span class="n">id</span><span class="p">)</span></code> method.</p>
+Each core is assigned an <code class="codehilite"><span class="err">unsigned int</span></code> <strong>id</strong> that is guaranteed to be unique.
+A core can be accessed by its id calling the <code class="codehilite"><span class="c">Viewer::core(id)</span></code> method.</p>
 <p>When there are more than one view core, the user is responsible for specifying each
-viewport&rsquo;s size and position by setting their <code class="codehilite"><span class="n">viewport</span></code> attribute. The user must also
+viewport&rsquo;s size and position by setting their <code class="codehilite"><span class="err">viewport</span></code> attribute. The user must also
 indicates how to resize each viewport when the size of the window changes. For example:</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">callback_post_resize</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">igl</span><span class="o">::</span><span class="n">opengl</span><span class="o">::</span><span class="n">glfw</span><span class="o">::</span><span class="n">Viewer</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">,</span> <span class="kt">int</span> <span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">h</span><span class="p">)</span> <span class="p">{</span>
   <span class="n">v</span><span class="p">.</span><span class="n">core</span><span class="p">(</span> <span class="n">left_view</span><span class="p">).</span><span class="n">viewport</span> <span class="o">=</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector4f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="p">);</span>
@@ -393,8 +393,8 @@ indicates how to resize each viewport when the size of the window changes. For e
 </pre></div>
 
 <p>Note that the viewport currently hovered by the mouse can be selected using the
-<code class="codehilite"><span class="n">Viewer</span><span class="p">::</span><span class="n">selected_core_index</span><span class="p">()</span></code> method, and the selected view core can then be
-accessed by calling <code class="codehilite"><span class="n">viewer</span><span class="p">.</span><span class="n">core_list</span><span class="p">[</span><span class="n">viewer</span><span class="p">.</span><span class="n">selected_core_index</span><span class="p">]</span></code>.</p>
+<code class="codehilite"><span class="c">Viewer::selected_core_index()</span></code> method, and the selected view core can then be
+accessed by calling <code class="codehilite"><span class="err">viewer.core_list[viewer.selected_core_index]</span></code>.</p>
 <p>Finally, the visibility of a mesh on a given view core is controlled by a bitmask flag per mesh.
 This property can be easily controlled by calling the method</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">mesh_id</span><span class="p">).</span><span class="n">set_visible</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="n">view_id</span><span class="p">);</span>
@@ -402,9 +402,9 @@ This property can be easily controlled by calling the method</p>
 
 <p>When appending a new mesh or a new view core, an optional argument controls the visibility
 of the existing objects with respect to the new mesh/view. Please refer to the documentation
-of <code class="codehilite"><span class="n">Viewer</span><span class="p">::</span><span class="n">append_mesh</span><span class="p">()</span></code> and <code class="codehilite"><span class="n">Viewer</span><span class="p">::</span><span class="n">append_core</span><span class="p">()</span></code> for more details.</p>
+of <code class="codehilite"><span class="c">Viewer::append_mesh()</span></code> and <code class="codehilite"><span class="c">Viewer::append_core()</span></code> for more details.</p>
 <p>
-<figure><img src="../images/108_MultipleViews.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/108_MultipleViews/main.cpp">Example 108</a>) The <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">glfw</span><span class="p">::</span><span class="n">Viewer</span></code> can render the same scene using multiple views, each with its own attributes like colors, and individual mesh visibility.</figcaption>
+<figure><img src="../images/108_MultipleViews.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/108_MultipleViews/main.cpp">Example 108</a>) The <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code> can render the same scene using multiple views, each with its own attributes like colors, and individual mesh visibility.</figcaption>
 </figure>
 </p>
 <h2 id="chapter-2-discrete-geometric-quantities-and-operators">Chapter 2: Discrete Geometric Quantities And Operators<a class="headerlink" href="#chapter-2-discrete-geometric-quantities-and-operators" title="Permanent link">&para;</a></h2>
@@ -460,7 +460,7 @@ designer, but creases and corners can also be computed automatically. Libigl
 implements a simple scheme which computes corner normals as averages of
 normals of faces incident on the corresponding vertex which do not deviate by more than a specified dihedral angle (e.g. 20°).</p>
 <p>
-<figure><img src="../images/fandisk-normals.jpg" /><figcaption>The <code class="codehilite"><span class="n">Normals</span></code> example computes per-face (left), per-vertex (middle) and per-corner (right) normals</figcaption>
+<figure><img src="../images/fandisk-normals.jpg" /><figcaption>The <code class="codehilite"><span class="err">Normals</span></code> example computes per-face (left), per-vertex (middle) and per-corner (right) normals</figcaption>
 </figure>
 </p>
 <h3 id="gaussian-curvature">Gaussian Curvature<a class="headerlink" href="#gaussian-curvature" title="Permanent link">&para;</a></h3>
@@ -481,7 +481,7 @@ at vertex <span><span class="MathJax_Preview">i</span><script type="math/tex">i<
 <p>Just like the continuous analog, our discrete Gaussian curvature reveals
 elliptic, hyperbolic and parabolic vertices on the domain, as demonstrated in <a href="https://github.com/libigl/libigl/tree/master/tutorial/202_GaussianCurvature/main.cpp">Example 202</a>.</p>
 <p>
-<figure><img src="../images/bumpy-gaussian-curvature.jpg" /><figcaption>The <code class="codehilite"><span class="n">GaussianCurvature</span></code> example computes discrete Gaussian curvature and visualizes it in pseudocolor.</figcaption>
+<figure><img src="../images/bumpy-gaussian-curvature.jpg" /><figcaption>The <code class="codehilite"><span class="err">GaussianCurvature</span></code> example computes discrete Gaussian curvature and visualizes it in pseudocolor.</figcaption>
 </figure>
 </p>
 <h3 id="curvature-directions">Curvature Directions<a class="headerlink" href="#curvature-directions" title="Permanent link">&para;</a></h3>
@@ -519,7 +519,7 @@ best-fit quadric is found and principal curvature values and directions are
 analytically computed on this quadric (<a href="https://github.com/libigl/libigl/tree/master/tutorial/203_CurvatureDirections/main.cpp">Example
 203</a>).</p>
 <p>
-<figure><img src="../images/fertility-principal-curvature.jpg" /><figcaption>The <code class="codehilite"><span class="n">CurvatureDirections</span></code> example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field.</figcaption>
+<figure><img src="../images/fertility-principal-curvature.jpg" /><figcaption>The <code class="codehilite"><span class="err">CurvatureDirections</span></code> example computes principal curvatures via quadric fitting and visualizes mean curvature in pseudocolor and principal directions with a cross field.</figcaption>
 </figure>
 </p>
 <h3 id="gradient">Gradient<a class="headerlink" href="#gradient" title="Permanent link">&para;</a></h3>
@@ -548,10 +548,10 @@ as a matrix multiplication taking vertex values to triangle values:</p>
 <p>where <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> is <span><span class="MathJax_Preview">n\times 1</span><script type="math/tex">n\times 1</script></span> and <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> is an <span><span class="MathJax_Preview">md\times n</span><script type="math/tex">md\times n</script></span> sparse
 matrix. This matrix <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> can be derived geometrically, e.g.
 ch. 2<sup id="fnref:jacobson_thesis_2013"><a class="footnote-ref" href="#fn:jacobson_thesis_2013">1</a></sup>.
-Libigl&rsquo;s <code class="codehilite"><span class="n">grad</span></code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
+Libigl&rsquo;s <code class="codehilite"><span class="err">grad</span></code> function computes <span><span class="MathJax_Preview">\mathbf{G}</span><script type="math/tex">\mathbf{G}</script></span> for
 triangle and tetrahedral meshes (<a href="https://github.com/libigl/libigl/tree/master/tutorial/204_Gradient/main.cpp">Example 204</a>):</p>
 <p>
-<figure><img src="../images/cheburashka-gradient.jpg" /><figcaption>The <code class="codehilite"><span class="n">Gradient</span></code> example computes gradients of an input function on a mesh and visualizes the vector field.</figcaption>
+<figure><img src="../images/cheburashka-gradient.jpg" /><figcaption>The <code class="codehilite"><span class="err">Gradient</span></code> example computes gradients of an input function on a mesh and visualizes the vector field.</figcaption>
 </figure>
 </p>
 <h3 id="laplacian">Laplacian<a class="headerlink" href="#laplacian" title="Permanent link">&para;</a></h3>
@@ -619,7 +619,7 @@ book&rdquo; FEM construction which involves many (small) matrix inversions, cf.
 <p>The operator applied to mesh vertex positions amounts to smoothing by <em>flowing</em>
 the surface along the mean curvature normal direction (<a href="https://github.com/libigl/libigl/tree/master/tutorial/205_Laplacian/main.cpp">Example 205</a>). Note that this is equivalent to minimizing surface area.</p>
 <p>
-<figure><img src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite"><span class="n">Laplacian</span></code> example computes conformalized mean curvature flow using the cotangent Laplacian <sup id="fnref:kazhdan_2012"><a class="footnote-ref" href="#fn:kazhdan_2012">2</a></sup>.</figcaption>
+<figure><img src="../images/cow-curvature-flow.jpg" /><figcaption>The <code class="codehilite"><span class="err">Laplacian</span></code> example computes conformalized mean curvature flow using the cotangent Laplacian <sup id="fnref:kazhdan_2012"><a class="footnote-ref" href="#fn:kazhdan_2012">2</a></sup>.</figcaption>
 </figure>
 </p>
 <h4 id="mass-matrix">Mass Matrix<a class="headerlink" href="#mass-matrix" title="Permanent link">&para;</a></h4>
@@ -669,7 +669,7 @@ computes the closest geodesic distances of each vertex in VT or face in FT, from
 the source vertices VS or faces FS of the input mesh V,F. The output is written
 in the vector d, which lists first the distances for the vertices in VT, and
 then for the faces in FT. For example, if you want to compute the distance from
-the vertex with id <code class="codehilite"><span class="n">vid</span></code>, to all vertices of F you can use:
+the vertex with id <code class="codehilite"><span class="err">vid</span></code>, to all vertices of F you can use:
 <div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXi</span> <span class="n">VS</span><span class="p">,</span><span class="n">FS</span><span class="p">,</span><span class="n">VT</span><span class="p">,</span><span class="n">FT</span><span class="p">;</span>
 <span class="c1">// The selected vertex is the source</span>
 <span class="n">VS</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -697,10 +697,10 @@ the Matlab code:</p>
 <div class="codehilite"><pre><span></span><span class="n">B</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p>If <code class="codehilite"><span class="n">A</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix and <code class="codehilite"><span class="n">R</span></code> is a <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>-long list of row-indices
-(between 1 and <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>) and <code class="codehilite"><span class="k">C</span></code> is a <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-long list of column-indices, then as a
-result <code class="codehilite"><span class="n">B</span></code> will be a <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix drawing elements from <code class="codehilite"><span class="n">A</span></code> according to
-<code class="codehilite"><span class="n">R</span></code> and <code class="codehilite"><span class="k">C</span></code>. In libigl, the same functionality is provided by the <code class="codehilite"><span class="n">slice</span></code>
+<p>If <code class="codehilite"><span class="err">A</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix and <code class="codehilite"><span class="err">R</span></code> is a <span><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>-long list of row-indices
+(between 1 and <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>) and <code class="codehilite"><span class="err">C</span></code> is a <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-long list of column-indices, then as a
+result <code class="codehilite"><span class="err">B</span></code> will be a <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix drawing elements from <code class="codehilite"><span class="err">A</span></code> according to
+<code class="codehilite"><span class="err">R</span></code> and <code class="codehilite"><span class="err">C</span></code>. In libigl, the same functionality is provided by the <code class="codehilite"><span class="err">slice</span></code>
 function (<a href="https://github.com/libigl/libigl/tree/master/tutorial/301_Slice/main.cpp">Example 301</a>):</p>
 <div class="codehilite"><pre><span></span><span class="n">VectorXi</span> <span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">;</span>
 <span class="n">MatrixXd</span> <span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">;</span>
@@ -708,19 +708,19 @@ function (<a href="https://github.com/libigl/libigl/tree/master/tutorial/301_Sli
 <span class="n">igl</span><span class="o">::</span><span class="n">slice</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">B</span><span class="p">);</span>
 </pre></div>
 
-<p>Note that <code class="codehilite"><span class="n">A</span></code> and <code class="codehilite"><span class="n">B</span></code> could also be sparse matrices.</p>
+<p>Note that <code class="codehilite"><span class="err">A</span></code> and <code class="codehilite"><span class="err">B</span></code> could also be sparse matrices.</p>
 <p>Similarly, consider the Matlab code:</p>
 <div class="codehilite"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">)</span> <span class="p">=</span> <span class="n">B</span><span class="p">;</span>
 </pre></div>
 
-<p>Now, the selection is on the left-hand side so the <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix  <code class="codehilite"><span class="n">B</span></code> is
-being <em>written into</em> the submatrix of <code class="codehilite"><span class="n">A</span></code> determined by <code class="codehilite"><span class="n">R</span></code> and <code class="codehilite"><span class="k">C</span></code>. This
-functionality is provided in libigl using <code class="codehilite"><span class="n">slice_into</span></code>:</p>
+<p>Now, the selection is on the left-hand side so the <span><span class="MathJax_Preview">j \times k</span><script type="math/tex">j \times k</script></span> matrix  <code class="codehilite"><span class="err">B</span></code> is
+being <em>written into</em> the submatrix of <code class="codehilite"><span class="err">A</span></code> determined by <code class="codehilite"><span class="err">R</span></code> and <code class="codehilite"><span class="err">C</span></code>. This
+functionality is provided in libigl using <code class="codehilite"><span class="err">slice_into</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">slice_into</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
 
 <p>
-<figure><img src="../images/decimated-knight-slice-color.jpg" /><figcaption>The example <code class="codehilite"><span class="n">Slice</span></code> shows how to use <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice</span></code> to change the colors for triangles on a mesh.</figcaption>
+<figure><img src="../images/decimated-knight-slice-color.jpg" /><figcaption>The example <code class="codehilite"><span class="err">Slice</span></code> shows how to use <code class="codehilite"><span class="c">igl::slice</span></code> to change the colors for triangles on a mesh.</figcaption>
 </figure>
 </p>
 <h3 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h3>
@@ -729,9 +729,9 @@ sorting and comparison routines. For example in Matlab, one can write:</p>
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 </pre></div>
 
-<p>so if <code class="codehilite"><span class="n">X</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix then <code class="codehilite"><span class="n">Y</span></code> will also be an <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix
-with entries sorted along dimension <code class="codehilite"><span class="mi">1</span></code> in <code class="codehilite"><span class="s1">&#39;ascend&#39;</span></code>ing order. The second
-output <code class="codehilite"><span class="n">I</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix of indices such that <code class="codehilite"><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span><span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span><span class="n">j</span><span class="p">);</span></code>. That is, <code class="codehilite"><span class="n">I</span></code> reveals how <code class="codehilite"><span class="n">X</span></code> is sorted into <code class="codehilite"><span class="n">Y</span></code>.</p>
+<p>so if <code class="codehilite"><span class="err">X</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix then <code class="codehilite"><span class="err">Y</span></code> will also be an <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix
+with entries sorted along dimension <code class="codehilite"><span class="err">1</span></code> in <code class="codehilite"><span class="err">&#39;ascend&#39;</span></code>ing order. The second
+output <code class="codehilite"><span class="err">I</span></code> is a <span><span class="MathJax_Preview">m \times n</span><script type="math/tex">m \times n</script></span> matrix of indices such that <code class="codehilite"><span class="err">Y(i,j) =</span><span class="err">X(I(i,j),j);</span></code>. That is, <code class="codehilite"><span class="err">I</span></code> reveals how <code class="codehilite"><span class="err">X</span></code> is sorted into <code class="codehilite"><span class="err">Y</span></code>.</p>
 <p>This same functionality is supported in libigl:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
 </pre></div>
@@ -740,15 +740,15 @@ output <code class="codehilite"><span class="n">I</span></code> is a <span><span
 <div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">]</span> <span class="p">=</span> <span class="n">sortrows</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="s">&#39;ascend&#39;</span><span class="p">);</span>
 </pre></div>
 
-<p>where now <code class="codehilite"><span class="n">I</span></code> is a <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> vector of indices such that <code class="codehilite"><span class="n">Y</span> <span class="o">=</span> <span class="n">X</span><span class="p">(</span><span class="n">I</span><span class="p">,:)</span></code>.</p>
+<p>where now <code class="codehilite"><span class="err">I</span></code> is a <span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> vector of indices such that <code class="codehilite"><span class="err">Y = X(I,:)</span></code>.</p>
 <p>In libigl, this is supported with</p>
 <p><div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">sortrows</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
 </pre></div>
-where again <code class="codehilite"><span class="n">I</span></code> reveals the index of sort so that it can be reproduced with
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Y</span><span class="p">)</span></code>.</p>
-<p>Analogous functions are available in libigl for: <code class="codehilite"><span class="k">max</span></code>, <code class="codehilite"><span class="k">min</span></code>, and <code class="codehilite"><span class="k">unique</span></code>.</p>
+where again <code class="codehilite"><span class="err">I</span></code> reveals the index of sort so that it can be reproduced with
+<code class="codehilite"><span class="c">igl::slice(X,I,1,Y)</span></code>.</p>
+<p>Analogous functions are available in libigl for: <code class="codehilite"><span class="err">max</span></code>, <code class="codehilite"><span class="err">min</span></code>, and <code class="codehilite"><span class="err">unique</span></code>.</p>
 <p>
-<figure><img src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code class="codehilite"><span class="n">Sort</span></code> shows how to use <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">sortrows</span></code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="https://github.com/libigl/libigl/tree/master/tutorial/302_Sort/main.cpp">Example 302</a>).</figcaption>
+<figure><img src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code class="codehilite"><span class="err">Sort</span></code> shows how to use <code class="codehilite"><span class="c">igl::sortrows</span></code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="https://github.com/libigl/libigl/tree/master/tutorial/302_Sort/main.cpp">Example 302</a>).</figcaption>
 </figure>
 </p>
 <h4 id="other-matlab-style-functions">Other Matlab-style Functions<a class="headerlink" href="#other-matlab-style-functions" title="Permanent link">&para;</a></h4>
@@ -763,179 +763,179 @@ functionality as common Matlab functions.</p>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">all</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::all</span></code></td>
 <td align="left">Whether all elements are non-zero (true)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">any</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::any</span></code></td>
 <td align="left">Whether any elements are non-zero (true)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cat</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::cat</span></code></td>
 <td align="left">Concatenate two matrices (especially useful for dealing with Eigen sparse matrices)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">ceil</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::ceil</span></code></td>
 <td align="left">Round entries up to nearest integer</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cumsum</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::cumsum</span></code></td>
 <td align="left">Cumulative sum of matrix elements</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">colon</span></code></td>
-<td align="left">Act like Matlab&rsquo;s <code class="codehilite"><span class="p">:</span></code>, similar to Eigen&rsquo;s <code class="codehilite"><span class="n">LinSpaced</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::colon</span></code></td>
+<td align="left">Act like Matlab&rsquo;s <code class="codehilite"><span class="err">:</span></code>, similar to Eigen&rsquo;s <code class="codehilite"><span class="err">LinSpaced</span></code></td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">components</span></code></td>
-<td align="left">Connected components of graph (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">graphconncomp</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::components</span></code></td>
+<td align="left">Connected components of graph (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">graphconncomp</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">count</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::count</span></code></td>
 <td align="left">Count non-zeros in rows or columns</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">cross</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::cross</span></code></td>
 <td align="left">Cross product per-row</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cumsum</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::cumsum</span></code></td>
 <td align="left">Cumulative summation</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">dot</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::dot</span></code></td>
 <td align="left">dot product per-row</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">eigs</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::eigs</span></code></td>
 <td align="left">Solve sparse eigen value problem</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">find</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::find</span></code></td>
 <td align="left">Find subscripts of non-zero entries</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">floor</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::floor</span></code></td>
 <td align="left">Round entries down to nearest integer</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">histc</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::histc</span></code></td>
 <td align="left">Counting occurrences for building a histogram</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">hsv_to_rgb</span></code></td>
-<td align="left">Convert HSV colors to RGB (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">hsv2rgb</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::hsv_to_rgb</span></code></td>
+<td align="left">Convert HSV colors to RGB (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">hsv2rgb</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">intersect</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::intersect</span></code></td>
 <td align="left">Set intersection of matrix elements.</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">isdiag</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::isdiag</span></code></td>
 <td align="left">Determine whether matrix is diagonal</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">ismember</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::ismember</span></code></td>
 <td align="left">Determine whether elements in A occur in B</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">jet</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::jet</span></code></td>
 <td align="left">Quantized colors along the rainbow.</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">max</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::max</span></code></td>
 <td align="left">Compute maximum entry per row or column</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">median</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::median</span></code></td>
 <td align="left">Compute the median per column</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">min</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::min</span></code></td>
 <td align="left">Compute minimum entry per row or column</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">mod</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::mod</span></code></td>
 <td align="left">Compute per element modulo</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">mode</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::mode</span></code></td>
 <td align="left">Compute the mode per column</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">null</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::null</span></code></td>
 <td align="left">Compute the null space basis of a matrix</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nchoosek</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::nchoosek</span></code></td>
 <td align="left">Compute all k-size combinations of n-long vector</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">orth</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::orth</span></code></td>
 <td align="left">Orthogonalization of a basis</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">parula</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::parula</span></code></td>
 <td align="left">Generate a quantized colormap from blue to yellow</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">pinv</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::pinv</span></code></td>
 <td align="left">Compute Moore-Penrose pseudoinverse</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">randperm</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::randperm</span></code></td>
 <td align="left">Generate a random permutation of [0,&hellip;,n-1]</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">rgb_to_hsv</span></code></td>
-<td align="left">Convert RGB colors to HSV (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">rgb2hsv</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::rgb_to_hsv</span></code></td>
+<td align="left">Convert RGB colors to HSV (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">rgb2hsv</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">repmat</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::repmat</span></code></td>
 <td align="left">Repeat a matrix along columns and rows</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">round</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::round</span></code></td>
 <td align="left">Per-element round to whole number</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">setdiff</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::setdiff</span></code></td>
 <td align="left">Set difference of matrix elements</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">setunion</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::setunion</span></code></td>
 <td align="left">Set union of matrix elements</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">setxor</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::setxor</span></code></td>
 <td align="left">Set exclusive &ldquo;or&rdquo; of matrix elements</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice</span></code></td>
-<td align="left">Slice parts of matrix using index lists: (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::slice</span></code></td>
+<td align="left">Slice parts of matrix using index lists: (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">B = A(I,J)</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice_mask</span></code></td>
-<td align="left">Slice parts of matrix using boolean masks: (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::slice_mask</span></code></td>
+<td align="left">Slice parts of matrix using boolean masks: (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">B = A(M,N)</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">slice_into</span></code></td>
-<td align="left">Slice left-hand side of matrix assignment using index lists (cf. Matlab&rsquo;s <code class="codehilite"><span class="n">B</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span> <span class="o">=</span> <span class="n">A</span></code>)</td>
+<td align="left"><code class="codehilite"><span class="c">igl::slice_into</span></code></td>
+<td align="left">Slice left-hand side of matrix assignment using index lists (cf. Matlab&rsquo;s <code class="codehilite"><span class="err">B(I,J) = A</span></code>)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">sort</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::sort</span></code></td>
 <td align="left">Sort elements or rows of matrix</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">speye</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::speye</span></code></td>
 <td align="left">Identity as sparse matrix</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">sum</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::sum</span></code></td>
 <td align="left">Sum along columns or rows (of sparse matrix)</td>
 </tr>
 <tr>
-<td align="left"><code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">unique</span></code></td>
+<td align="left"><code class="codehilite"><span class="c">igl::unique</span></code></td>
 <td align="left">Extract unique elements or rows of matrix</td>
 </tr>
 </tbody>
@@ -1016,15 +1016,15 @@ the top block:</p>
 </div>
 <p>Finally we can solve this equation for the unknown values at interior vertices
 <span><span class="MathJax_Preview">\mathbf{z}_{in}</span><script type="math/tex">\mathbf{z}_{in}</script></span>.</p>
-<p>However, our vertices will often not be sorted in this way. One option would be to sort <code class="codehilite"><span class="n">V</span></code>,
-then proceed as above and then <em>unsort</em> the solution <code class="codehilite"><span class="n">Z</span></code> to match <code class="codehilite"><span class="n">V</span></code>. However,
+<p>However, our vertices will often not be sorted in this way. One option would be to sort <code class="codehilite"><span class="err">V</span></code>,
+then proceed as above and then <em>unsort</em> the solution <code class="codehilite"><span class="err">Z</span></code> to match <code class="codehilite"><span class="err">V</span></code>. However,
 this solution is not very general.</p>
 <p>With array slicing no explicit sort is needed. Instead we can <em>slice-out</em>
 submatrix blocks (<span><span class="MathJax_Preview">\mathbf{L}_{in,in}</span><script type="math/tex">\mathbf{L}_{in,in}</script></span>, <span><span class="MathJax_Preview">\mathbf{L}_{in,b}</span><script type="math/tex">\mathbf{L}_{in,b}</script></span>, etc.) and follow
 the linear algebra above directly. Then we can slice the solution <em>into</em> the
-rows of <code class="codehilite"><span class="n">Z</span></code> corresponding to the interior vertices (<a href="https://github.com/libigl/libigl/tree/master/tutorial/303_LaplaceEquation/main.cpp">Example 303</a>).</p>
+rows of <code class="codehilite"><span class="err">Z</span></code> corresponding to the interior vertices (<a href="https://github.com/libigl/libigl/tree/master/tutorial/303_LaplaceEquation/main.cpp">Example 303</a>).</p>
 <p>
-<figure><img src="../images/camelhead-laplace-equation.jpg" /><figcaption>The <code class="codehilite"><span class="n">LaplaceEquation</span></code> example solves a Laplace equation with Dirichlet boundary conditions.</figcaption>
+<figure><img src="../images/camelhead-laplace-equation.jpg" /><figcaption>The <code class="codehilite"><span class="err">LaplaceEquation</span></code> example solves a Laplace equation with Dirichlet boundary conditions.</figcaption>
 </figure>
 </p>
 <h4 id="quadratic-energy-minimization">Quadratic Energy Minimization<a class="headerlink" href="#quadratic-energy-minimization" title="Permanent link">&para;</a></h4>
@@ -1088,19 +1088,19 @@ quadratic coefficients, known value indices and linear constraint coefficients:<
 <span class="n">igl</span><span class="o">::</span><span class="n">min_quad_with_fixed_precompute</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">Aeq</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">mqwf</span><span class="p">);</span>
 </pre></div>
 
-<p>The output is a struct <code class="codehilite"><span class="n">mqwf</span></code> which contains the system matrix factorization
+<p>The output is a struct <code class="codehilite"><span class="err">mqwf</span></code> which contains the system matrix factorization
 and is used during solving with arbitrary linear terms, known values, and
 constraint in the right-hand sides:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">min_quad_with_fixed_solve</span><span class="p">(</span><span class="n">mqwf</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">bc</span><span class="p">,</span><span class="n">Beq</span><span class="p">,</span><span class="n">Z</span><span class="p">);</span>
 </pre></div>
 
-<p>The output <code class="codehilite"><span class="n">Z</span></code> is a <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> vector of solutions with fixed values
-correctly placed to match the mesh vertices <code class="codehilite"><span class="n">V</span></code>.</p>
+<p>The output <code class="codehilite"><span class="err">Z</span></code> is a <span><span class="MathJax_Preview">n \times 1</span><script type="math/tex">n \times 1</script></span> vector of solutions with fixed values
+correctly placed to match the mesh vertices <code class="codehilite"><span class="err">V</span></code>.</p>
 <h3 id="linear-equality-constraints">Linear Equality Constraints<a class="headerlink" href="#linear-equality-constraints" title="Permanent link">&para;</a></h3>
-<p>We saw above that <code class="codehilite"><span class="n">min_quad_with_fixed_</span><span class="o">*</span></code> in libigl provides a compact way to
+<p>We saw above that <code class="codehilite"><span class="err">min_quad_with_fixed_*</span></code> in libigl provides a compact way to
 solve general quadratic programs. Let&rsquo;s consider another example, this time
 with active linear equality constraints. Specifically let&rsquo;s solve the
-<code class="codehilite"><span class="n">bi</span><span class="o">-</span><span class="n">Laplace</span> <span class="n">equation</span></code> or equivalently minimize the Laplace energy:</p>
+<code class="codehilite"><span class="err">bi-Laplace equation</span></code> or equivalently minimize the Laplace energy:</p>
 <div>
 <div class="MathJax_Preview">
  \Delta^2 z = 0 \leftrightarrow \mathop{\text{minimize }}\limits_z \frac{1}{2}
@@ -1115,10 +1115,10 @@ with active linear equality constraints. Specifically let&rsquo;s solve the
 <p><span><span class="MathJax_Preview">z_{a} = 1, z_{b} = -1</span><script type="math/tex">z_{a} = 1, z_{b} = -1</script></span> and <span><span class="MathJax_Preview">z_{c} = z_{d}</span><script type="math/tex">z_{c} = z_{d}</script></span>.</p>
 <p>Notice that we can rewrite the last constraint in the familiar form from above:</p>
 <p><span><span class="MathJax_Preview">z_{c} - z_{d} = 0.</span><script type="math/tex">z_{c} - z_{d} = 0.</script></span></p>
-<p>Now we can assembly <code class="codehilite"><span class="n">Aeq</span></code> as a <span><span class="MathJax_Preview">1 \times n</span><script type="math/tex">1 \times n</script></span> sparse matrix with a coefficient
+<p>Now we can assembly <code class="codehilite"><span class="err">Aeq</span></code> as a <span><span class="MathJax_Preview">1 \times n</span><script type="math/tex">1 \times n</script></span> sparse matrix with a coefficient
 <span><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> in the column corresponding to vertex <span><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> and a <span><span class="MathJax_Preview">-1</span><script type="math/tex">-1</script></span> at <span><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span>. The right-hand
-side <code class="codehilite"><span class="n">Beq</span></code> is simply zero.</p>
-<p>Internally, <code class="codehilite"><span class="n">min_quad_with_fixed_</span><span class="o">*</span></code> solves using the Lagrange Multiplier
+side <code class="codehilite"><span class="err">Beq</span></code> is simply zero.</p>
+<p>Internally, <code class="codehilite"><span class="err">min_quad_with_fixed_*</span></code> solves using the Lagrange Multiplier
 method. This method adds additional variables for each linear constraint (in
 general a <span><span class="MathJax_Preview">m \times 1</span><script type="math/tex">m \times 1</script></span> vector of variables <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span>) and then solves the
 saddle problem:</p>
@@ -1205,10 +1205,10 @@ a linear system and we can solve for <span><span class="MathJax_Preview">\mathbf
 difference from the straight quadratic <em>minimization</em> system, is that this
 saddle problem system will not be positive definite. Thus, we must use a
 different factorization technique (LDLT rather than LLT): libigl&rsquo;s
-<code class="codehilite"><span class="n">min_quad_with_fixed_precompute</span></code> automatically chooses the correct solver in
+<code class="codehilite"><span class="err">min_quad_with_fixed_precompute</span></code> automatically chooses the correct solver in
 the presence of linear equality constraints (<a href="https://github.com/libigl/libigl/tree/master/tutorial/304_LinearEqualityConstraints/main.cpp">Example 304</a>).</p>
 <p>
-<figure><img src="../images/cheburashka-biharmonic-leq.jpg" /><figcaption>The example <code class="codehilite"><span class="n">LinearEqualityConstraints</span></code> first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal).</figcaption>
+<figure><img src="../images/cheburashka-biharmonic-leq.jpg" /><figcaption>The example <code class="codehilite"><span class="err">LinearEqualityConstraints</span></code> first solves with just fixed value constraints (left: 1 and -1 on the left hand and foot respectively), then solves with an additional linear equality constraint (right: points on right hand and foot constrained to be equal).</figcaption>
 </figure>
 </p>
 <h3 id="quadratic-programming">Quadratic Programming<a class="headerlink" href="#quadratic-programming" title="Permanent link">&para;</a></h3>
@@ -1279,9 +1279,9 @@ analysis and model subspaces have been used frequently in real-time deformation
 (e.g. <sup id="fnref:barbic_2005"><a class="footnote-ref" href="#fn:barbic_2005">7</a></sup>).</p>
 <p>In <a href="https://github.com/libigl/libigl/tree/master/tutorial/306_EigenDecomposition/main.cpp">Example 306</a>), the first 5 eigen vectors
 of the discrete Laplace-Beltrami operator are computed and displayed in
-pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">eigs</span></code>
-(mirroring MATLAB&rsquo;s <code class="codehilite"><span class="n">eigs</span></code>). The 5 eigen vectors are placed into the columns
-of <code class="codehilite"><span class="n">U</span></code> and the eigen values are placed into the entries of <code class="codehilite"><span class="n">S</span></code>:</p>
+pseudo-color atop the beetle. Eigen vectors are computed using <code class="codehilite"><span class="c">igl::eigs</span></code>
+(mirroring MATLAB&rsquo;s <code class="codehilite"><span class="err">eigs</span></code>). The 5 eigen vectors are placed into the columns
+of <code class="codehilite"><span class="err">U</span></code> and the eigen values are placed into the entries of <code class="codehilite"><span class="err">S</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L</span><span class="p">,</span><span class="n">M</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="p">);</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">massmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">MASSMATRIX_TYPE_DEFAULT</span><span class="p">,</span><span class="n">M</span><span class="p">);</span>
@@ -1328,7 +1328,7 @@ conditions&rdquo;:</p>
 <p>where <span><span class="MathJax_Preview">\mathbf{x}'</span><script type="math/tex">\mathbf{x}'</script></span> is the unknown 3D position of a point on the surface. So we
 are asking that the bi-Laplacian of each of spatial coordinate function to be
 zero.</p>
-<p>In libigl, one can solve a biharmonic problem with <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">harmonic</span></code>
+<p>In libigl, one can solve a biharmonic problem with <code class="codehilite"><span class="c">igl::harmonic</span></code>
 and setting <span><span class="MathJax_Preview">k=2</span><script type="math/tex">k=2</script></span> (<em>bi</em>-harmonic):</p>
 <div class="codehilite"><pre><span></span><span class="c1">// U_bc contains deformation of boundary vertices b</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">harmonic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">U_bc</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
@@ -1359,7 +1359,7 @@ fields of the handle constraints will impose a smooth deformed shape
 <p>subject to the same handle constraints, but rewritten in terms of their implied
 deformation field at the boundary (handles):</p>
 <p><span><span class="MathJax_Preview">\mathbf{d}_b = \mathbf{x}_{bc} - \mathbf{x}_b.</span><script type="math/tex">\mathbf{d}_b = \mathbf{x}_{bc} - \mathbf{x}_b.</script></span></p>
-<p>Again we can use <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">harmonic</span></code> with <span><span class="MathJax_Preview">k=2</span><script type="math/tex">k=2</script></span>, but this time solve for the
+<p>Again we can use <code class="codehilite"><span class="c">igl::harmonic</span></code> with <span><span class="MathJax_Preview">k=2</span><script type="math/tex">k=2</script></span>, but this time solve for the
 deformation field and then recover the deformed positions:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// U_bc contains deformation of boundary vertices b</span>
 <span class="n">D_bc</span> <span class="o">=</span> <span class="n">U_bc</span> <span class="o">-</span> <span class="n">igl</span><span class="o">::</span><span class="n">slice</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
@@ -1485,7 +1485,7 @@ transformation.</p>
 <p>Like linear blend skinning, dual quaternion skinning is best performed in the
 vertex shader. The only difference being that bone transformations are sent as
 dual quaternions rather than affine transformation matrices.  Libigl supports
-CPU-side dual quaternion skinning with the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">dqs</span></code> function, which takes a
+CPU-side dual quaternion skinning with the <code class="codehilite"><span class="c">igl::dqs</span></code> function, which takes a
 more traditional representation of rigid transformations as input and
 internally converts to the dual quaternion representation before blending:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// vQ is a list of rotations as quaternions</span>
@@ -1576,13 +1576,13 @@ energy type before the precompuation phase:</p>
 <span class="n">igl</span><span class="o">::</span><span class="n">arap_precomputation</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">dim</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">arap_data</span><span class="p">);</span>
 </pre></div>
 
-<p>Just like <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">min_quad_with_fixed_</span><span class="o">*</span></code>, this precomputation phase only depends
-on the mesh, fixed vertex indices <code class="codehilite"><span class="n">b</span></code> and the energy parameters. To solve with
-certain constraints on the positions of vertices in <code class="codehilite"><span class="n">b</span></code>, we may call:</p>
+<p>Just like <code class="codehilite"><span class="c">igl::min_quad_with_fixed_*</span></code>, this precomputation phase only depends
+on the mesh, fixed vertex indices <code class="codehilite"><span class="err">b</span></code> and the energy parameters. To solve with
+certain constraints on the positions of vertices in <code class="codehilite"><span class="err">b</span></code>, we may call:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">arap_solve</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span><span class="n">arap_data</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
 </pre></div>
 
-<p>which uses <code class="codehilite"><span class="n">U</span></code> as an initial guess and then computes the solution into it.</p>
+<p>which uses <code class="codehilite"><span class="err">U</span></code> as an initial guess and then computes the solution into it.</p>
 <p>Libigl&rsquo;s implementation of as-rigid-as-possible deformation takes advantage of
 the highly optimized singular value decomposition code from McAdams et al.
 <sup id="fnref:mcadams_2011"><a class="footnote-ref" href="#fn:mcadams_2011">18</a></sup> which leverages SSE intrinsics.</p>
@@ -1723,7 +1723,7 @@ the weights <span><span class="MathJax_Preview">\mathbf{W}</span><script type="m
 <p>the matrix form of the equality above. The proposed way to define <span><span class="MathJax_Preview">\mathbf{A}</span><script type="math/tex">\mathbf{A}</script></span>
 is to construct a matrix <span><span class="MathJax_Preview">\mathbf{K}</span><script type="math/tex">\mathbf{K}</script></span> that measures the Laplacian at all
 interior vertices <em>and at all boundary vertices</em>. The <em>usual</em> definition of the
-discrete Laplacian (e.g. what libigl returns from <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotmatrix</span></code>), measures
+discrete Laplacian (e.g. what libigl returns from <code class="codehilite"><span class="c">igl::cotmatrix</span></code>), measures
 the Laplacian of a function for interior vertices, but measures the Laplacian
 of a function <em>minus</em> the normal derivative of a function for boundary
 vertices. Thus, we can let:</p>
@@ -1744,8 +1744,8 @@ derivation proves that this implies <span><span class="MathJax_Preview">\mathbf{
 biharmonic functions</em>. Thus they&rsquo;re dubbed &ldquo;biharmonic coordinates&rdquo; (not the
 same as <em>bounded biharmonic weights</em>, which are <em>not</em> generalized barycentric
 coordinates).</p>
-<p>In libigl, one can compute biharmonic coordinates given a mesh <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> and a
-list <code class="codehilite"><span class="n">S</span></code> of selected control points or control regions (which act like skinning
+<p>In libigl, one can compute biharmonic coordinates given a mesh <code class="codehilite"><span class="err">(V,F)</span></code> and a
+list <code class="codehilite"><span class="err">S</span></code> of selected control points or control regions (which act like skinning
 handles):</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">biharmonic_coordinates</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">W</span><span class="p">);</span>
 </pre></div>
@@ -1804,7 +1804,7 @@ harmonic functions.</p>
 <span class="n">igl</span><span class="o">::</span><span class="n">harmonic</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">bnd</span><span class="p">,</span><span class="n">bnd_uv</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">V_uv</span><span class="p">);</span>
 </pre></div>
 
-<p>where <code class="codehilite"><span class="n">bnd</span></code> contains the indices of the boundary vertices, bnd_uv their position on the UV plane, and &ldquo;1&rdquo; denotes that we want to compute an harmonic function (2 will be for biharmonic, 3 for triharmonic, etc.). Note that each of the three
+<p>where <code class="codehilite"><span class="err">bnd</span></code> contains the indices of the boundary vertices, bnd_uv their position on the UV plane, and &ldquo;1&rdquo; denotes that we want to compute an harmonic function (2 will be for biharmonic, 3 for triharmonic, etc.). Note that each of the three
 functions is designed to be reusable in other parametrization algorithms.</p>
 <p>A UV parametrization can be visualized in the viewer with:</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_uv</span><span class="p">(</span><span class="n">V_uv</span><span class="p">);</span>
@@ -1828,7 +1828,7 @@ harmonic parametrization, it does not need to have a fixed boundary.</p>
 <span><span class="MathJax_Preview">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</span><script type="math/tex">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</script></span> is equal to the <a href="http://en.wikipedia.org/wiki/Vector_area">vector
 area</a> of the mesh.</p>
 <p>Using libigl, this matrix energy can be written in a few lines of code. The
-cotangent matrix can be computed using <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotmatrix</span></code>:</p>
+cotangent matrix can be computed using <code class="codehilite"><span class="c">igl::cotmatrix</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">L</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">cotmatrix</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">L</span><span class="p">);</span>
 </pre></div>
@@ -1840,7 +1840,7 @@ Kronecker product with a 2x2 identity matrix:</p>
 <span class="n">igl</span><span class="o">::</span><span class="n">repdiag</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">L_flat</span><span class="p">);</span>
 </pre></div>
 
-<p>The area matrix is computed with <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">vector_area_matrix</span></code>:</p>
+<p>The area matrix is computed with <code class="codehilite"><span class="c">igl::vector_area_matrix</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">vector_area_matrix</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
 </pre></div>
@@ -1859,7 +1859,7 @@ distances (and thus angles). The idea is very similar to ARAP surface
 deformation: each triangle is mapped to the plane trying to preserve its
 original shape, up to a rigid rotation.</p>
 <p>The algorithm can be implemented reusing the functions discussed in the
-deformation chapter: <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">arap_precomputation</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">arap_solve</span></code>. The only
+deformation chapter: <code class="codehilite"><span class="c">igl::arap_precomputation</span></code> and <code class="codehilite"><span class="c">igl::arap_solve</span></code>. The only
 difference is that the optimization has to be done in 2D instead of 3D and that
 we need to compute a starting point. While for 3D deformation the optimization
 is bootstrapped with the original mesh, this is not the case for ARAP
@@ -1893,7 +1893,7 @@ the triangle mesh (output_field), plus the singularities of the field
 </figure>
 </p>
 <p>The singularities are vertices where the field vanishes (highlighted in red in
-the figure above). <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nrosy</span></code> can also generate N-RoSy fields <sup id="fnref:levy_2008"><a class="footnote-ref" href="#fn:levy_2008">26</a></sup>,
+the figure above). <code class="codehilite"><span class="c">igl::nrosy</span></code> can also generate N-RoSy fields <sup id="fnref:levy_2008"><a class="footnote-ref" href="#fn:levy_2008">26</a></sup>,
 which are a generalization of vector fields where in every face the vector is
 defined up to a constant rotation of <span><span class="MathJax_Preview">2\pi / N</span><script type="math/tex">2\pi / N</script></span>. As can be observed in
 the following figure, the singularities of the fields generated with different
@@ -1904,7 +1904,7 @@ N are of different types and they appear in different positions.</p>
 </p>
 <p>We demonstrate how to call and plot N-RoSy fields in <a href="https://github.com/libigl/libigl/tree/master/tutorial/504_NRosyDesign/main.cpp">Example
 504</a>, where the degree of the field can be change
-pressing the number keys. <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nrosy</span></code> implements the algorithm proposed in
+pressing the number keys. <code class="codehilite"><span class="c">igl::nrosy</span></code> implements the algorithm proposed in
 <sup id="fnref:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">22</a></sup>. N-RoSy fields can also be interpolated with many other algorithms,
 see the library <a href="https://github.com/avaxman/libdirectional">libdirectional</a> for
 a reference implementation of the most popular ones. For a complete categorization
@@ -2000,7 +2000,7 @@ that define the shape and scale of the desired quads. This can be encoded as a
 frame field, which is a pair of non-orthogonal and non-unit length vectors. The
 frame field can be interpolated by decomposing it in a 4-RoSy field and a
 unique affine transformation. The two parts can then be interpolated
-separately, using <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">nrosy</span></code> for the cross field, and an harmonic interpolant
+separately, using <code class="codehilite"><span class="c">igl::nrosy</span></code> for the cross field, and an harmonic interpolant
 for the affine part.</p>
 <p>
 <figure><img src="../images/506_FrameField_1.png" /><figcaption>Interpolation of a frame field. Colors on the vectors denote the desired scale. The red faces contains the frame field constraints.</figcaption>
@@ -2084,14 +2084,14 @@ add serialization to your applications.</p>
 </pre></div>
 
 <p>Currently all fundamental data types (bool, int, float, double, &hellip;) are
-supported, as well as std::string, basic <code class="codehilite"><span class="n">STL</span></code> containers, dense and sparse
+supported, as well as std::string, basic <code class="codehilite"><span class="err">STL</span></code> containers, dense and sparse
 Eigen matrices and nestings of those.  Some limitations apply to pointers.
 Currently, loops or many to one type of link structures are not handled
 correctly. Each pointer is assumed to point to a different independent object.
-Uninitialized pointers must be set to <code class="codehilite"><span class="n">nullptr</span></code> before de-/serialization to
+Uninitialized pointers must be set to <code class="codehilite"><span class="err">nullptr</span></code> before de-/serialization to
 avoid memory leaks. Cross-platform issues like little-, big-endianess is
 currently not supported.  To make user defined types serializable, just derive
-from <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="k">Serializable</span></code> and trivially implementing the <code class="codehilite"><span class="n">InitSerialization</span></code>
+from <code class="codehilite"><span class="c">igl::Serializable</span></code> and trivially implementing the <code class="codehilite"><span class="err">InitSerialization</span></code>
 method.</p>
 <p>Assume that the state of your application is a mesh and a set of integer ids:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;igl/serialize.h&quot;</span><span class="cp"></span>
@@ -2113,7 +2113,7 @@ method.</p>
 
 <p>If you need more control over the serialization of your types, you can override
 the following functions or directly inherit from the interface
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">SerializableBase</span></code>.</p>
+<code class="codehilite"><span class="c">igl::SerializableBase</span></code>.</p>
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="n">Serializable</span><span class="o">::</span><span class="n">PreSerialization</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="kt">void</span> <span class="n">Serializable</span><span class="o">::</span><span class="n">PostSerialization</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 <span class="kt">bool</span> <span class="n">Serializable</span><span class="o">::</span><span class="n">PreDeserialization</span><span class="p">();</span>
@@ -2156,7 +2156,7 @@ important.  For cases where you want to read and edit the serialized data by
 hand we provide a serialization to XML files which is based on the library
 <a href="https://github.com/leethomason/tinyxml2">tinyxml2</a>.  There you also have the
 option to create a partial binary serialization of your data by using the binary
-parameter, exposed in the function <code class="codehilite"><span class="n">serialize_xml</span><span class="p">()</span></code>:</p>
+parameter, exposed in the function <code class="codehilite"><span class="err">serialize_xml()</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;igl/xml/serialize_xml.h&quot;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="n">number</span><span class="p">;</span>
@@ -2169,7 +2169,7 @@ parameter, exposed in the function <code class="codehilite"><span class="n">seri
 <span class="n">igl</span><span class="o">::</span><span class="n">deserialize_xml</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="s">&quot;VectorBin&quot;</span><span class="p">,</span><span class="n">xmlFile</span><span class="p">);</span>
 </pre></div>
 
-<p>For user defined types derive from <code class="codehilite"><span class="n">XMLSerializable</span></code>.</p>
+<p>For user defined types derive from <code class="codehilite"><span class="err">XMLSerializable</span></code>.</p>
 <p>The code snippets above are extracted from <a href="https://github.com/libigl/libigl/tree/master/tutorial/601_Serialization/main.cpp">Example
 601</a>. We strongly suggest that you make the entire
 state of your application always serializable since it will save you a lot of
@@ -2233,10 +2233,10 @@ a file:</p>
 </pre></div>
 
 <p>Then this workspace can be loaded into a Matlab IDE:</p>
-<div class="codehilite"><pre><span></span><span class="n">load</span> <span class="n">fertility</span><span class="p">.</span><span class="n">mat</span>
+<div class="codehilite"><pre><span></span><span class="n">load </span><span class="s">fertility.mat</span><span class="p"></span>
 </pre></div>
 
-<p>The <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">MatlabWorkspace</span></code> depends on Matlab libraries to compile and run,
+<p>The <code class="codehilite"><span class="c">igl::MatlabWorkspace</span></code> depends on Matlab libraries to compile and run,
 but&mdash;in contrast to the engine routines above&mdash;will avoid launching a Matlab
 instance upon execution.</p>
 <h4 id="dumping-eigen-matrices-to-copy-and-paste-into-matlab">Dumping Eigen Matrices To Copy And Paste Into Matlab<a class="headerlink" href="#dumping-eigen-matrices-to-copy-and-paste-into-matlab" title="Permanent link">&para;</a></h4>
@@ -2252,30 +2252,30 @@ copy standard output from a C++ program into a Matlab IDE. The code:</p>
 
 <p>produces the output:</p>
 <div class="codehilite"><pre><span></span><span class="n">V</span> <span class="p">=</span> <span class="p">[</span>
-  <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
-  <span class="mi">1</span> <span class="mi">0</span> <span class="mi">0</span>
-  <span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span>
-  <span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span>
+<span class="n">  0 </span><span class="s">0 0</span><span class="p"></span>
+<span class="n">  1 </span><span class="s">0 0</span><span class="p"></span>
+<span class="n">  1 </span><span class="s">1 1</span><span class="p"></span>
+<span class="n">  2 </span><span class="s">1 0</span><span class="p"></span>
 <span class="p">];</span>
 <span class="n">F</span> <span class="p">=</span> <span class="p">[</span>
-  <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span>
-  <span class="mi">2</span> <span class="mi">4</span> <span class="mi">3</span>
+<span class="n">  1 </span><span class="s">2 3</span><span class="p"></span>
+<span class="n">  2 </span><span class="s">4 3</span><span class="p"></span>
 <span class="p">];</span>
 <span class="n">LIJV</span> <span class="p">=</span> <span class="p">[</span>
-<span class="mi">1</span>  <span class="mi">1</span>    <span class="o">-</span><span class="mf">0.7071067811865476</span>
-<span class="mi">2</span>  <span class="mi">1</span>     <span class="mf">0.7071067811865475</span>
-<span class="mi">3</span>  <span class="mi">1</span>  <span class="mf">1.570092458683775e-16</span>
-<span class="mi">1</span>  <span class="mi">2</span>     <span class="mf">0.7071067811865475</span>
-<span class="mi">2</span>  <span class="mi">2</span>     <span class="o">-</span><span class="mf">1.638010440969447</span>
-<span class="mi">3</span>  <span class="mi">2</span>     <span class="mf">0.6422285251880865</span>
-<span class="mi">4</span>  <span class="mi">2</span>     <span class="mf">0.2886751345948129</span>
-<span class="mi">1</span>  <span class="mi">3</span>  <span class="mf">1.570092458683775e-16</span>
-<span class="mi">2</span>  <span class="mi">3</span>     <span class="mf">0.6422285251880865</span>
-<span class="mi">3</span>  <span class="mi">3</span>    <span class="o">-</span><span class="mf">0.9309036597828995</span>
-<span class="mi">4</span>  <span class="mi">3</span>     <span class="mf">0.2886751345948129</span>
-<span class="mi">2</span>  <span class="mi">4</span>     <span class="mf">0.2886751345948129</span>
-<span class="mi">3</span>  <span class="mi">4</span>     <span class="mf">0.2886751345948129</span>
-<span class="mi">4</span>  <span class="mi">4</span>    <span class="o">-</span><span class="mf">0.5773502691896258</span>
+<span class="n">1  </span><span class="s">1    -0.7071067811865476</span><span class="p"></span>
+<span class="n">2  </span><span class="s">1     0.7071067811865475</span><span class="p"></span>
+<span class="n">3  </span><span class="s">1  1.570092458683775e-16</span><span class="p"></span>
+<span class="n">1  </span><span class="s">2     0.7071067811865475</span><span class="p"></span>
+<span class="n">2  </span><span class="s">2     -1.638010440969447</span><span class="p"></span>
+<span class="n">3  </span><span class="s">2     0.6422285251880865</span><span class="p"></span>
+<span class="n">4  </span><span class="s">2     0.2886751345948129</span><span class="p"></span>
+<span class="n">1  </span><span class="s">3  1.570092458683775e-16</span><span class="p"></span>
+<span class="n">2  </span><span class="s">3     0.6422285251880865</span><span class="p"></span>
+<span class="n">3  </span><span class="s">3    -0.9309036597828995</span><span class="p"></span>
+<span class="n">4  </span><span class="s">3     0.2886751345948129</span><span class="p"></span>
+<span class="n">2  </span><span class="s">4     0.2886751345948129</span><span class="p"></span>
+<span class="n">3  </span><span class="s">4     0.2886751345948129</span><span class="p"></span>
+<span class="n">4  </span><span class="s">4    -0.5773502691896258</span><span class="p"></span>
 <span class="p">];</span>
 <span class="n">L</span> <span class="p">=</span> <span class="n">sparse</span><span class="p">(</span><span class="n">LIJV</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">LIJV</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">LIJV</span><span class="p">(:,</span><span class="mi">3</span><span class="p">));</span>
 </pre></div>
@@ -2285,7 +2285,7 @@ copy standard output from a C++ program into a Matlab IDE. The code:</p>
 <p>It is also possible to call libigl functions from matlab, compiling them as MEX
 functions. This can be used to offload to C++ code the computationally
 intensive parts of a Matlab application.</p>
-<p>We provide a wrapper for <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">readOBJ</span></code> in <a href="https://github.com/libigl/libigl/tree/master/tutorial/603_MEX/compileMEX.m">Example 603</a>.
+<p>We provide a wrapper for <code class="codehilite"><span class="c">igl::readOBJ</span></code> in <a href="https://github.com/libigl/libigl/tree/master/tutorial/603_MEX/compileMEX.m">Example 603</a>.
 We plan to provide wrappers for all our functions in the future, if you are
 interested in this feature (or if you want to help implementing it) please let
 us know.</p>
@@ -2298,10 +2298,10 @@ task in geometry processing. We provide wrappers in libigl to
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">triangulate</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">H</span><span class="p">,</span><span class="n">V2</span><span class="p">,</span><span class="n">F2</span><span class="p">,</span><span class="s">&quot;a0.005q&quot;</span><span class="p">);</span>
 </pre></div>
 
-<p>where <code class="codehilite"><span class="n">E</span></code> is a set of boundary edges (#E by 2), <code class="codehilite"><span class="n">H</span></code> is a set of 2D positions of
-points contained in holes of the triangulation (#H by 2) and (<code class="codehilite"><span class="n">V2</span></code>,<code class="codehilite"><span class="n">F2</span></code>) is the
-generated triangulation. Additional parameters can be passed to <code class="codehilite"><span class="n">triangle</span></code>, to
-control the quality: <code class="codehilite"><span class="ss">&quot;a0.005q&quot;</span></code> enforces a bound on the maximal area of the
+<p>where <code class="codehilite"><span class="err">E</span></code> is a set of boundary edges (#E by 2), <code class="codehilite"><span class="err">H</span></code> is a set of 2D positions of
+points contained in holes of the triangulation (#H by 2) and (<code class="codehilite"><span class="err">V2</span></code>,<code class="codehilite"><span class="err">F2</span></code>) is the
+generated triangulation. Additional parameters can be passed to <code class="codehilite"><span class="err">triangle</span></code>, to
+control the quality: <code class="codehilite"><span class="err">&quot;a0.005q&quot;</span></code> enforces a bound on the maximal area of the
 triangles and a minimal angle of 20 degrees. In <a href="https://github.com/libigl/libigl/tree/master/tutorial/604_Triangle/main.cpp">Example
 604</a>, the interior of a square (excluded a smaller square
 in its interior) is triangulated.</p>
@@ -2311,7 +2311,7 @@ in its interior) is triangulated.</p>
 </p>
 <h3 id="tetrahedralization-of-closed-surfaces">Tetrahedralization Of Closed Surfaces<a class="headerlink" href="#tetrahedralization-of-closed-surfaces" title="Permanent link">&para;</a></h3>
 <p>Similarly, the interior of a closed manifold surface can be tetrahedralized
-using the function <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">tetrahedralize</span></code> which wraps the Tetgen library (<a href="https://github.com/libigl/libigl/tree/master/tutorial/605_Tetgen/main.cpp">Example
+using the function <code class="codehilite"><span class="c">igl::tetrahedralize</span></code> which wraps the Tetgen library (<a href="https://github.com/libigl/libigl/tree/master/tutorial/605_Tetgen/main.cpp">Example
 605</a>):</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">tetrahedralize</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="s">&quot;pq1.414&quot;</span><span class="p">,</span> <span class="n">TV</span><span class="p">,</span><span class="n">TT</span><span class="p">,</span><span class="n">TF</span><span class="p">);</span>
 </pre></div>
@@ -2335,10 +2335,10 @@ around each vertex. This approximation can be computed using the function:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">ambient_occlusion</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">V_samples</span><span class="p">,</span><span class="n">N_samples</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="n">AO</span><span class="p">);</span>
 </pre></div>
 
-<p>that given a scene described in <code class="codehilite"><span class="n">V</span></code> and <code class="codehilite"><span class="n">F</span></code>, computes the ambient occlusion of
-the points in <code class="codehilite"><span class="n">V_samples</span></code> whose associated normals are <code class="codehilite"><span class="n">N_samples</span></code>. The
+<p>that given a scene described in <code class="codehilite"><span class="err">V</span></code> and <code class="codehilite"><span class="err">F</span></code>, computes the ambient occlusion of
+the points in <code class="codehilite"><span class="err">V_samples</span></code> whose associated normals are <code class="codehilite"><span class="err">N_samples</span></code>. The
 number of casted rays can be controlled (usually at least 300-500 rays are
-required to get a smooth result) and the result is returned in <code class="codehilite"><span class="n">AO</span></code>, as a
+required to get a smooth result) and the result is returned in <code class="codehilite"><span class="err">AO</span></code>, as a
 single scalar for each sample.</p>
 <p>Ambient occlusion can be used to darken the surface colors, as shown in
 <a href="https://github.com/libigl/libigl/tree/master/tutorial/606_AmbientOcclusion/main.cpp">Example 606</a></p>
@@ -2350,7 +2350,7 @@ single scalar for each sample.</p>
 <p>Libigl supports read and writing to .png files via the
 <a href="http://nothings.org/stb_image.h">stb image</a> code.</p>
 <p>With the viewer used in this tutorial, it is possible to render the scene in a
-memory buffer using the function, <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">opengl</span><span class="p">::</span><span class="n">ViewerCore</span><span class="p">::</span><span class="n">draw_buffer</span></code>:</p>
+memory buffer using the function, <code class="codehilite"><span class="c">igl::opengl::ViewerCore::draw_buffer</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Allocate temporary buffers for 1280x800 image</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
 <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
@@ -2399,18 +2399,18 @@ representations of canonical shapes: half-spaces, quadrics, etc.</p>
 Instead we expect our users to be working with <em>explicit</em> triangle mesh
 <em>boundary representations</em> of solid shapes. CSG operations are much hard to
 compute robustly with boundary representations, but are nonetheless useful.</p>
-<p>To compute a boolean operation on a triangle mesh with vertices <code class="codehilite"><span class="n">VA</span></code> and
-triangles <code class="codehilite"><span class="n">FA</span></code> and another mesh <code class="codehilite"><span class="n">VB</span></code> and <code class="codehilite"><span class="n">FB</span></code>, libigl first computes a unified
-&ldquo;mesh arrangement&rdquo; (see <sup id="fnref:zhou_2016"><a class="footnote-ref" href="#fn:zhou_2016">32</a></sup>[]) with vertices <code class="codehilite"><span class="n">V</span></code> and triangles <code class="codehilite"><span class="n">F</span></code> where all triangle-triangle
+<p>To compute a boolean operation on a triangle mesh with vertices <code class="codehilite"><span class="err">VA</span></code> and
+triangles <code class="codehilite"><span class="err">FA</span></code> and another mesh <code class="codehilite"><span class="err">VB</span></code> and <code class="codehilite"><span class="err">FB</span></code>, libigl first computes a unified
+&ldquo;mesh arrangement&rdquo; (see <sup id="fnref:zhou_2016"><a class="footnote-ref" href="#fn:zhou_2016">32</a></sup>[]) with vertices <code class="codehilite"><span class="err">V</span></code> and triangles <code class="codehilite"><span class="err">F</span></code> where all triangle-triangle
 intersections have been &ldquo;resolved&rdquo;. That is, edges and vertices are added
-exactly at the intersection lines, so the resulting <em>non-manifold</em> mesh <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code>
+exactly at the intersection lines, so the resulting <em>non-manifold</em> mesh <code class="codehilite"><span class="err">(V,F)</span></code>
 has no self-intersections.</p>
 <p>Then libigl labels each &ldquo;cell&rdquo; bounded by surfaces of the arrangement according
 to its <em>winding number vector</em>: winding number with respect to each input mesh
 <span><span class="MathJax_Preview">(w_A,w_B)</span><script type="math/tex">(w_A,w_B)</script></span>. Finally, according to the desired operation (e.g. union,
 intersection) the boundary of the corresponding cells are extracted.</p>
 <p>Calling libigl&rsquo;s boolean operations is simple. To compute the union of
-<code class="codehilite"><span class="p">(</span><span class="n">VA</span><span class="p">,</span><span class="n">FA</span><span class="p">)</span></code> and <code class="codehilite"><span class="p">(</span><span class="n">VB</span><span class="p">,</span><span class="n">FB</span><span class="p">)</span></code> into a new mesh <code class="codehilite"><span class="p">(</span><span class="n">VC</span><span class="p">,</span><span class="n">FC</span><span class="p">)</span></code>, use:</p>
+<code class="codehilite"><span class="err">(VA,FA)</span></code> and <code class="codehilite"><span class="err">(VB,FB)</span></code> into a new mesh <code class="codehilite"><span class="err">(VC,FC)</span></code>, use:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">copyleft</span><span class="o">::</span><span class="n">cgal</span><span class="o">::</span><span class="n">mesh_boolean</span><span class="p">(</span><span class="n">VA</span><span class="p">,</span><span class="n">FA</span><span class="p">,</span><span class="n">VB</span><span class="p">,</span><span class="n">FB</span><span class="p">,</span><span class="n">MESH_BOOLEAN_TYPE_UNION</span><span class="p">,</span><span class="n">VC</span><span class="p">,</span><span class="n">FC</span><span class="p">);</span>
 </pre></div>
 
@@ -2427,12 +2427,12 @@ internal surfaces have been reversed in orientation, indicating that the solid
 result of the operation. The &ldquo;resolve&rdquo; operation is not really a boolean
 operation, it is simply the result of resolving all intersections and gluing
 together coincident vertices, maintaining original triangle orientations.</p>
-<p>Libigl also provides a wrapper <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cork</span><span class="p">::</span><span class="n">mesh_boolean</span></code> to the
+<p>Libigl also provides a wrapper <code class="codehilite"><span class="c">igl::copyleft::cork::mesh_boolean</span></code> to the
 <a href="https://github.com/gilbo/cork">cork</a>, which is typically faster, but is not
 always robust.</p>
 <h3 id="csg-tree">Csg Tree<a class="headerlink" href="#csg-tree" title="Permanent link">&para;</a></h3>
 <p>The <a href="#boolean-operations-on-meshes">previous section</a> discusses using
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cgal</span><span class="p">::</span><span class="n">mesh_boolean</span></code> to compute the result of a <em>single</em> boolean
+<code class="codehilite"><span class="c">igl::copyleft::cgal::mesh_boolean</span></code> to compute the result of a <em>single</em> boolean
 operation on two input triangle meshes. When employing constructive solid
 geometry (CSG) as a modeling paradigm, shapes are represented as the result of
 many such binary operations. The sequence is stored in a binary tree.</p>
@@ -2440,9 +2440,9 @@ many such binary operations. The sequence is stored in a binary tree.</p>
 results robustly. &ldquo;Rounding&rdquo; this result to floating point (even double
 precision) would cause problems if re-injected into a further boolean
 operation. To facilitate CSG tree operations and encourage callers <em>not</em> to
-call <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cgal</span><span class="p">::</span><span class="n">mesh_boolean</span></code> multiple times explicitly, libigl implements
-a class <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cgal</span><span class="p">::</span><span class="n">CSGTree</span></code>. Leaf nodes of this class are simply &ldquo;solid&rdquo;
-meshes (otherwise good input to <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cgal</span><span class="p">::</span><span class="n">mesh_boolean</span></code>). Interior nodes
+call <code class="codehilite"><span class="c">igl::copyleft::cgal::mesh_boolean</span></code> multiple times explicitly, libigl implements
+a class <code class="codehilite"><span class="c">igl::copyleft::cgal::CSGTree</span></code>. Leaf nodes of this class are simply &ldquo;solid&rdquo;
+meshes (otherwise good input to <code class="codehilite"><span class="c">igl::copyleft::cgal::mesh_boolean</span></code>). Interior nodes
 of the tree combine two children with a boolean operation. Using the intializer
 list constructor it is easy to hard-code specific tree constructions. Here&rsquo;s an
 example taking the <em>intersection</em> of a cube A and sphere B <em>minus</em> the <em>union</em>
@@ -2508,14 +2508,14 @@ problem of determining inside from outside ill-posed without further
 assumptions.</p>
 <p>The first problem is <em>easily</em> solved by &ldquo;resolving&rdquo; all self-intersections.
 That is, meshing intersecting triangles so that intersects occur exactly at
-edges and vertices. This is accomplished using <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">selfintersect</span></code>.</p>
+edges and vertices. This is accomplished using <code class="codehilite"><span class="c">igl::selfintersect</span></code>.</p>
 <p>TetGen can usually tetrahedralize the convex hull of this &ldquo;resolved&rdquo; mesh, and
 then the problem becomes determining which of these tets are <em>inside</em> the input
 mesh and which are outside. That is, which should be kept and which should be
 removed.</p>
 <p>The &ldquo;Generalized Winding Number&rdquo; is a robust method for determined
 inside and outside for troublesome meshes <sup id="fnref:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">36</a></sup>.  The generalized
-winding number with respect to <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> at some point <span><span class="MathJax_Preview">\mathbf{p} \in
+winding number with respect to <code class="codehilite"><span class="err">(V,F)</span></code> at some point <span><span class="MathJax_Preview">\mathbf{p} \in
 \mathcal{R}^3</span><script type="math/tex">\mathbf{p} \in
 \mathcal{R}^3</script></span> is defined as scalar function:</p>
 <div>
@@ -2527,15 +2527,15 @@ winding number with respect to <code class="codehilite"><span class="p">(</span>
 </script>
 </div>
 <p>where <span><span class="MathJax_Preview">\Omega_{f_i}</span><script type="math/tex">\Omega_{f_i}</script></span> is the <em>solid angle</em> subtended by <span><span class="MathJax_Preview">f_i</span><script type="math/tex">f_i</script></span> (the ith face in
-<code class="codehilite"><span class="n">F</span></code>) at the point <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span>. This solid angle contribution is a simple,
-closed-form expression involving <code class="codehilite"><span class="n">atan2</span></code> and some dot-products.</p>
-<p>If <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> <em>does</em> form a closed watertight surface, then <span><span class="MathJax_Preview">w(\mathbf{p})=1</span><script type="math/tex">w(\mathbf{p})=1</script></span> if
-<span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> lies inside <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> and <span><span class="MathJax_Preview">w(\mathbf{p})=0</span><script type="math/tex">w(\mathbf{p})=0</script></span> if outside <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code>.  If
-<code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> is closed but overlaps itself then <span><span class="MathJax_Preview">w(\mathbf{p})</span><script type="math/tex">w(\mathbf{p})</script></span> is an integer value
-counting how many (signed) times <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> <em>wraps</em> around <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span>.  Finally,
-if <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> is not closed or not even manifold (but at least consistently
+<code class="codehilite"><span class="err">F</span></code>) at the point <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span>. This solid angle contribution is a simple,
+closed-form expression involving <code class="codehilite"><span class="err">atan2</span></code> and some dot-products.</p>
+<p>If <code class="codehilite"><span class="err">(V,F)</span></code> <em>does</em> form a closed watertight surface, then <span><span class="MathJax_Preview">w(\mathbf{p})=1</span><script type="math/tex">w(\mathbf{p})=1</script></span> if
+<span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> lies inside <code class="codehilite"><span class="err">(V,F)</span></code> and <span><span class="MathJax_Preview">w(\mathbf{p})=0</span><script type="math/tex">w(\mathbf{p})=0</script></span> if outside <code class="codehilite"><span class="err">(V,F)</span></code>.  If
+<code class="codehilite"><span class="err">(V,F)</span></code> is closed but overlaps itself then <span><span class="MathJax_Preview">w(\mathbf{p})</span><script type="math/tex">w(\mathbf{p})</script></span> is an integer value
+counting how many (signed) times <code class="codehilite"><span class="err">(V,F)</span></code> <em>wraps</em> around <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span>.  Finally,
+if <code class="codehilite"><span class="err">(V,F)</span></code> is not closed or not even manifold (but at least consistently
 oriented), then <span><span class="MathJax_Preview">w(\mathbf{p})</span><script type="math/tex">w(\mathbf{p})</script></span> tends smoothly toward 1 as <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> is
-<em>more</em> inside <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code>, and toward 0 as <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> is more outside.</p>
+<em>more</em> inside <code class="codehilite"><span class="err">(V,F)</span></code>, and toward 0 as <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> is more outside.</p>
 <p>
 <figure><img src="../images/big-sigcat-winding-number.gif" /><figcaption>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/702_WindingNumber/main.cpp">702</a> computes the generalized winding number function for a tetrahedral mesh inside a cat with holes and self intersections (gold). The silver mesh is surface of the extracted interior tets, and slices show the winding number function on all tets in the convex hull: blue (~0), green (~1), yellow (~2).</figcaption>
 </figure>
@@ -2584,66 +2584,66 @@ dynamic mesh data structure (e.g. half-edge datastructure), support for
 topology changes are limited. Nonetheless, libigl has support for isolated edge
 collapses, sequences of edge-collapses (each in O(log) time) and priority queue
 based decimation.</p>
-<p>The simplest is <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">decimation</span></code>. By calling</p>
+<p>The simplest is <code class="codehilite"><span class="c">igl::decimation</span></code>. By calling</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">decimate</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">G</span><span class="p">);</span>
 </pre></div>
 
-<p>the mesh <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> will be decimated to a new mesh <code class="codehilite"><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="k">G</span><span class="p">)</span></code> so that <code class="codehilite"><span class="k">G</span></code> has at
-most <code class="codehilite"><span class="mi">1000</span></code> faces. This uses default (naive) criteria for determining the cost
+<p>the mesh <code class="codehilite"><span class="err">(V,F)</span></code> will be decimated to a new mesh <code class="codehilite"><span class="err">(U,G)</span></code> so that <code class="codehilite"><span class="err">G</span></code> has at
+most <code class="codehilite"><span class="err">1000</span></code> faces. This uses default (naive) criteria for determining the cost
 of an edge collapse and the placement of the merged vertex. Shortest edges are
 collapsed first, and merged vertices are placed at edge midpoints.</p>
-<p>One can also provide function handles (<code class="codehilite"><span class="k">c</span><span class="o">++</span></code> lambda functions are convenient
-here) <code class="codehilite"><span class="n">cost_and_placement</span></code> and <code class="codehilite"><span class="n">stopping_condition</span></code> for determining the
+<p>One can also provide function handles (<code class="codehilite"><span class="err">c++</span></code> lambda functions are convenient
+here) <code class="codehilite"><span class="err">cost_and_placement</span></code> and <code class="codehilite"><span class="err">stopping_condition</span></code> for determining the
 cost/placement of an edge collapse and the stopping condition respectively. For
 example, the default version above is implemented as:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">decimate</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">shortest_edge_and_midpoint</span><span class="p">,</span><span class="n">max_m</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">G</span><span class="p">);</span>
 </pre></div>
 
-<p>where <code class="codehilite"><span class="n">shortest_edge_and_midpoint</span></code> assign the edge&rsquo;s length as cost and its
-midpoint as the merged vertex placement and <code class="codehilite"><span class="n">max_m</span></code> counts the current number
-of faces (valid collapses decrease count by 2) and returns <code class="codehilite"><span class="k">true</span></code> if the count
-drops below <code class="codehilite"><span class="n">m</span><span class="o">=</span><span class="mi">1000</span></code>.</p>
+<p>where <code class="codehilite"><span class="err">shortest_edge_and_midpoint</span></code> assign the edge&rsquo;s length as cost and its
+midpoint as the merged vertex placement and <code class="codehilite"><span class="err">max_m</span></code> counts the current number
+of faces (valid collapses decrease count by 2) and returns <code class="codehilite"><span class="err">true</span></code> if the count
+drops below <code class="codehilite"><span class="err">m=1000</span></code>.</p>
 <p>One can also scratch deeper inside the decimation loop and call
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">collapse_edge</span></code> directly. In order to operate efficiently, this routine
-needs more than the usual <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> mesh representation. We need <code class="codehilite"><span class="n">E</span></code> a list of
-edge indices, where <code class="codehilite"><span class="n">E</span><span class="p">.</span><span class="k">row</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="c1">--&gt; [s,d]</span></code>; we need <code class="codehilite"><span class="n">EMAP</span></code> which maps the
-&ldquo;half&rdquo;-edges of each triangle in <code class="codehilite"><span class="n">F</span></code> to its corresponding edge in <code class="codehilite"><span class="n">E</span></code> so that
-<code class="codehilite"><span class="n">E</span><span class="p">.</span><span class="k">row</span><span class="p">(</span><span class="n">EMAP</span><span class="p">(</span><span class="n">f</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="n">F</span><span class="p">.</span><span class="k">rows</span><span class="p">))</span> <span class="c1">--&gt; [s,d]</span></code> if the edge across from the ith corner of the
-fth face is <code class="codehilite"><span class="p">[</span><span class="n">s</span><span class="p">,</span><span class="n">d</span><span class="p">]</span></code> (up to orientation); we need <code class="codehilite"><span class="n">EF</span></code> and <code class="codehilite"><span class="n">EI</span></code> which keep track
+<code class="codehilite"><span class="c">igl::collapse_edge</span></code> directly. In order to operate efficiently, this routine
+needs more than the usual <code class="codehilite"><span class="err">(V,F)</span></code> mesh representation. We need <code class="codehilite"><span class="err">E</span></code> a list of
+edge indices, where <code class="codehilite"><span class="err">E.row(i) --&gt; [s,d]</span></code>; we need <code class="codehilite"><span class="err">EMAP</span></code> which maps the
+&ldquo;half&rdquo;-edges of each triangle in <code class="codehilite"><span class="err">F</span></code> to its corresponding edge in <code class="codehilite"><span class="err">E</span></code> so that
+<code class="codehilite"><span class="err">E.row(EMAP(f+i*F.rows)) --&gt; [s,d]</span></code> if the edge across from the ith corner of the
+fth face is <code class="codehilite"><span class="err">[s,d]</span></code> (up to orientation); we need <code class="codehilite"><span class="err">EF</span></code> and <code class="codehilite"><span class="err">EI</span></code> which keep track
 of the faces incident on each edge and across from which corner of those faces
-the edges appears, so that <code class="codehilite"><span class="n">EF</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">o</span><span class="p">)</span> <span class="o">=</span> <span class="n">f</span></code> and <code class="codehilite"><span class="n">EI</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">o</span><span class="p">)</span> <span class="o">=</span> <span class="n">i</span></code> means that the edge
-<code class="codehilite"><span class="n">E</span><span class="p">.</span><span class="k">row</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="c1">--&gt; [s,d]</span></code> appears in the fth face across from its ith corner (for
-<code class="codehilite"><span class="n">o</span><span class="o">=</span><span class="mi">0</span></code> the edge orientations should match, for <code class="codehilite"><span class="n">o</span><span class="o">=</span><span class="mi">1</span></code> the orientations are
+the edges appears, so that <code class="codehilite"><span class="err">EF(e,o) = f</span></code> and <code class="codehilite"><span class="err">EI(e,o) = i</span></code> means that the edge
+<code class="codehilite"><span class="err">E.row(e) --&gt; [s,d]</span></code> appears in the fth face across from its ith corner (for
+<code class="codehilite"><span class="err">o=0</span></code> the edge orientations should match, for <code class="codehilite"><span class="err">o=1</span></code> the orientations are
 opposite).</p>
-<p>When a collapse occurs, the sizes of the <code class="codehilite"><span class="n">F</span></code>,<code class="codehilite"><span class="n">E</span></code>, etc. matrices do not change.
+<p>When a collapse occurs, the sizes of the <code class="codehilite"><span class="err">F</span></code>,<code class="codehilite"><span class="err">E</span></code>, etc. matrices do not change.
 Rather rows corresponding to &ldquo;removed&rdquo; faces and edges are set to a special
-constant value <code class="codehilite"><span class="n">IGL_COLLAPSE_EDGE_NULL</span></code>. Doing this ensures that we&rsquo;re able to
+constant value <code class="codehilite"><span class="err">IGL_COLLAPSE_EDGE_NULL</span></code>. Doing this ensures that we&rsquo;re able to
 remove edges in truly constant time O(1).</p>
 <blockquote>
-<p>Conveniently <code class="codehilite"><span class="n">IGL_COLLAPSE_EDGE_NULL</span><span class="o">==</span><span class="mi">0</span></code>. This means most OPENGL style renderings of <code class="codehilite"><span class="n">F</span></code>
+<p>Conveniently <code class="codehilite"><span class="err">IGL_COLLAPSE_EDGE_NULL==0</span></code>. This means most OPENGL style renderings of <code class="codehilite"><span class="err">F</span></code>
 will simply draw a bunch of 0-area triangles at the first vertex.</p>
 </blockquote>
 <p>The following will collapse the first
 edge and place its merged vertex at the origin:</p>
 <p><div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">collapse_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">RowVector3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">EMAP</span><span class="p">,</span><span class="n">EF</span><span class="p">,</span><span class="n">EI</span><span class="p">);</span>
 </pre></div>
-If valid, then <code class="codehilite"><span class="n">V</span></code>,<code class="codehilite"><span class="n">F</span></code>,<code class="codehilite"><span class="n">E</span></code>,<code class="codehilite"><span class="n">EF</span></code>,<code class="codehilite"><span class="n">EI</span></code> are adjusted accordingly.</p>
+If valid, then <code class="codehilite"><span class="err">V</span></code>,<code class="codehilite"><span class="err">F</span></code>,<code class="codehilite"><span class="err">E</span></code>,<code class="codehilite"><span class="err">EF</span></code>,<code class="codehilite"><span class="err">EI</span></code> are adjusted accordingly.</p>
 <p>This is powerful, but low level. To build a decimator around this you&rsquo;d need to
 keep track which edges are left to collapse and which to collapse next.
 Fortunately, libigl also exposes a priority queue based edge collapse with
 function handles to adjust costs and placements.</p>
-<p>The priority queue is implemented as a (ordered) set <code class="codehilite"><span class="n">Q</span></code> or (cost,edge index)
-pairs and a list of iterators <code class="codehilite"><span class="n">Qit</span></code> so that <code class="codehilite"><span class="n">Qit</span><span class="o">[</span><span class="n">e</span><span class="o">]</span><span class="w"></span></code> reveals the iterator in
-<code class="codehilite"><span class="n">Q</span></code> corresponding to the eth edge. Placements are stored in a #E list of
-positions <code class="codehilite"><span class="k">C</span></code>. When the following is called:</p>
+<p>The priority queue is implemented as a (ordered) set <code class="codehilite"><span class="err">Q</span></code> or (cost,edge index)
+pairs and a list of iterators <code class="codehilite"><span class="err">Qit</span></code> so that <code class="codehilite"><span class="n">Qit</span><span class="o">[</span><span class="n">e</span><span class="o">]</span><span class="w"></span></code> reveals the iterator in
+<code class="codehilite"><span class="err">Q</span></code> corresponding to the eth edge. Placements are stored in a #E list of
+positions <code class="codehilite"><span class="err">C</span></code>. When the following is called:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">collapse_edge</span><span class="p">(</span><span class="n">cost_and_placement</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">E</span><span class="p">,</span><span class="n">EMAP</span><span class="p">,</span><span class="n">EF</span><span class="p">,</span><span class="n">EI</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Qit</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p>the lowest cost edge collapse according to <code class="codehilite"><span class="n">Q</span></code> is attempted. If valid, then
-<code class="codehilite"><span class="n">V</span></code>,<code class="codehilite"><span class="n">F</span></code>,etc. are adjusted accordingly and that edge is &ldquo;popped&rdquo; from <code class="codehilite"><span class="n">Q</span></code>. Using
-<code class="codehilite"><span class="n">Qit</span></code> its neighboring edges are also popped from <code class="codehilite"><span class="n">Q</span></code> and re-inserted after
-updating their costs according to <code class="codehilite"><span class="n">cost_and_placement</span></code>, new placements are
-remembered in <code class="codehilite"><span class="k">C</span></code>. If not valid, then the edge is &ldquo;popped&rdquo; from <code class="codehilite"><span class="n">Q</span></code> and
+<p>the lowest cost edge collapse according to <code class="codehilite"><span class="err">Q</span></code> is attempted. If valid, then
+<code class="codehilite"><span class="err">V</span></code>,<code class="codehilite"><span class="err">F</span></code>,etc. are adjusted accordingly and that edge is &ldquo;popped&rdquo; from <code class="codehilite"><span class="err">Q</span></code>. Using
+<code class="codehilite"><span class="err">Qit</span></code> its neighboring edges are also popped from <code class="codehilite"><span class="err">Q</span></code> and re-inserted after
+updating their costs according to <code class="codehilite"><span class="err">cost_and_placement</span></code>, new placements are
+remembered in <code class="codehilite"><span class="err">C</span></code>. If not valid, then the edge is &ldquo;popped&rdquo; from <code class="codehilite"><span class="err">Q</span></code> and
 reinserted with infinite cost.</p>
 <p>
 <figure><img src="../images/fertility-edge-collapse.gif" /><figcaption>Example 703 conducts edge collapses on the fertility model.</figcaption>
@@ -2658,15 +2658,15 @@ examined a robust method for determining whether points lie inside or outside
 of a given triangle soup mesh. Libigl complements this algorithm with
 accelerated signed and unsigned distance queries and &ldquo;in element&rdquo; queries for
 planar triangle meshes and 3D tetrahedral meshes. These routines make use of
-libigl&rsquo;s general purpose axis-aligned bounding box hierarchy (<code class="codehilite"><span class="n">igl</span><span class="o">/</span><span class="n">AABB</span><span class="p">.</span><span class="n">h</span></code>).
+libigl&rsquo;s general purpose axis-aligned bounding box hierarchy (<code class="codehilite"><span class="err">igl/AABB.h</span></code>).
 This class is lightweight and&mdash;by design&mdash;does not store a copy of the mesh
 (taking it as inputs to its member functions instead).</p>
 <h4 id="point-location">Point Location<a class="headerlink" href="#point-location" title="Permanent link">&para;</a></h4>
 <p>For tetrahedral meshes, this is useful for &ldquo;in element&rdquo; or &ldquo;point location&rdquo;
 queries: given a point <span><span class="MathJax_Preview">\mathbf{q}\in\mathcal{R}^3</span><script type="math/tex">\mathbf{q}\in\mathcal{R}^3</script></span> and a tetrahedral mesh
 <span><span class="MathJax_Preview">(V,T)</span><script type="math/tex">(V,T)</script></span> determine in which tetrahedron <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> lies. This is accomplished
-in libigl for a tet mesh <code class="codehilite"><span class="n">V</span><span class="p">,</span><span class="n">T</span></code> and a list of query points in the rows of <code class="codehilite"><span class="n">Q</span></code>
-via the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">in_element</span><span class="p">()</span></code>:</p>
+in libigl for a tet mesh <code class="codehilite"><span class="err">V,T</span></code> and a list of query points in the rows of <code class="codehilite"><span class="err">Q</span></code>
+via the <code class="codehilite"><span class="c">igl::in_element()</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Initialize AABB tree</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">AABB</span><span class="o">&lt;</span><span class="n">MatrixXd</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;</span> <span class="n">tree</span><span class="p">;</span>
 <span class="n">tree</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="p">);</span>
@@ -2674,37 +2674,37 @@ via the <code class="codehilite"><span class="n">igl</span><span class="p">::</s
 <span class="n">igl</span><span class="o">::</span><span class="n">in_element</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">tree</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
 </pre></div>
 
-<p>the resulting vector <code class="codehilite"><span class="n">I</span></code> is a list of indices into <code class="codehilite"><span class="n">T</span></code> revealing the <em>first</em>
-tetrahedron found to contain the corresponding point in <code class="codehilite"><span class="n">Q</span></code>.</p>
+<p>the resulting vector <code class="codehilite"><span class="err">I</span></code> is a list of indices into <code class="codehilite"><span class="err">T</span></code> revealing the <em>first</em>
+tetrahedron found to contain the corresponding point in <code class="codehilite"><span class="err">Q</span></code>.</p>
 <p>For overlapping meshes, a point <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> may belong to more than one
 tetrahedron. In those cases, one can find them all (not just the first) by
-using the <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">in_element</span></code> overload with a <code class="codehilite"><span class="n">SparseMatrix</span></code> as the output:</p>
+using the <code class="codehilite"><span class="c">igl::in_element</span></code> overload with a <code class="codehilite"><span class="err">SparseMatrix</span></code> as the output:</p>
 <div class="codehilite"><pre><span></span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">I</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">in_element</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">tree</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
 </pre></div>
 
-<p>now each row of <code class="codehilite"><span class="n">I</span></code> reveals whether each tet contains the corresponding row in
-<code class="codehilite"><span class="n">Q</span></code>: <code class="codehilite"><span class="n">I</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span></code> means that point <code class="codehilite"><span class="n">q</span></code> is in element <code class="codehilite"><span class="n">e</span></code>.</p>
+<p>now each row of <code class="codehilite"><span class="err">I</span></code> reveals whether each tet contains the corresponding row in
+<code class="codehilite"><span class="err">Q</span></code>: <code class="codehilite"><span class="err">I(q,e)!=0</span></code> means that point <code class="codehilite"><span class="err">q</span></code> is in element <code class="codehilite"><span class="err">e</span></code>.</p>
 <h4 id="closest-points">Closest Points<a class="headerlink" href="#closest-points" title="Permanent link">&para;</a></h4>
 <p>For Triangle meshes, we use the AABB tree to accelerate point-mesh closest
 point queries: given a mesh <span><span class="MathJax_Preview">(V,F)</span><script type="math/tex">(V,F)</script></span> and a query point
 <span><span class="MathJax_Preview">\mathbf{q}\in\mathcal{R}^3</span><script type="math/tex">\mathbf{q}\in\mathcal{R}^3</script></span> find the closest point <span><span class="MathJax_Preview">\mathbf{c} \in (V,F)</span><script type="math/tex">\mathbf{c} \in (V,F)</script></span>
 (where <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span> is not necessarily a vertex of <span><span class="MathJax_Preview">(V,F)</span><script type="math/tex">(V,F)</script></span>). This is
-accomplished for a triangle mesh <code class="codehilite"><span class="n">V</span><span class="p">,</span><span class="n">F</span></code> and a list of points in the rows of <code class="codehilite"><span class="n">P</span></code>
-via <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">point_mesh_squared_distance</span></code>:</p>
+accomplished for a triangle mesh <code class="codehilite"><span class="err">V,F</span></code> and a list of points in the rows of <code class="codehilite"><span class="err">P</span></code>
+via <code class="codehilite"><span class="c">igl::point_mesh_squared_distance</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">VectorXd</span> <span class="n">sqrD</span><span class="p">;</span>
 <span class="n">VectorXi</span> <span class="n">I</span><span class="p">;</span>
 <span class="n">MatrixXd</span> <span class="n">C</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">point_mesh_squared_distance</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">sqrD</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p>the output <code class="codehilite"><span class="n">sqrD</span></code> contains the (unsigned) squared distance from each point in
-<code class="codehilite"><span class="n">P</span></code> to its closest point given in <code class="codehilite"><span class="k">C</span></code> which lies on the element in <code class="codehilite"><span class="n">F</span></code> given by
-<code class="codehilite"><span class="n">I</span></code> (e.g. from which one could recover barycentric coordinates, using
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">barycentric_coordinates</span></code>).</p>
-<p>If the mesh <code class="codehilite"><span class="n">V</span><span class="p">,</span><span class="n">F</span></code> is static, but the point set <code class="codehilite"><span class="n">P</span></code> is changing dynamically then
+<p>the output <code class="codehilite"><span class="err">sqrD</span></code> contains the (unsigned) squared distance from each point in
+<code class="codehilite"><span class="err">P</span></code> to its closest point given in <code class="codehilite"><span class="err">C</span></code> which lies on the element in <code class="codehilite"><span class="err">F</span></code> given by
+<code class="codehilite"><span class="err">I</span></code> (e.g. from which one could recover barycentric coordinates, using
+<code class="codehilite"><span class="c">igl::barycentric_coordinates</span></code>).</p>
+<p>If the mesh <code class="codehilite"><span class="err">V,F</span></code> is static, but the point set <code class="codehilite"><span class="err">P</span></code> is changing dynamically then
 it&rsquo;s best to reuse the AABB hierarchy that&rsquo;s being built during
-<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">point_mesh_squared_distance</span></code>:</p>
+<code class="codehilite"><span class="c">igl::point_mesh_squared_distance</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">AABB</span> <span class="n">tree</span><span class="p">;</span>
 <span class="n">tree</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 <span class="n">tree</span><span class="p">.</span><span class="n">squared_distance</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">sqrD</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
@@ -2714,29 +2714,29 @@ it&rsquo;s best to reuse the AABB hierarchy that&rsquo;s being built during
 
 <h4 id="signed-distance">Signed Distance<a class="headerlink" href="#signed-distance" title="Permanent link">&para;</a></h4>
 <p>Finally, from the closest point or the winding number it&rsquo;s possible to <em>sign</em>
-this distance. In <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">signed_distance</span></code> we provide two methods for signing:
+this distance. In <code class="codehilite"><span class="c">igl::signed_distance</span></code> we provide two methods for signing:
 the so-called &ldquo;pseudo-normal test&rdquo; <sup id="fnref:baerentzen_2005"><a class="footnote-ref" href="#fn:baerentzen_2005">33</a></sup>[] and the generalized
 winding number <sup id="fnref2:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">36</a></sup>[].</p>
-<p>The pseudo-normal test (see also <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">pseudonormal_test</span></code>) assumes the input
+<p>The pseudo-normal test (see also <code class="codehilite"><span class="c">igl::pseudonormal_test</span></code>) assumes the input
 mesh is a watertight (closed, non-self-intersecting, manifold) mesh. Then given
 a query point <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> and its closest point <span><span class="MathJax_Preview">\mathbf{c} \in (V,F)</span><script type="math/tex">\mathbf{c} \in (V,F)</script></span>, it
 carefully chooses an outward normal <span><span class="MathJax_Preview">\mathbf{n}</span><script type="math/tex">\mathbf{n}</script></span> at <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span> so that
 <span><span class="MathJax_Preview">\text{sign}(\mathbf{q}-\mathbf{c})\cdot \mathbf{n}</span><script type="math/tex">\text{sign}(\mathbf{q}-\mathbf{c})\cdot \mathbf{n}</script></span> reveals whether
 <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> is inside <span><span class="MathJax_Preview">(V,F)</span><script type="math/tex">(V,F)</script></span>: -1, or outside: +1. This is a fast <span><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> test
-once <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span> is located, but may fail if <code class="codehilite"><span class="n">V</span><span class="p">,</span><span class="n">F</span></code> is not watertight.</p>
+once <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span> is located, but may fail if <code class="codehilite"><span class="err">V,F</span></code> is not watertight.</p>
 <p>An alternative is to use the [generalized winding
 number][generalizedwindingnumber] to determine the sign. This is very robust to
-unclean meshes <code class="codehilite"><span class="n">V</span><span class="p">,</span><span class="n">F</span></code> but slower: something like <span><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> once <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span>
+unclean meshes <code class="codehilite"><span class="err">V,F</span></code> but slower: something like <span><span class="MathJax_Preview">O(\sqrt{n})</span><script type="math/tex">O(\sqrt{n})</script></span> once <span><span class="MathJax_Preview">\mathbf{c}</span><script type="math/tex">\mathbf{c}</script></span>
 is located.</p>
-<p>In either case, the interface via <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">signed_distance</span></code> is:</p>
+<p>In either case, the interface via <code class="codehilite"><span class="c">igl::signed_distance</span></code> is:</p>
 <div class="codehilite"><pre><span></span><span class="c1">// Choose type of signing to use</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">SignedDistanceType</span> <span class="n">type</span> <span class="o">=</span> <span class="n">SIGNED_DISTANCE_TYPE_PSEUDONORMAL</span><span class="p">;</span>
 <span class="n">igl</span><span class="o">::</span><span class="n">signed_distance</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">sign_type</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>
 </pre></div>
 
-<p>the outputs are as above for <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">point_mesh_squared_distance</span></code> but now <code class="codehilite"><span class="n">S</span></code>
-contains signed (unsquared) distances and the extra output <code class="codehilite"><span class="n">N</span></code> (only set when
-<code class="codehilite"><span class="k">type</span> <span class="o">==</span> <span class="n">SIGNED_DISTANCE_TYPE_PSEUDON</span></code>) contains the normals used for signing
+<p>the outputs are as above for <code class="codehilite"><span class="c">igl::point_mesh_squared_distance</span></code> but now <code class="codehilite"><span class="err">S</span></code>
+contains signed (unsquared) distances and the extra output <code class="codehilite"><span class="err">N</span></code> (only set when
+<code class="codehilite"><span class="err">type == SIGNED_DISTANCE_TYPE_PSEUDON</span></code>) contains the normals used for signing
 with the pseudo-normal test.</p>
 <p>
 <figure><img src="../images/bunny-signed-distance.gif" /><figcaption>Example <a href="https://github.com/libigl/libigl/tree/master/tutorial/704_SignedDistance/main.cpp">704</a> computes signed distance on slices through the bunny.</figcaption>
@@ -2759,9 +2759,9 @@ all) with a predefined topology (aka connectivity) chosen from a look up table
 depending on the function values at each vertex of the cell. The method
 iterates (&ldquo;marches&rdquo;) over all cells (&ldquo;cubes&rdquo;) in the grid and stitches together
 the final, watertight mesh.</p>
-<p>In libigl, <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">marching_cubes</span></code> constructs a triangle mesh <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> from an
-input scalar field <code class="codehilite"><span class="n">S</span></code> sampled at vertex locations <code class="codehilite"><span class="n">GV</span></code> of a <code class="codehilite"><span class="n">nx</span></code> by <code class="codehilite"><span class="n">ny</span></code> by
-<code class="codehilite"><span class="n">nz</span></code> regular grid:</p>
+<p>In libigl, <code class="codehilite"><span class="c">igl::marching_cubes</span></code> constructs a triangle mesh <code class="codehilite"><span class="err">(V,F)</span></code> from an
+input scalar field <code class="codehilite"><span class="err">S</span></code> sampled at vertex locations <code class="codehilite"><span class="err">GV</span></code> of a <code class="codehilite"><span class="err">nx</span></code> by <code class="codehilite"><span class="err">ny</span></code> by
+<code class="codehilite"><span class="err">nz</span></code> regular grid:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">marching_cubes</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">GV</span><span class="p">,</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">,</span><span class="n">nz</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 </pre></div>
 
@@ -2778,12 +2778,12 @@ for inside-outside determination(e.g., using <a href="#generalized-winding-numbe
 numbers</a>).</p>
 <p>For (open) surfaces representing two-sided sheets, libigl provides a routine to
 force consistent orientations within each orientable patch
-(<code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">orientable_patches</span></code>) of a mesh:</p>
+(<code class="codehilite"><span class="c">igl::orientable_patches</span></code>) of a mesh:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">bfs_orient</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">FF</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
 <p>This simple routine will use breadth-first search on each patch of the mesh to
-enforce a consistent facet orientation in the output faces <code class="codehilite"><span class="n">FF</span></code>.</p>
+enforce a consistent facet orientation in the output faces <code class="codehilite"><span class="err">FF</span></code>.</p>
 <p>For (closed or nearly closed) surfaces representing the boundary of a solid
 object, libigl provides a routine to reorient faces so that the vertex ordering
 corresponds to a counter-clockwise ordering of the vertices with a
@@ -2798,7 +2798,7 @@ occluded</em> (lighter, i.e., facing more void space).</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">embree</span><span class="o">::</span><span class="n">reorient_facets_raycast</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">FF</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
 </pre></div>
 
-<p>The boolean vector <code class="codehilite"><span class="n">I</span></code> reveals which rows of <code class="codehilite"><span class="n">F</span></code> have been flipped in <code class="codehilite"><span class="n">FF</span></code>.</p>
+<p>The boolean vector <code class="codehilite"><span class="err">I</span></code> reveals which rows of <code class="codehilite"><span class="err">F</span></code> have been flipped in <code class="codehilite"><span class="err">FF</span></code>.</p>
 <p>
 <figure><img src="../images/truck-facet-orientation.jpg" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/706_FacetOrientation/main.cpp">Example 706</a>) loads a truck model with inconsistent orientations (back facing triangles shown darker). Orientable patches are uniquely colored and then oriented to face outward (middle left). Alternatively, each individual triangle is considered a &ldquo;patch&rdquo; (middle right) and oriented outward independently.</figcaption>
 </figure>
@@ -2835,12 +2835,12 @@ field using trilinear interpolation of grid values. Finally the output mesh,
 <p>This method is similar to one described by Schroeder et al. in 1994
 <sup id="fnref:schroeder_1994"><a class="footnote-ref" href="#fn:schroeder_1994">40</a></sup>, and the one used in conjunction with boolean operations by
 Garg et al. 2016 <sup id="fnref:garg_2016"><a class="footnote-ref" href="#fn:garg_2016">34</a></sup>.</p>
-<p>In libigl, if your input solid&rsquo;s surface is represented by <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> then the
-output surface mesh will be <code class="codehilite"><span class="p">(</span><span class="n">SV</span><span class="p">,</span><span class="n">SF</span><span class="p">)</span></code> after calling:</p>
+<p>In libigl, if your input solid&rsquo;s surface is represented by <code class="codehilite"><span class="err">(V,F)</span></code> then the
+output surface mesh will be <code class="codehilite"><span class="err">(SV,SF)</span></code> after calling:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">copyleft</span><span class="o">::</span><span class="n">swept_volume</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">num_time_steps</span><span class="p">,</span><span class="n">grid_size</span><span class="p">,</span><span class="n">isolevel</span><span class="p">,</span><span class="n">SV</span><span class="p">,</span><span class="n">SF</span><span class="p">);</span>
 </pre></div>
 
-<p>The <code class="codehilite"><span class="n">isolevel</span></code> parameter can be set to zero to approximate the exact swept
+<p>The <code class="codehilite"><span class="err">isolevel</span></code> parameter can be set to zero to approximate the exact swept
 volume, greater than zero to approximate a positive offset of the swept volume
 or less than zero to approximate a negative offset.</p>
 <p>
@@ -2865,13 +2865,13 @@ raycaster. Its usage is demonstrated in <a href="https://github.com/libigl/libig
 </pre></div>
 
 <p>This function casts a ray from the view plane in the view direction. Variables
-<code class="codehilite"><span class="n">x</span></code> and <code class="codehilite"><span class="n">y</span></code> are
-the mouse screen coordinates; <code class="codehilite"><span class="k">view</span></code>, <code class="codehilite"><span class="n">model</span></code>, <code class="codehilite"><span class="n">proj</span></code> are the view, model and
-projection matrix respectively; <code class="codehilite"><span class="n">viewport</span></code> is the viewport in OpenGL format;
-<code class="codehilite"><span class="n">ei</span></code>
+<code class="codehilite"><span class="err">x</span></code> and <code class="codehilite"><span class="err">y</span></code> are
+the mouse screen coordinates; <code class="codehilite"><span class="err">view</span></code>, <code class="codehilite"><span class="err">model</span></code>, <code class="codehilite"><span class="err">proj</span></code> are the view, model and
+projection matrix respectively; <code class="codehilite"><span class="err">viewport</span></code> is the viewport in OpenGL format;
+<code class="codehilite"><span class="err">ei</span></code>
 contains a <a href="http://en.wikipedia.org/wiki/Bounding_volume_hierarchy">Bounding Volume
 Hierarchy</a> constructed
-by Embree, and <code class="codehilite"><span class="n">fid</span></code> and <code class="codehilite"><span class="n">vid</span></code> are the picked face and vertex, respectively.</p>
+by Embree, and <code class="codehilite"><span class="err">fid</span></code> and <code class="codehilite"><span class="err">vid</span></code> are the picked face and vertex, respectively.</p>
 <p>
 <figure><img src="../images/607_Picking.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/708_Picking/main.cpp">Example 708</a>) Picking via ray casting. The selected vertices are colored in red.</figcaption>
 </figure>
@@ -2903,7 +2903,7 @@ using the SCAF algorithm in 10 iterations.</figcaption>
 </figure>
 </p>
 <h3 id="subdivision-surfaces">Subdivision Surfaces<a class="headerlink" href="#subdivision-surfaces" title="Permanent link">&para;</a></h3>
-<p>Given a coarse mesh (aka cage) with vertices <code class="codehilite"><span class="n">V</span></code> and faces <code class="codehilite"><span class="n">F</span></code>, one can createa
+<p>Given a coarse mesh (aka cage) with vertices <code class="codehilite"><span class="err">V</span></code> and faces <code class="codehilite"><span class="err">F</span></code>, one can createa
 higher-resolution mesh with more vertices and faces by <em>subdividing</em> every
 face. That is, each coarse triangle in the input is replaced by many smaller
 triangles. Libigl has three different methods for subdividing a triangle mesh.</p>
@@ -2913,13 +2913,13 @@ and vertices surviving from the original mesh are not moved.</p>
 <p>By adding new faces, a subdivision algorithm changes the <em>combinatorics</em> of the
 mesh. The change in combinatorics and the formula for positioning the
 high-resolution vertices is called the &ldquo;subdivision rule&rdquo;.</p>
-<p>For example, in the <em>in plane</em> subdivision method of <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">upsample</span></code>, vertices
+<p>For example, in the <em>in plane</em> subdivision method of <code class="codehilite"><span class="c">igl::upsample</span></code>, vertices
 are added at the midpoint of every edge: <span><span class="MathJax_Preview">v_{ab} = \frac{1}{2}(v_a + v_b)</span><script type="math/tex">v_{ab} = \frac{1}{2}(v_a + v_b)</script></span> and
 each triangle <span><span class="MathJax_Preview">(i_a,i_b,i_c)</span><script type="math/tex">(i_a,i_b,i_c)</script></span> is replaced with four triangles:
 <span><span class="MathJax_Preview">(i_a,i_{ab},i_{ca})</span><script type="math/tex">(i_a,i_{ab},i_{ca})</script></span>, <span><span class="MathJax_Preview">(i_b,i_{bc},i_{ab})</span><script type="math/tex">(i_b,i_{bc},i_{ab})</script></span>, <span><span class="MathJax_Preview">(i_{ab},i_{bc},i_{ca})</span><script type="math/tex">(i_{ab},i_{bc},i_{ca})</script></span>, and
 <span><span class="MathJax_Preview">(i_{bc},i_{c},i_{ca})</span><script type="math/tex">(i_{bc},i_{c},i_{ca})</script></span>. This process may be applied recursively, resulting in
 a finer and finer mesh.</p>
-<p>The subdivision method of <code class="codehilite"><span class="nv">igl</span>::<span class="k">loop</span></code> is not in plane. The vertices of the
+<p>The subdivision method of <code class="codehilite"><span class="c">igl::loop</span></code> is not in plane. The vertices of the
 refined mesh are moved to weight combinations of their neighbors: the mesh is
 smoothed as it is refined <sup id="fnref:loop_1987"><a class="footnote-ref" href="#fn:loop_1987">37</a></sup>. This and other <em>smooth subdivision</em>
 methods can be understood as generalizations of spline curves to surfaces. In
@@ -2927,17 +2927,17 @@ particular the Loop subdivision method will converge to a <span><span class="Mat
 consider the limit of recursive applications of subdivision. Away from
 &ldquo;irregular&rdquo; or &ldquo;extraordinary&rdquo; vertices (vertices of the original cage with
 valence not equal to 6), the surface is <span><span class="MathJax_Preview">C^2</span><script type="math/tex">C^2</script></span>. The combinatorics (connectivity
-and number of faces) of <code class="codehilite"><span class="nv">igl</span>::<span class="k">loop</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">upsample</span></code> are identical: the only
-difference is that the vertices have been smoothed in <code class="codehilite"><span class="nv">igl</span>::<span class="k">loop</span></code>.</p>
+and number of faces) of <code class="codehilite"><span class="c">igl::loop</span></code> and <code class="codehilite"><span class="c">igl::upsample</span></code> are identical: the only
+difference is that the vertices have been smoothed in <code class="codehilite"><span class="c">igl::loop</span></code>.</p>
 <p>Finally, libigl also implements a form of <em>in plane</em> &ldquo;false barycentric
-subdivision&rdquo; in <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">false_barycentric_subdivision</span></code>. This method simply adds
+subdivision&rdquo; in <code class="codehilite"><span class="c">igl::false_barycentric_subdivision</span></code>. This method simply adds
 the barycenter of every triangle as a new vertex <span><span class="MathJax_Preview">v_{abc}</span><script type="math/tex">v_{abc}</script></span> and replaces each
 triangle with three triangles <span><span class="MathJax_Preview">(i_a,i_b,i_{abc})</span><script type="math/tex">(i_a,i_b,i_{abc})</script></span>, <span><span class="MathJax_Preview">(i_b,i_c,i_{abc})</span><script type="math/tex">(i_b,i_c,i_{abc})</script></span>, and
-<span><span class="MathJax_Preview">(i_c,i_a,i_{abc})</span><script type="math/tex">(i_c,i_a,i_{abc})</script></span>. In contrast to <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">upsample</span></code>, this method will create
+<span><span class="MathJax_Preview">(i_c,i_a,i_{abc})</span><script type="math/tex">(i_c,i_a,i_{abc})</script></span>. In contrast to <code class="codehilite"><span class="c">igl::upsample</span></code>, this method will create
 triangles with smaller and smaller internal angles and new vertices will sample
 the carrier surfaces with extreme bias.</p>
 <p>
-<figure><img src="../images/decimated-knight-subdivision.gif" /><figcaption>The original coarse mesh and three different subdivision methods: <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">upsample</span></code>, <code class="codehilite"><span class="nv">igl</span>::<span class="k">loop</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">false_barycentric_subdivision</span></code>.</figcaption>
+<figure><img src="../images/decimated-knight-subdivision.gif" /><figcaption>The original coarse mesh and three different subdivision methods: <code class="codehilite"><span class="c">igl::upsample</span></code>, <code class="codehilite"><span class="c">igl::loop</span></code> and <code class="codehilite"><span class="c">igl::false_barycentric_subdivision</span></code>.</figcaption>
 </figure>
 </p>
 <h3 id="data-smoothing">Data Smoothing<a class="headerlink" href="#data-smoothing" title="Permanent link">&para;</a></h3>
@@ -2948,15 +2948,15 @@ fitting term:</p>
 <p>The parameter <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> determines how aggressively the function is smoothed.</p>
 <p>A classical choice for the smoothness energy is the Laplacian energy of the
 function with zero Neumann boundary conditions, which is a form of the
-biharmonic energy. It is constructed using the cotangent Laplacian <code class="codehilite"><span class="n">L</span></code> and
-the mass matrix <code class="codehilite"><span class="n">M</span></code>: <code class="codehilite"><span class="n">QL</span> <span class="o">=</span> <span class="n">L</span><span class="err">&#39;</span><span class="o">*</span><span class="p">(</span><span class="n">M</span><span class="err">\</span><span class="n">L</span><span class="p">)</span></code>. Because of the implicit zero Neumann
+biharmonic energy. It is constructed using the cotangent Laplacian <code class="codehilite"><span class="err">L</span></code> and
+the mass matrix <code class="codehilite"><span class="err">M</span></code>: <code class="codehilite"><span class="err">QL = L&#39;*(M\L)</span></code>. Because of the implicit zero Neumann
 boundary conditions however, the function behavior is significantly warped at
 the boundary if <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> does not have zero normal gradient at the boundary.</p>
 <p>In #[stein_2017] it is suggested to use the Biharmonic energy with natural
 Hessian boundary conditions instead, which corresponds to the hessian energy
-with the matrix <code class="codehilite"><span class="n">QH</span> <span class="o">=</span> <span class="n">H</span><span class="err">&#39;</span><span class="o">*</span><span class="p">(</span><span class="n">M2</span><span class="err">\</span><span class="n">H</span><span class="p">)</span></code>, where <code class="codehilite"><span class="n">H</span></code> is a finite element Hessian and
-<code class="codehilite"><span class="n">M2</span></code> is a stacked mass matrix. The matrices <code class="codehilite"><span class="n">H</span></code> and <code class="codehilite"><span class="n">QH</span></code> are implemented in
-libigl as <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">hessian</span></code> and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">hessian_energy</span></code> respectively. An example
+with the matrix <code class="codehilite"><span class="err">QH = H&#39;*(M2\H)</span></code>, where <code class="codehilite"><span class="err">H</span></code> is a finite element Hessian and
+<code class="codehilite"><span class="err">M2</span></code> is a stacked mass matrix. The matrices <code class="codehilite"><span class="err">H</span></code> and <code class="codehilite"><span class="err">QH</span></code> are implemented in
+libigl as <code class="codehilite"><span class="c">igl::hessian</span></code> and <code class="codehilite"><span class="c">igl::hessian_energy</span></code> respectively. An example
 of how to use the function is given in <a href="https://github.com/libigl/libigl/tree/master/tutorial/712_DataSmoothing/main.cpp">Example 712</a>.</p>
 <p>In the following image the differences between the Laplacian energy with
 zero Neumann boundary conditions and the Hessian energy can be clearly seen:
@@ -2972,8 +2972,8 @@ an unbiased result.</p>
 <p>For iteration <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>:
 1. <em>Local step</em>: compute the projections of the set <span><span class="MathJax_Preview">P_{k-1}</span><script type="math/tex">P_{k-1}</script></span> onto <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, individually per constraint; that would mean fragmenting each point that appears in multiple constraints. That can be a nonlinear operation, but if the constraints are sparse, it is a a set of many small systems.
 2. <em>Global step</em>: integrate the set <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to be as close as possible to the projected fragmented set, with auxiliary objective functions possible. That results in a global, but quadratic objective function. Moreover, the resulting linear system has a constant matrix, and therefore can be pre-factored.</p>
-<p>The version we implement in libigl is the general version described by <sup id="fnref2:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">23</a></sup>, and is in two files: <code class="codehilite"><span class="o">&lt;</span><span class="n">igl</span><span class="o">/</span><span class="n">shapeup</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span></code> and <code class="codehilite"><span class="o">&lt;</span><span class="n">igl</span><span class="o">/</span><span class="n">shapeup_local_projections</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span></code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="https://github.com/libigl/libigl/tree/master/tutorial/713_Shapeup/main.cpp">Example 713</a>. </p>
-<p>The local step is instantiated by a function of type <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">shapeup_projection_function</span></code>. The global step is done by two functions: <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">shapeup_precomputation</span><span class="p">()</span></code>, which precomputes the matrices required for the global step, and <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">shapeup_solve</span><span class="p">()</span></code>, which solves the problem, according to the initial solution <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and the input local projection function. The data struct <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">ShapeUpData</span></code> contains the information necessary to run the algorithm, and can be configured; for instance, the self-explanatory variable <code class="codehilite"><span class="n">Maxiterations</span></code>.</p>
+<p>The version we implement in libigl is the general version described by <sup id="fnref2:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">23</a></sup>, and is in two files: <code class="codehilite"><span class="err">&lt;igl/shapeup.h&gt;</span></code> and <code class="codehilite"><span class="err">&lt;igl/shapeup_local_projections.h&gt;</span></code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="https://github.com/libigl/libigl/tree/master/tutorial/713_Shapeup/main.cpp">Example 713</a>. </p>
+<p>The local step is instantiated by a function of type <code class="codehilite"><span class="c">igl::shapeup_projection_function</span></code>. The global step is done by two functions: <code class="codehilite"><span class="c">igl::shapeup_precomputation()</span></code>, which precomputes the matrices required for the global step, and <code class="codehilite"><span class="c">igl::shapeup_solve()</span></code>, which solves the problem, according to the initial solution <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and the input local projection function. The data struct <code class="codehilite"><span class="c">igl::ShapeUpData</span></code> contains the information necessary to run the algorithm, and can be configured; for instance, the self-explanatory variable <code class="codehilite"><span class="err">Maxiterations</span></code>.</p>
 <p>The global step minimizes the following energy:</p>
 <div>
 <div class="MathJax_Preview">
@@ -2983,7 +2983,7 @@ an unbiased result.</p>
   E_{total}=\lambda_{shape}E_{shape}+\lambda_{close}E_{close}+\lambda_{smooth}E_{smooth},
 </script>
 </div>
-<p>where the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> coefficients are encoded in <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">ShapeUpData</span></code>, and can be updated <strong>prior</strong> to calling <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">shapeup_precomputation</span><span class="p">()</span></code>. The <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> component is the integration energy (fitting <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to the local projections). The <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> component is adherence to positional constraints, given by <code class="codehilite"><span class="n">b</span></code> and <code class="codehilite"><span class="n">bc</span></code> parameters. The <span><span class="MathJax_Preview">E_{smooth}</span><script type="math/tex">E_{smooth}</script></span> component is an optional objective function, to minimize differences (in the Dirichlet sense) between points, encodes by &ldquo;edges&rdquo; in parameter <code class="codehilite"><span class="n">E</span></code>. Both <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> and <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> are also weighted by <code class="codehilite"><span class="n">wClose</span></code> and <code class="codehilite"><span class="n">wShape</span></code> function parameters, respectively.</p>
+<p>where the <span><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> coefficients are encoded in <code class="codehilite"><span class="c">igl::ShapeUpData</span></code>, and can be updated <strong>prior</strong> to calling <code class="codehilite"><span class="c">igl::shapeup_precomputation()</span></code>. The <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> component is the integration energy (fitting <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to the local projections). The <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> component is adherence to positional constraints, given by <code class="codehilite"><span class="err">b</span></code> and <code class="codehilite"><span class="err">bc</span></code> parameters. The <span><span class="MathJax_Preview">E_{smooth}</span><script type="math/tex">E_{smooth}</script></span> component is an optional objective function, to minimize differences (in the Dirichlet sense) between points, encodes by &ldquo;edges&rdquo; in parameter <code class="codehilite"><span class="err">E</span></code>. Both <span><span class="MathJax_Preview">E_{close}</span><script type="math/tex">E_{close}</script></span> and <span><span class="MathJax_Preview">E_{shape}</span><script type="math/tex">E_{shape}</script></span> are also weighted by <code class="codehilite"><span class="err">wClose</span></code> and <code class="codehilite"><span class="err">wShape</span></code> function parameters, respectively.</p>
 <p>
 <figure><img src="../images/713_ShapeUp.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/713_ShapeUp/main.cpp">Example 713</a>) The half-tunnel mesh (left) has been optimized to be almost perfectly regular (right). The color scale is between <span><span class="MathJax_Preview">\lbrack 0,0.05 \rbrack</span><script type="math/tex">\lbrack 0,0.05 \rbrack</script></span>, measuring the average normalized deviation of the angles of each face from <span><span class="MathJax_Preview">90^{\circ}</span><script type="math/tex">90^{\circ}</script></span>.</figcaption>
 </figure>
@@ -3005,8 +3005,8 @@ all) with a predefined topology (aka connectivity) chosen from a look up table
 depending on the function values at each vertex of the cell. The method
 iterates (&ldquo;marches&rdquo;) over all cells (&ldquo;tetrahedra&rdquo;) in the complex and stitches together
 the final mesh.</p>
-<p>In libigl, <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">marching_tets</span></code> constructs a triangle mesh <code class="codehilite"><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">)</span></code> approximating the iso-level set
-for the value <code class="codehilite"><span class="n">isovalue</span></code> from an input scalar field <code class="codehilite"><span class="n">S</span></code> sampled at the vertices of a tet mesh locations <code class="codehilite"><span class="p">(</span><span class="n">TV</span><span class="p">,</span> <span class="n">TT</span><span class="p">)</span></code>:</p>
+<p>In libigl, <code class="codehilite"><span class="c">igl::marching_tets</span></code> constructs a triangle mesh <code class="codehilite"><span class="err">(V,F)</span></code> approximating the iso-level set
+for the value <code class="codehilite"><span class="err">isovalue</span></code> from an input scalar field <code class="codehilite"><span class="err">S</span></code> sampled at the vertices of a tet mesh locations <code class="codehilite"><span class="err">(TV, TT)</span></code>:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">marching_tets</span><span class="p">(</span><span class="n">TV</span><span class="p">,</span><span class="n">TT</span><span class="p">,</span><span class="n">S</span><span class="p">,</span> <span class="n">isovalue</span> <span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">);</span>
 </pre></div>
 
@@ -3052,13 +3052,13 @@ actual distance values.</p>
 operation), but if Cholesky factorizations are used then the factorization is
 precomputation that can be <em>reused</em> even if the source of the geodesic distances
 is changed. For a new source, only back-substitution needs to be performed.</p>
-<p>In libigl, you can compute approximate geodesic distances for a mesh (<code class="codehilite"><span class="n">V</span></code>,<code class="codehilite"><span class="n">F</span></code>)
-from a list of source vertex indices <code class="codehilite"><span class="n">gamma</span></code> into a vector <code class="codehilite"><span class="n">D</span></code> using this method
+<p>In libigl, you can compute approximate geodesic distances for a mesh (<code class="codehilite"><span class="err">V</span></code>,<code class="codehilite"><span class="err">F</span></code>)
+from a list of source vertex indices <code class="codehilite"><span class="err">gamma</span></code> into a vector <code class="codehilite"><span class="err">D</span></code> using this method
 via two steps:</p>
-<div class="codehilite"><pre><span></span><span class="nt">igl</span><span class="p">::</span><span class="nd">HeatGeodesicsData</span><span class="o">&lt;</span><span class="nt">double</span><span class="o">&gt;</span> <span class="nt">data</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">heat_geodesics_precompute</span><span class="o">(</span><span class="nt">V</span><span class="o">,</span><span class="nt">F</span><span class="o">,</span><span class="nt">data</span><span class="o">);</span>
-<span class="o">...</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">heat_geodesics_solve</span><span class="o">(</span><span class="nt">data</span><span class="o">,</span><span class="nt">gamma</span><span class="o">,</span><span class="nt">D</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="c">igl::HeatGeodesicsData&lt;double&gt; data;</span>
+<span class="c">igl::heat_geodesics_precompute(V,F,data);</span>
+<span class="err">...</span>
+<span class="c">igl::heat_geodesics_solve(data,gamma,D);</span>
 </pre></div>
 
 <p>
@@ -3079,37 +3079,37 @@ Delaunay triangulation</em> discrete Laplace operator <sup id="fnref:bobenko_200
 mesh, this new operator will be constructed by <em>intrinsically</em> flipping edges
 and recording changes to edge-lengths. Edges are flipped until every edge is
 locally Delaunay (i.e., its corresponding cotangent weights are positive).</p>
-<p>You can compute the intrinsic Delaunay triangulation of mesh (<code class="codehilite"><span class="n">V</span></code>,<code class="codehilite"><span class="n">F</span></code>) in libigl
+<p>You can compute the intrinsic Delaunay triangulation of mesh (<code class="codehilite"><span class="err">V</span></code>,<code class="codehilite"><span class="err">F</span></code>) in libigl
 using:</p>
-<div class="codehilite"><pre><span></span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXd</span> <span class="nt">l</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">edge_lengths</span><span class="o">(</span><span class="nt">V</span><span class="o">,</span><span class="nt">F</span><span class="o">,</span><span class="nt">l</span><span class="o">);</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXd</span> <span class="nt">l_intrinsic</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXi</span> <span class="nt">F_intrinsic</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">intrinsic_delaunay_triangulation</span><span class="o">(</span><span class="nt">l</span><span class="o">,</span><span class="nt">F</span><span class="o">,</span><span class="nt">l_intrinsic</span><span class="o">,</span><span class="nt">F_intrinsic</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="c">Eigen::MatrixXd l;</span>
+<span class="c">igl::edge_lengths(V,F,l);</span>
+<span class="c">Eigen::MatrixXd l_intrinsic;</span>
+<span class="c">Eigen::MatrixXi F_intrinsic;</span>
+<span class="c">igl::intrinsic_delaunay_triangulation(l,F,l_intrinsic,F_intrinsic);</span>
 </pre></div>
 
-<p>Notice that the mesh vertex positions <code class="codehilite"><span class="n">V</span></code> are not used, since this is a purely
+<p>Notice that the mesh vertex positions <code class="codehilite"><span class="err">V</span></code> are not used, since this is a purely
 intrinsic operation. The method inputs and outputs edge-lengths and triangle
 indices.</p>
 <p>You may construct the intrinsic Delaunay cotangent Laplacian matrix directly
 using:</p>
-<div class="codehilite"><pre><span></span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">SparseMatrix</span><span class="o">&lt;</span><span class="nt">double</span><span class="o">&gt;</span> <span class="nt">L</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">intrinsic_delaunay_cotmatrix</span><span class="o">(</span><span class="nt">V</span><span class="o">,</span><span class="nt">F</span><span class="o">,</span><span class="nt">L</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="c">Eigen::SparseMatrix&lt;double&gt; L;</span>
+<span class="c">igl::intrinsic_delaunay_cotmatrix(V,F,L);</span>
 </pre></div>
 
 <p>And finally you can compute heat geodesics using this matrix via:</p>
-<div class="codehilite"><pre><span></span><span class="nt">igl</span><span class="p">::</span><span class="nd">HeatGeodesicsData</span><span class="o">&lt;</span><span class="nt">double</span><span class="o">&gt;</span> <span class="nt">data</span><span class="o">;</span>
-<span class="nt">data</span><span class="p">.</span><span class="nc">use_intrinsic_delaunay</span> <span class="o">=</span> <span class="nt">true</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">heat_geodesics_precompute</span><span class="o">(</span><span class="nt">V</span><span class="o">,</span><span class="nt">F</span><span class="o">,</span><span class="nt">data</span><span class="o">);</span>
-<span class="o">...</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">heat_geodesics_solve</span><span class="o">(</span><span class="nt">data</span><span class="o">,</span><span class="nt">gamma</span><span class="o">,</span><span class="nt">D</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="c">igl::HeatGeodesicsData&lt;double&gt; data;</span>
+<span class="err">data.use_intrinsic_delaunay = true;</span>
+<span class="c">igl::heat_geodesics_precompute(V,F,data);</span>
+<span class="err">...</span>
+<span class="c">igl::heat_geodesics_solve(data,gamma,D);</span>
 </pre></div>
 
 <p>
-<figure><img src="../images/heat-geodesic-peaks.png" /><figcaption>The <em>standard</em> FEM Laplacian <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">cotmatrix</span></code> results in an unstable geodesic
+<figure><img src="../images/heat-geodesic-peaks.png" /><figcaption>The <em>standard</em> FEM Laplacian <code class="codehilite"><span class="c">igl::cotmatrix</span></code> results in an unstable geodesic
 distance approximation that is non-monotonic (left), in the presence of a poor
 quality and/or biased mesh (zoom-in center). Switching to the intrinsic Delaunay
-triangulation&rsquo;s cotagent Laplacian <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">intrinsic_delaunay_cotmatrix</span></code> improves
+triangulation&rsquo;s cotagent Laplacian <code class="codehilite"><span class="c">igl::intrinsic_delaunay_cotmatrix</span></code> improves
 things and ensures monotonicity (right)</figcaption>
 </figure>
 </p>
@@ -3141,10 +3141,10 @@ loads a mesh, samples 1,000,000 random queries and then discards all those
 <p>Computing <em>fast</em> winding numbers for soups has two steps: building the tree data
 structure and then evaluating at query points. In libigl, this is programmed as
 follows:</p>
-<div class="codehilite"><pre><span></span><span class="nt">igl</span><span class="p">::</span><span class="nd">FastWindingNumberBVH</span> <span class="nt">fwn_bvh</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">fast_winding_number</span><span class="o">(</span><span class="nt">V</span><span class="p">.</span><span class="nc">cast</span><span class="o">&lt;</span><span class="nt">float</span><span class="o">&gt;(),</span><span class="nt">F</span><span class="o">,</span><span class="nt">2</span><span class="o">,</span><span class="nt">fwn_bvh</span><span class="o">);</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">VectorXf</span> <span class="nt">W</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">fast_winding_number</span><span class="o">(</span><span class="nt">fwn_bvh</span><span class="o">,</span><span class="nt">2</span><span class="o">,</span><span class="nt">Q</span><span class="p">.</span><span class="nc">cast</span><span class="o">&lt;</span><span class="nt">float</span><span class="o">&gt;(),</span><span class="nt">W</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="c">igl::FastWindingNumberBVH fwn_bvh;</span>
+<span class="c">igl::fast_winding_number(V.cast&lt;float&gt;(),F,2,fwn_bvh);</span>
+<span class="c">Eigen::VectorXf W;</span>
+<span class="c">igl::fast_winding_number(fwn_bvh,2,Q.cast&lt;float&gt;(),W);</span>
 </pre></div>
 
 <h4 id="clouds">Clouds<a class="headerlink" href="#clouds" title="Permanent link">&para;</a></h4>
@@ -3152,32 +3152,32 @@ follows:</p>
 necessary. The winding number for point clouds is defined so long as each point
 comes with an outward-facing normal and an area value. Areas can be estimated by
 using a libigl function that computes a tangents space Voronoi diagram for each
-point <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">copyleft</span><span class="p">::</span><span class="n">cgal</span><span class="p">::</span><span class="n">point_areas</span></code>. This function in turn relies on first
-computing k nearest neighbors <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">knn</span></code>. And that function and the eventual
-winding number computation uses libigl&rsquo;s <code class="codehilite"><span class="n">igl</span><span class="p">::</span><span class="n">octree</span></code> as a bounding volume
-hierarchy. To estimate areas use for a point cloud <code class="codehilite"><span class="n">P</span></code> with normals <code class="codehilite"><span class="n">N</span></code> use:</p>
-<div class="codehilite"><pre><span></span><span class="o">//</span> <span class="nt">Build</span> <span class="nt">octree</span>
-<span class="nt">std</span><span class="p">::</span><span class="nd">vector</span><span class="o">&lt;</span><span class="nt">std</span><span class="p">::</span><span class="nd">vector</span><span class="o">&lt;</span><span class="nt">int</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="nt">O_PI</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXi</span> <span class="nt">O_CH</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXd</span> <span class="nt">O_CN</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">VectorXd</span> <span class="nt">O_W</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">octree</span><span class="o">(</span><span class="nt">P</span><span class="o">,</span><span class="nt">O_PI</span><span class="o">,</span><span class="nt">O_CH</span><span class="o">,</span><span class="nt">O_CN</span><span class="o">,</span><span class="nt">O_W</span><span class="o">);</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">VectorXd</span> <span class="nt">A</span><span class="o">;</span>
-<span class="p">{</span>
-  <span class="n">Eigen</span><span class="p">:</span><span class="o">:</span><span class="n">MatrixXi</span> <span class="n">I</span><span class="p">;</span>
-  <span class="n">igl</span><span class="p">:</span><span class="o">:</span><span class="nf">knn</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="n">O_PI</span><span class="p">,</span><span class="n">O_CH</span><span class="p">,</span><span class="n">O_CN</span><span class="p">,</span><span class="n">O_W</span><span class="p">,</span><span class="n">I</span><span class="p">);</span>
-  <span class="err">//</span> <span class="err">CGAL</span> <span class="err">is</span> <span class="err">only</span> <span class="err">used</span> <span class="err">to</span> <span class="err">help</span> <span class="err">get</span> <span class="err">point</span> <span class="err">areas</span>
-  <span class="n">igl</span><span class="p">:</span><span class="o">:</span><span class="n">copyleft</span><span class="o">::</span><span class="n">cgal</span><span class="o">::</span><span class="nf">point_areas</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">I</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
-<span class="p">}</span>
+point <code class="codehilite"><span class="c">igl::copyleft::cgal::point_areas</span></code>. This function in turn relies on first
+computing k nearest neighbors <code class="codehilite"><span class="c">igl::knn</span></code>. And that function and the eventual
+winding number computation uses libigl&rsquo;s <code class="codehilite"><span class="c">igl::octree</span></code> as a bounding volume
+hierarchy. To estimate areas use for a point cloud <code class="codehilite"><span class="err">P</span></code> with normals <code class="codehilite"><span class="err">N</span></code> use:</p>
+<div class="codehilite"><pre><span></span><span class="err">// Build octree</span>
+<span class="c">std::vector&lt;std::vector&lt;int &gt; &gt; O_PI;</span>
+<span class="c">Eigen::MatrixXi O_CH;</span>
+<span class="c">Eigen::MatrixXd O_CN;</span>
+<span class="c">Eigen::VectorXd O_W;</span>
+<span class="c">igl::octree(P,O_PI,O_CH,O_CN,O_W);</span>
+<span class="c">Eigen::VectorXd A;</span>
+<span class="err">{</span>
+<span class="err">  Eigen::MatrixXi I;</span>
+<span class="err">  igl::knn(P,20,O_PI,O_CH,O_CN,O_W,I);</span>
+<span class="err">  // CGAL is only used to help get point areas</span>
+<span class="err">  igl::copyleft::cgal::point_areas(P,I,N,A);</span>
+<span class="err">}</span>
 </pre></div>
 
-<p>Then it is possible to compute fast winding numbers for a list of queries <code class="codehilite"><span class="n">Q</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXd</span> <span class="nt">O_CM</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">VectorXd</span> <span class="nt">O_R</span><span class="o">;</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">MatrixXd</span> <span class="nt">O_EC</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">fast_winding_number</span><span class="o">(</span><span class="nt">P</span><span class="o">,</span><span class="nt">N</span><span class="o">,</span><span class="nt">A</span><span class="o">,</span><span class="nt">O_PI</span><span class="o">,</span><span class="nt">O_CH</span><span class="o">,</span><span class="nt">2</span><span class="o">,</span><span class="nt">O_CM</span><span class="o">,</span><span class="nt">O_R</span><span class="o">,</span><span class="nt">O_EC</span><span class="o">);</span>
-<span class="nt">Eigen</span><span class="p">::</span><span class="nd">VectorXd</span> <span class="nt">W</span><span class="o">;</span>
-<span class="nt">igl</span><span class="p">::</span><span class="nd">fast_winding_number</span><span class="o">(</span><span class="nt">P</span><span class="o">,</span><span class="nt">N</span><span class="o">,</span><span class="nt">A</span><span class="o">,</span><span class="nt">O_PI</span><span class="o">,</span><span class="nt">O_CH</span><span class="o">,</span><span class="nt">O_CM</span><span class="o">,</span><span class="nt">O_R</span><span class="o">,</span><span class="nt">O_EC</span><span class="o">,</span><span class="nt">Q</span><span class="o">,</span><span class="nt">2</span><span class="o">,</span><span class="nt">W</span><span class="o">);</span>
+<p>Then it is possible to compute fast winding numbers for a list of queries <code class="codehilite"><span class="err">Q</span></code>:</p>
+<div class="codehilite"><pre><span></span><span class="c">Eigen::MatrixXd O_CM;</span>
+<span class="c">Eigen::VectorXd O_R;</span>
+<span class="c">Eigen::MatrixXd O_EC;</span>
+<span class="c">igl::fast_winding_number(P,N,A,O_PI,O_CH,2,O_CM,O_R,O_EC);</span>
+<span class="c">Eigen::VectorXd W;</span>
+<span class="c">igl::fast_winding_number(P,N,A,O_PI,O_CH,O_CM,O_R,O_EC,Q,2,W);</span>
 </pre></div>
 
 <h2 id="outlook-for-continuing-development">Outlook For Continuing Development<a class="headerlink" href="#outlook-for-continuing-development" title="Permanent link">&para;</a></h2>
