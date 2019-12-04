@@ -1,45 +1,849 @@
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Simple C++ geometry processing library"><link rel="canonical" href="https://libigl.github.io/unit-tests/"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../favicon.ico"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.0"><title>Unit Tests - libigl</title><link rel="stylesheet" href="../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#03a9f4"><script src="../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../assets/fonts/material-icons.css"><link rel="stylesheet" href="../css/style.css"></head><body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#unit-tests-for-libigl" tabindex="1" class="md-skip">Skip to content </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="https://libigl.github.io/" title="libigl" class="md-header-nav__button md-logo"><i class="md-icon"> </i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">libigl</span><span class="md-header-nav__topic">Unit Tests</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div><div class="md-flex__cell md-flex__cell--shrink"><div class="md-header-nav__source"><a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">libigl/libigl</div></a></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="https://libigl.github.io/" title="libigl" class="md-nav__button md-logo"><i class="md-icon"> </i></a>libigl</label><div class="md-nav__source"><a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">libigl/libigl</div></a></div><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href=".." title="Home" class="md-nav__link">Home</a></li><li class="md-nav__item"><a href="../tutorial/" title="Tutorial" class="md-nav__link">Tutorial</a></li><li class="md-nav__item"><a href="../python-bindings/" title="Python Bindings" class="md-nav__link">Python Bindings</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4"><label class="md-nav__link" for="nav-4">Compilation</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-4">Compilation</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../example-project/" title="Example Project" class="md-nav__link">Example Project</a></li><li class="md-nav__item"><a href="../static-library/" title="Static Library" class="md-nav__link">Static Library</a></li><li class="md-nav__item"><a href="../third-party/" title="External Dependencies" class="md-nav__link">External Dependencies</a></li></ul></nav></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked><label class="md-nav__link" for="nav-5">Contributing</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-5">Contributing</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../style-guidelines/" title="Style Guidelines" class="md-nav__link">Style Guidelines</a></li><li class="md-nav__item"><a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">Bug Report</a></li><li class="md-nav__item"><a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">Creating a Pull Request</a></li><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc"><label class="md-nav__link md-nav__link--active" for="__toc">Unit Tests</label><a href="./" title="Unit Tests" class="md-nav__link md-nav__link--active">Unit Tests</a><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#dependencies" title="Dependencies" class="md-nav__link">Dependencies</a></li><li class="md-nav__item"><a href="#build-and-test" title="Build and test" class="md-nav__link">Build and test</a></li><li class="md-nav__item"><a href="#generating-new-tests" title="Generating new tests" class="md-nav__link">Generating new tests</a></li><li class="md-nav__item"><a href="#conventions" title="Conventions" class="md-nav__link">Conventions</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#example" title="Example" class="md-nav__link">Example</a></li></ul></nav></li><li class="md-nav__item"><a href="#guarantees" title="Guarantees" class="md-nav__link">Guarantees</a></li><li class="md-nav__item"><a href="#need-work" title="Need work?" class="md-nav__link">Need work?</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6"><label class="md-nav__link" for="nav-6">Misc</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-6">Misc</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-nav__link">Matlab-libigl Cheatsheet</a></li><li class="md-nav__item"><a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">Coding Tips</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3"><label class="md-nav__link" for="nav-6-3">File Formats</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-6-3">File Formats</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../file-formats/" title="Index" class="md-nav__link">Index</a></li><li class="md-nav__item"><a href="../file-formats/bf/" title="bf" class="md-nav__link">bf</a></li><li class="md-nav__item"><a href="../file-formats/dmat/" title="dmat" class="md-nav__link">dmat</a></li><li class="md-nav__item"><a href="../file-formats/rbr/" title="rbr" class="md-nav__link">rbr</a></li><li class="md-nav__item"><a href="../file-formats/tgf/" title="tgf" class="md-nav__link">tgf</a></li><li class="md-nav__item"><a href="../file-formats/xml/" title="xml" class="md-nav__link">xml</a></li></ul></nav></li><li class="md-nav__item"><a href="../website/" title="Building the Website" class="md-nav__link">Building the Website</a></li><li class="md-nav__item"><a href="../rewritten-history/" title="Rewritten History" class="md-nav__link">Rewritten History</a></li></ul></nav></li><li class="md-nav__item"><a href="../faq/" title="FAQ" class="md-nav__link">FAQ</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8"><label class="md-nav__link" for="nav-8">About</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-8">About</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../RELEASE_HISTORY/" title="Changelog" class="md-nav__link">Changelog</a></li><li class="md-nav__item"><a href="../LICENSE/" title="License" class="md-nav__link">License</a></li></ul></nav></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#dependencies" title="Dependencies" class="md-nav__link">Dependencies</a></li><li class="md-nav__item"><a href="#build-and-test" title="Build and test" class="md-nav__link">Build and test</a></li><li class="md-nav__item"><a href="#generating-new-tests" title="Generating new tests" class="md-nav__link">Generating new tests</a></li><li class="md-nav__item"><a href="#conventions" title="Conventions" class="md-nav__link">Conventions</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#example" title="Example" class="md-nav__link">Example</a></li></ul></nav></li><li class="md-nav__item"><a href="#guarantees" title="Guarantees" class="md-nav__link">Guarantees</a></li><li class="md-nav__item"><a href="#need-work" title="Need work?" class="md-nav__link">Need work?</a></li></ul></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/unit-tests.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="unit-tests-for-libigl">Unit Tests for libigl<a class="headerlink" href="#unit-tests-for-libigl" title="Permanent link">&para;</a></h1>
-<p>The libigl unit test are included in the main repository inside the <code class="codehilite"><span class="err">tests</span></code> folder.
-There is a CMake flag to enable/disable the testings <code class="codehilite"><span class="err">LIBIGL_BUILD_TESTS</span></code> which is
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Simple C++ geometry processing library">
+      
+      
+        <link rel="canonical" href="https://libigl.github.io/unit-tests/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+    
+    
+      
+        <title>Unit Tests - libigl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+      <link rel="stylesheet" href="../css/pygments.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#unit-tests-for-libigl" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://libigl.github.io/" title="libigl" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"> </i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              libigl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Unit Tests
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    libigl/libigl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://libigl.github.io/" title="libigl" class="md-nav__button md-logo">
+      
+        <i class="md-icon"> </i>
+      
+    </a>
+    libigl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    libigl/libigl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Tutorial" class="md-nav__link">
+      Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../python-bindings/" title="Python Bindings" class="md-nav__link">
+      Python Bindings
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Compilation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Compilation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-project/" title="Example Project" class="md-nav__link">
+      Example Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static-library/" title="Static Library" class="md-nav__link">
+      Static Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../third-party/" title="External Dependencies" class="md-nav__link">
+      External Dependencies
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Contributing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Contributing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../style-guidelines/" title="Style Guidelines" class="md-nav__link">
+      Style Guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+      Bug Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">
+      Creating a Pull Request
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Unit Tests
+      </label>
+    
+    <a href="./" title="Unit Tests" class="md-nav__link md-nav__link--active">
+      Unit Tests
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-test" class="md-nav__link">
+    Build and test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-new-tests" class="md-nav__link">
+    Generating new tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    Conventions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guarantees" class="md-nav__link">
+    Guarantees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-work" class="md-nav__link">
+    Need work?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-nav__link">
+      Matlab-libigl Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">
+      Coding Tips
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      File Formats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        File Formats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/bf/" title="bf" class="md-nav__link">
+      bf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/dmat/" title="dmat" class="md-nav__link">
+      dmat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/rbr/" title="rbr" class="md-nav__link">
+      rbr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/tgf/" title="tgf" class="md-nav__link">
+      tgf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/xml/" title="xml" class="md-nav__link">
+      xml
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../website/" title="Building the Website" class="md-nav__link">
+      Building the Website
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rewritten-history/" title="Rewritten History" class="md-nav__link">
+      Rewritten History
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../RELEASE_HISTORY/" title="Changelog" class="md-nav__link">
+      Changelog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dependencies" class="md-nav__link">
+    Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-and-test" class="md-nav__link">
+    Build and test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-new-tests" class="md-nav__link">
+    Generating new tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conventions" class="md-nav__link">
+    Conventions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guarantees" class="md-nav__link">
+    Guarantees
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#need-work" class="md-nav__link">
+    Need work?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/unit-tests.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="unit-tests-for-libigl">Unit Tests for libigl<a class="headerlink" href="#unit-tests-for-libigl" title="Permanent link">&para;</a></h1>
+<p>The libigl unit test are included in the main repository inside the <code>tests</code> folder.
+There is a CMake flag to enable/disable the testings <code>LIBIGL_BUILD_TESTS</code> which is
 disabled by default when libigl is not a <em>toplevel project</em>, that is when you are using
 libigl as a library in your own project.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Before writing any new unit test, be sure you are using the <code class="codehilite"><span class="err">dev</span></code> branch to use the latest version of libigl available.</p>
+<p>Before writing any new unit test, be sure you are using the <code>dev</code> branch to use the latest version of libigl available.</p>
 </div>
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://github.com/catchorg/Catch2">Catch2</a> is an auto-downloaded dependency.</li>
 </ul>
 <h2 id="build-and-test">Build and test<a class="headerlink" href="#build-and-test" title="Permanent link">&para;</a></h2>
-<p>Use <code class="codehilite"><span class="err">cmake</span></code> to generate a <code class="codehilite"><span class="err">Makefile</span></code> that will build <em>and test</em> upon issuing
-<code class="codehilite"><span class="err">make</span></code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">mkdir build</span>
-<span class="err">cd build</span>
-<span class="err">cmake ..</span>
+<p>Use <code>cmake</code> to generate a <code>Makefile</code> that will build <em>and test</em> upon issuing
+<code>make</code>:</p>
+<div class="codehilite"><pre><span></span>mkdir build
+cd build
+cmake ..
 </pre></div>
 
 <p>Then build and test with</p>
-<div class="codehilite"><pre><span></span><span class="err">make</span>
-<span class="err">make test</span>
+<div class="codehilite"><pre><span></span>make
+make test
 </pre></div>
 
 <p>This will first compile the tests and then immediately run the tests. If tests
 are succeeding you should see output similar to:</p>
-<div class="codehilite"><pre><span></span><span class="err">Test project /usr/local/libigl-unit-tests/build</span>
-<span class="err">    Start 1: run_igl_mosek_tests</span>
-<span class="err">1/4 Test #1: run_igl_mosek_tests ..............***Exception: Other  0.00 sec</span>
-<span class="err">    Start 2: run_igl_boolean_tests</span>
-<span class="err">2/4 Test #2: run_igl_boolean_tests ............   Passed    1.12 sec</span>
-<span class="err">    Start 3: run_igl_cgal_tests</span>
-<span class="err">3/4 Test #3: run_igl_cgal_tests ...............   Passed    2.46 sec</span>
-<span class="err">    Start 4: run_igl_tests</span>
+<div class="codehilite"><pre><span></span>Test project /usr/local/libigl-unit-tests/build
+    Start 1: run_igl_mosek_tests
+1/4 Test #1: run_igl_mosek_tests ..............***Exception: Other  0.00 sec
+    Start 2: run_igl_boolean_tests
+2/4 Test #2: run_igl_boolean_tests ............   Passed    1.12 sec
+    Start 3: run_igl_cgal_tests
+3/4 Test #3: run_igl_cgal_tests ...............   Passed    2.46 sec
+    Start 4: run_igl_tests
 </pre></div>
 
 <p>We refer to the <a href="https://github.com/catchorg/Catch2/tree/master/docs">Catch2 manual</a> for additional options.</p>
 <h2 id="generating-new-tests">Generating new tests<a class="headerlink" href="#generating-new-tests" title="Permanent link">&para;</a></h2>
 <p>To create a new test, just create a file with the same name of the file you want to test
-inside the <code class="codehilite"><span class="err">include\igl</span></code> in the <code class="codehilite"><span class="err">tests</span></code> folder. Then just add
+inside the <code>include\igl</code> in the <code>tests</code> folder. Then just add
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;test_common.h&gt;</span><span class="cp"></span>
 
 <span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;&lt;function_name&gt; &lt;possible description&gt;&quot;</span><span class="p">,</span> <span class="s">&quot;[igl]&quot;</span><span class="p">)</span>
@@ -47,26 +851,26 @@ inside the <code class="codehilite"><span class="err">include\igl</span></code> 
   <span class="err">\\</span><span class="n">test</span> <span class="n">code</span> <span class="n">goes</span> <span class="n">here</span>
 <span class="p">}</span>
 </pre></div></p>
-<p>You can use functions like <code class="codehilite"><span class="c">test_common::assert_eq</span></code> to assert equality between two Eigen matrices.
+<p>You can use functions like <code>test_common::assert_eq</code> to assert equality between two Eigen matrices.
 The <a href="https://github.com/libigl/libigl/blob/master/tests/include/igl/cumsum.cpp">cumsum test</a> is a good
 simple example of a test case.</p>
-<p>Many libigl functions act on triangle meshes, you can use <code class="codehilite"><span class="c">igl::read_triangle_mesh(test_common::data_path(&quot;cube.obj&quot;), V, F)</span></code> to load a triangle mesh located in the test data folder.</p>
+<p>Many libigl functions act on triangle meshes, you can use <code>igl::read_triangle_mesh(test_common::data_path("cube.obj"), V, F)</code> to load a triangle mesh located in the test data folder.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The data used for testing is not in the main libigl repository. Instead it is contained in the <a href="https://github.com/libigl/libigl-tests-data">libigl-tests-data</a> repository. It is automatically downloaded when <code class="codehilite"><span class="err">LIBIGL_BUILD_TESTS</span></code> is enabled.</p>
+<p>The data used for testing is not in the main libigl repository. Instead it is contained in the <a href="https://github.com/libigl/libigl-tests-data">libigl-tests-data</a> repository. It is automatically downloaded when <code>LIBIGL_BUILD_TESTS</code> is enabled.</p>
 </div>
 <h2 id="conventions">Conventions<a class="headerlink" href="#conventions" title="Permanent link">&para;</a></h2>
-<p>When naming a test for a function <code class="codehilite"><span class="c">igl::extra::function_name</span></code> use:</p>
+<p>When naming a test for a function <code>igl::extra::function_name</code> use:</p>
 <div class="codehilite"><pre><span></span><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;function_name: my_description&quot;</span><span class="p">,</span> <span class="s">&quot;[igl/extra]&quot;</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="p">...</span>
 <span class="p">}</span>
 </pre></div>
 
-<p>where <code class="codehilite"><span class="err">my_description</span></code> can be used to identify the type of unit test being run on the function <code class="codehilite"><span class="n">function_name</span></code>.</p>
+<p>where <code>my_description</code> can be used to identify the type of unit test being run on the function <code>function_name</code>.</p>
 <h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
-<p>The test for <code class="codehilite"><span class="c">igl::copyleft::cgal::order_facets_around_edges</span></code> in
-<code class="codehilite"><span class="err">include/igl/copyleft/cgal/order_facets_around_edges.cpp</span></code> is:</p>
+<p>The test for <code>igl::copyleft::cgal::order_facets_around_edges</code> in
+<code>include/igl/copyleft/cgal/order_facets_around_edges.cpp</code> is:</p>
 <div class="codehilite"><pre><span></span><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;copyleft_cgal_order_facets_around_edges: Simple&quot;</span><span class="p">,</span> <span class="s">&quot;[igl/copyleft/cgal]&quot;</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="p">...</span>
@@ -77,12 +881,97 @@ simple example of a test case.</p>
 <h2 id="guarantees">Guarantees<a class="headerlink" href="#guarantees" title="Permanent link">&para;</a></h2>
 <p>None.</p>
 <p>(Obviously?) The presence of a unit test here for some function (e.g.,
-<code class="codehilite"><span class="c">igl::cotmatrix</span></code>) is not a guarantee or even an endorsement of the notion that
-the libigl function <code class="codehilite"><span class="c">igl::cotmatrix</span></code> is bug free or &ldquo;fully tested&rdquo; or &ldquo;heavily
+<code>igl::cotmatrix</code>) is not a guarantee or even an endorsement of the notion that
+the libigl function <code>igl::cotmatrix</code> is bug free or &ldquo;fully tested&rdquo; or &ldquo;heavily
 tested&rdquo; or even &ldquo;adequately tested&rdquo;.</p>
 <h2 id="need-work">Need work?<a class="headerlink" href="#need-work" title="Permanent link">&para;</a></h2>
 <p>Some of the most used libigl functions</p>
 <div class="codehilite"><pre><span></span>grep -hr <span class="s2">&quot;^#include \&quot;&quot;</span> ../libigl/include/igl <span class="p">|</span> sed -e <span class="s1">&#39;s/\(\.\.\/\)//g&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort
 </pre></div>
 
-<p>still don&rsquo;t have unit tests.</p></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Creating a Pull Request</span></div></a><a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Matlab-libigl Cheatsheet</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
+<p>still don&rsquo;t have unit tests.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Creating a Pull Request
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Matlab-libigl Cheatsheet
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a8b5e56f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

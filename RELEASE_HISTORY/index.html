@@ -1,4 +1,958 @@
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Simple C++ geometry processing library"><link rel="canonical" href="https://libigl.github.io/RELEASE_HISTORY/"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../favicon.ico"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.0"><title>Changelog - libigl</title><link rel="stylesheet" href="../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#03a9f4"><script src="../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../assets/fonts/material-icons.css"><link rel="stylesheet" href="../css/style.css"></head><body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#changelog" tabindex="1" class="md-skip">Skip to content </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="https://libigl.github.io/" title="libigl" class="md-header-nav__button md-logo"><i class="md-icon"> </i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">libigl</span><span class="md-header-nav__topic">Changelog</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div><div class="md-flex__cell md-flex__cell--shrink"><div class="md-header-nav__source"><a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">libigl/libigl</div></a></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="https://libigl.github.io/" title="libigl" class="md-nav__button md-logo"><i class="md-icon"> </i></a>libigl</label><div class="md-nav__source"><a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">libigl/libigl</div></a></div><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href=".." title="Home" class="md-nav__link">Home</a></li><li class="md-nav__item"><a href="../tutorial/" title="Tutorial" class="md-nav__link">Tutorial</a></li><li class="md-nav__item"><a href="../python-bindings/" title="Python Bindings" class="md-nav__link">Python Bindings</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4"><label class="md-nav__link" for="nav-4">Compilation</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-4">Compilation</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../example-project/" title="Example Project" class="md-nav__link">Example Project</a></li><li class="md-nav__item"><a href="../static-library/" title="Static Library" class="md-nav__link">Static Library</a></li><li class="md-nav__item"><a href="../third-party/" title="External Dependencies" class="md-nav__link">External Dependencies</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5"><label class="md-nav__link" for="nav-5">Contributing</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-5">Contributing</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../style-guidelines/" title="Style Guidelines" class="md-nav__link">Style Guidelines</a></li><li class="md-nav__item"><a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">Bug Report</a></li><li class="md-nav__item"><a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">Creating a Pull Request</a></li><li class="md-nav__item"><a href="../unit-tests/" title="Unit Tests" class="md-nav__link">Unit Tests</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6"><label class="md-nav__link" for="nav-6">Misc</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-6">Misc</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-nav__link">Matlab-libigl Cheatsheet</a></li><li class="md-nav__item"><a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">Coding Tips</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3"><label class="md-nav__link" for="nav-6-3">File Formats</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-6-3">File Formats</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../file-formats/" title="Index" class="md-nav__link">Index</a></li><li class="md-nav__item"><a href="../file-formats/bf/" title="bf" class="md-nav__link">bf</a></li><li class="md-nav__item"><a href="../file-formats/dmat/" title="dmat" class="md-nav__link">dmat</a></li><li class="md-nav__item"><a href="../file-formats/rbr/" title="rbr" class="md-nav__link">rbr</a></li><li class="md-nav__item"><a href="../file-formats/tgf/" title="tgf" class="md-nav__link">tgf</a></li><li class="md-nav__item"><a href="../file-formats/xml/" title="xml" class="md-nav__link">xml</a></li></ul></nav></li><li class="md-nav__item"><a href="../website/" title="Building the Website" class="md-nav__link">Building the Website</a></li><li class="md-nav__item"><a href="../rewritten-history/" title="Rewritten History" class="md-nav__link">Rewritten History</a></li></ul></nav></li><li class="md-nav__item"><a href="../faq/" title="FAQ" class="md-nav__link">FAQ</a></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked><label class="md-nav__link" for="nav-8">About</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-8">About</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc"><label class="md-nav__link md-nav__link--active" for="__toc">Changelog</label><a href="./" title="Changelog" class="md-nav__link md-nav__link--active">Changelog</a><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#summary-table" title="Summary Table" class="md-nav__link">Summary Table</a></li><li class="md-nav__item"><a href="#upcoming-version-dev-branch" title="Upcoming version (dev branch)" class="md-nav__link">Upcoming version (dev branch)</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#build-system" title="Build system" class="md-nav__link">Build system</a></li><li class="md-nav__item"><a href="#new-features" title="New features" class="md-nav__link">New features</a></li><li class="md-nav__item"><a href="#misc" title="Misc" class="md-nav__link">Misc</a></li></ul></nav></li><li class="md-nav__item"><a href="#version-210-changes" title="Version 2.1.0 Changes" class="md-nav__link">Version 2.1.0 Changes</a></li><li class="md-nav__item"><a href="#version-200-changes" title="Version 2.0.0 Changes" class="md-nav__link">Version 2.0.0 Changes</a></li><li class="md-nav__item"><a href="#version-132-changes" title="Version 1.3.2 Changes" class="md-nav__link">Version 1.3.2 Changes</a></li><li class="md-nav__item"><a href="#version-131-changes" title="Version 1.3.1 Changes" class="md-nav__link">Version 1.3.1 Changes</a></li><li class="md-nav__item"><a href="#version-130-changes" title="Version 1.3.0 Changes" class="md-nav__link">Version 1.3.0 Changes</a></li><li class="md-nav__item"><a href="#version-12-changes" title="Version 1.2 Changes" class="md-nav__link">Version 1.2 Changes</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#external-libraries-as-git-subrepos" title="External libraries as git subrepos" class="md-nav__link">External libraries as git subrepos</a></li><li class="md-nav__item"><a href="#deprecatedrepeated-functions" title="Deprecated/repeated functions" class="md-nav__link">Deprecated/repeated functions</a></li></ul></nav></li><li class="md-nav__item"><a href="#version-10-changes" title="Version 1.0 Changes" class="md-nav__link">Version 1.0 Changes</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#renamed-functions" title="Renamed functions" class="md-nav__link">Renamed functions</a></li><li class="md-nav__item"><a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">Miscellaneous</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item"><a href="../LICENSE/" title="License" class="md-nav__link">License</a></li></ul></nav></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"><label class="md-nav__title" for="__toc">Table of contents</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="#summary-table" title="Summary Table" class="md-nav__link">Summary Table</a></li><li class="md-nav__item"><a href="#upcoming-version-dev-branch" title="Upcoming version (dev branch)" class="md-nav__link">Upcoming version (dev branch)</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#build-system" title="Build system" class="md-nav__link">Build system</a></li><li class="md-nav__item"><a href="#new-features" title="New features" class="md-nav__link">New features</a></li><li class="md-nav__item"><a href="#misc" title="Misc" class="md-nav__link">Misc</a></li></ul></nav></li><li class="md-nav__item"><a href="#version-210-changes" title="Version 2.1.0 Changes" class="md-nav__link">Version 2.1.0 Changes</a></li><li class="md-nav__item"><a href="#version-200-changes" title="Version 2.0.0 Changes" class="md-nav__link">Version 2.0.0 Changes</a></li><li class="md-nav__item"><a href="#version-132-changes" title="Version 1.3.2 Changes" class="md-nav__link">Version 1.3.2 Changes</a></li><li class="md-nav__item"><a href="#version-131-changes" title="Version 1.3.1 Changes" class="md-nav__link">Version 1.3.1 Changes</a></li><li class="md-nav__item"><a href="#version-130-changes" title="Version 1.3.0 Changes" class="md-nav__link">Version 1.3.0 Changes</a></li><li class="md-nav__item"><a href="#version-12-changes" title="Version 1.2 Changes" class="md-nav__link">Version 1.2 Changes</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#external-libraries-as-git-subrepos" title="External libraries as git subrepos" class="md-nav__link">External libraries as git subrepos</a></li><li class="md-nav__item"><a href="#deprecatedrepeated-functions" title="Deprecated/repeated functions" class="md-nav__link">Deprecated/repeated functions</a></li></ul></nav></li><li class="md-nav__item"><a href="#version-10-changes" title="Version 1.0 Changes" class="md-nav__link">Version 1.0 Changes</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#renamed-functions" title="Renamed functions" class="md-nav__link">Renamed functions</a></li><li class="md-nav__item"><a href="#miscellaneous" title="Miscellaneous" class="md-nav__link">Miscellaneous</a></li></ul></nav></li></ul></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/RELEASE_HISTORY.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><!-- Hide h3+ from toc  -->
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Simple C++ geometry processing library">
+      
+      
+        <link rel="canonical" href="https://libigl.github.io/RELEASE_HISTORY/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../favicon.ico">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+    
+    
+      
+        <title>Changelog - libigl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#03a9f4">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../css/style.css">
+    
+      <link rel="stylesheet" href="../css/pygments.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#changelog" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://libigl.github.io/" title="libigl" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"> </i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              libigl
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Changelog
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    libigl/libigl
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://libigl.github.io/" title="libigl" class="md-nav__button md-logo">
+      
+        <i class="md-icon"> </i>
+      
+    </a>
+    libigl
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/libigl/libigl/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    libigl/libigl
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tutorial/" title="Tutorial" class="md-nav__link">
+      Tutorial
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../python-bindings/" title="Python Bindings" class="md-nav__link">
+      Python Bindings
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Compilation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Compilation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../example-project/" title="Example Project" class="md-nav__link">
+      Example Project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../static-library/" title="Static Library" class="md-nav__link">
+      Static Library
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../third-party/" title="External Dependencies" class="md-nav__link">
+      External Dependencies
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Contributing
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Contributing
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../style-guidelines/" title="Style Guidelines" class="md-nav__link">
+      Style Guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+      Bug Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../before-submitting-pull-request/" title="Creating a Pull Request" class="md-nav__link">
+      Creating a Pull Request
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../unit-tests/" title="Unit Tests" class="md-nav__link">
+      Unit Tests
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Misc
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Misc
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../matlab-to-eigen/" title="Matlab-libigl Cheatsheet" class="md-nav__link">
+      Matlab-libigl Cheatsheet
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../coding-guidelines/" title="Coding Tips" class="md-nav__link">
+      Coding Tips
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-3" type="checkbox" id="nav-6-3">
+    
+    <label class="md-nav__link" for="nav-6-3">
+      File Formats
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-3">
+        File Formats
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/" title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/bf/" title="bf" class="md-nav__link">
+      bf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/dmat/" title="dmat" class="md-nav__link">
+      dmat
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/rbr/" title="rbr" class="md-nav__link">
+      rbr
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/tgf/" title="tgf" class="md-nav__link">
+      tgf
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../file-formats/xml/" title="xml" class="md-nav__link">
+      xml
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../website/" title="Building the Website" class="md-nav__link">
+      Building the Website
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../rewritten-history/" title="Rewritten History" class="md-nav__link">
+      Rewritten History
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Changelog
+      </label>
+    
+    <a href="./" title="Changelog" class="md-nav__link md-nav__link--active">
+      Changelog
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    Summary Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upcoming-version-dev-branch" class="md-nav__link">
+    Upcoming version (dev branch)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    Build system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    New features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    Misc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-210-changes" class="md-nav__link">
+    Version 2.1.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-200-changes" class="md-nav__link">
+    Version 2.0.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-132-changes" class="md-nav__link">
+    Version 1.3.2 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-131-changes" class="md-nav__link">
+    Version 1.3.1 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-130-changes" class="md-nav__link">
+    Version 1.3.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-12-changes" class="md-nav__link">
+    Version 1.2 Changes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-libraries-as-git-subrepos" class="md-nav__link">
+    External libraries as git subrepos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecatedrepeated-functions" class="md-nav__link">
+    Deprecated/repeated functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-10-changes" class="md-nav__link">
+    Version 1.0 Changes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renamed-functions" class="md-nav__link">
+    Renamed functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../LICENSE/" title="License" class="md-nav__link">
+      License
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary-table" class="md-nav__link">
+    Summary Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#upcoming-version-dev-branch" class="md-nav__link">
+    Upcoming version (dev branch)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-system" class="md-nav__link">
+    Build system
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-features" class="md-nav__link">
+    New features
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#misc" class="md-nav__link">
+    Misc
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-210-changes" class="md-nav__link">
+    Version 2.1.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-200-changes" class="md-nav__link">
+    Version 2.0.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-132-changes" class="md-nav__link">
+    Version 1.3.2 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-131-changes" class="md-nav__link">
+    Version 1.3.1 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-130-changes" class="md-nav__link">
+    Version 1.3.0 Changes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-12-changes" class="md-nav__link">
+    Version 1.2 Changes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#external-libraries-as-git-subrepos" class="md-nav__link">
+    External libraries as git subrepos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deprecatedrepeated-functions" class="md-nav__link">
+    Deprecated/repeated functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-10-changes" class="md-nav__link">
+    Version 1.0 Changes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#renamed-functions" class="md-nav__link">
+    Renamed functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#miscellaneous" class="md-nav__link">
+    Miscellaneous
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/RELEASE_HISTORY.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <!-- Hide h3+ from toc  -->
 
 <style>.md-nav--secondary .md-nav__list .md-nav__list { display: none }</style>
 
@@ -171,29 +1125,29 @@
 </tbody>
 </table>
 </details>
-<h2 id="upcoming-version-dev-branch">Upcoming version (<code class="codehilite"><span class="err">dev</span></code> branch)<a class="headerlink" href="#upcoming-version-dev-branch" title="Permanent link">&para;</a></h2>
+<h2 id="upcoming-version-dev-branch">Upcoming version (<code>dev</code> branch)<a class="headerlink" href="#upcoming-version-dev-branch" title="Permanent link">&para;</a></h2>
 <h4 id="build-system">Build system<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Overhauled function signatures in preparation of new python bindings (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1162" title="GitHub Issue: libigl/libigl#1162">#1162</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1228" title="GitHub Issue: libigl/libigl#1228">#1228</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1271" title="GitHub Issue: libigl/libigl#1271">#1271</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1274" title="GitHub Issue: libigl/libigl#1274">#1274</a>)</li>
-<li>Added a conda environment <code class="codehilite"><span class="err">cmake/libigl-cgal.yml</span></code> to provide boost for Windows users (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1239" title="GitHub Issue: libigl/libigl#1239">#1239</a>)</li>
+<li>Added a conda environment <code>cmake/libigl-cgal.yml</code> to provide boost for Windows users (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1239" title="GitHub Issue: libigl/libigl#1239">#1239</a>)</li>
 <li>Added experimental support for Hunter (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1242" title="GitHub Issue: libigl/libigl#1242">#1242</a>)</li>
-<li>Now <code class="codehilite"><span class="err">libigl.cmake</span></code> will define a CMake target <code class="codehilite"><span class="c">Eigen3::Eigen</span></code> if not provided by the user (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1299" title="GitHub Issue: libigl/libigl#1299">#1299</a>)</li>
+<li>Now <code>libigl.cmake</code> will define a CMake target <code>Eigen3::Eigen</code> if not provided by the user (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1299" title="GitHub Issue: libigl/libigl#1299">#1299</a>)</li>
 </ul>
 <h4 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Fast winding number for triangle soups (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1218" title="GitHub Issue: libigl/libigl#1218">#1218</a>)</li>
 <li>Iterative closest point algorithm + tutorial (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1347" title="GitHub Issue: libigl/libigl#1347">#1347</a>)</li>
 <li>Ear clipping triangulation (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1169" title="GitHub Issue: libigl/libigl#1169">#1169</a>)</li>
-<li>Added <code class="codehilite"><span class="c">igl::path_to_edges</span></code> function (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1259" title="GitHub Issue: libigl/libigl#1259">#1259</a>)</li>
-<li><code class="codehilite"><span class="c">igl::dijkstra</span></code> can now use mesh edge length (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1170" title="GitHub Issue: libigl/libigl#1170">#1170</a>)</li>
+<li>Added <code>igl::path_to_edges</code> function (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1259" title="GitHub Issue: libigl/libigl#1259">#1259</a>)</li>
+<li><code>igl::dijkstra</code> can now use mesh edge length (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1170" title="GitHub Issue: libigl/libigl#1170">#1170</a>)</li>
 <li>Keep reference to multiple material when reading obj (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1280" title="GitHub Issue: libigl/libigl#1280">#1280</a>)</li>
 </ul>
 <h4 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Fix underflow issue when computing normalization in <code class="codehilite"><span class="c">igl::heat_geodesics</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1344" title="GitHub Issue: libigl/libigl#1344">#1344</a>) </li>
+<li>Fix underflow issue when computing normalization in <code>igl::heat_geodesics</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1344" title="GitHub Issue: libigl/libigl#1344">#1344</a>) </li>
 <li>Update nrosy to match the MIQ paper (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1303" title="GitHub Issue: libigl/libigl#1303">#1303</a>)</li>
-<li>Delete <code class="codehilite"><span class="err">Embree_convenience.h</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1314" title="GitHub Issue: libigl/libigl#1314">#1314</a>)</li>
-<li>Refactored <code class="codehilite"><span class="c">igl::cut_mesh</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1332" title="GitHub Issue: libigl/libigl#1332">#1332</a>)</li>
+<li>Delete <code>Embree_convenience.h</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1314" title="GitHub Issue: libigl/libigl#1314">#1314</a>)</li>
+<li>Refactored <code>igl::cut_mesh</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1332" title="GitHub Issue: libigl/libigl#1332">#1332</a>)</li>
 <li>Various improvements to the viewer (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1196" title="GitHub Issue: libigl/libigl#1196">#1196</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1251" title="GitHub Issue: libigl/libigl#1251">#1251</a>)</li>
 <li>Various bugfixes (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1197" title="GitHub Issue: libigl/libigl#1197">#1197</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1210" title="GitHub Issue: libigl/libigl#1210">#1210</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1216" title="GitHub Issue: libigl/libigl#1216">#1216</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1231" title="GitHub Issue: libigl/libigl#1231">#1231</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1247" title="GitHub Issue: libigl/libigl#1247">#1247</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1258" title="GitHub Issue: libigl/libigl#1258">#1258</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1288" title="GitHub Issue: libigl/libigl#1288">#1288</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1309" title="GitHub Issue: libigl/libigl#1309">#1309</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1320" title="GitHub Issue: libigl/libigl#1320">#1320</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1337" title="GitHub Issue: libigl/libigl#1337">#1337</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1345" title="GitHub Issue: libigl/libigl#1345">#1345</a>)</li>
 </ul>
@@ -202,9 +1156,9 @@
 <li>Various code cleanup, compilation fixes, and explicit template instantiations</li>
 <li>Added wrapper around Shewchuk&rsquo;s predicates (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1163" title="GitHub Issue: libigl/libigl#1163">#1163</a>)</li>
 <li>libigl now also compiles with Eigen 3.3 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1110" title="GitHub Issue: libigl/libigl#1110">#1110</a>).</li>
-<li>Extended <code class="codehilite"><span class="c">igl::cat</span></code> functionalities (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1108" title="GitHub Issue: libigl/libigl#1108">#1108</a>)</li>
-<li>Extended <code class="codehilite"><span class="err">boundary_facets</span></code> with outputs revealing which element facet comes from (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1067" title="GitHub Issue: libigl/libigl#1067">#1067</a>)</li>
-<li>Use <code class="codehilite"><span class="c">std::shuffle</span></code> instead of <code class="codehilite"><span class="c">std::random_shuffle</span></code> in <code class="codehilite"><span class="err">igl/randperm</span></code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1062" title="GitHub Issue: libigl/libigl#1062">#1062</a>)</li>
+<li>Extended <code>igl::cat</code> functionalities (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1108" title="GitHub Issue: libigl/libigl#1108">#1108</a>)</li>
+<li>Extended <code>boundary_facets</code> with outputs revealing which element facet comes from (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1067" title="GitHub Issue: libigl/libigl#1067">#1067</a>)</li>
+<li>Use <code>std::shuffle</code> instead of <code>std::random_shuffle</code> in <code>igl/randperm</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1062" title="GitHub Issue: libigl/libigl#1062">#1062</a>)</li>
 <li>Fixed an Eigen alignment issue in the viewer (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1029" title="GitHub Issue: libigl/libigl#1029">#1029</a>)</li>
 <li>Removed LIM tutorial (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1012" title="GitHub Issue: libigl/libigl#1012">#1012</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1014" title="GitHub Issue: libigl/libigl#1014">#1014</a>)</li>
 <li>Fixed current python bindings (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1008" title="GitHub Issue: libigl/libigl#1008">#1008</a>)</li>
@@ -220,19 +1174,19 @@
 <p>This release is a result of the 2018 libigl hackathon at NYU. The major changes are:</p>
 <ul>
 <li>a simplified cmake set up that can build a static library, tutorials, tests, and python bindings;</li>
-<li>cmake now uses <code class="codehilite"><span class="err">ExternalProject_Add</span></code> to download necessary/requested dependency source code and tutorial/test data</li>
-<li>as a result, <code class="codehilite"><span class="err">git clone --recursive ...</span></code> is no longer required </li>
+<li>cmake now uses <code>ExternalProject_Add</code> to download necessary/requested dependency source code and tutorial/test data</li>
+<li>as a result, <code>git clone --recursive ...</code> is no longer required </li>
 <li>unit tests are now part of main repo and included in continuous integration (<a href="https://github.com/libigl/libigl-unit-tests">https://github.com/libigl/libigl-unit-tests</a> is obsolete);</li>
 <li>tutorial data has been moved to <a href="https://github.com/libigl/libigl-tutorial-data">https://github.com/libigl/libigl-tutorial-data</a>;</li>
 <li>unit test data has been moved to <a href="https://github.com/libigl/libigl-tests-data">https://github.com/libigl/libigl-tests-data</a>;</li>
-<li>all dependencies previously in <code class="codehilite"><span class="err">libigl/external</span></code> have been removed or moved to repos (and added via <code class="codehilite"><span class="err">ExternalProject_Add</span></code>);</li>
+<li>all dependencies previously in <code>libigl/external</code> have been removed or moved to repos (and added via <code>ExternalProject_Add</code>);</li>
 <li>documentation and the tutorial webpage has been moved to <a href="https://github.com/libigl/libigl.github.io">https://github.com/libigl/libigl.github.io</a>;</li>
 <li>.git history of these files has been <em><strong>purged</strong></em> using <a href="https://rtyley.github.io/bfg-repo-cleaner/">bfg</a></li>
 <li>unfortunately this means that SHA hashes have changed and any external projects using libigl as a <em>submodule</em> will need to be refreshed to the new hashes.</li>
 <li>More information and instructions for troubleshooting at <a href="https://libigl.github.io/rewritten-history/">https://libigl.github.io/rewritten-history/</a>.</li>
 <li>A legacy version with SHA hashes matching old repo is hosted at <a href="https://github.com/libigl/libigl-legacy">https://github.com/libigl/libigl-legacy</a>.</li>
 </ul>
-<p>The <strong>major upshot</strong> is that the old <code class="codehilite"><span class="err">git clone --recursive</span></code> that resulted in a 1.8GB <code class="codehilite"><span class="err">libigl/</span></code> directory is now a <code class="codehilite"><span class="err">git clone</span></code> that results in 16.5MB, more than a <strong>100x</strong> reduction in size. </p>
+<p>The <strong>major upshot</strong> is that the old <code>git clone --recursive</code> that resulted in a 1.8GB <code>libigl/</code> directory is now a <code>git clone</code> that results in 16.5MB, more than a <strong>100x</strong> reduction in size. </p>
 <p>Name changes:</p>
 <table>
 <thead>
@@ -243,12 +1197,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="c">igl::components</span></code></td>
-<td><code class="codehilite"><span class="c">igl::vertex_components</span></code></td>
+<td><code>igl::components</code></td>
+<td><code>igl::vertex_components</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::slice_tets</span></code></td>
-<td><code class="codehilite"><span class="c">igl::marching_tets</span></code></td>
+<td><code>igl::slice_tets</code></td>
+<td><code>igl::marching_tets</code></td>
 </tr>
 </tbody>
 </table>
@@ -260,31 +1214,31 @@ and before switching from submodules to CMake external projects.</li>
 <h2 id="version-131-changes">Version 1.3.1 Changes<a class="headerlink" href="#version-131-changes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Last version before pull requests were merged during the libigl hackaton.</li>
-<li><code class="codehilite"><span class="c">igl::components</span></code> has been renamed to <code class="codehilite"><span class="c">igl::vertex_components</span></code>.</li>
-<li><code class="codehilite"><span class="err">viewer.core.model</span></code> matrix is gone (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/700" title="GitHub Issue: libigl/libigl#700">#700</a>).</li>
+<li><code>igl::components</code> has been renamed to <code>igl::vertex_components</code>.</li>
+<li><code>viewer.core.model</code> matrix is gone (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/700" title="GitHub Issue: libigl/libigl#700">#700</a>).</li>
 </ul>
 <h2 id="version-130-changes">Version 1.3.0 Changes<a class="headerlink" href="#version-130-changes" title="Permanent link">&para;</a></h2>
 <p>List of changes related to this version:</p>
 <ul>
 <li>
 <p>The CMake build system has been rewritten to be more modular and modern.
-  libigl modules are now available as CMake target, e.g. <code class="codehilite"><span class="c">igl::triangle</span></code> or
-  <code class="codehilite"><span class="c">igl::opengl</span></code>. See the libigl-example-project for an example of typical
+  libigl modules are now available as CMake target, e.g. <code>igl::triangle</code> or
+  <code>igl::opengl</code>. See the libigl-example-project for an example of typical
   usage.</p>
 </li>
 <li>
-<p><code class="codehilite"><span class="err">igl/antweakbar</span></code> and <code class="codehilite"><span class="err">igl/opengl2</span></code> support has been removed from the CMake.
+<p><code>igl/antweakbar</code> and <code>igl/opengl2</code> support has been removed from the CMake.
   The files are still available, but their use is discouraged.</p>
 </li>
 <li>
 <p>The viewer has been refactored and now supports multiple meshes. See related
   tutorial entry for more information. The viewer files are now split
-  according to their dependencies. E.g. <code class="codehilite"><span class="c">igl::viewer::Viewer</span></code> has been renamed
-  <code class="codehilite"><span class="c">igl::opengl::glfw::Viewer</span></code>.</p>
+  according to their dependencies. E.g. <code>igl::viewer::Viewer</code> has been renamed
+  <code>igl::opengl::glfw::Viewer</code>.</p>
 </li>
 <li>
 <p>NanoGui has been replaced by ImGui, and is now available as a viewer plugin
-  instead of <code class="codehilite"><span class="err">#define</span></code></p>
+  instead of <code>#define</code></p>
 </li>
 <li>
 <p>Polyvector code has been moved to
@@ -300,12 +1254,12 @@ dependency extra was absorbed.</p>
 <p>The core functionality of libigl (still) just depends on stl, c++11 and Eigen.
 There are additional <em>optional</em> dependencies (e.g. CGAL, embree, glfw, tetgen,
 triangle). Libigl functions using these are located (still) in sub-folders of
-the include directory (e.g.  <code class="codehilite"><span class="err">include/igl/cgal/</span></code>, <code class="codehilite"><span class="err">include/igl/embree/</span></code>). Prior
+the include directory (e.g.  <code>include/igl/cgal/</code>, <code>include/igl/embree/</code>). Prior
 to version 1.2 we included copies of the code for some of these dependencies in the
-<code class="codehilite"><span class="err">external/</span></code> directory. As of
+<code>external/</code> directory. As of
 version 1.2, these have been replaced with git sub-repos. If you have cloned
 libigl <em>before version 1.2</em> then you should issue </p>
-<div class="codehilite"><pre><span></span><span class="err">git submodule update --init --recursive</span>
+<div class="codehilite"><pre><span></span>git submodule update --init --recursive
 </pre></div>
 
 
@@ -319,56 +1273,56 @@ libigl <em>before version 1.2</em> then you should issue </p>
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="c">igl::angles</span></code></td>
-<td><code class="codehilite"><span class="c">igl::internal_angles</span></code></td>
+<td><code>igl::angles</code></td>
+<td><code>igl::internal_angles</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::get_modifiers</span></code></td>
+<td><code>igl::get_modifiers</code></td>
 <td>[deleted]</td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::nchoosek(offset,K,N,std::vector)</span></code></td>
-<td><code class="codehilite"><span class="c">igl::nchoosek(Eigen,K,Eigen)</span></code></td>
+<td><code>igl::nchoosek(offset,K,N,std::vector)</code></td>
+<td><code>igl::nchoosek(Eigen,K,Eigen)</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/components.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/components.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/boost/components.h&gt;</code></td>
+<td><code>#include &lt;igl/components.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/bfs_orient.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/bfs_orient.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/boost/bfs_orient.h&gt;</code></td>
+<td><code>#include &lt;igl/bfs_orient.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/boost/orientable_patches.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/orientable_patches.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/boost/orientable_patches.h&gt;</code></td>
+<td><code>#include &lt;igl/orientable_patches.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/arap.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/arap.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/arap.h&gt;</code></td>
+<td><code>#include &lt;igl/arap.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/arap_dof.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/arap_dof.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/arap_dof.h&gt;</code></td>
+<td><code>#include &lt;igl/arap_dof.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/fit_rotations.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/fit_rotations.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/fit_rotations.h&gt;</code></td>
+<td><code>#include &lt;igl/fit_rotations.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/polar_svd3x3.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/polar_svd3x3.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/polar_svd3x3.h&gt;</code></td>
+<td><code>#include &lt;igl/polar_svd3x3.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/svd3x3.h&gt;</code></td>
+<td><code>#include &lt;igl/svd3x3.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3_avx.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3_avx.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/svd3x3_avx.h&gt;</code></td>
+<td><code>#include &lt;igl/svd3x3_avx.h&gt;</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3/svd3x3_sse.h&gt;</span><span class="cp"></span></code></td>
-<td><code class="codehilite"><span class="cp">#include</span> <span class="cpf">&lt;igl/svd3x3_sse.h&gt;</span><span class="cp"></span></code></td>
+<td><code>#include &lt;igl/svd3x3/svd3x3_sse.h&gt;</code></td>
+<td><code>#include &lt;igl/svd3x3_sse.h&gt;</code></td>
 </tr>
 </tbody>
 </table>
@@ -388,146 +1342,231 @@ current users should read and adapt their code accordingly.</p>
 </thead>
 <tbody>
 <tr>
-<td><code class="codehilite"><span class="c">igl::add_barycenter</span></code></td>
-<td><code class="codehilite"><span class="c">igl::false_barycentric_subdivision</span></code></td>
+<td><code>igl::add_barycenter</code></td>
+<td><code>igl::false_barycentric_subdivision</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::areamatrix</span></code></td>
-<td><code class="codehilite"><span class="c">igl::vector_area_matrix</span></code></td>
+<td><code>igl::areamatrix</code></td>
+<td><code>igl::vector_area_matrix</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::barycentric2global</span></code></td>
-<td><code class="codehilite"><span class="c">igl::barycentric_to_global</span></code></td>
+<td><code>igl::barycentric2global</code></td>
+<td><code>igl::barycentric_to_global</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::boundary_faces</span></code></td>
-<td><code class="codehilite"><span class="c">igl::boundary_facets</span></code></td>
+<td><code>igl::boundary_faces</code></td>
+<td><code>igl::boundary_facets</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::boundary_vertices_sorted</span></code></td>
-<td><code class="codehilite"><span class="c">igl::boundary_loop</span></code></td>
+<td><code>igl::boundary_vertices_sorted</code></td>
+<td><code>igl::boundary_loop</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::cotangent</span></code></td>
-<td><code class="codehilite"><span class="c">igl::cotmatrix_entries</span></code></td>
+<td><code>igl::cotangent</code></td>
+<td><code>igl::cotmatrix_entries</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::edgetopology</span></code></td>
-<td><code class="codehilite"><span class="c">igl::edge_topology</span></code></td>
+<td><code>igl::edgetopology</code></td>
+<td><code>igl::edge_topology</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::gradMat</span></code></td>
-<td><code class="codehilite"><span class="c">igl::grad</span></code></td>
+<td><code>igl::gradMat</code></td>
+<td><code>igl::grad</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::is_manifold</span></code></td>
-<td><code class="codehilite"><span class="c">igl::is_edge_manifold</span></code></td>
+<td><code>igl::is_manifold</code></td>
+<td><code>igl::is_edge_manifold</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::mexStream</span></code></td>
-<td><code class="codehilite"><span class="c">igl::MexStream</span></code></td>
+<td><code>igl::mexStream</code></td>
+<td><code>igl::MexStream</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::moveFV</span></code></td>
-<td><code class="codehilite"><span class="c">igl::average_onto_vertices</span></code></td>
+<td><code>igl::moveFV</code></td>
+<td><code>igl::average_onto_vertices</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::moveVF</span></code></td>
-<td><code class="codehilite"><span class="c">igl::average_onto_faces</span></code></td>
+<td><code>igl::moveVF</code></td>
+<td><code>igl::average_onto_faces</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::plot_vector</span></code></td>
-<td><code class="codehilite"><span class="c">igl::print_vector</span></code></td>
+<td><code>igl::plot_vector</code></td>
+<td><code>igl::print_vector</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::pos</span></code></td>
-<td><code class="codehilite"><span class="c">igl::HalfEdgeIterator</span></code></td>
+<td><code>igl::pos</code></td>
+<td><code>igl::HalfEdgeIterator</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::plane_project</span></code></td>
-<td><code class="codehilite"><span class="c">igl::project_isometrically_to_plane</span></code></td>
+<td><code>igl::plane_project</code></td>
+<td><code>igl::project_isometrically_to_plane</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::project_points_mesh</span></code></td>
-<td><code class="codehilite"><span class="c">igl::line_mesh_intersection</span></code></td>
+<td><code>igl::project_points_mesh</code></td>
+<td><code>igl::line_mesh_intersection</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::read</span></code></td>
-<td><code class="codehilite"><span class="c">igl::read_triangle_mesh</span></code></td>
+<td><code>igl::read</code></td>
+<td><code>igl::read_triangle_mesh</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::removeDuplicates.cpp</span></code></td>
-<td><code class="codehilite"><span class="c">igl::remove_duplicates</span></code></td>
+<td><code>igl::removeDuplicates.cpp</code></td>
+<td><code>igl::remove_duplicates</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::removeUnreferenced</span></code></td>
-<td><code class="codehilite"><span class="c">igl::remove_unreferenced</span></code></td>
+<td><code>igl::removeUnreferenced</code></td>
+<td><code>igl::remove_unreferenced</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::tt</span></code></td>
-<td><code class="codehilite"><span class="c">igl::triangle_triangle_adjacency</span></code></td>
+<td><code>igl::tt</code></td>
+<td><code>igl::triangle_triangle_adjacency</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::vf</span></code></td>
-<td><code class="codehilite"><span class="c">igl::vertex_triangle_adjacency</span></code></td>
+<td><code>igl::vf</code></td>
+<td><code>igl::vertex_triangle_adjacency</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::write</span></code></td>
-<td><code class="codehilite"><span class="c">igl::write_triangle_mesh</span></code></td>
+<td><code>igl::write</code></td>
+<td><code>igl::write_triangle_mesh</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::manifold_patches</span></code></td>
-<td><code class="codehilite"><span class="c">igl::orientable_patches</span></code></td>
+<td><code>igl::manifold_patches</code></td>
+<td><code>igl::orientable_patches</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::selfintersect</span></code></td>
-<td><code class="codehilite"><span class="c">igl::remesh_self_intersections</span></code></td>
+<td><code>igl::selfintersect</code></td>
+<td><code>igl::remesh_self_intersections</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::project_mesh</span></code></td>
-<td><code class="codehilite"><span class="c">igl::line_mesh_intersection</span></code></td>
+<td><code>igl::project_mesh</code></td>
+<td><code>igl::line_mesh_intersection</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::triangulate</span></code></td>
-<td><code class="codehilite"><span class="c">igl::polygon_mesh_to_triangle_mesh</span></code></td>
+<td><code>igl::triangulate</code></td>
+<td><code>igl::polygon_mesh_to_triangle_mesh</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::is_manifold</span></code></td>
-<td><code class="codehilite"><span class="c">igl::is_edge_manifold</span></code></td>
+<td><code>igl::is_manifold</code></td>
+<td><code>igl::is_edge_manifold</code></td>
 </tr>
 <tr>
-<td><code class="codehilite"><span class="c">igl::triangle_wrapper</span></code></td>
-<td><code class="codehilite"><span class="c">igl::triangulate</span></code></td>
+<td><code>igl::triangle_wrapper</code></td>
+<td><code>igl::triangulate</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
 <ul>
 <li>To match interfaces provided by (all) other quadratic optimization
-   libraries, <code class="codehilite"><span class="c">igl::min_quad_with_fixed</span></code> and <code class="codehilite"><span class="c">igl::active_set</span></code> now expect as
+   libraries, <code>igl::min_quad_with_fixed</code> and <code>igl::active_set</code> now expect as
    input twice the quadratic coefficients matrix, i.e. the Hessian. For
-   example, <code class="codehilite"><span class="c">igl::min_quad_with_fixed(H,B,...)</span></code> minimizes <span><span class="MathJax_Preview">\frac{1}{2}x^T H
+   example, <code>igl::min_quad_with_fixed(H,B,...)</code> minimizes <span><span class="MathJax_Preview">\frac{1}{2}x^T H
    x+x^T B</span><script type="math/tex">\frac{1}{2}x^T H
    x+x^T B</script></span>.</li>
-<li>We have inverted the <code class="codehilite"><span class="err">IGL_HEADER_ONLY</span></code> macro to <code class="codehilite"><span class="err">IGL_STATIC_LIBRARY</span></code>. To
+<li>We have inverted the <code>IGL_HEADER_ONLY</code> macro to <code>IGL_STATIC_LIBRARY</code>. To
    compile using libigl as a header-only library, simply include headers and
    libigl in the header search path. To link to libigl, you must define the
-   <code class="codehilite"><span class="err">IGL_STATIC_LIBRARY</span></code> macro at compile time and link to the <code class="codehilite"><span class="err">libigl*.a</span></code>
+   <code>IGL_STATIC_LIBRARY</code> macro at compile time and link to the <code>libigl*.a</code>
    libraries.</li>
 <li>Building libigl as a static library is now more organized. There is a
-   <code class="codehilite"><span class="err">build/</span></code> directory with Makefiles for the main library (<code class="codehilite"><span class="err">Makefile</span></code>) and each
-   dependency (e.g. <code class="codehilite"><span class="err">Makefile_mosek</span></code> for <code class="codehilite"><span class="err">libiglmosek.a</span></code>)</li>
-<li><code class="codehilite"><span class="c">igl::polar_svd</span></code> now always returns a rotation in <code class="codehilite"><span class="err">R</span></code>, never a reflection.
-   This mirrors the behavior of <code class="codehilite"><span class="c">igl::polar_svd3x3</span></code>.  Consequently the <code class="codehilite"><span class="err">T</span></code>
+   <code>build/</code> directory with Makefiles for the main library (<code>Makefile</code>) and each
+   dependency (e.g. <code>Makefile_mosek</code> for <code>libiglmosek.a</code>)</li>
+<li><code>igl::polar_svd</code> now always returns a rotation in <code>R</code>, never a reflection.
+   This mirrors the behavior of <code>igl::polar_svd3x3</code>.  Consequently the <code>T</code>
    part may have negative skews.</li>
 <li>We have organized the static library build</li>
-<li>The previous <code class="codehilite"><span class="c">igl::grad</span></code> function, which computed the per-triangle gradient
-   of a per-vertex scalar function has been replaced. Now <code class="codehilite"><span class="c">igl::grad</span></code> computes
-   the linear operator (previous computed using <code class="codehilite"><span class="c">igl::gradMat</span></code>). The gradient
+<li>The previous <code>igl::grad</code> function, which computed the per-triangle gradient
+   of a per-vertex scalar function has been replaced. Now <code>igl::grad</code> computes
+   the linear operator (previous computed using <code>igl::gradMat</code>). The gradient
    values can still be recovered by multiplying the operator against the scalar
    field as a vector and reshaping to have gradients per row.</li>
-<li><code class="codehilite"><span class="err">MASSMATRIX_*</span></code> has become <code class="codehilite"><span class="err">MASSMATRIX_TYPE_*</span></code></li>
-<li>The function <code class="codehilite"><span class="c">igl::project_normals</span></code>, which cast a line for each vertex of
+<li><code>MASSMATRIX_*</code> has become <code>MASSMATRIX_TYPE_*</code></li>
+<li>The function <code>igl::project_normals</code>, which cast a line for each vertex of
    mesh <em>A</em> in the normal direction and found the closest intersection along
    these lines with mesh <em>B</em>, has been removed.</li>
-</ul></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>FAQ</span></div></a><a href="../LICENSE/" title="License" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>License</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../faq/" title="FAQ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                FAQ
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../LICENSE/" title="License" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                License
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.a8b5e56f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
