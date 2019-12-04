@@ -225,37 +225,39 @@ control the camera directly in your code.</p>
 the viewer&rsquo;s callbacks. See the
 <a href="https://github.com/libigl/libigl/tree/master/include/igl/opengl/glfw/ViewerPlugin.h">Viewer_plugin</a> for more details.</p>
 <h3 id="scalar-field-visualization">Scalar Field Visualization<a class="headerlink" href="#scalar-field-visualization" title="Permanent link">&para;</a></h3>
-<p>Colors and normals can be associated to faces or vertices using the
-set_colors function:</p>
+<p>Colors can be associated to faces or vertices using the
+<code class="codehilite"><span class="err">set_colors</span></code> function:</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_colors</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
 </pre></div>
 
-<p><code class="codehilite"><span class="err">C</span></code> is a #C by 3 matrix with one RGB color per row. <code class="codehilite"><span class="err">C</span></code> must have as many
-rows as the number of faces <strong>or</strong> the number of vertices of the mesh.
-Depending on the size of <code class="codehilite"><span class="err">C</span></code>, the viewer applies the color to the faces or to
-the vertices.</p>
-<p>Colors can be used to visualize a scalar function defined on a surface.  The
-scalar function is converted to colors using a color transfer function, which
-maps a scalar value between 0 and 1 to a color. A simple example of a scalar
-field defined on a surface is the z coordinate of each point, which can be
-extract from our mesh representation by taking the last column of <code class="codehilite"><span class="err">V</span></code>
-(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>). The function <code class="codehilite"><span class="c">igl::jet</span></code> can be used to
-convert it to colors:</p>
-<div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXd</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">V</span><span class="p">.</span><span class="n">col</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">igl</span><span class="o">::</span><span class="n">jet</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span><span class="nb">true</span><span class="p">,</span><span class="n">C</span><span class="p">);</span>
-</pre></div>
-
-<p>The first row extracts the third column from <code class="codehilite"><span class="err">V</span></code> (the z coordinate of each
-vertex) and the second calls a libigl functions that converts a scalar field to colors. The second parameter of jet normalizes the scalar field to lie between 0 and 1 before applying the transfer function.</p>
+<p><code class="codehilite"><span class="err">C</span></code> is a #C by 3 matrix with one RGB color per row. <code class="codehilite"><span class="err">C</span></code> must have as many rows
+as the number of faces <strong>or</strong> the number of vertices of the mesh.  Depending on
+the size of <code class="codehilite"><span class="err">C</span></code>, the viewer applies the color to the faces or to the vertices.
+In Example 104, the colors of mesh vertices are set according to their Cartesian
+coordinates.</p>
 <p>
-<figure><img src="../images/104_Colors.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>) igl::jet converts a scalar field to a color field.</figcaption>
+<figure><img src="../images/104_Colors.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/104_Colors/main.cpp">Example 104</a>) Set the colors of a mesh. </figcaption>
 </figure>
 </p>
-<p><code class="codehilite"><span class="c">igl::jet</span></code> is an example of a standard function in libigl: it takes simple
-types and can be easily reused for many different tasks.  Not committing to
-heavy data structures types favors simplicity, ease of use and reusability.</p>
+<p>Per-Vertex scalar fields can be directly visualized using <code class="codehilite"><span class="err">set_data</span></code> function:</p>
+<div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_data</span><span class="p">(</span><span class="n">D</span><span class="p">);</span>
+</pre></div>
+
+<p><code class="codehilite"><span class="err">D</span></code> is a #V by 1 vector with one value corresponding to each vertex. <code class="codehilite"><span class="err">set_data</span></code>
+will color according to linearly interpolating the <em>data</em> within a triangle (in
+the <a href="https://en.wikipedia.org/wiki/Shader#Types">fragment shader</a>) and use this
+interpolated data to look up a color in a colormap (stored as a texture). The
+colormap defaults to <code class="codehilite"><span class="c">igl::COLOR_MAP_TYPE_VIRIDIS</span></code> with 21 discrete intervals.
+A custom colormap may be set with <code class="codehilite"><span class="err">set_colormap</span></code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The method <code class="codehilite"><span class="err">set_data</span></code> is currently only available in the <strong>dev</strong> branch of libigl.
+The currently stable release (in the <strong>master</strong> branch) can only use <code class="codehilite"><span class="err">set_colors</span></code>.</p>
+</div>
 <h3 id="overlays">Overlays<a class="headerlink" href="#overlays" title="Permanent link">&para;</a></h3>
-<p>In addition to plotting the surface, the viewer supports the visualization of points, lines and text labels: these overlays can be very helpful while developing geometric processing algorithms to plot debug information.</p>
+<p>In addition to plotting the surface, the viewer supports the visualization of
+points, lines and text labels: these overlays can be very helpful while
+developing geometric processing algorithms to plot debug information.</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_points</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">));</span>
 </pre></div>
 
@@ -2216,7 +2218,7 @@ see the sparsity pattern of L using spy:</p>
 
 <p>and plotted using the libigl viewer.</p>
 <p>
-<figure><img src="../images/602_Matlab_2.png" /><figcaption>4 Eigenfunctions of the Laplacian plotted in the libigl viewer.</figcaption>
+<figure><img src="../images/602_Matlab_2.gif" /><figcaption>Eigenfunctions of the Laplacian computed in Matlab, plotted in the libigl viewer.</figcaption>
 </figure>
 </p>
 <h4 id="saving-a-matlab-workspace">Saving A Matlab Workspace<a class="headerlink" href="#saving-a-matlab-workspace" title="Permanent link">&para;</a></h4>
@@ -2952,8 +2954,8 @@ biharmonic energy. It is constructed using the cotangent Laplacian <code class="
 the mass matrix <code class="codehilite"><span class="err">M</span></code>: <code class="codehilite"><span class="err">QL = L&#39;*(M\L)</span></code>. Because of the implicit zero Neumann
 boundary conditions however, the function behavior is significantly warped at
 the boundary if <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> does not have zero normal gradient at the boundary.</p>
-<p>In #[stein_2017] it is suggested to use the Biharmonic energy with natural
-Hessian boundary conditions instead, which corresponds to the hessian energy
+<p>In <sup id="fnref:stein_2018"><a class="footnote-ref" href="#fn:stein_2018">47</a></sup> it is suggested to use the Biharmonic energy with natural
+Hessian boundary conditions instead, which corresponds to the Hessian energy
 with the matrix <code class="codehilite"><span class="err">QH = H&#39;*(M2\H)</span></code>, where <code class="codehilite"><span class="err">H</span></code> is a finite element Hessian and
 <code class="codehilite"><span class="err">M2</span></code> is a stacked mass matrix. The matrices <code class="codehilite"><span class="err">H</span></code> and <code class="codehilite"><span class="err">QH</span></code> are implemented in
 libigl as <code class="codehilite"><span class="c">igl::hessian</span></code> and <code class="codehilite"><span class="c">igl::hessian_energy</span></code> respectively. An example
@@ -3011,7 +3013,10 @@ for the value <code class="codehilite"><span class="err">isovalue</span></code> 
 </pre></div>
 
 <h3 id="implicit-function-meshing">Implicit Function Meshing<a class="headerlink" href="#implicit-function-meshing" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
 <p><em>Entry Missing</em></p>
+</div>
 <h3 id="heat-method-for-fast-geodesic-distance-approximation">Heat Method For Fast Geodesic Distance Approximation<a class="headerlink" href="#heat-method-for-fast-geodesic-distance-approximation" title="Permanent link">&para;</a></h3>
 <p>In the <a href="#exact-discrete-geodesic-distances">Exact Discrete Geodesic Distances</a>
 example above, geodesic distances are computed <em>exactly</em>. This is an expensive
@@ -3116,7 +3121,7 @@ things and ensures monotonicity (right)</figcaption>
 <h3 id="fast-winding-number-for-soups-and-clouds">Fast Winding Number For Soups And Clouds<a class="headerlink" href="#fast-winding-number-for-soups-and-clouds" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>The content of this tutorial is currently available in <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1218" title="GitHub Issue: libigl/libigl#1218">#1218</a>, and will be merged on the <strong>dev</strong> branch of the repository. It will be available in the <strong>master</strong> branch in the next version of libigl.</p>
+<p>The content of this tutorial is currently available in <strong>dev</strong> branch of the repository. It will be available in the <strong>master</strong> branch in the next version of libigl.</p>
 </div>
 <p>In 2018, Barill et al. <sup id="fnref:barill_2018"><a class="footnote-ref" href="#fn:barill_2018">46</a></sup> demonstrated how to significantly
 expediate the computation of the [generalized winding
@@ -3369,7 +3374,10 @@ repository</a>.</p>
 <p>Zhongshi Jiang, Scott Schaefer, Daniele Panozzo. <a href="https://doi.org/10.1145/3130800.3130895">SCAF: Simplicial Complex Augmentation Framework for Bijective Maps</a>, 2017&#160;<a class="footnote-backref" href="#fnref:jiang_2017" title="Jump back to footnote 45 in the text">&#8617;</a></p>
 </li>
 <li id="fn:barill_2018">
-<p>Gavin Barill, Neil G. Dickson, Ryan Schmidt, David I.W. Levin, Alec Jacobson. <a href="http://www.dgp.toronto.edu/projects/fast-winding-numbers/"> Fast Winding Numbers for Soups and Clouds</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:barill_2018" title="Jump back to footnote 46 in the text">&#8617;</a></p>
+<p>Gavin Barill, Neil G. Dickson, Ryan Schmidt, David I.W. Levin, Alec Jacobson. <a href="http://www.dgp.toronto.edu/projects/fast-winding-numbers/">Fast Winding Numbers for Soups and Clouds</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:barill_2018" title="Jump back to footnote 46 in the text">&#8617;</a></p>
+</li>
+<li id="fn:stein_2018">
+<p>Oded Stein, Eitan Grinspun, Max Wardetzky, Alec Jacobson. <a href="http://www.cs.columbia.edu/cg/hessians/">Natural Boundary Conditions for Smoothing in Geometry Processing</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:stein_2018" title="Jump back to footnote 47 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href=".." title="Home" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Home</span></div></a><a href="../python-bindings/" title="Python Bindings" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Python Bindings</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../assets/fonts/font-awesome.css"> <a href="https://github.com/libigl" class="md-footer-social__link fa fa-github"></a> </div></div></div></footer></div><script src="../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:".."}})</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
