@@ -2676,7 +2676,7 @@ designer, but creases and corners can also be computed automatically. Libigl
 implements a simple scheme which computes corner normals as averages of
 normals of faces incident on the corresponding vertex which do not deviate by more than a specified dihedral angle (e.g. 20°).</p>
 <p>
-<figure><img src="../images/fandisk-normals.jpg" /><figcaption>The <code>Normals</code> example computes per-face (left), per-vertex (middle) and per-corner (right) normals</figcaption>
+<figure><img src="../images/fandisk-normals.png" /><figcaption>The <code>Normals</code> example computes per-face (left), per-vertex (middle) and per-corner (right) normals</figcaption>
 </figure>
 </p>
 <h3 id="gaussian-curvature">Gaussian Curvature<a class="headerlink" href="#gaussian-curvature" title="Permanent link">&para;</a></h3>
@@ -2936,7 +2936,7 @@ functionality is provided in libigl using <code>slice_into</code>:</p>
 </pre></div>
 
 <p>
-<figure><img src="../images/decimated-knight-slice-color.jpg" /><figcaption>The example <code>Slice</code> shows how to use <code>igl::slice</code> to change the colors for triangles on a mesh.</figcaption>
+<figure><img src="../images/decimated-knight-slice-color.png" /><figcaption>The example <code>Slice</code> shows how to use <code>igl::slice</code> to change the colors for triangles on a mesh.</figcaption>
 </figure>
 </p>
 <h3 id="sort">Sort<a class="headerlink" href="#sort" title="Permanent link">&para;</a></h3>
@@ -2965,7 +2965,7 @@ where again <code>I</code> reveals the index of sort so that it can be reproduce
 <code>igl::slice(X,I,1,Y)</code>.</p>
 <p>Analogous functions are available in libigl for: <code>max</code>, <code>min</code>, and <code>unique</code>.</p>
 <p>
-<figure><img src="../images/decimated-knight-sort-color.jpg" /><figcaption>The example <code>Sort</code> shows how to use <code>igl::sortrows</code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="https://github.com/libigl/libigl/tree/master/tutorial/302_Sort/main.cpp">Example 302</a>).</figcaption>
+<figure><img src="../images/decimated-knight-sort-color.png" /><figcaption>The example <code>Sort</code> shows how to use <code>igl::sortrows</code> to pseudocolor triangles according to their barycenters&rsquo; sorted order (<a href="https://github.com/libigl/libigl/tree/master/tutorial/302_Sort/main.cpp">Example 302</a>).</figcaption>
 </figure>
 </p>
 <h4 id="other-matlab-style-functions">Other Matlab-style Functions<a class="headerlink" href="#other-matlab-style-functions" title="Permanent link">&para;</a></h4>
@@ -5078,7 +5078,7 @@ raycaster. Its usage is demonstrated in <a href="https://github.com/libigl/libig
   <span class="n">viewer</span><span class="p">.</span><span class="n">core</span><span class="p">.</span><span class="n">viewport</span><span class="p">,</span>
   <span class="o">*</span><span class="n">ei</span><span class="p">,</span>
   <span class="n">fid</span><span class="p">,</span>
-  <span class="n">vid</span><span class="p">);</span>
+  <span class="n">bc</span><span class="p">);</span>
 </pre></div>
 
 <p>This function casts a ray from the view plane in the view direction. Variables
@@ -5088,9 +5088,9 @@ projection matrix respectively; <code>viewport</code> is the viewport in OpenGL 
 <code>ei</code>
 contains a <a href="http://en.wikipedia.org/wiki/Bounding_volume_hierarchy">Bounding Volume
 Hierarchy</a> constructed
-by Embree, and <code>fid</code> and <code>vid</code> are the picked face and vertex, respectively.</p>
+by Embree, and <code>fid</code> and <code>bc</code> are the picked face and barycentric coordinate of the picked position, respectively.</p>
 <p>
-<figure><img src="../images/607_Picking.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/708_Picking/main.cpp">Example 708</a>) Picking via ray casting. The selected vertices are colored in red.</figcaption>
+<figure><img src="../images/708_Picking.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/708_Picking/main.cpp">Example 708</a>) Picking via ray casting. The selected faces are colored in red.</figcaption>
 </figure>
 </p>
 <h3 id="scalable-locally-injective-maps">Scalable Locally Injective Maps<a class="headerlink" href="#scalable-locally-injective-maps" title="Permanent link">&para;</a></h3>
