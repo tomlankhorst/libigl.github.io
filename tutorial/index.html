@@ -2383,6 +2383,10 @@ render it.</p>
 
 <p>The function <code>set_mesh</code> copies the mesh into the viewer.
 <code>Viewer.launch()</code>  creates a window, an OpenGL context and it starts the draw loop.
+The default camera motion mode is 2-axis (<code>ROTATION_TYPE_TWO_AXIS_VALUATOR_FIXED_UP</code>), 
+which can be changed to 3-axis trackball style by adding this line:
+<div class="codehilite"><pre><span></span>  viewer.core().set_rotation_type(igl::opengl::ViewerCore::ROTATION_TYPE_TRACKBALL);
+</pre></div>
 Additional properties can be plotted on the mesh (as we will see later),
 and it is possible to extend the viewer with standard OpenGL code.
 Please see the documentation in
