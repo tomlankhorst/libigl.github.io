@@ -36,7 +36,7 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://libigl.github.io/CONTRIBUTING/</loc>
+     <loc>https://libigl.github.io/bug-report/</loc>
      <lastmod>2020-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -106,12 +106,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://libigl.github.io/RELEASE_HISTORY/</loc>
+     <loc>https://libigl.github.io/changelog/</loc>
      <lastmod>2020-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://libigl.github.io/LICENSE/</loc>
+     <loc>https://libigl.github.io/license/</loc>
      <lastmod>2020-02-17</lastmod>
      <changefreq>daily</changefreq>
     </url>

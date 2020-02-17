@@ -355,7 +355,7 @@
       
         <li class="md-nav__item">
   <a href="#explicit-instantiations-of-templated-functions" class="md-nav__link">
-    Explicit instantiations of templated functions
+    Explicit Instantiations Of Templated Functions
   </a>
   
     <nav class="md-nav">
@@ -363,14 +363,14 @@
         
           <li class="md-nav__item">
   <a href="#benefits-of-static-library" class="md-nav__link">
-    Benefits of static library
+    Benefits Of Static Library
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#drawbacks-of-static-library" class="md-nav__link">
-    Drawbacks of static library
+    Drawbacks Of Static Library
   </a>
   
 </li>
@@ -445,7 +445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+    <a href="../bug-report/" title="Bug Report" class="md-nav__link">
       Bug Report
     </a>
   </li>
@@ -685,7 +685,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../RELEASE_HISTORY/" title="Changelog" class="md-nav__link">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
       Changelog
     </a>
   </li>
@@ -697,7 +697,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../LICENSE/" title="License" class="md-nav__link">
+    <a href="../license/" title="License" class="md-nav__link">
       License
     </a>
   </li>
@@ -758,7 +758,7 @@
       
         <li class="md-nav__item">
   <a href="#explicit-instantiations-of-templated-functions" class="md-nav__link">
-    Explicit instantiations of templated functions
+    Explicit Instantiations Of Templated Functions
   </a>
   
     <nav class="md-nav">
@@ -766,14 +766,14 @@
         
           <li class="md-nav__item">
   <a href="#benefits-of-static-library" class="md-nav__link">
-    Benefits of static library
+    Benefits Of Static Library
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#drawbacks-of-static-library" class="md-nav__link">
-    Drawbacks of static library
+    Drawbacks Of Static Library
   </a>
   
 </li>
@@ -806,7 +806,7 @@
 
 <style>.md-nav--secondary .md-nav__list .md-nav__list { display: none }</style>
 
-<h1 id="compiling-libigl-as-a-static-library">Compiling libigl as a static library<a class="headerlink" href="#compiling-libigl-as-a-static-library" title="Permanent link">&para;</a></h1>
+<h1 id="compiling-libigl-as-a-static-library">Compiling libigl As A Static Library<a class="headerlink" href="#compiling-libigl-as-a-static-library" title="Permanent link">&para;</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Compiling libigl as a static library is considerably more difficult
@@ -864,7 +864,7 @@ statically so we haven&rsquo;t explicit instantiations (yet).</p>
 <div class="codehilite"><pre><span></span>git archive -prefix<span class="o">=</span>libigl/ -o libigl.zip master
 </pre></div>
 
-<h2 id="explicit-instantiations-of-templated-functions">Explicit instantiations of templated functions<a class="headerlink" href="#explicit-instantiations-of-templated-functions" title="Permanent link">&para;</a></h2>
+<h2 id="explicit-instantiations-of-templated-functions">Explicit Instantiations Of Templated Functions<a class="headerlink" href="#explicit-instantiations-of-templated-functions" title="Permanent link">&para;</a></h2>
 <p>Special care must be taken by the developers of each function and
 class in the libigl library that uses C++ templates. If this function
 is intended to be compiled into the statically linked libigl library
@@ -932,7 +932,7 @@ reveal each missing symbol on its own line:</p>
 <div class="codehilite"><pre><span></span>make <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep <span class="s2">&quot;referenced from&quot;</span> <span class="p">|</span> sed -e <span class="s2">&quot;s/, referenced from.*//&quot;</span>
 </pre></div>
 
-<h3 id="benefits-of-static-library">Benefits of static library<a class="headerlink" href="#benefits-of-static-library" title="Permanent link">&para;</a></h3>
+<h3 id="benefits-of-static-library">Benefits Of Static Library<a class="headerlink" href="#benefits-of-static-library" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Faster compile time</strong>: Because the libigl library
@@ -947,7 +947,7 @@ reveal each missing symbol on its own line:</p>
     debugged.</p>
 </li>
 </ul>
-<h3 id="drawbacks-of-static-library">Drawbacks of static library<a class="headerlink" href="#drawbacks-of-static-library" title="Permanent link">&para;</a></h3>
+<h3 id="drawbacks-of-static-library">Drawbacks Of Static Library<a class="headerlink" href="#drawbacks-of-static-library" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Hard to use templates</strong>: Special care (by the developers of the library) needs to be taken when exposing templated functions.</li>
 </ul>

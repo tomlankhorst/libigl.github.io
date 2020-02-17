@@ -359,7 +359,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../CONTRIBUTING/" title="Bug Report" class="md-nav__link">
+    <a href="../bug-report/" title="Bug Report" class="md-nav__link">
       Bug Report
     </a>
   </li>
@@ -418,14 +418,14 @@
       
         <li class="md-nav__item">
   <a href="#build-and-test" class="md-nav__link">
-    Build and test
+    Build And Test
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#generating-new-tests" class="md-nav__link">
-    Generating new tests
+    Generating New Tests
   </a>
   
 </li>
@@ -459,7 +459,7 @@
       
         <li class="md-nav__item">
   <a href="#need-work" class="md-nav__link">
-    Need work?
+    Need Work?
   </a>
   
 </li>
@@ -685,7 +685,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../RELEASE_HISTORY/" title="Changelog" class="md-nav__link">
+    <a href="../changelog/" title="Changelog" class="md-nav__link">
       Changelog
     </a>
   </li>
@@ -697,7 +697,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../LICENSE/" title="License" class="md-nav__link">
+    <a href="../license/" title="License" class="md-nav__link">
       License
     </a>
   </li>
@@ -737,14 +737,14 @@
       
         <li class="md-nav__item">
   <a href="#build-and-test" class="md-nav__link">
-    Build and test
+    Build And Test
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#generating-new-tests" class="md-nav__link">
-    Generating new tests
+    Generating New Tests
   </a>
   
 </li>
@@ -778,7 +778,7 @@
       
         <li class="md-nav__item">
   <a href="#need-work" class="md-nav__link">
-    Need work?
+    Need Work?
   </a>
   
 </li>
@@ -815,7 +815,7 @@ libigl as a library in your own project.</p>
 <ul>
 <li><a href="https://github.com/catchorg/Catch2">Catch2</a> is an auto-downloaded dependency.</li>
 </ul>
-<h2 id="build-and-test">Build and test<a class="headerlink" href="#build-and-test" title="Permanent link">&para;</a></h2>
+<h2 id="build-and-test">Build And Test<a class="headerlink" href="#build-and-test" title="Permanent link">&para;</a></h2>
 <p>Use <code>cmake</code> to generate a <code>Makefile</code> that will build <em>and test</em> upon issuing
 <code>make</code>:</p>
 <div class="codehilite"><pre><span></span>mkdir build
@@ -841,7 +841,7 @@ are succeeding you should see output similar to:</p>
 </pre></div>
 
 <p>We refer to the <a href="https://github.com/catchorg/Catch2/tree/master/docs">Catch2 manual</a> for additional options.</p>
-<h2 id="generating-new-tests">Generating new tests<a class="headerlink" href="#generating-new-tests" title="Permanent link">&para;</a></h2>
+<h2 id="generating-new-tests">Generating New Tests<a class="headerlink" href="#generating-new-tests" title="Permanent link">&para;</a></h2>
 <p>To create a new test, just create a file with the same name of the file you want to test
 inside the <code>include\igl</code> in the <code>tests</code> folder. Then just add
 <div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;test_common.h&gt;</span><span class="cp"></span>
@@ -884,7 +884,7 @@ simple example of a test case.</p>
 <code>igl::cotmatrix</code>) is not a guarantee or even an endorsement of the notion that
 the libigl function <code>igl::cotmatrix</code> is bug free or &ldquo;fully tested&rdquo; or &ldquo;heavily
 tested&rdquo; or even &ldquo;adequately tested&rdquo;.</p>
-<h2 id="need-work">Need work?<a class="headerlink" href="#need-work" title="Permanent link">&para;</a></h2>
+<h2 id="need-work">Need Work?<a class="headerlink" href="#need-work" title="Permanent link">&para;</a></h2>
 <p>Some of the most used libigl functions</p>
 <div class="codehilite"><pre><span></span>grep -hr <span class="s2">&quot;^#include \&quot;&quot;</span> ../libigl/include/igl <span class="p">|</span> sed -e <span class="s1">&#39;s/\(\.\.\/\)//g&#39;</span> <span class="p">|</span> sort <span class="p">|</span> uniq -c <span class="p">|</span> sort
 </pre></div>
