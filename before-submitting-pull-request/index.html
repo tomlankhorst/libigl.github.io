@@ -398,22 +398,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exhaustive-build-test" class="md-nav__link">
-    Exhaustive Build Test
+  <a href="#compilation-using-static-library" class="md-nav__link">
+    Compilation Using Static Library
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct-test-of-tutorial-using-static-library" class="md-nav__link">
-    Direct Test Of Tutorial Using Static Library
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -701,22 +688,9 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#exhaustive-build-test" class="md-nav__link">
-    Exhaustive Build Test
+  <a href="#compilation-using-static-library" class="md-nav__link">
+    Compilation Using Static Library
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#direct-test-of-tutorial-using-static-library" class="md-nav__link">
-    Direct Test Of Tutorial Using Static Library
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -751,11 +725,9 @@
 will reduce the effort on the libigl team to merge your code and increase the
 likelihood that the merge ever happens.</p>
 <ol>
-<li>Make sure you are using the <strong>dev</strong> branch to create your pull request.</li>
-<li>Test your code and submit a unit test as part of the pull request</li>
-<li>Verify that your code matches the <a href="../style-guidelines/">libigl style
-  guidelines</a></li>
-<li><del>Run the <a href="#exhaustivebuildtest">exhaustive build test</a> below</del> <em>[deprecated]</em></li>
+<li>Make sure you are up-to-date with the <strong>master</strong> branch to create your pull request.</li>
+<li>Test your code and submit a unit test as part of the pull request;</li>
+<li>Verify that your code matches the <a href="../style-guidelines/">libigl style guidelines</a>;</li>
 </ol>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -763,29 +735,13 @@ likelihood that the merge ever happens.</p>
 github issue or pull-request by mentioning their number in your message. See
 for example <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/954" title="GitHub Issue: libigl/libigl#954">#954</a>.</p>
 </div>
-<h2 id="exhaustive-build-test">Exhaustive Build Test<a class="headerlink" href="#exhaustive-build-test" title="Permanent link">&para;</a></h2>
-<p>This script will <code>git clone</code> libigl to a temporary directory and build </p>
-<ol>
-<li>the static libigl library, </li>
-<li>the tutorial using the default header only libigl, and </li>
-<li>the tutorial using the static library libigl.</li>
-</ol>
-<p>Eventually this script should also run the unit tests.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># In scripts/clone_and_build.sh add your email address to the line:</span>
-<span class="c1"># `recipients=&quot;alecjacobson@gmail.com,youremail@domain.com&quot;`</span>
-<span class="c1"># In your email client (e.g. gmail) create a filter to prevent emails </span>
-<span class="c1"># from your local machine from going to spam</span>
-scripts/clone_and_build.sh
-</pre></div>
-
-<h3 id="direct-test-of-tutorial-using-static-library">Direct Test Of Tutorial Using Static Library<a class="headerlink" href="#direct-test-of-tutorial-using-static-library" title="Permanent link">&para;</a></h3>
-<p>This part of the <code>clone_and_build.sh</code> script catches 99% of the compilation
-issues that <em>don&rsquo;t</em> show up when testing:</p>
-<div class="codehilite"><pre><span></span><span class="nb">cd</span> tutorial/
-mkdir build-use-static
+<h3 id="compilation-using-static-library">Compilation Using Static Library<a class="headerlink" href="#compilation-using-static-library" title="Permanent link">&para;</a></h3>
+<p>If you are using libigl in header-only mode, please ensure that your code also compiles when enabling the CMake flag <code>LIBIGL_USE_STATIC_LIBRARY</code>:</p>
+<div class="codehilite"><pre><span></span>mkdir build-use-static
 <span class="nb">cd</span> build-use-static
 cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DLIBIGL_USE_STATIC_LIBRARY<span class="o">=</span>ON ..
 make
+make <span class="nb">test</span>
 </pre></div>
 
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
