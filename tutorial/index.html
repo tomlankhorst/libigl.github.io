@@ -2474,7 +2474,7 @@ developing geometric processing algorithms to plot debug information.</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_points</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">));</span>
 </pre></div>
 
-<p>Draws a point of color r,g,b for each row of P. The point is placed at the coordinates specified in each row of P, which is a #P by 3 matrix.</p>
+<p>Draws a point of color r,g,b for each row of P. The point is placed at the coordinates specified in each row of P, which is a #P by 3 matrix. Size of the points (in pixels) can be changed globally by setting <code>viewer.data().point_size</code>.</p>
 <div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">add_edges</span><span class="p">(</span><span class="n">P1</span><span class="p">,</span><span class="n">P2</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">RowVector3d</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">));</span>
 </pre></div>
 
