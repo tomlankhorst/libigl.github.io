@@ -1024,7 +1024,7 @@ relevant headers. Here is a small &ldquo;Hello, World&rdquo; program:</p>
 
 <p>If you save this in <code>hello.cpp</code>, then you could compile this with (assuming
 Eigen is installed in <code>/usr/local/include/eigen3</code>):</p>
-<div class="codehilite"><pre><span></span>g++ -std<span class="o">=</span>c++11 -I/usr/local/include/eigen3 -I./libigl/include/ hello.cpp -o hello
+<div class="codehilite"><pre><span></span>g++ -std<span class="o">=</span>c++11 -lpthread -I/usr/local/include/eigen3 -I./libigl/include/ hello.cpp -o hello
 </pre></div>
 
 <p>Running <code>./hello</code> would then produce</p>
