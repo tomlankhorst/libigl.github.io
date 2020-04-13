@@ -3903,7 +3903,7 @@ redundant) clustering of the per-triangle edge-sets.</p>
 </figure>
 </p>
 <h3 id="biharmonic-coordinates">Biharmonic Coordinates<a class="headerlink" href="#biharmonic-coordinates" title="Permanent link">&para;</a></h3>
-<p>Linear blend skinning (as <a href="#boundedbiharmonicweights">above</a>) deforms a mesh by
+<p>Linear blend skinning (as <a href="#bounded-biharmonic-weights">above</a>) deforms a mesh by
 propagating <em>full affine transformations</em> at handles (bones, points, regions,
 etc.) to the rest of the shape via weights. Another deformation framework,
 called &ldquo;generalized barycentric coordinates&rdquo;, is a special case of linear blend
@@ -4714,7 +4714,7 @@ case, it is clear that the mesh is of bad quality and it will probably result
 in artifacts if used for solving PDEs.</p>
 <h3 id="generalized-winding-number">Generalized Winding Number<a class="headerlink" href="#generalized-winding-number" title="Permanent link">&para;</a></h3>
 <p>The problem of tetrahedralizing the interior of closed watertight surface mesh
-is a difficult, but well-posed problem (see our [Tetgen wrappers][tetrahedralizationofclosedsurfaces]).  But
+is a difficult, but well-posed problem (see our <a href="#tetrahedralization-of-closed-surfaces">Tetgen wrappers</a>).  But
 black-box tet-meshers like TetGen will <em>refuse</em> input triangle meshes with
 self-intersections, open boundaries, non-manifold edges from multiple connected
 components.
@@ -5119,7 +5119,7 @@ using the SCAF algorithm in 10 iterations.</figcaption>
 </figure>
 </p>
 <h3 id="subdivision-surfaces">Subdivision Surfaces<a class="headerlink" href="#subdivision-surfaces" title="Permanent link">&para;</a></h3>
-<p>Given a coarse mesh (aka cage) with vertices <code>V</code> and faces <code>F</code>, one can createa
+<p>Given a coarse mesh (aka cage) with vertices <code>V</code> and faces <code>F</code>, one can create a
 higher-resolution mesh with more vertices and faces by <em>subdividing</em> every
 face. That is, each coarse triangle in the input is replaced by many smaller
 triangles. Libigl has three different methods for subdividing a triangle mesh.</p>
