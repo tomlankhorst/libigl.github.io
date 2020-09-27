@@ -342,6 +342,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#viewer-guizmos" class="md-nav__link">
+    Viewer Guizmos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msh-viewer" class="md-nav__link">
+    Msh Viewer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1007,6 +1021,41 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterative-closest-point" class="md-nav__link">
+    Iterative Closest Point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterative-closest-point_1" class="md-nav__link">
+    Iterative Closest Point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blue-noise-surface-sampling" class="md-nav__link">
+    Blue Noise Surface Sampling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-field-smoothing" class="md-nav__link">
+    Vector Field Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-parallel-transport" class="md-nav__link">
+    Vector Parallel Transport
+  </a>
   
 </li>
         
@@ -1515,6 +1564,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#viewer-guizmos" class="md-nav__link">
+    Viewer Guizmos
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#msh-viewer" class="md-nav__link">
+    Msh Viewer
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2183,6 +2246,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#iterative-closest-point" class="md-nav__link">
+    Iterative Closest Point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iterative-closest-point_1" class="md-nav__link">
+    Iterative Closest Point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#blue-noise-surface-sampling" class="md-nav__link">
+    Blue Noise Surface Sampling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-field-smoothing" class="md-nav__link">
+    Vector Field Smoothing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-parallel-transport" class="md-nav__link">
+    Vector Parallel Transport
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2636,6 +2734,16 @@ of <code>Viewer::append_mesh()</code> and <code>Viewer::append_core()</code> for
 <figure><img src="../images/108_MultipleViews.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/108_MultipleViews/main.cpp">Example 108</a>) The <code>igl::opengl::glfw::Viewer</code> can render the same scene using multiple views, each with its own attributes like colors, and individual mesh visibility.</figcaption>
 </figure>
 </p>
+<h3 id="viewer-guizmos">Viewer Guizmos<a class="headerlink" href="#viewer-guizmos" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">109_ImGuizmo</p>
+<p><em>Entry Missing</em></p>
+</div>
+<h3 id="msh-viewer">Msh Viewer<a class="headerlink" href="#msh-viewer" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">110_MshView</p>
+<p><em>Entry Missing</em></p>
+</div>
 <h2 id="chapter-2-discrete-geometric-quantities-and-operators">Chapter 2: Discrete Geometric Quantities And Operators<a class="headerlink" href="#chapter-2-discrete-geometric-quantities-and-operators" title="Permanent link">&para;</a></h2>
 <p>This chapter illustrates a few discrete quantities that libigl can compute on a
 mesh and the libigl functions that construct popular discrete differential
@@ -5293,7 +5401,7 @@ for the value <code>isovalue</code> from an input scalar field <code>S</code> sa
 
 <h3 id="implicit-function-meshing">Implicit Function Meshing<a class="headerlink" href="#implicit-function-meshing" title="Permanent link">&para;</a></h3>
 <div class="admonition todo">
-<p class="admonition-title">Todo</p>
+<p class="admonition-title">715_MeshImplicitFunction</p>
 <p><em>Entry Missing</em></p>
 </div>
 <h3 id="heat-method-for-fast-geodesic-distance-approximation">Heat Method For Fast Geodesic Distance Approximation<a class="headerlink" href="#heat-method-for-fast-geodesic-distance-approximation" title="Permanent link">&para;</a></h3>
@@ -5460,6 +5568,31 @@ hierarchy. To estimate areas use for a point cloud <code>P</code> with normals <
 <span class="n">igl</span><span class="o">::</span><span class="n">fast_winding_number</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">O_PI</span><span class="p">,</span><span class="n">O_CH</span><span class="p">,</span><span class="n">O_CM</span><span class="p">,</span><span class="n">O_R</span><span class="p">,</span><span class="n">O_EC</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">W</span><span class="p">);</span>
 </pre></div>
 
+<h3 id="iterative-closest-point">Iterative Closest Point<a class="headerlink" href="#iterative-closest-point" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">718_IterativeClosestPoint</p>
+<p><em>Entry Missing</em></p>
+</div>
+<h3 id="iterative-closest-point_1">Iterative Closest Point<a class="headerlink" href="#iterative-closest-point_1" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">719_ExplodedView</p>
+<p><em>Entry Missing</em></p>
+</div>
+<h3 id="blue-noise-surface-sampling">Blue Noise Surface Sampling<a class="headerlink" href="#blue-noise-surface-sampling" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">720_BlueNoise</p>
+<p><em>Entry Missing</em></p>
+</div>
+<h3 id="vector-field-smoothing">Vector Field Smoothing<a class="headerlink" href="#vector-field-smoothing" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">721_VectorFieldSmoothing</p>
+<p><em>Entry Missing</em></p>
+</div>
+<h3 id="vector-parallel-transport">Vector Parallel Transport<a class="headerlink" href="#vector-parallel-transport" title="Permanent link">&para;</a></h3>
+<div class="admonition todo">
+<p class="admonition-title">722_VectorParallelTransport</p>
+<p><em>Entry Missing</em></p>
+</div>
 <h2 id="outlook-for-continuing-development">Outlook For Continuing Development<a class="headerlink" href="#outlook-for-continuing-development" title="Permanent link">&para;</a></h2>
 <p>Libigl is in active development, and we plan to focus on the following features
 in the next months:</p>
