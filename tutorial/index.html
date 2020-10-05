@@ -659,6 +659,26 @@
     Mesh Deformation with Kelvinlet
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quick-primer-on-linear-elastostatics-25" class="md-nav__link">
+    A quick primer on linear elastostatics 25
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regularized-kelvinlets" class="md-nav__link">
+    Regularized kelvinlets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1887,6 +1907,26 @@
   <a href="#mesh-deformation-with-kelvinlet" class="md-nav__link">
     Mesh Deformation with Kelvinlet
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quick-primer-on-linear-elastostatics-25" class="md-nav__link">
+    A quick primer on linear elastostatics 25
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regularized-kelvinlets" class="md-nav__link">
+    Regularized kelvinlets
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -4158,10 +4198,99 @@ bone and the final locations are stored in <code>U</code>.</p>
 </figure>
 </p>
 <h3 id="mesh-deformation-with-kelvinlet">Mesh Deformation with Kelvinlet<a class="headerlink" href="#mesh-deformation-with-kelvinlet" title="Permanent link">&para;</a></h3>
-<div class="admonition todo">
-<p class="admonition-title">409_Kelvinlets</p>
-<p><em>Entry Missing</em></p>
-</div>
+<p>Kelvinlets<sup id="fnref:pixar_2017"><a class="footnote-ref" href="#fn:pixar_2017">24</a></sup> is a technique for real-time physically based volume sculpting of
+virtual elastic materials. The technique treats meshes as fluids made of
+compressible materials and deforms them by advecting points along a displacement
+field. It relies on analytical solutions to the equations of elasticity.</p>
+<h4 id="a-quick-primer-on-linear-elastostatics-25">A quick primer on linear elastostatics <sup id="fnref:slaughter_2002"><a class="footnote-ref" href="#fn:slaughter_2002">25</a></sup><a class="headerlink" href="#a-quick-primer-on-linear-elastostatics-25" title="Permanent link">&para;</a></h4>
+<p>The equilibrium state of linear elasticity is determined by a displacement field
+<span><span class="MathJax_Preview">\mathbf{u} : R^3 \rightarrow  R^3</span><script type="math/tex">\mathbf{u} : R^3 \rightarrow  R^3</script></span> that minimizes the elastic potential energy </p>
+<p><span><span class="MathJax_Preview">E(\mathbf{u}) = \frac{\mu}{2}\left\|\nabla\mathbf{u}\right\|^2  +
+ \frac{\mu}{2(1-2\nu)}\left\|\nabla \cdot \mathbf{u}\right\|^2 - \langle\mathbf{b},
+ \mathbf{u}\rangle</span><script type="math/tex">E(\mathbf{u}) = \frac{\mu}{2}\left\|\nabla\mathbf{u}\right\|^2  +
+ \frac{\mu}{2(1-2\nu)}\left\|\nabla \cdot \mathbf{u}\right\|^2 - \langle\mathbf{b},
+ \mathbf{u}\rangle</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> is the elastic shear modulus,  <span><span class="MathJax_Preview">\nu</span><script type="math/tex">\nu</script></span> is the Poisson ratio, and
+<span><span class="MathJax_Preview">\mathbf{b}</span><script type="math/tex">\mathbf{b}</script></span> represents the external body forces.</p>
+<p>The first term controls the smoothness of the displacement field, the second
+term penalizes infinitesimal volume change, and the last term indicates the
+external body forces to be counteracted.</p>
+<p>One can associate the optimal displacement field with the solution to the
+critical point of the above equation, also known as the Navier-Cauchy equation:</p>
+<p><span><span class="MathJax_Preview">\mu\Delta\mathbf{u} + \frac{\mu}{(1 - 2\nu)}\nabla(\nabla \cdot \mathbf{u}) +
+\mathbf{b} = 0</span><script type="math/tex">\mu\Delta\mathbf{u} + \frac{\mu}{(1 - 2\nu)}\nabla(\nabla \cdot \mathbf{u}) +
+\mathbf{b} = 0</script></span></p>
+<p>The Kelvinlet is the solution to the Navier-Cauchy equation in the case of a
+concentrated body load due to a force vector <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span> at a point
+<span><span class="MathJax_Preview">\mathbf{x}_{0}</span><script type="math/tex">\mathbf{x}_{0}</script></span>, i.e., where <span><span class="MathJax_Preview">\mathbf{b}(\mathbf{x}) = \mathbf{f}
+\delta(\mathbf{x} − \mathbf{x}_{0})</span><script type="math/tex">\mathbf{b}(\mathbf{x}) = \mathbf{f}
+\delta(\mathbf{x} − \mathbf{x}_{0})</script></span> and can be written as:</p>
+<p><span><span class="MathJax_Preview">\mathbf{u}(\mathbf{r}) = \left[ \frac{(a - b)}{r}I +
+\frac{\mathbf{b}}{\mathit{r}^3}\mathbf{r}\mathbf{r}^{t}\right] \mathbf{f} \equiv
+\mathbf{K}(\mathbf{r})\mathbf{f}</span><script type="math/tex">\mathbf{u}(\mathbf{r}) = \left[ \frac{(a - b)}{r}I +
+\frac{\mathbf{b}}{\mathit{r}^3}\mathbf{r}\mathbf{r}^{t}\right] \mathbf{f} \equiv
+\mathbf{K}(\mathbf{r})\mathbf{f}</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mathbf{K}</span><script type="math/tex">\mathbf{K}</script></span> is the Kelvinlet function, <span><span class="MathJax_Preview">\mathbf{r} = \mathbf{x} − \mathbf{x}_{0}</span><script type="math/tex">\mathbf{r} = \mathbf{x} − \mathbf{x}_{0}</script></span> is the relative position vector
+from the load location <span><span class="MathJax_Preview">\mathbf{x}_{0}</span><script type="math/tex">\mathbf{x}_{0}</script></span> to an observation point <span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span>,
+<span><span class="MathJax_Preview">\mathit{r}</span><script type="math/tex">\mathit{r}</script></span> is the norm of <span><span class="MathJax_Preview">\mathbf{r}</span><script type="math/tex">\mathbf{r}</script></span>, <span><span class="MathJax_Preview">a = \frac{1}{4\pi\mu}</span><script type="math/tex">a = \frac{1}{4\pi\mu}</script></span> and <span><span class="MathJax_Preview">b = \frac{a}{(1-\nu)}</span><script type="math/tex">b = \frac{a}{(1-\nu)}</script></span></p>
+<p>The displacement field <span><span class="MathJax_Preview">\mathbf{u}(\mathbf{x} − \mathbf{x}_{0})</span><script type="math/tex">\mathbf{u}(\mathbf{x} − \mathbf{x}_{0})</script></span> deforms a point
+<span><span class="MathJax_Preview">\mathbf{x}</span><script type="math/tex">\mathbf{x}</script></span> in a linear elastic material to <span><span class="MathJax_Preview">\mathbf{x} + \mathbf{u}(\mathbf{x}
+− \mathbf{x}_{0})</span><script type="math/tex">\mathbf{x} + \mathbf{u}(\mathbf{x}
+− \mathbf{x}_{0})</script></span>. The associated deformation gradient is then defined by a
+<span><span class="MathJax_Preview">3×3</span><script type="math/tex">3×3</script></span> matrix of the form <span><span class="MathJax_Preview">\mathbf{G}(\mathbf{x} − \mathbf{x}_{0}) = \mathbf{I} +
+\nabla\mathbf{u}(\mathbf{x} − \mathbf{x}_{0})</span><script type="math/tex">\mathbf{G}(\mathbf{x} − \mathbf{x}_{0}) = \mathbf{I} +
+\nabla\mathbf{u}(\mathbf{x} − \mathbf{x}_{0})</script></span>.</p>
+<p>This gradient <span><span class="MathJax_Preview">\mathbf{G}(\mathbf{r})</span><script type="math/tex">\mathbf{G}(\mathbf{r})</script></span> determines the different properties of
+the displacement field <span><span class="MathJax_Preview">\mathbf{u(\mathbf{r})}</span><script type="math/tex">\mathbf{u(\mathbf{r})}</script></span>. For instance, the skew-symmetric
+part of <span><span class="MathJax_Preview">\nabla\mathbf{u}(\mathbf{r})</span><script type="math/tex">\nabla\mathbf{u}(\mathbf{r})</script></span> indicates the rotation induced by
+<span><span class="MathJax_Preview">\mathbf{u(\mathbf{r})}</span><script type="math/tex">\mathbf{u(\mathbf{r})}</script></span>, while its symmetric part corresponds to the elastic
+strain and determines the stretching. The strain tensor can also be decomposed
+into a trace term that represents the scaling of the volume of the
+elastic medium, and a traceless term that represents the pinching
+deformation.</p>
+<p>This forms the fundamentals of the Kelvinlet brushes. </p>
+<h4 id="regularized-kelvinlets">Regularized kelvinlets<a class="headerlink" href="#regularized-kelvinlets" title="Permanent link">&para;</a></h4>
+<p>The concentrated body load at a single point <span><span class="MathJax_Preview">\mathbf{x}_{0}</span><script type="math/tex">\mathbf{x}_{0}</script></span> introduces a
+singularity to the Kelvinlet solution at <span><span class="MathJax_Preview">\mathbf{x}_{0}</span><script type="math/tex">\mathbf{x}_{0}</script></span>. For this reason, the
+kelvinlet equation is modified to:</p>
+<p><span><span class="MathJax_Preview">\mathbf{u_{\epsilon}}(\mathbf{r}) = \left[ \frac{(a - b)}{r_{\epsilon}}I +
+\frac{\mathbf{b}}{\mathit{r_{\epsilon}}^3}\mathbf{r_{\epsilon}}\mathbf{r_{\epsilon}}^{t}
++ \frac{a}{2}\frac{\epsilon^2}{r_{\epsilon}^3}I\right] \equiv
+\mathbf{K_{\epsilon}}(\mathbf{r})\mathbf{f}</span><script type="math/tex">\mathbf{u_{\epsilon}}(\mathbf{r}) = \left[ \frac{(a - b)}{r_{\epsilon}}I +
+\frac{\mathbf{b}}{\mathit{r_{\epsilon}}^3}\mathbf{r_{\epsilon}}\mathbf{r_{\epsilon}}^{t}
++ \frac{a}{2}\frac{\epsilon^2}{r_{\epsilon}^3}I\right] \equiv
+\mathbf{K_{\epsilon}}(\mathbf{r})\mathbf{f}</script></span></p>
+<p>where <span><span class="MathJax_Preview">\mathbf{r}_{\epsilon} = \sqrt{r^2 + \epsilon^2}</span><script type="math/tex">\mathbf{r}_{\epsilon} = \sqrt{r^2 + \epsilon^2}</script></span> is the regularized
+distance, <span><span class="MathJax_Preview">\epsilon &gt; 0</span><script type="math/tex">\epsilon > 0</script></span> is the radius of the sculpting brush.</p>
+<p>Thus, given a force vector <span><span class="MathJax_Preview">\mathbf{f}</span><script type="math/tex">\mathbf{f}</script></span>, the displacement for any point in <span><span class="MathJax_Preview">R^3</span><script type="math/tex">R^3</script></span>
+can be calculated, thus defining the physically based space deformation. In
+practice, the force vector is parameterized in terms of the brush tip
+displacement <span><span class="MathJax_Preview">\mathbf{\bar{u}}</span><script type="math/tex">\mathbf{\bar{u}}</script></span>. To this end, we can expand the regularized kelvinlet
+equation with the constraint <span><span class="MathJax_Preview">\mathbf{u}_{\epsilon}(0) = \mathbf{\bar{u}}</span><script type="math/tex">\mathbf{u}_{\epsilon}(0) = \mathbf{\bar{u}}</script></span> 
+to end up with <span><span class="MathJax_Preview">\mathbf{u_{\epsilon}} = c\epsilon\mathbf{K_{\epsilon}}(\mathbf{r})\mathbf{\bar{u}}</span><script type="math/tex">\mathbf{u_{\epsilon}} = c\epsilon\mathbf{K_{\epsilon}}(\mathbf{r})\mathbf{\bar{u}}</script></span> 
+where <span><span class="MathJax_Preview">c = 2/(3a - 2b)</span><script type="math/tex">c = 2/(3a - 2b)</script></span></p>
+<p>Kelvinlets of different radial scales can be linearly combined to construct
+brushes with arbitrarily fast decays:</p>
+<p><span><span class="MathJax_Preview">\mathbf{u}_{\epsilon_{1},..\epsilon_{n}}(\mathbf{r}) = c \left( \sum_{i}
+ \frac{w_{i}}{\epsilon_{i}}\right)^{-1} \left[\sum_{i}
+ w_{i}\mathbf{K_{\epsilon_{i}}}(\mathbf{r})  \right] \mathbf{\bar{u}}</span><script type="math/tex">\mathbf{u}_{\epsilon_{1},..\epsilon_{n}}(\mathbf{r}) = c \left( \sum_{i}
+ \frac{w_{i}}{\epsilon_{i}}\right)^{-1} \left[\sum_{i}
+ w_{i}\mathbf{K_{\epsilon_{i}}}(\mathbf{r})  \right] \mathbf{\bar{u}}</script></span></p>
+<p>where <span><span class="MathJax_Preview">w_{i}</span><script type="math/tex">w_{i}</script></span> are weights and <span><span class="MathJax_Preview">\epsilon_{i} &lt; \epsilon_{i+1}</span><script type="math/tex">\epsilon_{i} < \epsilon_{i+1}</script></span>. 
+Due to the superposition principle, these compound brushes still satisfy the
+Navier-Cauchy equation.</p>
+<p>Regularized kelvinlets can further be extended by replacing the vector-based
+load distribution with a matrix-based distribution to achieve non-affine
+transformations like twist, pinch, and scale as described earlier.</p>
+<p>In libigl, this is computed using:</p>
+<p><div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">KelvinletParams</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">brushParams</span><span class="p">{</span><span class="n">brushRadius</span><span class="p">,</span> <span class="n">scale</span><span class="p">,</span> <span class="n">brushType</span><span class="p">};</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">kelvinlets</span><span class="p">(</span><span class="n">V</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">forceVec</span><span class="p">,</span> <span class="n">forceMatrix</span><span class="p">,</span> <span class="n">brushParams</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+</pre></div>
+where <code>brushRadius, scale, brushType</code> correspond to <span><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>, the falloff, and operation(grab, pinch, scale, twist).</p>
+<p>
+<figure><img src="../images/kelvinlets.gif" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/409_Kelvinlets/main.cpp">Example 409</a>) pinch, twist, grab and scale in action</figcaption>
+</figure>
+</p>
 <h2 id="chapter-5-parametrization">Chapter 5: Parametrization<a class="headerlink" href="#chapter-5-parametrization" title="Permanent link">&para;</a></h2>
 <p>In computer graphics, we denote as surface parametrization a map from the
 surface to \(\mathbf{R}^2\). It is usually encoded by a new set of 2D
@@ -4193,7 +4322,7 @@ genus. They initially cut the mesh in multiple patches that can be separately pa
 </li>
 </ol>
 <h3 id="harmonic-parametrization">Harmonic Parametrization<a class="headerlink" href="#harmonic-parametrization" title="Permanent link">&para;</a></h3>
-<p>Harmonic parametrization <sup id="fnref:eck_2005"><a class="footnote-ref" href="#fn:eck_2005">26</a></sup> is a single patch, fixed boundary parametrization
+<p>Harmonic parametrization <sup id="fnref:eck_2005"><a class="footnote-ref" href="#fn:eck_2005">28</a></sup> is a single patch, fixed boundary parametrization
 algorithm that computes the 2D coordinates of the flattened mesh as two
 harmonic functions.</p>
 <p>The algorithm is divided in 3 steps:</p>
@@ -4225,12 +4354,12 @@ mesh (<a href="https://github.com/libigl/libigl/tree/master/tutorial/501_Harmoni
 </figure>
 </p>
 <h3 id="least-squares-conformal-maps">Least Squares Conformal Maps<a class="headerlink" href="#least-squares-conformal-maps" title="Permanent link">&para;</a></h3>
-<p>Least squares conformal maps parametrization <sup id="fnref:levy_2002"><a class="footnote-ref" href="#fn:levy_2002">27</a></sup> minimizes the
+<p>Least squares conformal maps parametrization <sup id="fnref:levy_2002"><a class="footnote-ref" href="#fn:levy_2002">29</a></sup> minimizes the
 conformal (angular) distortion of the parametrization. Differently from
 harmonic parametrization, it does not need to have a fixed boundary.</p>
 <p>LSCM minimizes the following energy:</p>
 <p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \int_X \frac{1}{2}| \nabla \mathbf{u}^{\perp} - \nabla \mathbf{v} |^2 dA \]</p>
-<p>which can be rewritten in matrix form as <sup id="fnref:mullen_2008"><a class="footnote-ref" href="#fn:mullen_2008">30</a></sup>:</p>
+<p>which can be rewritten in matrix form as <sup id="fnref:mullen_2008"><a class="footnote-ref" href="#fn:mullen_2008">32</a></sup>:</p>
 <p>\[ E_{LSCM}(\mathbf{u},\mathbf{v}) = \frac{1}{2} [\mathbf{u},\mathbf{v}]^t (L_c - 2A) [\mathbf{u},\mathbf{v}] \]</p>
 <p>where <span><span class="MathJax_Preview">L_c</span><script type="math/tex">L_c</script></span> is the cotangent Laplacian matrix and <span><span class="MathJax_Preview">A</span><script type="math/tex">A</script></span> is a matrix such that
 <span><span class="MathJax_Preview">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</span><script type="math/tex">[\mathbf{u},\mathbf{v}]^t A  [\mathbf{u},\mathbf{v}]</script></span> is equal to the <a href="http://en.wikipedia.org/wiki/Vector_area">vector
@@ -4261,7 +4390,7 @@ vertices to two arbitrary positions. The full source code is provided in <a href
 </figure>
 </p>
 <h3 id="as-rigid-as-possible-parametrization">As-rigid-as-possible Parametrization<a class="headerlink" href="#as-rigid-as-possible-parametrization" title="Permanent link">&para;</a></h3>
-<p>As-rigid-as-possible parametrization <sup id="fnref:liu_2008"><a class="footnote-ref" href="#fn:liu_2008">29</a></sup> is a powerful single-patch,
+<p>As-rigid-as-possible parametrization <sup id="fnref:liu_2008"><a class="footnote-ref" href="#fn:liu_2008">31</a></sup> is a powerful single-patch,
 non-linear algorithm to compute a parametrization that strives to preserve
 distances (and thus angles). The idea is very similar to ARAP surface
 deformation: each triangle is mapped to the plane trying to preserve its
@@ -4301,7 +4430,7 @@ the triangle mesh (output_field), plus the singularities of the field
 </figure>
 </p>
 <p>The singularities are vertices where the field vanishes (highlighted in red in
-the figure above). <code>igl::nrosy</code> can also generate N-RoSy fields <sup id="fnref:levy_2008"><a class="footnote-ref" href="#fn:levy_2008">28</a></sup>,
+the figure above). <code>igl::nrosy</code> can also generate N-RoSy fields <sup id="fnref:levy_2008"><a class="footnote-ref" href="#fn:levy_2008">30</a></sup>,
 which are a generalization of vector fields where in every face the vector is
 defined up to a constant rotation of <span><span class="MathJax_Preview">2\pi / N</span><script type="math/tex">2\pi / N</script></span>. As can be observed in
 the following figure, the singularities of the fields generated with different
@@ -4313,10 +4442,10 @@ N are of different types and they appear in different positions.</p>
 <p>We demonstrate how to call and plot N-RoSy fields in <a href="https://github.com/libigl/libigl/tree/master/tutorial/504_NRosyDesign/main.cpp">Example
 504</a>, where the degree of the field can be change
 pressing the number keys. <code>igl::nrosy</code> implements the algorithm proposed in
-<sup id="fnref:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">24</a></sup>. N-RoSy fields can also be interpolated with many other algorithms,
+<sup id="fnref:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">26</a></sup>. N-RoSy fields can also be interpolated with many other algorithms,
 see the library <a href="https://github.com/avaxman/libdirectional">libdirectional</a> for
 a reference implementation of the most popular ones. For a complete categorization
-of fields used in various applications see Vaxman et al. 2016 <sup id="fnref:vaxman_2016"><a class="footnote-ref" href="#fn:vaxman_2016">32</a></sup>.</p>
+of fields used in various applications see Vaxman et al. 2016 <sup id="fnref:vaxman_2016"><a class="footnote-ref" href="#fn:vaxman_2016">34</a></sup>.</p>
 <h3 id="global-seamless-integer-grid-parametrization">Global, Seamless Integer-grid Parametrization<a class="headerlink" href="#global-seamless-integer-grid-parametrization" title="Permanent link">&para;</a></h3>
 <p>The previous parametrization methods were focusing on creating parametrizations
 of surface patches aimed at texture mapping or baking of other surface
@@ -4324,7 +4453,7 @@ properties such as normals and high-frequency details. Global, seamless
 parametrization aims at parametrizing complex shapes with a parametrization
 that is aligned with a given set of directions for the purpose of surface
 remeshing. In libigl, we provide a reference  implementation of the pipeline
-proposed in the mixed integer quadrangulation paper <sup id="fnref2:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">24</a></sup>.</p>
+proposed in the mixed integer quadrangulation paper <sup id="fnref2:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">26</a></sup>.</p>
 <p>The first step involves the design of a 4-RoSy field (sometimes called <em>cross</em>
 field) that describes the alignment of the edges of the desired quadrilateral
 remeshing. The field constraints are usually manually specified or extracted
@@ -4384,7 +4513,7 @@ input cross field.</p>
 </figure>
 </p>
 <p>We hide the seams by adding integer constraints to the Poisson problem
-that align the isolines on both sides of each seam <sup id="fnref3:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">24</a></sup>.</p>
+that align the isolines on both sides of each seam <sup id="fnref3:bommes_2009"><a class="footnote-ref" href="#fn:bommes_2009">26</a></sup>.</p>
 <p>
 <figure><img src="../images/505_MIQ_7.png" /><figcaption>Seamless Poisson parametrization.</figcaption>
 </figure>
@@ -4402,7 +4531,7 @@ The full pipeline is implemented in <a href="https://github.com/libigl/libigl/tr
 <p>Anisotropic and non-uniform quad remeshing is important to concentrate the
 elements in the regions with more details. It is possible to extend the MIQ
 quad meshing framework to generate anisotropic quad meshes using a mesh
-deformation approach <sup id="fnref:panozzo_2014"><a class="footnote-ref" href="#fn:panozzo_2014">31</a></sup>.</p>
+deformation approach <sup id="fnref:panozzo_2014"><a class="footnote-ref" href="#fn:panozzo_2014">33</a></sup>.</p>
 <p>The input of the anisotropic remeshing algorithm is a sparse set of constraints
 that define the shape and scale of the desired quads. This can be encoded as a
 frame field, which is a pair of non-orthogonal and non-unit length vectors. The
@@ -4442,7 +4571,7 @@ only desiderata is that the generated quad mesh should be as isotropic as
 possible.</p>
 <h3 id="planarization">Planarization<a class="headerlink" href="#planarization" title="Permanent link">&para;</a></h3>
 <p>A quad mesh can be transformed in a planar quad mesh with Shape-Up
-<sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">25</a></sup>, a local/global approach that uses the global step to enforce
+<sup id="fnref:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">27</a></sup>, a local/global approach that uses the global step to enforce
 surface continuity and the local step to enforce planarity.</p>
 <p><a href="https://github.com/libigl/libigl/tree/master/tutorial/507_Planarization/main.cpp">Example 507</a> planarizes a quad mesh until it
 satisfies a user-given planarity threshold.</p>
@@ -4809,7 +4938,7 @@ Instead we expect our users to be working with <em>explicit</em> triangle mesh
 compute robustly with boundary representations, but are nonetheless useful.</p>
 <p>To compute a boolean operation on a triangle mesh with vertices <code>VA</code> and
 triangles <code>FA</code> and another mesh <code>VB</code> and <code>FB</code>, libigl first computes a unified
-&ldquo;mesh arrangement&rdquo; (see <sup id="fnref:zhou_2016"><a class="footnote-ref" href="#fn:zhou_2016">34</a></sup>[]) with vertices <code>V</code> and triangles <code>F</code> where all triangle-triangle
+&ldquo;mesh arrangement&rdquo; (see <sup id="fnref:zhou_2016"><a class="footnote-ref" href="#fn:zhou_2016">36</a></sup>[]) with vertices <code>V</code> and triangles <code>F</code> where all triangle-triangle
 intersections have been &ldquo;resolved&rdquo;. That is, edges and vertices are added
 exactly at the intersection lines, so the resulting <em>non-manifold</em> mesh <code>(V,F)</code>
 has no self-intersections.</p>
@@ -4922,7 +5051,7 @@ then the problem becomes determining which of these tets are <em>inside</em> the
 mesh and which are outside. That is, which should be kept and which should be
 removed.</p>
 <p>The &ldquo;Generalized Winding Number&rdquo; is a robust method for determined
-inside and outside for troublesome meshes <sup id="fnref:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">38</a></sup>.  The generalized
+inside and outside for troublesome meshes <sup id="fnref:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">40</a></sup>.  The generalized
 winding number with respect to <code>(V,F)</code> at some point <span><span class="MathJax_Preview">\mathbf{p} \in
 \mathcal{R}^3</span><script type="math/tex">\mathbf{p} \in
 \mathcal{R}^3</script></span> is defined as scalar function:</p>
@@ -4956,7 +5085,7 @@ variety of different paradigms for solving this problem and state-of-the-art
 methods are fairly advanced.</p>
 <p>One family of mesh decimation methods operates by successively remove elements
 from the mesh. In particular, Hoppe advocates for successively remove or rather
-collapsing edges <sup id="fnref:hoppe_1996"><a class="footnote-ref" href="#fn:hoppe_1996">37</a></sup>[]. The generic form of this technique is to
+collapsing edges <sup id="fnref:hoppe_1996"><a class="footnote-ref" href="#fn:hoppe_1996">39</a></sup>[]. The generic form of this technique is to
 construct a sequence of n meshes from the initial high-resolution mesh <span><span class="MathJax_Preview">M_0</span><script type="math/tex">M_0</script></span> to
 the lowest resolution mesh <span><span class="MathJax_Preview">M_n</span><script type="math/tex">M_n</script></span> by collapsing a single edge:</p>
 <p><span><span class="MathJax_Preview">M_0 \mathop{\longrightarrow}_\text{edge collapse}
@@ -5123,8 +5252,8 @@ it&rsquo;s best to reuse the AABB hierarchy that&rsquo;s being built during
 <h4 id="signed-distance">Signed Distance<a class="headerlink" href="#signed-distance" title="Permanent link">&para;</a></h4>
 <p>Finally, from the closest point or the winding number it&rsquo;s possible to <em>sign</em>
 this distance. In <code>igl::signed_distance</code> we provide two methods for signing:
-the so-called &ldquo;pseudo-normal test&rdquo; <sup id="fnref:baerentzen_2005"><a class="footnote-ref" href="#fn:baerentzen_2005">35</a></sup>[] and the generalized
-winding number <sup id="fnref2:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">38</a></sup>[].</p>
+the so-called &ldquo;pseudo-normal test&rdquo; <sup id="fnref:baerentzen_2005"><a class="footnote-ref" href="#fn:baerentzen_2005">37</a></sup>[] and the generalized
+winding number <sup id="fnref2:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">40</a></sup>[].</p>
 <p>The pseudo-normal test (see also <code>igl::pseudonormal_test</code>) assumes the input
 mesh is a watertight (closed, non-self-intersecting, manifold) mesh. Then given
 a query point <span><span class="MathJax_Preview">\mathbf{q}</span><script type="math/tex">\mathbf{q}</script></span> and its closest point <span><span class="MathJax_Preview">\mathbf{c} \in (V,F)</span><script type="math/tex">\mathbf{c} \in (V,F)</script></span>, it
@@ -5159,7 +5288,7 @@ iso-surface at value <span><span class="MathJax_Preview">v</span><script type="m
 <span><span class="MathJax_Preview">\mathcal{R}^3</span><script type="math/tex">\mathcal{R}^3</script></span> such that <span><span class="MathJax_Preview">f(\mathbf{x}) = v</span><script type="math/tex">f(\mathbf{x}) = v</script></span>. A core problem in geometry
 processing is to extract an iso-surface as a triangle mesh for further
 mesh-based processing or visualization. This is referred to as iso-contouring.</p>
-<p>&ldquo;Marching Cubes&rdquo; <sup id="fnref:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987">40</a></sup> is a <a href="https://en.wikipedia.org/wiki/Marching_cubes">famous
+<p>&ldquo;Marching Cubes&rdquo; <sup id="fnref:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987">42</a></sup> is a <a href="https://en.wikipedia.org/wiki/Marching_cubes">famous
 method</a> for iso-contouring
 tri-linear functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> on a regular lattice (aka grid). The core idea of this
 method is to contour the iso-surface passing through each cell  (if it does at
@@ -5195,7 +5324,7 @@ enforce a consistent facet orientation in the output faces <code>FF</code>.</p>
 <p>For (closed or nearly closed) surfaces representing the boundary of a solid
 object, libigl provides a routine to reorient faces so that the vertex ordering
 corresponds to a counter-clockwise ordering of the vertices with a
-right-hand-rule normal pointing outward. This method <sup id="fnref:takayama14"><a class="footnote-ref" href="#fn:takayama14">43</a></sup>[] assumes
+right-hand-rule normal pointing outward. This method <sup id="fnref:takayama14"><a class="footnote-ref" href="#fn:takayama14">45</a></sup>[] assumes
 that <a href="https://www.reddit.com/r/askscience/comments/32otgx/which_as_a_is_more_empty_an_atom_or_the_universe/">most of the universe is
 empty</a>.
 That is, most points in space are outside of the solid object than inside.
@@ -5239,10 +5368,10 @@ discretizing time at a finite step of steps <span><span class="MathJax_Preview">
 and by 2) discretizing space with a regular grid and representing the distance
 field using trilinear interpolation of grid values. Finally the output mesh,
 <span><span class="MathJax_Preview">\partial S</span><script type="math/tex">\partial S</script></span> is approximated by contouring using Marching Cubes
-<sup id="fnref2:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987">40</a></sup>.</p>
+<sup id="fnref2:lorensen_1987"><a class="footnote-ref" href="#fn:lorensen_1987">42</a></sup>.</p>
 <p>This method is similar to one described by Schroeder et al. in 1994
-<sup id="fnref:schroeder_1994"><a class="footnote-ref" href="#fn:schroeder_1994">42</a></sup>, and the one used in conjunction with boolean operations by
-Garg et al. 2016 <sup id="fnref:garg_2016"><a class="footnote-ref" href="#fn:garg_2016">36</a></sup>.</p>
+<sup id="fnref:schroeder_1994"><a class="footnote-ref" href="#fn:schroeder_1994">44</a></sup>, and the one used in conjunction with boolean operations by
+Garg et al. 2016 <sup id="fnref:garg_2016"><a class="footnote-ref" href="#fn:garg_2016">38</a></sup>.</p>
 <p>In libigl, if your input solid&rsquo;s surface is represented by <code>(V,F)</code> then the
 output surface mesh will be <code>(SV,SF)</code> after calling:</p>
 <div class="codehilite"><pre><span></span><span class="n">igl</span><span class="o">::</span><span class="n">copyleft</span><span class="o">::</span><span class="n">swept_volume</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="n">num_time_steps</span><span class="p">,</span><span class="n">grid_size</span><span class="p">,</span><span class="n">isolevel</span><span class="p">,</span><span class="n">SV</span><span class="p">,</span><span class="n">SF</span><span class="p">);</span>
@@ -5285,7 +5414,7 @@ by Embree, and <code>fid</code> and <code>bc</code> are the picked face and bary
 </figure>
 </p>
 <h3 id="scalable-locally-injective-maps">Scalable Locally Injective Maps<a class="headerlink" href="#scalable-locally-injective-maps" title="Permanent link">&para;</a></h3>
-<p>The Scalable Locally Injective Maps <sup id="fnref:rabinovich_2016"><a class="footnote-ref" href="#fn:rabinovich_2016">41</a></sup> algorithm allows to
+<p>The Scalable Locally Injective Maps <sup id="fnref:rabinovich_2016"><a class="footnote-ref" href="#fn:rabinovich_2016">43</a></sup> algorithm allows to
 compute locally injective maps on massive datasets. The algorithm shares many
 similarities with ARAP, but uses a reweighting scheme to minimize arbitrary
 distortion energies, including those that prevent the introduction of flips.</p>
@@ -5301,7 +5430,7 @@ on Pardiso is available
 </figure>
 </p>
 <h3 id="simplicial-complex-augmentation-framework-for-bijective-maps">Simplicial Complex Augmentation Framework For Bijective Maps<a class="headerlink" href="#simplicial-complex-augmentation-framework-for-bijective-maps" title="Permanent link">&para;</a></h3>
-<p>The Simplicial Complex Augmentation Framework  <sup id="fnref:jiang_2017"><a class="footnote-ref" href="#fn:jiang_2017">47</a></sup> algorithm allows to
+<p>The Simplicial Complex Augmentation Framework  <sup id="fnref:jiang_2017"><a class="footnote-ref" href="#fn:jiang_2017">49</a></sup> algorithm allows to
 compute bijective maps efficiently and robustly.
 The algorithm constructed a scaffold structure to take advantage of efficient locally injective mapping algorithms like SLIM, guarantees a overlapping free map with low distortion while being efficient and scalable.</p>
 <p><a href="https://github.com/libigl/libigl/tree/master/tutorial/710_SCAF/main.cpp">Example 710</a> contains a demo of bijective parameterizing a camel mesh.</p>
@@ -5329,7 +5458,7 @@ each triangle <span><span class="MathJax_Preview">(i_a,i_b,i_c)</span><script ty
 a finer and finer mesh.</p>
 <p>The subdivision method of <code>igl::loop</code> is not in plane. The vertices of the
 refined mesh are moved to weight combinations of their neighbors: the mesh is
-smoothed as it is refined <sup id="fnref:loop_1987"><a class="footnote-ref" href="#fn:loop_1987">39</a></sup>. This and other <em>smooth subdivision</em>
+smoothed as it is refined <sup id="fnref:loop_1987"><a class="footnote-ref" href="#fn:loop_1987">41</a></sup>. This and other <em>smooth subdivision</em>
 methods can be understood as generalizations of spline curves to surfaces. In
 particular the Loop subdivision method will converge to a <span><span class="MathJax_Preview">C^1</span><script type="math/tex">C^1</script></span> surface as we
 consider the limit of recursive applications of subdivision. Away from
@@ -5360,7 +5489,7 @@ biharmonic energy. It is constructed using the cotangent Laplacian <code>L</code
 the mass matrix <code>M</code>: <code>QL = L'*(M\L)</code>. Because of the implicit zero Neumann
 boundary conditions however, the function behavior is significantly warped at
 the boundary if <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> does not have zero normal gradient at the boundary.</p>
-<p>In <sup id="fnref:stein_2018"><a class="footnote-ref" href="#fn:stein_2018">49</a></sup> it is suggested to use the Biharmonic energy with natural
+<p>In <sup id="fnref:stein_2018"><a class="footnote-ref" href="#fn:stein_2018">51</a></sup> it is suggested to use the Biharmonic energy with natural
 Hessian boundary conditions instead, which corresponds to the Hessian energy
 with the matrix <code>QH = H'*(M2\H)</code>, where <code>H</code> is a finite element Hessian and
 <code>M2</code> is a stacked mass matrix. The matrices <code>H</code> and <code>QH</code> are implemented in
@@ -5380,7 +5509,7 @@ an unbiased result.</p>
 <p>For iteration <span><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>:
 1. <em>Local step</em>: compute the projections of the set <span><span class="MathJax_Preview">P_{k-1}</span><script type="math/tex">P_{k-1}</script></span> onto <span><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>, individually per constraint; that would mean fragmenting each point that appears in multiple constraints. That can be a nonlinear operation, but if the constraints are sparse, it is a a set of many small systems.
 2. <em>Global step</em>: integrate the set <span><span class="MathJax_Preview">P_k</span><script type="math/tex">P_k</script></span> to be as close as possible to the projected fragmented set, with auxiliary objective functions possible. That results in a global, but quadratic objective function. Moreover, the resulting linear system has a constant matrix, and therefore can be pre-factored.</p>
-<p>The version we implement in libigl is the general version described by <sup id="fnref2:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">25</a></sup>, and is in two files: <code>&lt;igl/shapeup.h&gt;</code> and <code>&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="https://github.com/libigl/libigl/tree/master/tutorial/713_Shapeup/main.cpp">Example 713</a>. </p>
+<p>The version we implement in libigl is the general version described by <sup id="fnref2:bouaziz_2012"><a class="footnote-ref" href="#fn:bouaziz_2012">27</a></sup>, and is in two files: <code>&lt;igl/shapeup.h&gt;</code> and <code>&lt;igl/shapeup_local_projections.h&gt;</code>. A demo implementing regularity constraints (creating a mesh in which each face is as regular as possible) is in <a href="https://github.com/libigl/libigl/tree/master/tutorial/713_Shapeup/main.cpp">Example 713</a>. </p>
 <p>The local step is instantiated by a function of type <code>igl::shapeup_projection_function</code>. The global step is done by two functions: <code>igl::shapeup_precomputation()</code>, which precomputes the matrices required for the global step, and <code>igl::shapeup_solve()</code>, which solves the problem, according to the initial solution <span><span class="MathJax_Preview">P_0</span><script type="math/tex">P_0</script></span> and the input local projection function. The data struct <code>igl::ShapeUpData</code> contains the information necessary to run the algorithm, and can be configured; for instance, the self-explanatory variable <code>Maxiterations</code>.</p>
 <p>The global step minimizes the following energy:</p>
 <div>
@@ -5405,7 +5534,7 @@ iso-surface at value <span><span class="MathJax_Preview">v</span><script type="m
 <span><span class="MathJax_Preview">\mathcal{R}^3</span><script type="math/tex">\mathcal{R}^3</script></span> such that <span><span class="MathJax_Preview">f(\mathbf{x}) = v</span><script type="math/tex">f(\mathbf{x}) = v</script></span>. A core problem in geometry
 processing is to extract an iso-surface as a triangle mesh for further
 mesh-based processing or visualization. This is referred to as iso-contouring.</p>
-<p>&ldquo;Marching Tetrahedra&rdquo; <sup id="fnref:treece_1999"><a class="footnote-ref" href="#fn:treece_1999">44</a></sup> is a <a href="https://en.wikipedia.org/wiki/Marching_tetrahedra">famous
+<p>&ldquo;Marching Tetrahedra&rdquo; <sup id="fnref:treece_1999"><a class="footnote-ref" href="#fn:treece_1999">46</a></sup> is a <a href="https://en.wikipedia.org/wiki/Marching_tetrahedra">famous
 method</a> for iso-contouring
 tri-linear functions <span><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> on a 3D simplicial complex (aka a tet mesh). The core idea of this
 method is to contour the iso-surface passing through each cell  (if it does at
@@ -5427,7 +5556,7 @@ for the value <code>isovalue</code> from an input scalar field <code>S</code> sa
 <p>In the <a href="#exact-discrete-geodesic-distances">Exact Discrete Geodesic Distances</a>
 example above, geodesic distances are computed <em>exactly</em>. This is an expensive
 operation: <span><span class="MathJax_Preview">O(n² log(n))</span><script type="math/tex">O(n² log(n))</script></span> for a mesh with <span><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> edges. In 2013, Crane et al.
-<sup id="fnref:crane_2013"><a class="footnote-ref" href="#fn:crane_2013">45</a></sup> proposed a method to compute <em>approximate</em> geodesic distances much
+<sup id="fnref:crane_2013"><a class="footnote-ref" href="#fn:crane_2013">47</a></sup> proposed a method to compute <em>approximate</em> geodesic distances much
 faster by solving heat equation on the surface, filtering the result and then
 reconstructing a smooth solution by solving a Poisson equation. The method
 begins with the observation of Varadhan that the geodesic distance
@@ -5485,7 +5614,7 @@ well-behaved. For poor quality meshes, however, this method may show arbitrarily
 poor results. Increasing the time parameter <span><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> can reduce this instability but
 but simultaneously smoothes the resulting approximate distances.</p>
 <p>Instead, one avenue of improvement is to employ the so-called <em>intrinsic
-Delaunay triangulation</em> discrete Laplace operator <sup id="fnref:bobenko_2005"><a class="footnote-ref" href="#fn:bobenko_2005">46</a></sup>.</p>
+Delaunay triangulation</em> discrete Laplace operator <sup id="fnref:bobenko_2005"><a class="footnote-ref" href="#fn:bobenko_2005">48</a></sup>.</p>
 <p>Since the cotangent Laplacian only depends on the edge-lengths of a triangle
 mesh, this new operator will be constructed by <em>intrinsically</em> flipping edges
 and recording changes to edge-lengths. Edges are flipped until every edge is
@@ -5525,13 +5654,13 @@ things and ensures monotonicity (right)</figcaption>
 </figure>
 </p>
 <h3 id="fast-winding-number-for-soups-and-clouds">Fast Winding Number For Soups And Clouds<a class="headerlink" href="#fast-winding-number-for-soups-and-clouds" title="Permanent link">&para;</a></h3>
-<p>In 2018, Barill et al. <sup id="fnref:barill_2018"><a class="footnote-ref" href="#fn:barill_2018">48</a></sup> demonstrated how to significantly
+<p>In 2018, Barill et al. <sup id="fnref:barill_2018"><a class="footnote-ref" href="#fn:barill_2018">50</a></sup> demonstrated how to significantly
 expediate the computation of the [generalized winding
 numbers][generalizedwindingnumber] mentioned above. The original definition of
 generalized winding numbers for triangle meshes is also extended to (oriented) point
 clouds.</p>
 <h4 id="soups">Soups<a class="headerlink" href="#soups" title="Permanent link">&para;</a></h4>
-<p>For triangle soups, the exact divide-and-conquer approach of <sup id="fnref3:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">38</a></sup>
+<p>For triangle soups, the exact divide-and-conquer approach of <sup id="fnref3:jacobson_2013"><a class="footnote-ref" href="#fn:jacobson_2013">40</a></sup>
 <em>ideally</em> scales logarithmically <span><span class="MathJax_Preview">O(\log{n})</span><script type="math/tex">O(\log{n})</script></span> in the number of triangles.
 However, this method has failure modes where the computation becomes linear
 <span><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>. This can be dramatically improved with a <a href="https://en.wikipedia.org/wiki/Barnes–Hut_simulation">tree
@@ -5658,8 +5787,6 @@ repository</a>.</p>
 
 <!-- Chapter 4 -->
 
-<!-- Chapter 5 -->
-
 <!-- Chapter 6 -->
 
 <!-- Chapter 7 -->
@@ -5736,83 +5863,90 @@ repository</a>.</p>
 <li id="fn:wang_bc_2015">
 <p>Yu Wang, Alec Jacobson, Jernej Barbic, Ladislav Kavan. <a href="https://www.google.com/search?q=Linear+Subspace+Design+for+Real-Time+Shape+Deformation">Linear Subspace Design for Real-Time Shape Deformation</a>, 2015&#160;<a class="footnote-backref" href="#fnref:wang_bc_2015" title="Jump back to footnote 23 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:wang_bc_2015" title="Jump back to footnote 23 in the text">&#8617;</a></p>
 </li>
+<li id="fn:pixar_2017">
+<p>Fernando de Goes, Doug L. James. <a href="https://graphics.pixar.com/library/Kelvinlets/">Regularized Kelvinlets: Sculpting Brushes based on Fundamental Solutions of Elasticity</a>, 2017&#160;<a class="footnote-backref" href="#fnref:pixar_2017" title="Jump back to footnote 24 in the text">&#8617;</a></p>
+</li>
+<li id="fn:slaughter_2002">
+<p>W. S. Slaughter. <a href="https://www.google.com/search?q=the+linearized+theory+of+elasticity+slaughter">The Linearized Theory of Elasticity</a>, 2002
+<!-- Chapter 5 -->&#160;<a class="footnote-backref" href="#fnref:slaughter_2002" title="Jump back to footnote 25 in the text">&#8617;</a></p>
+</li>
 <li id="fn:bommes_2009">
-<p>David Bommes, Henrik Zimmer, Leif Kobbelt. <a href="http://www-sop.inria.fr/members/David.Bommes/publications/miq.pdf">Mixed-integer quadrangulation</a>, 2009.&#160;<a class="footnote-backref" href="#fnref:bommes_2009" title="Jump back to footnote 24 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:bommes_2009" title="Jump back to footnote 24 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:bommes_2009" title="Jump back to footnote 24 in the text">&#8617;</a></p>
+<p>David Bommes, Henrik Zimmer, Leif Kobbelt. <a href="http://www-sop.inria.fr/members/David.Bommes/publications/miq.pdf">Mixed-integer quadrangulation</a>, 2009.&#160;<a class="footnote-backref" href="#fnref:bommes_2009" title="Jump back to footnote 26 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:bommes_2009" title="Jump back to footnote 26 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:bommes_2009" title="Jump back to footnote 26 in the text">&#8617;</a></p>
 </li>
 <li id="fn:bouaziz_2012">
-<p>Sofien Bouaziz, Mario Deuss, Yuliy Schwartzburg, Thibaut Weise, Mark Pauly <a href="http://lgg.epfl.ch/publications/2012/shapeup.pdf">Shape-Up: Shaping Discrete Geometry with Projections</a>, 2012&#160;<a class="footnote-backref" href="#fnref:bouaziz_2012" title="Jump back to footnote 25 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:bouaziz_2012" title="Jump back to footnote 25 in the text">&#8617;</a></p>
+<p>Sofien Bouaziz, Mario Deuss, Yuliy Schwartzburg, Thibaut Weise, Mark Pauly <a href="http://lgg.epfl.ch/publications/2012/shapeup.pdf">Shape-Up: Shaping Discrete Geometry with Projections</a>, 2012&#160;<a class="footnote-backref" href="#fnref:bouaziz_2012" title="Jump back to footnote 27 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:bouaziz_2012" title="Jump back to footnote 27 in the text">&#8617;</a></p>
 </li>
 <li id="fn:eck_2005">
-<p>Matthias Eck, Tony DeRose, Tom Duchamp, Hugues Hoppe, Michael Lounsbery, Werner Stuetzle.  <a href="http://research.microsoft.com/en-us/um/people/hoppe/mra.pdf">Multiresolution Analysis of Arbitrary Meshes</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:eck_2005" title="Jump back to footnote 26 in the text">&#8617;</a></p>
+<p>Matthias Eck, Tony DeRose, Tom Duchamp, Hugues Hoppe, Michael Lounsbery, Werner Stuetzle.  <a href="http://research.microsoft.com/en-us/um/people/hoppe/mra.pdf">Multiresolution Analysis of Arbitrary Meshes</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:eck_2005" title="Jump back to footnote 28 in the text">&#8617;</a></p>
 </li>
 <li id="fn:levy_2002">
-<p>Bruno Lévy, Sylvain Petitjean, Nicolas Ray, Jérome Maillot. <a href="http://www.cs.jhu.edu/~misha/Fall09/Levy02.pdf">Least Squares Conformal Maps, for Automatic Texture Atlas Generation</a>, 2002.&#160;<a class="footnote-backref" href="#fnref:levy_2002" title="Jump back to footnote 27 in the text">&#8617;</a></p>
+<p>Bruno Lévy, Sylvain Petitjean, Nicolas Ray, Jérome Maillot. <a href="http://www.cs.jhu.edu/~misha/Fall09/Levy02.pdf">Least Squares Conformal Maps, for Automatic Texture Atlas Generation</a>, 2002.&#160;<a class="footnote-backref" href="#fnref:levy_2002" title="Jump back to footnote 29 in the text">&#8617;</a></p>
 </li>
 <li id="fn:levy_2008">
-<p>Nicolas Ray, Bruno Vallet, Wan Chiu Li, Bruno Lévy. <a href="http://alice.loria.fr/publications/papers/2008/DGF/NSDFD-TOG.pdf">N-Symmetry Direction Field Design</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:levy_2008" title="Jump back to footnote 28 in the text">&#8617;</a></p>
+<p>Nicolas Ray, Bruno Vallet, Wan Chiu Li, Bruno Lévy. <a href="http://alice.loria.fr/publications/papers/2008/DGF/NSDFD-TOG.pdf">N-Symmetry Direction Field Design</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:levy_2008" title="Jump back to footnote 30 in the text">&#8617;</a></p>
 </li>
 <li id="fn:liu_2008">
-<p>Ligang Liu, Lei Zhang, Yin Xu, Craig Gotsman, Steven J. Gortler. <a href="http://cs.harvard.edu/~sjg/papers/arap.pdf">A Local/Global Approach to Mesh Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:liu_2008" title="Jump back to footnote 29 in the text">&#8617;</a></p>
+<p>Ligang Liu, Lei Zhang, Yin Xu, Craig Gotsman, Steven J. Gortler. <a href="http://cs.harvard.edu/~sjg/papers/arap.pdf">A Local/Global Approach to Mesh Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:liu_2008" title="Jump back to footnote 31 in the text">&#8617;</a></p>
 </li>
 <li id="fn:mullen_2008">
-<p>Patrick Mullen, Yiying Tong, Pierre Alliez, Mathieu Desbrun. <a href="http://www.geometry.caltech.edu/pubs/MTAD08.pdf">Spectral Conformal Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:mullen_2008" title="Jump back to footnote 30 in the text">&#8617;</a></p>
+<p>Patrick Mullen, Yiying Tong, Pierre Alliez, Mathieu Desbrun. <a href="http://www.geometry.caltech.edu/pubs/MTAD08.pdf">Spectral Conformal Parameterization</a>, 2008.&#160;<a class="footnote-backref" href="#fnref:mullen_2008" title="Jump back to footnote 32 in the text">&#8617;</a></p>
 </li>
 <li id="fn:panozzo_2014">
-<p>Daniele Panozzo, Enrico Puppo, Marco Tarini, Olga Sorkine-Hornung.  <a href="http://cs.nyu.edu/~panozzo/papers/frame-fields-2014.pdf">Frame Fields: Anisotropic and Non-Orthogonal Cross Fields</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:panozzo_2014" title="Jump back to footnote 31 in the text">&#8617;</a></p>
+<p>Daniele Panozzo, Enrico Puppo, Marco Tarini, Olga Sorkine-Hornung.  <a href="http://cs.nyu.edu/~panozzo/papers/frame-fields-2014.pdf">Frame Fields: Anisotropic and Non-Orthogonal Cross Fields</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:panozzo_2014" title="Jump back to footnote 33 in the text">&#8617;</a></p>
 </li>
 <li id="fn:vaxman_2016">
-<p>Amir Vaxman, Marcel Campen, Olga Diamanti, Daniele Panozzo, David Bommes, Klaus Hildebrandt, Mirela Ben-Chen. <a href="https://www.google.com/search?q=Directional+Field+Synthesis+Design+and+Processing">Directional Field Synthesis, Design, and Processing</a>, 2016&#160;<a class="footnote-backref" href="#fnref:vaxman_2016" title="Jump back to footnote 32 in the text">&#8617;</a></p>
+<p>Amir Vaxman, Marcel Campen, Olga Diamanti, Daniele Panozzo, David Bommes, Klaus Hildebrandt, Mirela Ben-Chen. <a href="https://www.google.com/search?q=Directional+Field+Synthesis+Design+and+Processing">Directional Field Synthesis, Design, and Processing</a>, 2016&#160;<a class="footnote-backref" href="#fnref:vaxman_2016" title="Jump back to footnote 34 in the text">&#8617;</a></p>
 </li>
 <li id="fn:schuller_2013">
-<p>Christian Schüller, Ladislav Kavan, Daniele Panozzo, Olga Sorkine-Hornung.  <a href="http://igl.ethz.ch/projects/LIM/">Locally Injective Mappings</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:schuller_2013" title="Jump back to footnote 33 in the text">&#8617;</a></p>
+<p>Christian Schüller, Ladislav Kavan, Daniele Panozzo, Olga Sorkine-Hornung.  <a href="http://igl.ethz.ch/projects/LIM/">Locally Injective Mappings</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:schuller_2013" title="Jump back to footnote 35 in the text">&#8617;</a></p>
 </li>
 <li id="fn:zhou_2016">
-<p>Qingnan Zhou, Eitan Grinspun, Denis Zorin. <a href="https://www.google.com/search?q=Mesh+Arrangements+for+Solid+Geometry">Mesh Arrangements for Solid Geometry</a>, 2016&#160;<a class="footnote-backref" href="#fnref:zhou_2016" title="Jump back to footnote 34 in the text">&#8617;</a></p>
+<p>Qingnan Zhou, Eitan Grinspun, Denis Zorin. <a href="https://www.google.com/search?q=Mesh+Arrangements+for+Solid+Geometry">Mesh Arrangements for Solid Geometry</a>, 2016&#160;<a class="footnote-backref" href="#fnref:zhou_2016" title="Jump back to footnote 36 in the text">&#8617;</a></p>
 </li>
 <li id="fn:baerentzen_2005">
-<p>J Andreas Baerentzen and Henrik Aanaes. <a href="https://www.google.com/search?q=Signed+distance+computation+using+the+angle+weighted+pseudonormal">Signed distance computation using the angle weighted pseudonormal</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:baerentzen_2005" title="Jump back to footnote 35 in the text">&#8617;</a></p>
+<p>J Andreas Baerentzen and Henrik Aanaes. <a href="https://www.google.com/search?q=Signed+distance+computation+using+the+angle+weighted+pseudonormal">Signed distance computation using the angle weighted pseudonormal</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:baerentzen_2005" title="Jump back to footnote 37 in the text">&#8617;</a></p>
 </li>
 <li id="fn:garg_2016">
-<p>Akash Garg, Alec Jacobson, Eitan Grinspun. <a href="https://www.google.com/search?q=Computational+Design+of+Reconfigurables">Computational Design of Reconfigurables</a>, 2016&#160;<a class="footnote-backref" href="#fnref:garg_2016" title="Jump back to footnote 36 in the text">&#8617;</a></p>
+<p>Akash Garg, Alec Jacobson, Eitan Grinspun. <a href="https://www.google.com/search?q=Computational+Design+of+Reconfigurables">Computational Design of Reconfigurables</a>, 2016&#160;<a class="footnote-backref" href="#fnref:garg_2016" title="Jump back to footnote 38 in the text">&#8617;</a></p>
 </li>
 <li id="fn:hoppe_1996">
-<p>Hugues Hoppe. <a href="https://www.google.com/search?q=Progressive+meshes">Progressive Meshes</a>, 1996&#160;<a class="footnote-backref" href="#fnref:hoppe_1996" title="Jump back to footnote 37 in the text">&#8617;</a></p>
+<p>Hugues Hoppe. <a href="https://www.google.com/search?q=Progressive+meshes">Progressive Meshes</a>, 1996&#160;<a class="footnote-backref" href="#fnref:hoppe_1996" title="Jump back to footnote 39 in the text">&#8617;</a></p>
 </li>
 <li id="fn:jacobson_2013">
-<p>Alec Jacobson, Ladislav Kavan, and Olga Sorkine. <a href="https://www.google.com/search?q=Robust+Inside-Outside+Segmentation+using+Generalized+Winding+Numbers">Robust Inside-Outside Segmentation using Generalized Winding Numbers</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_2013" title="Jump back to footnote 38 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:jacobson_2013" title="Jump back to footnote 38 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:jacobson_2013" title="Jump back to footnote 38 in the text">&#8617;</a></p>
+<p>Alec Jacobson, Ladislav Kavan, and Olga Sorkine. <a href="https://www.google.com/search?q=Robust+Inside-Outside+Segmentation+using+Generalized+Winding+Numbers">Robust Inside-Outside Segmentation using Generalized Winding Numbers</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:jacobson_2013" title="Jump back to footnote 40 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:jacobson_2013" title="Jump back to footnote 40 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:jacobson_2013" title="Jump back to footnote 40 in the text">&#8617;</a></p>
 </li>
 <li id="fn:loop_1987">
-<p>Charles Loop. <a href="https://www.google.com/search?q=smooth+subdivision+surfaces+based+on+triangles">Smooth Subdivision Surfaces Based on Triangles</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:loop_1987" title="Jump back to footnote 39 in the text">&#8617;</a></p>
+<p>Charles Loop. <a href="https://www.google.com/search?q=smooth+subdivision+surfaces+based+on+triangles">Smooth Subdivision Surfaces Based on Triangles</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:loop_1987" title="Jump back to footnote 41 in the text">&#8617;</a></p>
 </li>
 <li id="fn:lorensen_1987">
-<p>W.E. Lorensen and Harvey E. Cline. <a href="https://www.google.com/search?q=Marching+cubes:+A+high+resolution+3d+surface+construction+algorithm">Marching cubes: A high resolution 3d surface construction algorithm</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:lorensen_1987" title="Jump back to footnote 40 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:lorensen_1987" title="Jump back to footnote 40 in the text">&#8617;</a></p>
+<p>W.E. Lorensen and Harvey E. Cline. <a href="https://www.google.com/search?q=Marching+cubes:+A+high+resolution+3d+surface+construction+algorithm">Marching cubes: A high resolution 3d surface construction algorithm</a>, 1987.&#160;<a class="footnote-backref" href="#fnref:lorensen_1987" title="Jump back to footnote 42 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:lorensen_1987" title="Jump back to footnote 42 in the text">&#8617;</a></p>
 </li>
 <li id="fn:rabinovich_2016">
-<p>Michael Rabinovich, Roi Poranne, Daniele Panozzo, Olga Sorkine-Hornung. <a href="http://cs.nyu.edu/~panozzo/papers/SLIM-2016.pdf">Scalable Locally Injective Mappings</a>, 2016.&#160;<a class="footnote-backref" href="#fnref:rabinovich_2016" title="Jump back to footnote 41 in the text">&#8617;</a></p>
+<p>Michael Rabinovich, Roi Poranne, Daniele Panozzo, Olga Sorkine-Hornung. <a href="http://cs.nyu.edu/~panozzo/papers/SLIM-2016.pdf">Scalable Locally Injective Mappings</a>, 2016.&#160;<a class="footnote-backref" href="#fnref:rabinovich_2016" title="Jump back to footnote 43 in the text">&#8617;</a></p>
 </li>
 <li id="fn:schroeder_1994">
-<p>William J. Schroeder, William E. Lorensen, and Steve Linthicum. <a href="https://www.google.com/search?q=implicit+modeling+of+swept+surfaces+and+volumes">Implicit Modeling of Swept Surfaces and Volumes</a>, 1994.&#160;<a class="footnote-backref" href="#fnref:schroeder_1994" title="Jump back to footnote 42 in the text">&#8617;</a></p>
+<p>William J. Schroeder, William E. Lorensen, and Steve Linthicum. <a href="https://www.google.com/search?q=implicit+modeling+of+swept+surfaces+and+volumes">Implicit Modeling of Swept Surfaces and Volumes</a>, 1994.&#160;<a class="footnote-backref" href="#fnref:schroeder_1994" title="Jump back to footnote 44 in the text">&#8617;</a></p>
 </li>
 <li id="fn:takayama14">
-<p>Kenshi Takayama, Alec Jacobson, Ladislav Kavan, Olga Sorkine-Hornung. <a href="https://www.google.com/search?q=A+Simple+Method+for+Correcting+Facet+Orientations+in+Polygon+Meshes+Based+on+Ray+Casting">A Simple Method for Correcting Facet Orientations in Polygon Meshes Based on Ray Casting</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:takayama14" title="Jump back to footnote 43 in the text">&#8617;</a></p>
+<p>Kenshi Takayama, Alec Jacobson, Ladislav Kavan, Olga Sorkine-Hornung. <a href="https://www.google.com/search?q=A+Simple+Method+for+Correcting+Facet+Orientations+in+Polygon+Meshes+Based+on+Ray+Casting">A Simple Method for Correcting Facet Orientations in Polygon Meshes Based on Ray Casting</a>, 2014.&#160;<a class="footnote-backref" href="#fnref:takayama14" title="Jump back to footnote 45 in the text">&#8617;</a></p>
 </li>
 <li id="fn:treece_1999">
-<p>G.M. Treece, R.W. Prager, and A.H.Gee <a href="https://www.sciencedirect.com/science/article/pii/S009784939900076X">Regularised marching tetrahedra: improved iso-surface extraction</a>, 1999.&#160;<a class="footnote-backref" href="#fnref:treece_1999" title="Jump back to footnote 44 in the text">&#8617;</a></p>
+<p>G.M. Treece, R.W. Prager, and A.H.Gee <a href="https://www.sciencedirect.com/science/article/pii/S009784939900076X">Regularised marching tetrahedra: improved iso-surface extraction</a>, 1999.&#160;<a class="footnote-backref" href="#fnref:treece_1999" title="Jump back to footnote 46 in the text">&#8617;</a></p>
 </li>
 <li id="fn:crane_2013">
-<p>Keenan Crane, Clarisse Weischedel, and Max Wardetzky. <a href="https://www.google.com/search?q=geodesics+in+heat+a+new+approach+to+computing+distance+based+on+heat+flow">Geodesics in Heat: A New Approach to Computing Distance Based on Heat Flow</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:crane_2013" title="Jump back to footnote 45 in the text">&#8617;</a></p>
+<p>Keenan Crane, Clarisse Weischedel, and Max Wardetzky. <a href="https://www.google.com/search?q=geodesics+in+heat+a+new+approach+to+computing+distance+based+on+heat+flow">Geodesics in Heat: A New Approach to Computing Distance Based on Heat Flow</a>, 2013.&#160;<a class="footnote-backref" href="#fnref:crane_2013" title="Jump back to footnote 47 in the text">&#8617;</a></p>
 </li>
 <li id="fn:bobenko_2005">
-<p>Alexander I. Bobenko and Boris A. Springborn. <a href="https://www.google.com/search?q=a+discrete+laplace-beltrami+operator+for+simplicial+surfaces">A discrete Laplace-Beltrami operator for simplicial surfaces</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:bobenko_2005" title="Jump back to footnote 46 in the text">&#8617;</a></p>
+<p>Alexander I. Bobenko and Boris A. Springborn. <a href="https://www.google.com/search?q=a+discrete+laplace-beltrami+operator+for+simplicial+surfaces">A discrete Laplace-Beltrami operator for simplicial surfaces</a>, 2005.&#160;<a class="footnote-backref" href="#fnref:bobenko_2005" title="Jump back to footnote 48 in the text">&#8617;</a></p>
 </li>
 <li id="fn:jiang_2017">
-<p>Zhongshi Jiang, Scott Schaefer, Daniele Panozzo. <a href="https://doi.org/10.1145/3130800.3130895">SCAF: Simplicial Complex Augmentation Framework for Bijective Maps</a>, 2017&#160;<a class="footnote-backref" href="#fnref:jiang_2017" title="Jump back to footnote 47 in the text">&#8617;</a></p>
+<p>Zhongshi Jiang, Scott Schaefer, Daniele Panozzo. <a href="https://doi.org/10.1145/3130800.3130895">SCAF: Simplicial Complex Augmentation Framework for Bijective Maps</a>, 2017&#160;<a class="footnote-backref" href="#fnref:jiang_2017" title="Jump back to footnote 49 in the text">&#8617;</a></p>
 </li>
 <li id="fn:barill_2018">
-<p>Gavin Barill, Neil G. Dickson, Ryan Schmidt, David I.W. Levin, Alec Jacobson. <a href="http://www.dgp.toronto.edu/projects/fast-winding-numbers/">Fast Winding Numbers for Soups and Clouds</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:barill_2018" title="Jump back to footnote 48 in the text">&#8617;</a></p>
+<p>Gavin Barill, Neil G. Dickson, Ryan Schmidt, David I.W. Levin, Alec Jacobson. <a href="http://www.dgp.toronto.edu/projects/fast-winding-numbers/">Fast Winding Numbers for Soups and Clouds</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:barill_2018" title="Jump back to footnote 50 in the text">&#8617;</a></p>
 </li>
 <li id="fn:stein_2018">
-<p>Oded Stein, Eitan Grinspun, Max Wardetzky, Alec Jacobson. <a href="http://www.cs.columbia.edu/cg/hessians/">Natural Boundary Conditions for Smoothing in Geometry Processing</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:stein_2018" title="Jump back to footnote 49 in the text">&#8617;</a></p>
+<p>Oded Stein, Eitan Grinspun, Max Wardetzky, Alec Jacobson. <a href="http://www.cs.columbia.edu/cg/hessians/">Natural Boundary Conditions for Smoothing in Geometry Processing</a>, 2018.&#160;<a class="footnote-backref" href="#fnref:stein_2018" title="Jump back to footnote 51 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
