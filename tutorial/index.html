@@ -356,6 +356,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#matcaps" class="md-nav__link">
+    MatCaps
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1605,6 +1612,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#matcaps" class="md-nav__link">
+    MatCaps
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2798,6 +2812,39 @@ of <code>Viewer::append_mesh()</code> and <code>Viewer::append_core()</code> for
 <p class="admonition-title">110_MshView</p>
 <p><em>Entry Missing</em></p>
 </div>
+<h3 id="matcaps">MatCaps<a class="headerlink" href="#matcaps" title="Permanent link">&para;</a></h3>
+<p>MatCaps (material captures), also known as environment maps, are a simple
+image-based rendering technique to achieve complex lighting without a complex
+shader program.</p>
+<p>Using offline rendering or even a painting program, an image of a rendered
+unit sphere is created, such as this image of a sphere with a
+<a href="https://en.wikipedia.org/wiki/Jade">jade</a> material viewed under <a href="https://en.wikipedia.org/wiki/Three-point_lighting">studio
+lighting</a>:</p>
+<p><img alt="" src="../images/jade.png" /></p>
+<p>The position <span><span class="MathJax_Preview">\mathbf{p}</span><script type="math/tex">\mathbf{p}</script></span> of each point on the sphere is also its unit normal
+vector <span><span class="MathJax_Preview">\hat{\mathbf{n}} = \mathbf{p}</span><script type="math/tex">\hat{\mathbf{n}} = \mathbf{p}</script></span>. The idea of matcaps is to use this image
+of the sphere as a lookup table keyed on an input normal value and outputting
+the rgb color: <span><span class="MathJax_Preview">I(\hat{\mathbf{n}}) \rightarrow (r,g,b)</span><script type="math/tex">I(\hat{\mathbf{n}}) \rightarrow (r,g,b)</script></span>.</p>
+<p>When rendering a non-spherical shape, in the fragment shader we compute the
+normal vector <span><span class="MathJax_Preview">\hat{\mathbf{n}}</span><script type="math/tex">\hat{\mathbf{n}}</script></span> and then use its <span><span class="MathJax_Preview">x-</span><script type="math/tex">x-</script></span> and <span><span class="MathJax_Preview">y-</span><script type="math/tex">y-</script></span> components as
+texture coordinates to look up the corresponding point in the matcap image. In
+this way, there is no lighting model or lighting computation done in the
+fragment shader, it is simply a texture lookup, but rather than requiring a
+UV-mapping (parameterization) of the model, we use the per-fragment normals. By
+using the normal relative to the camera&rsquo;s coordinate system we get view
+dependent complex lighting &ldquo;for free&rdquo;:</p>
+<p>
+<figure><img src="../images/armadillo-jade-matcap.gif" /><figcaption><a href="https://github.com/libigl/libigl/tree/master/tutorial/111_MatCaps/main.cpp">Example 111</a> demonstrates using a jade matcap to add complex lighting to the libigl viewer.</figcaption>
+</figure>
+</p>
+<p>In libigl, if the rgba data for a matcap image is stored in <code>R</code>,<code>G</code>,<code>B</code>, and <code>A</code>
+(as output, e.g., by <code>igl::png::readPNG</code>) then this can be attached to the 
+<code>igl::opengl::ViewerData</code> by setting it as the texture data and then turning on
+matcap rendering:</p>
+<div class="codehilite"><pre><span></span><span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_texture</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
+<span class="n">viewer</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">use_matcap</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</pre></div>
+
 <h2 id="chapter-2-discrete-geometric-quantities-and-operators">Chapter 2: Discrete Geometric Quantities And Operators<a class="headerlink" href="#chapter-2-discrete-geometric-quantities-and-operators" title="Permanent link">&para;</a></h2>
 <p>This chapter illustrates a few discrete quantities that libigl can compute on a
 mesh and the libigl functions that construct popular discrete differential
