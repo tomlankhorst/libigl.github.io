@@ -633,8 +633,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upcoming-version-master-branch" class="md-nav__link">
-    Upcoming version (master branch)
+  <a href="#upcoming-version-main-branch" class="md-nav__link">
+    Upcoming version (main branch)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-230-changes" class="md-nav__link">
+    Version 2.3.0 Changes
   </a>
   
     <nav class="md-nav">
@@ -852,8 +859,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#upcoming-version-master-branch" class="md-nav__link">
-    Upcoming version (master branch)
+  <a href="#upcoming-version-main-branch" class="md-nav__link">
+    Upcoming version (main branch)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-230-changes" class="md-nav__link">
+    Version 2.3.0 Changes
   </a>
   
     <nav class="md-nav">
@@ -1049,8 +1063,12 @@
 </thead>
 <tbody>
 <tr>
-<td>master</td>
-<td>DDM skinning, Bézier, PLY reader, 3D text rendering, matcap</td>
+<td>main</td>
+<td>&hellip;</td>
+</tr>
+<tr>
+<td>2.3.0</td>
+<td>Dual Contouring, DDM skinning, Bézier, PLY reader, 3D text rendering, matcap</td>
 </tr>
 <tr>
 <td>2.2.0</td>
@@ -1211,32 +1229,64 @@
 </tbody>
 </table>
 </details>
-<h2 id="upcoming-version-master-branch">Upcoming version (<code>master</code> branch)<a class="headerlink" href="#upcoming-version-master-branch" title="Permanent link">&para;</a></h2>
+<h2 id="upcoming-version-main-branch">Upcoming version (<code>main</code> branch)<a class="headerlink" href="#upcoming-version-main-branch" title="Permanent link">&para;</a></h2>
+<h2 id="version-230-changes">Version 2.3.0 Changes<a class="headerlink" href="#version-230-changes" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is our last stable release before some planned major reorganization (see <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1696" title="GitHub Issue: libigl/libigl#1696">#1696</a> for details). The upcoming reorganization is aimed at facilitating maintenance and packaging of various libigl components. The next release will be a new major version of libigl (3.0.0).</p>
+</div>
 <h4 id="new-features">New Features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h4>
 <ul>
+<li>Dual contouring (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1716" title="GitHub Issue: libigl/libigl#1716">#1716</a>)</li>
+<li>Viewer: Selection Plugin (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1654" title="GitHub Issue: libigl/libigl#1654">#1654</a>)</li>
+<li>Implements &ldquo;<a href="https://doi.org/10.1111/cgf.13931">Polygon Laplacian Made Simple</a>&rdquo; (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1653" title="GitHub Issue: libigl/libigl#1653">#1653</a>)</li>
+<li>Offscreen meshes rendering using Embree (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1652" title="GitHub Issue: libigl/libigl#1652">#1652</a>)</li>
+<li>Signing distances with Fast Winding Number (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1630" title="GitHub Issue: libigl/libigl#1630">#1630</a>) </li>
+<li>Turn ImGuizmo tutorial into a viewer plugin (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1618" title="GitHub Issue: libigl/libigl#1618">#1618</a>)</li>
+<li>Adds MATLAB-like function <code>igl::blkdiag</code> to build a block-diagonal matrix (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1617" title="GitHub Issue: libigl/libigl#1617">#1617</a>)</li>
+<li>Kelvinlet mesh deformation (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1614" title="GitHub Issue: libigl/libigl#1614">#1614</a>)</li>
+<li>Blue noise sampling on triangle meshes + adds <code>igl::barycentric_interpolation</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1597" title="GitHub Issue: libigl/libigl#1597">#1597</a>)</li>
 <li>Direct Delta Mush skinning (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1541" title="GitHub Issue: libigl/libigl#1541">#1541</a>)</li>
 <li>New exploded view tutorial (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1510" title="GitHub Issue: libigl/libigl#1510">#1510</a>)</li>
 <li>Bézier curve evaluation (<code>igl::bezier</code>) and fitting (<code>igl::fit_cubic_bezier</code>) (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1476" title="GitHub Issue: libigl/libigl#1476">#1476</a>)</li>
 <li>Replace .ply reader/writer with tinyply library (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1422" title="GitHub Issue: libigl/libigl#1422">#1422</a>)</li>
 <li><code>igl::copyleft::cgal::wire_mesh</code> now support per-edge thickness. Adds <code>igl::copyleft::cgal::coplanar</code> test (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1488" title="GitHub Issue: libigl/libigl#1488">#1488</a>)</li>
 <li>New generic function for connected components (<code>igl::connected_components</code>) (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1487" title="GitHub Issue: libigl/libigl#1487">#1487</a>)</li>
-<li>Viewer: matcap support (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1482" title="GitHub Issue: libigl/libigl#1482">#1482</a>)</li>
+<li>Viewer: matcap support (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1482" title="GitHub Issue: libigl/libigl#1482">#1482</a>) + tutorial entry (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1646" title="GitHub Issue: libigl/libigl#1646">#1646</a>)</li>
 <li>Viewer: option for double-sided lighting (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1480" title="GitHub Issue: libigl/libigl#1480">#1480</a>)</li>
 <li>Viewer: new 3D text rendering feature, supporting proper label depth (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1549" title="GitHub Issue: libigl/libigl#1549">#1549</a>)</li>
 </ul>
 <h4 id="build-system">Build System<a class="headerlink" href="#build-system" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Update ImGui to 1.76 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1545" title="GitHub Issue: libigl/libigl#1545">#1545</a>)</li>
+<li>Update ImGui to 1.81 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1723" title="GitHub Issue: libigl/libigl#1723">#1723</a>), fixing rendering issue with newer Visual Studio</li>
+<li>Fix mosek to work with 9.2; fix mosek dynamic link via CMake (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1675" title="GitHub Issue: libigl/libigl#1675">#1675</a>)</li>
+<li>Reimplement <code>igl::marching_cubes</code> outside of the <code>copyleft/</code> folder (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1666" title="GitHub Issue: libigl/libigl#1666">#1666</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1687" title="GitHub Issue: libigl/libigl#1687">#1687</a>)</li>
+<li>Update GLFW to fix an issue on macOS with CMake 3.19.0 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1657" title="GitHub Issue: libigl/libigl#1657">#1657</a>)</li>
+<li>Update Embree to v3.12.1 (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1648" title="GitHub Issue: libigl/libigl#1648">#1648</a>)</li>
+<li>Use new gitlab remote to clone Eigen (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1631" title="GitHub Issue: libigl/libigl#1631">#1631</a>)</li>
+<li>Update compiler versions in github actions (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1629" title="GitHub Issue: libigl/libigl#1629">#1629</a>)</li>
+<li>Update CoMiSo version (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1608" title="GitHub Issue: libigl/libigl#1608">#1608</a>). Note that CoMiSo support for libigl is deprecated and will be removed in version 3.0.</li>
+<li>Removed <code>_bin</code> suffix from executable files (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1594" title="GitHub Issue: libigl/libigl#1594">#1594</a>)</li>
+<li>Moved SCAF to triangle folder (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1590" title="GitHub Issue: libigl/libigl#1590">#1590</a>)</li>
+<li>Various fixes to github actions (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1649" title="GitHub Issue: libigl/libigl#1649">#1649</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1651" title="GitHub Issue: libigl/libigl#1651">#1651</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1721" title="GitHub Issue: libigl/libigl#1721">#1721</a>)</li>
 </ul>
 <h4 id="misc">Misc<a class="headerlink" href="#misc" title="Permanent link">&para;</a></h4>
 <ul>
+<li>Control number of threads in parallel_for with env variable <code>IGL_NUM_THREADS</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1684" title="GitHub Issue: libigl/libigl#1684">#1684</a>)</li>
+<li>Support msh in <code>igl::read_triangle_mesh</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1645" title="GitHub Issue: libigl/libigl#1645">#1645</a>)</li>
+<li>Change boundary weight from length to length squared in <code>igl::per_vertex_point_to_plane_quadrics</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1644" title="GitHub Issue: libigl/libigl#1644">#1644</a>)</li>
+<li>Update STL read to work on problematic thingi10K meshes (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1628" title="GitHub Issue: libigl/libigl#1628">#1628</a>)</li>
+<li>Use an enum to specify file encoding when writing files (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1619" title="GitHub Issue: libigl/libigl#1619">#1619</a>)</li>
+<li>Removed some functions marked as deprecated (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1610" title="GitHub Issue: libigl/libigl#1610">#1610</a>) </li>
+<li>Fix bug with epsilon parameter in <code>igl::remove_duplicate_vertices</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1603" title="GitHub Issue: libigl/libigl#1603">#1603</a>)</li>
+<li>Removed unused function <code>igl::barycentric_to_global</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1596" title="GitHub Issue: libigl/libigl#1596">#1596</a>)</li>
 <li>Fix align_camera_center in Viewer::init() for multiple cores (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1349" title="GitHub Issue: libigl/libigl#1349">#1349</a>)</li>
 <li>Add floating point exceptions in unit tests (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1001" title="GitHub Issue: libigl/libigl#1001">#1001</a>)</li>
 <li>Extended serialization functionality to Eigen::Array (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1113" title="GitHub Issue: libigl/libigl#1113">#1113</a>)</li>
 <li>SCAF: Expose linear system to be solved by user code (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1553" title="GitHub Issue: libigl/libigl#1553">#1553</a>)</li>
 <li>Fix issue with <code>igl::heat_geodesic</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1497" title="GitHub Issue: libigl/libigl#1497">#1497</a>)</li>
 <li>Refactored <code>igl::is_edge_manifold</code> (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1509" title="GitHub Issue: libigl/libigl#1509">#1509</a>)</li>
-<li>Various bugfixes, compile fixes, template fixes (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1335" title="GitHub Issue: libigl/libigl#1335">#1335</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1361" title="GitHub Issue: libigl/libigl#1361">#1361</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1400" title="GitHub Issue: libigl/libigl#1400">#1400</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1402" title="GitHub Issue: libigl/libigl#1402">#1402</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1430" title="GitHub Issue: libigl/libigl#1430">#1430</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1438" title="GitHub Issue: libigl/libigl#1438">#1438</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1441" title="GitHub Issue: libigl/libigl#1441">#1441</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1471" title="GitHub Issue: libigl/libigl#1471">#1471</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1475" title="GitHub Issue: libigl/libigl#1475">#1475</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1484" title="GitHub Issue: libigl/libigl#1484">#1484</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1494" title="GitHub Issue: libigl/libigl#1494">#1494</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1495" title="GitHub Issue: libigl/libigl#1495">#1495</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1497" title="GitHub Issue: libigl/libigl#1497">#1497</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1525" title="GitHub Issue: libigl/libigl#1525">#1525</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1538" title="GitHub Issue: libigl/libigl#1538">#1538</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1544" title="GitHub Issue: libigl/libigl#1544">#1544</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1546" title="GitHub Issue: libigl/libigl#1546">#1546</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1581" title="GitHub Issue: libigl/libigl#1581">#1581</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1582" title="GitHub Issue: libigl/libigl#1582">#1582</a>)</li>
+<li>Various bugfixes, compile fixes, template fixes (<a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1335" title="GitHub Issue: libigl/libigl#1335">#1335</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1361" title="GitHub Issue: libigl/libigl#1361">#1361</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1400" title="GitHub Issue: libigl/libigl#1400">#1400</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1402" title="GitHub Issue: libigl/libigl#1402">#1402</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1430" title="GitHub Issue: libigl/libigl#1430">#1430</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1438" title="GitHub Issue: libigl/libigl#1438">#1438</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1441" title="GitHub Issue: libigl/libigl#1441">#1441</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1471" title="GitHub Issue: libigl/libigl#1471">#1471</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1475" title="GitHub Issue: libigl/libigl#1475">#1475</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1484" title="GitHub Issue: libigl/libigl#1484">#1484</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1494" title="GitHub Issue: libigl/libigl#1494">#1494</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1495" title="GitHub Issue: libigl/libigl#1495">#1495</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1497" title="GitHub Issue: libigl/libigl#1497">#1497</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1525" title="GitHub Issue: libigl/libigl#1525">#1525</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1538" title="GitHub Issue: libigl/libigl#1538">#1538</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1544" title="GitHub Issue: libigl/libigl#1544">#1544</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1546" title="GitHub Issue: libigl/libigl#1546">#1546</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1581" title="GitHub Issue: libigl/libigl#1581">#1581</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1582" title="GitHub Issue: libigl/libigl#1582">#1582</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1625" title="GitHub Issue: libigl/libigl#1625">#1625</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1627" title="GitHub Issue: libigl/libigl#1627">#1627</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1638" title="GitHub Issue: libigl/libigl#1638">#1638</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1640" title="GitHub Issue: libigl/libigl#1640">#1640</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1642" title="GitHub Issue: libigl/libigl#1642">#1642</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1658" title="GitHub Issue: libigl/libigl#1658">#1658</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1673" title="GitHub Issue: libigl/libigl#1673">#1673</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1674" title="GitHub Issue: libigl/libigl#1674">#1674</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1679" title="GitHub Issue: libigl/libigl#1679">#1679</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1694" title="GitHub Issue: libigl/libigl#1694">#1694</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1704" title="GitHub Issue: libigl/libigl#1704">#1704</a>, <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1709" title="GitHub Issue: libigl/libigl#1709">#1709</a>)</li>
 </ul>
 <h2 id="version-220-changes">Version 2.2.0 Changes<a class="headerlink" href="#version-220-changes" title="Permanent link">&para;</a></h2>
 <h4 id="python-bindings">Python Bindings<a class="headerlink" href="#python-bindings" title="Permanent link">&para;</a></h4>
