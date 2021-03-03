@@ -737,7 +737,7 @@
 <h2 id="general-issues">General Issues<a class="headerlink" href="#general-issues" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>Make sure you are up-to-date with the <strong>master</strong> branch, and verify that
+<p>Make sure you are up-to-date with the <strong>main</strong> branch, and verify that
   your issue has not been fixed already before opening an issue on github.</p>
 </li>
 <li>
@@ -757,7 +757,8 @@
 <p>If you have a <strong>CMake issue</strong>, make sure you follow the same approach as the
   <a href="https://github.com/libigl/libigl-example-project">libigl-example-project</a>
   to build libigl with your project, and make sure that you can compile the
-  example project.</p>
+  example project. Please also make sure to delete your <strong>CMakeCache.txt</strong>,
+  or delete your <strong>build/</strong> folder and try again.</p>
 </li>
 <li>
 <p>If you have an issue with a <strong>submodule</strong>, then you are using an old version
@@ -766,7 +767,7 @@
 </li>
 <li>
 <p>If you have an issue with downloading an <strong>external dependency</strong> using the
-  CMake build, nuke the <code>external/</code> folder and try again.</p>
+  CMake build, delete the <code>external/</code> folder and try again.</p>
 </li>
 <li>
 <p>If you have an issue with a missing <strong>template</strong>, check that your code
