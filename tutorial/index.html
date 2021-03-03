@@ -2808,10 +2808,29 @@ of <code>Viewer::append_mesh()</code> and <code>Viewer::append_core()</code> for
 <p><em>Entry Missing</em></p>
 </div>
 <h3 id="msh-viewer">Msh Viewer<a class="headerlink" href="#msh-viewer" title="Permanent link">&para;</a></h3>
-<div class="admonition todo">
-<p class="admonition-title">110_MshView</p>
-<p><em>Entry Missing</em></p>
-</div>
+<p>Libigl can read mixed meshes stored in <a href="https://gmsh.info/doc/texinfo/gmsh.html#MSH-file-format-version-2-_0028Legacy_0029">Gmsh <code>.msh</code> version 2</a> file format.
+These files can contain mixture of different meshes, as well as additional scalar and vector fields defined on element level and vertex level.</p>
+<p><div class="codehilite"><pre><span></span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span> <span class="n">X</span><span class="p">;</span> <span class="c1">// Vertex coorinates (Xx3)</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">Tri</span><span class="p">;</span> <span class="c1">// Triangular elements (Yx3)</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXi</span> <span class="n">Tet</span><span class="p">;</span> <span class="c1">// Tetrahedral elements (Zx4)</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXi</span> <span class="n">TriTag</span><span class="p">;</span> <span class="c1">// Integer tags defining triangular submeshes</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">VectorXi</span> <span class="n">TetTag</span><span class="p">;</span> <span class="c1">// Integer tags defining tetrahedral submeshes</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">XFields</span><span class="p">;</span> <span class="c1">// headers (names) of fields defined on vertex level</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">EFields</span><span class="p">;</span> <span class="c1">// headers (names) of fields defined on element level</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="o">&gt;</span> <span class="n">XF</span><span class="p">;</span>   <span class="c1">// fields defined on vertex </span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="o">&gt;</span> <span class="n">TriF</span><span class="p">;</span> <span class="c1">// fields defined on triangular elements</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">MatrixXd</span><span class="o">&gt;</span> <span class="n">TetF</span><span class="p">;</span> <span class="c1">// fields defined on tetrahedral elements</span>
+
+<span class="c1">// loading mixed mesh from Gmsh file</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">readMSH</span><span class="p">(</span><span class="s">&quot;hand.msh&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Tri</span><span class="p">,</span> <span class="n">Tet</span><span class="p">,</span> <span class="n">TriTag</span><span class="p">,</span> <span class="n">TetTag</span><span class="p">,</span> <span class="n">XFields</span><span class="p">,</span> <span class="n">XF</span><span class="p">,</span> <span class="n">EFields</span><span class="p">,</span> <span class="n">TriF</span><span class="p">,</span> <span class="n">TetF</span><span class="p">);</span>
+</pre></div>
+Interactive viewer is unable to directly draw tetrahedra though. For visualization purposes, each tetrahedra
+can be converted to four triangles.
+<figure><img src="../images/110_MshView.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/110_MshView/main.cpp">Example 110</a>) Shows a slice of tetrahedral mesh with scalar field defined on element level</figcaption>
+</figure>
+</p>
 <h3 id="matcaps">MatCaps<a class="headerlink" href="#matcaps" title="Permanent link">&para;</a></h3>
 <p>MatCaps (material captures), also known as environment maps, are a simple
 image-based rendering technique to achieve complex lighting without a complex
