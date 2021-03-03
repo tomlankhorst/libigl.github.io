@@ -2817,10 +2817,41 @@ of <code>Viewer::append_mesh()</code> and <code>Viewer::append_core()</code> for
 </figure>
 </p>
 <h3 id="viewer-guizmos">Viewer Guizmos<a class="headerlink" href="#viewer-guizmos" title="Permanent link">&para;</a></h3>
-<div class="admonition todo">
-<p class="admonition-title">109_ImGuizmo</p>
-<p><em>Entry Missing</em></p>
+<div class="admonition bug">
+<p class="admonition-title">Bug</p>
+<p>It is currently not possible to have more than one ImGui-related viewer plugin active at the same time (that includes <code>ImGuiMenu</code>, <code>ImGuizmoPlugin</code> and <code>SelectionPlugin</code>). Please follow <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/libigl/libigl/issues/1656" title="GitHub Issue: libigl/libigl#1656">#1656</a> for more information.</p>
 </div>
+<p>The viewer integrates with <a href="https://github.com/CedricGuillemet/ImGuizmo">ImGuizmo</a> to provide 
+widgets for manipulating a mesh. Mesh manipulations consist of translations, rotations, 
+and scaling, where <code>W,w</code>, <code>E,e</code>, and <code>R,r</code> can be used to toggle between them, respectively. </p>
+<p>First, register the <code>ImGuizmoPlugin</code> plugin with the Viewer:
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;igl/opengl/glfw/imgui/ImGuizmoPlugin.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// ImGuizmoPlugin replaces the ImGuiMenu plugin entirely</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">opengl</span><span class="o">::</span><span class="n">glfw</span><span class="o">::</span><span class="n">imgui</span><span class="o">::</span><span class="n">ImGuizmoPlugin</span> <span class="n">plugin</span><span class="p">;</span>
+<span class="n">vr</span><span class="p">.</span><span class="n">plugins</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">&amp;</span><span class="n">plugin</span><span class="p">);</span>
+</pre></div></p>
+<p>On initialization, ImGuizmo must be provided with the mesh centroid, as shown in <a href="https://github.com/libigl/libigl/tree/master/tutorial/109_ImGuizmo/main.cpp">Example 109</a>:</p>
+<p><div class="codehilite"><pre><span></span><span class="c1">// Initialize ImGuizmo at mesh centroid</span>
+<span class="n">plugin</span><span class="p">.</span><span class="n">T</span><span class="p">.</span><span class="n">block</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> 
+  <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">maxCoeff</span><span class="p">()</span> <span class="o">+</span> <span class="n">V</span><span class="p">.</span><span class="n">colwise</span><span class="p">().</span><span class="n">minCoeff</span><span class="p">()).</span><span class="n">transpose</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span>
+</pre></div>
+To apply the mesh manipulations invoked by the guizmos, the resulting transformation matrix 
+is computed and applied to the input geometric data explicitly through the viewer&rsquo;s API: </p>
+<div class="codehilite"><pre><span></span><span class="c1">// Update can be applied relative to this remembered initial transform</span>
+<span class="k">const</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4f</span> <span class="n">T0</span> <span class="o">=</span> <span class="n">plugin</span><span class="p">.</span><span class="n">T</span><span class="p">;</span>
+<span class="c1">// Attach callback to apply imguizmo&#39;s transform to mesh</span>
+<span class="n">plugin</span><span class="p">.</span><span class="n">callback</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">const</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4f</span> <span class="o">&amp;</span> <span class="n">T</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">const</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix4d</span> <span class="n">TT</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">T0</span><span class="p">.</span><span class="n">inverse</span><span class="p">()).</span><span class="n">cast</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">().</span><span class="n">transpose</span><span class="p">();</span>
+  <span class="n">vr</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">set_vertices</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">V</span><span class="p">.</span><span class="n">rowwise</span><span class="p">().</span><span class="n">homogeneous</span><span class="p">()</span><span class="o">*</span><span class="n">TT</span><span class="p">).</span><span class="n">rowwise</span><span class="p">().</span><span class="n">hnormalized</span><span class="p">());</span>
+  <span class="n">vr</span><span class="p">.</span><span class="n">data</span><span class="p">().</span><span class="n">compute_normals</span><span class="p">();</span>
+<span class="p">};</span>
+</pre></div>
+
+<p><center><figure><img src="../images/109_ImGuizmo.png" /><figcaption>(<a href="https://github.com/libigl/libigl/tree/master/tutorial/109_ImGuizmo/main.cpp">Example 109</a>) The Libigl Viewer integrates with ImGuizmo to provide transformation widgets.</figcaption>
+</figure></center></p>
 <h3 id="msh-viewer">Msh Viewer<a class="headerlink" href="#msh-viewer" title="Permanent link">&para;</a></h3>
 <p>Libigl can read mixed meshes stored in <a href="https://gmsh.info/doc/texinfo/gmsh.html#MSH-file-format-version-2-_0028Legacy_0029">Gmsh <code>.msh</code> version 2</a> file format.
 These files can contain mixture of different meshes, as well as additional scalar and vector fields defined on element level and vertex level.</p>
