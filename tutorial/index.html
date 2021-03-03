@@ -853,6 +853,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#off-screen-rendering-using-ray-tracing-with-embree" class="md-nav__link">
+    Off-screen rendering using ray tracing with Embree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#boolean-operations-on-meshes" class="md-nav__link">
     Boolean Operations On Meshes
   </a>
@@ -2104,6 +2111,13 @@
           <li class="md-nav__item">
   <a href="#screen-capture" class="md-nav__link">
     Screen Capture
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#off-screen-rendering-using-ray-tracing-with-embree" class="md-nav__link">
+    Off-screen rendering using ray tracing with Embree
   </a>
   
 </li>
@@ -4969,6 +4983,55 @@ memory buffer using the function, <code>igl::opengl::ViewerCore::draw_buffer</co
 
 <p>In <a href="https://github.com/libigl/libigl/tree/master/tutorial/607_ScreenCapture/main.cpp">Example 607</a> a scene is rendered in a temporary
 png and used to texture a quadrilateral.</p>
+<h3 id="off-screen-rendering-using-ray-tracing-with-embree">Off-screen rendering using ray tracing with Embree<a class="headerlink" href="#off-screen-rendering-using-ray-tracing-with-embree" title="Permanent link">&para;</a></h3>
+<p>If libigl is compiled with OpenGL support, or when interactive viewer is not
+practical, it is still possible to render view in memory using <a href="https://www.embree.org/">Embree</a>
+library. Currently only triangular meshes are supported. The usage is very similar to  <a href="#screen-capture">Screen Capture</a>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">// Create embree renderer object</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">embree</span><span class="o">::</span><span class="n">EmbreeRenderer</span> <span class="n">er</span><span class="p">;</span>
+<span class="c1">// Specify mesh, tell embree to optimize for static scene</span>
+<span class="n">er</span><span class="p">.</span><span class="n">set_mesh</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">F</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+
+<span class="c1">// Specify scalar data, use JET color map to convert to colors</span>
+<span class="n">er</span><span class="p">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">igl</span><span class="o">::</span><span class="n">COLOR_MAP_TYPE_JET</span><span class="p">);</span>
+
+<span class="c1">// Since the render is not interactive, need to specify scene parameters</span>
+<span class="c1">// the default view is identical to the interactive viewer</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix3d</span> <span class="n">rot_matrix</span><span class="p">;</span>
+
+<span class="c1">// Specify rotation matrix:</span>
+<span class="c1">//     10 degrees around X axis</span>
+<span class="c1">//      5 degrees around Y axis</span>
+<span class="c1">//      4 degrees around Z axis</span>
+<span class="n">rot_matrix</span> <span class="o">=</span>  <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxisd</span><span class="p">(</span> <span class="mi">10</span><span class="o">*</span><span class="n">igl</span><span class="o">::</span><span class="n">PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">UnitX</span><span class="p">())</span>
+            <span class="o">*</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxisd</span><span class="p">(</span>  <span class="mi">5</span><span class="o">*</span><span class="n">igl</span><span class="o">::</span><span class="n">PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">UnitY</span><span class="p">())</span>
+            <span class="o">*</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">AngleAxisd</span><span class="p">(</span>  <span class="mi">4</span><span class="o">*</span><span class="n">igl</span><span class="o">::</span><span class="n">PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Vector3d</span><span class="o">::</span><span class="n">UnitZ</span><span class="p">());</span>
+<span class="n">er</span><span class="p">.</span><span class="n">set_rot</span><span class="p">(</span><span class="n">rot_matrix</span><span class="p">);</span>
+
+<span class="c1">// Specify relative zoom factor</span>
+<span class="n">er</span><span class="p">.</span><span class="n">set_zoom</span><span class="p">(</span><span class="mf">1.5</span><span class="p">);</span>
+<span class="c1">// Request orthographic projection</span>
+<span class="n">er</span><span class="p">.</span><span class="n">set_orthographic</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+
+<span class="c1">// Allocate temporary buffers for 1280x800 image</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">R</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">G</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">B</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
+<span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="p">,</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Dynamic</span><span class="o">&gt;</span> <span class="n">A</span><span class="p">(</span><span class="mi">1280</span><span class="p">,</span><span class="mi">800</span><span class="p">);</span>
+
+<span class="c1">// Render view</span>
+<span class="n">er</span><span class="p">.</span><span class="n">render_buffer</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">);</span>
+
+<span class="c1">// Save it to a PNG</span>
+<span class="n">igl</span><span class="o">::</span><span class="n">png</span><span class="o">::</span><span class="n">writePNG</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">png_file</span><span class="p">);</span>
+</pre></div>
+
+<p>
+<figure><img src="../images/608_RayTrace.png" /><figcaption>Fertility statue showing curvature as scalar field, rendered with embree</figcaption>
+</figure>
+</p>
+<p>In <a href="https://github.com/libigl/libigl/tree/master/tutorial/608_RayTrace/main.cpp">Example 608</a> a scene is rendered in a memory
+buffer and saved as png file.</p>
 <h3 id="boolean-operations-on-meshes">Boolean Operations On Meshes<a class="headerlink" href="#boolean-operations-on-meshes" title="Permanent link">&para;</a></h3>
 <p>Constructive solid geometry (CSG) is a technique to define a complex surface as
 the result of a number of set operations on solid regions of space: union,
