@@ -11,14 +11,14 @@
       
       
       
-        <link rel="canonical" href="https://libigl.github.io/static-library/">
+        <link rel="canonical" href="https://libigl.github.io/upgrade-v2-to-v3/">
       
       <link rel="shortcut icon" href="../favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
     
     
       
-        <title>Static Library - libigl</title>
+        <title>Upgrading v2 to v3 - libigl</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#compiling-libigl-as-a-static-library" class="md-skip">
+        <a href="#upgrade-guide-v230-v300" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Static Library
+              Upgrading v2 to v3
             
           </span>
         </div>
@@ -287,97 +287,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Static Library
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../static-library/" class="md-nav__link">
         Static Library
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#linuxmac-os-xcygwin" class="md-nav__link">
-    Linux/Mac OS X/Cygwin
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development" class="md-nav__link">
-    Development
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    License
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zipping" class="md-nav__link">
-    Zipping
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#explicit-instantiations-of-templated-functions" class="md-nav__link">
-    Explicit Instantiations Of Templated Functions
-  </a>
-  
-    <nav class="md-nav" aria-label="Explicit Instantiations Of Templated Functions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#benefits-of-static-library" class="md-nav__link">
-    Benefits Of Static Library
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#drawbacks-of-static-library" class="md-nav__link">
-    Drawbacks Of Static Library
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -397,11 +311,89 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../upgrade-v2-to-v3/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Upgrading v2 to v3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Upgrading v2 to v3
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#from-v230-to-xxx-may-9-2021" class="md-nav__link">
+    From v2.3.0 to xxx (May 9, 2021)
+  </a>
+  
+    <nav class="md-nav" aria-label="From v2.3.0 to xxx (May 9, 2021)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    Entry point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-targets" class="md-nav__link">
+    CMake targets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-options" class="md-nav__link">
+    CMake options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -761,52 +753,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linuxmac-os-xcygwin" class="md-nav__link">
-    Linux/Mac OS X/Cygwin
+  <a href="#from-v230-to-xxx-may-9-2021" class="md-nav__link">
+    From v2.3.0 to xxx (May 9, 2021)
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#development" class="md-nav__link">
-    Development
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    License
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zipping" class="md-nav__link">
-    Zipping
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#explicit-instantiations-of-templated-functions" class="md-nav__link">
-    Explicit Instantiations Of Templated Functions
-  </a>
-  
-    <nav class="md-nav" aria-label="Explicit Instantiations Of Templated Functions">
+    <nav class="md-nav" aria-label="From v2.3.0 to xxx (May 9, 2021)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#benefits-of-static-library" class="md-nav__link">
-    Benefits Of Static Library
+  <a href="#cmake" class="md-nav__link">
+    CMake
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entry-point" class="md-nav__link">
+    Entry point
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#drawbacks-of-static-library" class="md-nav__link">
-    Drawbacks Of Static Library
+  <a href="#cmake-targets" class="md-nav__link">
+    CMake targets
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake-options" class="md-nav__link">
+    CMake options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -827,148 +811,197 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/static-library.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/libigl/libigl.github.io/edit/docs/docs/upgrade-v2-to-v3.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <!-- Hide h3+ from toc  -->
-<style>.md-nav--secondary .md-nav__list .md-nav__list { display: none }</style>
-
-<h1 id="compiling-libigl-as-a-static-library">Compiling libigl As A Static Library<a class="headerlink" href="#compiling-libigl-as-a-static-library" title="Permanent link">&para;</a></h1>
+                <h1 id="upgrade-guide-v230-v300">Upgrade Guide v2.3.0 &rarr; v3.0.0<a class="headerlink" href="#upgrade-guide-v230-v300" title="Permanent link">&para;</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Libigl v3.0.0 is not released yet.</strong> This page describes breaking changes and upgrade guides from our last stable release (v2.3.0) to the latest <code>main</code> branch, which will be tagged as v3.0.0 in the future. To facilitate updating, we reference the commit SHA1 that introduced each breaking changes described in this guide.</p>
+</div>
+<h2 id="from-v230-to-xxx-may-9-2021">From v2.3.0 to xxx (May 9, 2021)<a class="headerlink" href="#from-v230-to-xxx-may-9-2021" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Compiling libigl as a static library is considerably more difficult
-than using it as a header-only library (see <a href="https://libigl.github.io/#installation">installation instruction</a> instead). Do
-it only if you are experienced with C++, cmake and make, and you want to
-improve your compilation times.</p>
+<p>This entry describes changes introduced in an <strong>unmerged</strong> pull-request. This warning will be removed once the changes have been merged into <code>main</code>.</p>
 </div>
-<p>Libigl is developed most often on Mac OS X, though has current users in Linux and Windows.</p>
-<h3 id="linuxmac-os-xcygwin">Linux/Mac OS X/Cygwin<a class="headerlink" href="#linuxmac-os-xcygwin" title="Permanent link">&para;</a></h3>
-<p>Libigl may also be compiled to a static library. This is advantageous when
-building a project with libigl, since when used as an header-only library can
-slow down compile times.</p>
-<p>To build the entire libigl library producing at least <code>lib/libigl.a</code> and
-possible other (automatically detected) extras, e.g. <code>lib/libiglcgal.a</code> issue:</p>
-<p><div class="highlight"><pre><span></span><code>cmake ../ -DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="se">\</span>
-          -DLIBIGL_USE_STATIC_LIBRARY<span class="o">=</span>ON<span class="se">\</span>
-          -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/path/to/custom/installation
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>make
-make install
-</code></pre></div>
-This will install libigl into the directory specified by <code>CMAKE_INSTALL_PREFIX</code>, which is set to <code>/usr/local</code> by deafault on macOS and Linux.
-The installation process does not only create <code>${CMAKE_INSTALL_PREFIX}/lib/libigl.a</code>, it copies the libigl headers into <code>${CMAKE_INSTALL_PREFIX}/include/igl/</code> too.</p>
-<p>Or if you base your project on the <a href="https://github.com/libigl/libigl-example-project">libigl-example-project</a>
-you can add</p>
-<div class="highlight"><pre><span></span><code><span class="nb">option</span><span class="p">(</span><span class="s">LIBIGL_USE_STATIC_LIBRARY</span>     <span class="s2">&quot;Use libIGL as static librarie&quot;</span> <span class="s">ON</span><span class="p">)</span>
-</code></pre></div>
-<p>before the following line</p>
-<div class="highlight"><pre><span></span><code><span class="nb">find_package</span><span class="p">(</span><span class="s">LIBIGL</span> <span class="s">REQUIRED</span> <span class="s">QUIET</span><span class="p">)</span>
-</code></pre></div>
-<p>in the <code>CMakeLists.txt</code> to always build libigl as static library for your project.
-See <a href="../example-project/">example-project</a> aswell.</p>
+<h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
+<h4 id="entry-point">Entry point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h4>
+<p>The main entry point for CMake is now the <code>CMakeLists.txt</code> at the root of the libigl repository. If you were using a <code>FindLibigl.cmake</code>, or were including <code>libigl.cmake</code> directly, please update your project.</p>
+<p>If you are using the <a href="https://github.com/libigl/libigl-example-project">libigl-example-project</a>, you may update the content of <code>cmake/libigl.cmake</code> to the following:
+<div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">TARGET</span> <span class="s">igl::core</span><span class="p">)</span>
+    <span class="nb">return</span><span class="p">()</span>
+<span class="nb">endif</span><span class="p">()</span>
+
+<span class="nb">include</span><span class="p">(</span><span class="s">FetchContent</span><span class="p">)</span>
+<span class="nb">FetchContent_Declare</span><span class="p">(</span>
+    <span class="s">libigl</span>
+    <span class="s">GIT_REPOSITORY</span> <span class="s">https://github.com/libigl/libigl.git</span>
+    <span class="s">GIT_TAG</span> <span class="s">&lt;TARGET_SHA1&gt;</span>
+<span class="p">)</span>
+<span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">libigl</span><span class="p">)</span>
+</code></pre></div></p>
+<h4 id="cmake-targets">CMake targets<a class="headerlink" href="#cmake-targets" title="Permanent link">&para;</a></h4>
+<p>The CMake target for each libigl module has been renamed in v3.0.0. This provides greater visibility into each module category (between regular, copyleft and nonfree modules). Here is the table mapping the old names to the new names:</p>
+<table>
+<thead>
+<tr>
+<th>Old target name (v2.3.0)</th>
+<th>New target name (v3.0.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>igl::embree</code></td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td><code>igl::opengl_glfw</code></td>
+<td><code>igl::glfw</code></td>
+</tr>
+<tr>
+<td><code>igl::opengl_glfw_imgui</code></td>
+<td><code>igl::imgui</code></td>
+</tr>
+<tr>
+<td><code>igl::opengl</code></td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td><code>igl::png</code></td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td><code>igl::predicates</code></td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td><code>igl::xml</code></td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td></td>
+<td><code>igl_copyleft::core</code> (<em>New</em>)</td>
+</tr>
+<tr>
+<td><code>igl::cgal</code></td>
+<td><code>igl_copyleft::cgal</code></td>
+</tr>
+<tr>
+<td><code>igl::comiso</code></td>
+<td><code>igl_copyleft::comiso</code></td>
+</tr>
+<tr>
+<td><code>igl::cork</code></td>
+<td><code>igl_copyleft::cork</code></td>
+</tr>
+<tr>
+<td><code>igl::tetgen</code></td>
+<td><code>igl_copyleft::tetgen</code></td>
+</tr>
+<tr>
+<td><code>igl::matlab</code></td>
+<td><code>igl_nonfree::matlab</code></td>
+</tr>
+<tr>
+<td><code>igl::mosek</code></td>
+<td><code>igl_nonfree::mosek</code></td>
+</tr>
+<tr>
+<td><code>igl::triangle</code></td>
+<td><code>igl_nonfree::triangle</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cmake-options">CMake options<a class="headerlink" href="#cmake-options" title="Permanent link">&para;</a></h4>
+<p>Some libigl CMake options have changed in v3.0.0. Here is a mapping from the old name to the new names:</p>
+<table>
+<thead>
+<tr>
+<th>Old option (v2.3.0)</th>
+<th>New option (v3.0.0)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LIBIGL_WITH_EMBREE</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_OPENGL</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_OPENGL_GLFW</td>
+<td>LIBIGL_WITH_GLFW</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_OPENGL_GLFW_IMGUI</td>
+<td>LIBIGL_WITH_IMGUI</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_PNG</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_PREDICATES</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_XML</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td></td>
+<td>LIBIGL_COPYLEFT_WITH_CORE (<em>New</em>)</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_CGAL</td>
+<td>LIBIGL_COPYLEFT_WITH_CGAL</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_COMISO</td>
+<td>LIBIGL_COPYLEFT_WITH_COMISO</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_CORK</td>
+<td>LIBIGL_COPYLEFT_WITH_CORK</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_TETGEN</td>
+<td>LIBIGL_COPYLEFT_WITH_TETGEN</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_TRIANGLE</td>
+<td>LIBIGL_NONFREE_WITH_TRIANGLE</td>
+</tr>
+<tr>
+<td>LIBIGL_WITH_PYTHON</td>
+<td><em>Removed</em></td>
+</tr>
+<tr>
+<td>LIBIGL_BUILD_TESTS</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_BUILD_TUTORIALS</td>
+<td><em>Unchanged</em></td>
+</tr>
+<tr>
+<td>LIBIGL_EXPORT_TARGETS</td>
+<td>LIBIGL_INSTALL</td>
+</tr>
+<tr>
+<td>LIBIGL_USE_STATIC_LIBRARY</td>
+<td><em>Unchanged</em></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you have changed the value for <code>LIBIGL_USE_STATIC_LIBRARY</code> in your CMakeLists.txt make sure to remove or update the <strong>CMakeCache.txt</strong> in your build directory.</p>
+<p>There is a now a sample file <code>LibiglOption.cmake.sample</code> at the root of the libigl repository. Simply remove the <code>.sample</code> extension and edit this file to modify libigl compilation options. If you are using libigl as a subdirectory (e.g. in a parent project), then please set your options in the parent project instead.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You should expect to see a few linker warnings of the form:</p>
-<div class="highlight"><pre><span></span><code>/opt/local/bin/ranlib: file: libigl.a<span class="o">(</span>*.cpp.o<span class="o">)</span> has no symbols
-</code></pre></div>
-<p>These are (admittedly unpopular) functions that have never been used by us
-statically so we haven&rsquo;t explicit instantiations (yet).</p>
-</div>
-<h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
-<p>Further documentation for developers is listed in
-<a href="../style-guidelines/">style-guidelines</a>.</p>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>See <code>LICENSE.txt</code></p>
-<h2 id="zipping">Zipping<a class="headerlink" href="#zipping" title="Permanent link">&para;</a></h2>
-<p>Zip this directory without .git litter and binaries using:</p>
-<div class="highlight"><pre><span></span><code>git archive -prefix<span class="o">=</span>libigl/ -o libigl.zip master
-</code></pre></div>
-<h2 id="explicit-instantiations-of-templated-functions">Explicit Instantiations Of Templated Functions<a class="headerlink" href="#explicit-instantiations-of-templated-functions" title="Permanent link">&para;</a></h2>
-<p>Special care must be taken by the developers of each function and
-class in the libigl library that uses C++ templates. If this function
-is intended to be compiled into the statically linked libigl library
-then function is only compiled for each <em>explicitly</em> instantiated
-declaration. These should be added at the bottom of the corresponding
-.cpp file surrounded by a</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#ifdef IGL_STATIC_LIBRARY</span>
-</code></pre></div>
-<p>Of course, a developer may not know ahead of time which
-instantiations should be explicitly included in the igl static lib.
-One way to find out is to add one explicit instantiation for each
-call in one&rsquo;s own project. This only ever needs to be done once for
-each template.</p>
-<p>The process is somewhat mechanical using a linker with reasonable error
-output.</p>
-<p>Supposed for example we have compiled the igl static lib, including the
-cat.h and cat.cpp functions, without any explicit instantiation. Say
-using the makefile in the <code>libigl</code> directory:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$LIBIGL</span>
-make
-</code></pre></div>
-<p>Now if we try to compile a project and link against it we may get
-an error like:</p>
-<div class="highlight"><pre><span></span><code>Undefined symbols <span class="k">for</span> architecture x86_64:
-<span class="s2">&quot;Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; igl::cat&lt;Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; &gt;(int, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;, Eigen::Matrix&lt;int, -1, -1, 0, -1, -1&gt; const&amp;)&quot;</span>, referenced from:
-uniform_sample<span class="o">(</span>Eigen::Matrix&lt;double, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, Eigen::Matrix&lt;int, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, int, double, Eigen::Matrix&lt;double, -1, -1, <span class="m">0</span>, -1, -1&gt;<span class="p">&amp;</span><span class="o">)</span><span class="k">in</span> Skinning.o
-<span class="s2">&quot;Eigen::SparseMatrix&lt;double, 0, int&gt; igl::cat&lt;Eigen::SparseMatrix&lt;double, 0, int&gt; &gt;(int, Eigen::SparseMatrix&lt;double, 0, int&gt; const&amp;, Eigen::SparseMatrix&lt;double, 0, int&gt; const&amp;)&quot;</span>, referenced from:
-covariance_scatter_matrix<span class="o">(</span>Eigen::Matrix&lt;double, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, Eigen::Matrix&lt;int, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, ArapEnergy, Eigen::SparseMatrix&lt;double, <span class="m">0</span>, int&gt;<span class="p">&amp;</span><span class="o">)</span><span class="k">in</span> arap_dof.o
-arap_rhs<span class="o">(</span>Eigen::Matrix&lt;double, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, Eigen::Matrix&lt;int, -1, -1, <span class="m">0</span>, -1, -1&gt; const<span class="p">&amp;</span>, ArapEnergy, Eigen::SparseMatrix&lt;double, <span class="m">0</span>, int&gt;<span class="p">&amp;</span><span class="o">)</span><span class="k">in</span> arap_dof.o
-</code></pre></div>
-<p>This looks like a mess, but luckily we don&rsquo;t really need to read it
-all. Just copy the first part in quotes</p>
-<div class="highlight"><pre><span></span><code><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="n">igl</span><span class="o">::</span><span class="n">cat</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">)</span>
-</code></pre></div>
-<p>, then append it
-to the list of explicit template instantiations at the end of
-<code>cat.cpp</code> after the word
-<strong>template</strong> and followed by a semi-colon.
-Like this:</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#ifdef IGL_STATIC_LIBRARY</span>
-<span class="c1">// Explicit template instantiation</span>
-<span class="k">template</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="n">igl</span><span class="o">::</span><span class="n">cat</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">,</span> <span class="n">Eigen</span><span class="o">::</span><span class="n">Matrix</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">-1</span><span class="p">,</span> <span class="mi">-1</span><span class="o">&gt;</span> <span class="k">const</span><span class="o">&amp;</span><span class="p">);</span>
-<span class="cp">#endif</span>
-</code></pre></div>
-<p>Then you must recompile the IGL static library.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$LIBIGL</span>
-make
-</code></pre></div>
-<p>And try to compile your project again, potentially repeating this
-process until no more symbols are undefined.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It may be useful to check that you code compiles with
-no errors first using the headers-only version to be sure that all errors are from missing template
-instantiations.</p>
-</div>
-<p>If you&rsquo;re using make then the following command will
-reveal each missing symbol on its own line:</p>
-<div class="highlight"><pre><span></span><code>make <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep <span class="s2">&quot;referenced from&quot;</span> <span class="p">|</span> sed -e <span class="s2">&quot;s/, referenced from.*//&quot;</span>
-</code></pre></div>
-<h3 id="benefits-of-static-library">Benefits Of Static Library<a class="headerlink" href="#benefits-of-static-library" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p><strong>Faster compile time</strong>: Because the libigl library
-    is already compiled, only the new code in ones project must be
-    compiled and then linked to IGL. This means compile times are
-    generally faster.</p>
-</li>
-<li>
-<p><strong>Debug or optimized</strong>: The IGL static
-    library may be compiled in debug mode or optimized release mode
-    regardless of whether one&rsquo;s project is being optimized or
-    debugged.</p>
-</li>
-</ul>
-<h3 id="drawbacks-of-static-library">Drawbacks Of Static Library<a class="headerlink" href="#drawbacks-of-static-library" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>Hard to use templates</strong>: Special care (by the developers of the library) needs to be taken when exposing templated functions.</li>
-</ul>
                 
               
               
@@ -986,7 +1019,7 @@ reveal each missing symbol on its own line:</p>
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../example-project/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../third-party/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -995,19 +1028,19 @@ reveal each missing symbol on its own line:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Example Project
+              External Dependencies
             </div>
           </div>
         </a>
       
       
-        <a href="../third-party/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../style-guidelines/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              External Dependencies
+              Style Guidelines
             </div>
           </div>
           <div class="md-footer__button md-icon">
