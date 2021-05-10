@@ -352,16 +352,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    CMake
-  </a>
-  
-    <nav class="md-nav" aria-label="CMake">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#entry-point" class="md-nav__link">
-    Entry point
+  <a href="#cmake-entry-point" class="md-nav__link">
+    CMake entry point
   </a>
   
 </li>
@@ -377,11 +369,6 @@
   <a href="#cmake-options" class="md-nav__link">
     CMake options
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -761,16 +748,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cmake" class="md-nav__link">
-    CMake
-  </a>
-  
-    <nav class="md-nav" aria-label="CMake">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#entry-point" class="md-nav__link">
-    Entry point
+  <a href="#cmake-entry-point" class="md-nav__link">
+    CMake entry point
   </a>
   
 </li>
@@ -786,11 +765,6 @@
   <a href="#cmake-options" class="md-nav__link">
     CMake options
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -826,8 +800,7 @@
 <p class="admonition-title">Warning</p>
 <p>This entry describes changes introduced in an <strong>unmerged</strong> pull-request. This warning will be removed once the changes have been merged into <code>main</code>.</p>
 </div>
-<h3 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
-<h4 id="entry-point">Entry point<a class="headerlink" href="#entry-point" title="Permanent link">&para;</a></h4>
+<h3 id="cmake-entry-point">CMake entry point<a class="headerlink" href="#cmake-entry-point" title="Permanent link">&para;</a></h3>
 <p>The main entry point for CMake is now the <code>CMakeLists.txt</code> at the root of the libigl repository. If you were using a <code>FindLibigl.cmake</code>, or were including <code>libigl.cmake</code> directly, please update your project.</p>
 <p>If you are using the <a href="https://github.com/libigl/libigl-example-project">libigl-example-project</a>, you may update the content of <code>cmake/libigl.cmake</code> to the following:
 <div class="highlight"><pre><span></span><code><span class="nb">if</span><span class="p">(</span><span class="s">TARGET</span> <span class="s">igl::core</span><span class="p">)</span>
@@ -842,7 +815,7 @@
 <span class="p">)</span>
 <span class="nb">FetchContent_MakeAvailable</span><span class="p">(</span><span class="s">libigl</span><span class="p">)</span>
 </code></pre></div></p>
-<h4 id="cmake-targets">CMake targets<a class="headerlink" href="#cmake-targets" title="Permanent link">&para;</a></h4>
+<h3 id="cmake-targets">CMake targets<a class="headerlink" href="#cmake-targets" title="Permanent link">&para;</a></h3>
 <p>The CMake target for each libigl module has been renamed in v3.0.0. This provides greater visibility into each module category (between regular, copyleft and nonfree modules). Here is the table mapping the old names to the new names:</p>
 <table>
 <thead>
@@ -914,7 +887,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="cmake-options">CMake options<a class="headerlink" href="#cmake-options" title="Permanent link">&para;</a></h4>
+<h3 id="cmake-options">CMake options<a class="headerlink" href="#cmake-options" title="Permanent link">&para;</a></h3>
 <p>Some libigl CMake options have changed in v3.0.0. Here is a mapping from the old name to the new names:</p>
 <table>
 <thead>
